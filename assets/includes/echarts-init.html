@@ -1,25 +1,22 @@
-<!-- Wayward House — essay ECharts auto-initialiser
-     Fires only when [data-viz="echarts"] elements are present.
-     Loads ECharts from CDN, then calls setOption on every data-viz div. -->
+<!-- Wayward House — essay viz + narrative loader
+     Loads the main viz scanner (core.js: ECharts, Mapbox, Leaflet) and the
+     essay-specific runtime (essay/core.js: Scrollama, sidenotes, progress).
+     Uses the site_libs anchor to compute the correct root-relative path so
+     this works both on the direct *.pages.dev domain and through the hub proxy. -->
 <script>
 (function () {
-  if (!document.querySelector('[data-viz="echarts"]')) return;
+  var anchor = document.querySelector('script[src*="site_libs/"]');
+  if (!anchor) return;
+  var base = anchor.getAttribute('src').replace(/site_libs\/.*$/, '');
 
-  var s = document.createElement('script');
-  s.src = 'https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js';
-  s.onload = function () {
-    document.querySelectorAll('[data-viz="echarts"][data-options]').forEach(function (el) {
-      try {
-        var opts = JSON.parse(el.getAttribute('data-options'));
-        var chart = echarts.init(el, null, { renderer: 'svg' });
-        chart.setOption(opts);
-        // Resize on window resize
-        window.addEventListener('resize', function () { chart.resize(); }, { passive: true });
-      } catch (e) {
-        console.warn('ECharts init failed for element', el, e);
-      }
-    });
-  };
-  document.head.appendChild(s);
+  function loadModule(path) {
+    var s = document.createElement('script');
+    s.type = 'module';
+    s.src = base + path;
+    document.head.appendChild(s);
+  }
+
+  loadModule('assets/js/core.js');        // ECharts, Mapbox, Leaflet, D3
+  loadModule('assets/js/essay/core.js');  // Scrollama, sidenotes, progress
 })();
 </script>
