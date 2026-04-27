@@ -60,10 +60,10 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-cb9133ab498e63a3329f2e6b8cd285fe.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f24334f41b2a7d256d5771d6fcb379fa.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -91,6 +91,10 @@ div.csl-indent {
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
+<!-- Wayward House — book theme: fonts only (no render-blocking JS) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,800;1,700&amp;family=Barlow:wght@300;400;500;600;700&amp;family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&amp;family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,400;0,7..72,500;1,7..72,300;1,7..72,400&amp;display=swap" rel="stylesheet">
 
 
 </head>
@@ -153,6 +157,29 @@ div.csl-indent {
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
+<!-- Wayward House — book theme: site header (rendered before Quarto body) -->
+<header class="wh-bk-hdr" role="banner">
+  <div class="wh-bk-hdr__inner">
+
+    <a class="wh-bk-brand" href="https://wayward.house/" aria-label="Wayward House home">
+      <span class="wh-bk-brand__word">Wayward</span><span class="wh-bk-brand__dot" aria-hidden="true">·</span><span class="wh-bk-brand__word">House</span>
+    </a>
+
+    <nav class="wh-bk-nav" aria-label="Site navigation">
+      <a href="https://wayward.house/essays/">Essays</a>
+      <a href="https://wayward.house/signals/">Signals</a>
+      <a href="https://wayward.house/library/">Library</a>
+    </nav>
+
+    <!-- Mobile sidebar toggle — mirrors Quarto's own button so it works with Bootstrap collapse -->
+    <button class="wh-bk-menu-btn" type="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle chapter navigation">
+      <span class="wh-bk-menu-btn__bar" aria-hidden="true"></span>
+      <span class="wh-bk-menu-btn__bar" aria-hidden="true"></span>
+      <span class="wh-bk-menu-btn__bar" aria-hidden="true"></span>
+    </button>
+
+  </div>
+</header>
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -346,6 +373,179 @@ Source: Canadian Forest Service, National Fire Database; Alberta Wildfire fire o
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<!-- Wayward House — book theme: footer + behaviour JS -->
+
+<footer class="wh-bk-ftr" role="contentinfo">
+  <div class="wh-bk-ftr__inner">
+
+    <div class="wh-bk-ftr__brand">
+      <div class="wh-bk-ftr__logo">Wayward<span>·</span>House</div>
+      <p>Understanding how place, economy, and environment interact through analysis, modelling, and open tools.</p>
+    </div>
+
+    <nav class="wh-bk-ftr__col" aria-labelledby="ftr-read">
+      <h2 id="ftr-read">Read</h2>
+      <a href="https://wayward.house/essays/">Essays</a>
+      <a href="https://wayward.house/signals/">System Signals</a>
+      <a href="https://wayward.house/topics/">Topics</a>
+    </nav>
+
+    <nav class="wh-bk-ftr__col" aria-labelledby="ftr-learn">
+      <h2 id="ftr-learn">Learn</h2>
+      <a href="https://wayward.house/library/">Library</a>
+      <a href="https://wayward.house/computational-geography/">Computational Geography</a>
+      <a href="https://wayward.house/mathematics/">Mathematics</a>
+    </nav>
+
+    <nav class="wh-bk-ftr__col" aria-labelledby="ftr-site">
+      <h2 id="ftr-site">Site</h2>
+      <a href="https://wayward.house/about/">About</a>
+      <a href="https://wayward.house/start-here/">Start Here</a>
+      <a href="https://wayward.house/privacy/">Privacy</a>
+      <a href="https://wayward.house/terms/">Terms</a>
+    </nav>
+
+  </div>
+  <div class="wh-bk-ftr__base">
+    <span>© 2026 Wayward House · Paul Hobson</span>
+    <span>CC BY 4.0 · MIT code</span>
+  </div>
+</footer>
+
+<!-- Back-to-top button -->
+<button class="wh-bk-top" type="button" aria-label="Back to top" hidden="">
+  <span aria-hidden="true">↑</span>
+</button>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ── 0. Hoist footer + back-to-top to <body> for full-width layout ───── *
+   *  include-after-body lands inside #quarto-document-content, which sits  *
+   *  alongside the sidebar column. Moving both elements to document.body   *
+   *  lets them span the full viewport width.                                */
+  var _ftr = document.querySelector('.wh-bk-ftr');
+  var _top = document.querySelector('.wh-bk-top');
+  if (_ftr) document.body.appendChild(_ftr);
+  if (_top) document.body.appendChild(_top);
+
+  /* ── 1. Sidebar: hide Quarto's built-in navbar chrome ───────────────── */
+  var hdr = document.querySelector('#quarto-header, header.navbar');
+  if (hdr) hdr.style.display = 'none';
+
+  /* ── 2. Desktop sidebar: persist open/closed state ─────────────────── */
+  var STORAGE_KEY = 'wh-book-sidebar';
+  var media       = window.matchMedia('(min-width: 992px)');
+  var body        = document.body;
+
+  function setSidebar(open) {
+    body.classList.toggle('wh-sidebar-open',     open);
+    body.classList.toggle('wh-sidebar-collapsed', !open);
+    try { localStorage.setItem(STORAGE_KEY, open ? '1' : '0'); } catch (_) {}
+  }
+
+  function initSidebar() {
+    if (!media.matches) {
+      body.classList.remove('wh-sidebar-open', 'wh-sidebar-collapsed');
+      return;
+    }
+    var stored;
+    try { stored = localStorage.getItem(STORAGE_KEY); } catch (_) {}
+    setSidebar(stored === '0' ? false : true); // default open
+  }
+
+  /* Wire the WH menu button AND Quarto's own toggle buttons */
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest(
+      '.wh-bk-menu-btn, [data-bs-target=".quarto-sidebar-collapse-item"]'
+    );
+    if (!btn || !media.matches) return;
+    e.preventDefault();
+    e.stopPropagation();
+    setSidebar(body.classList.contains('wh-sidebar-collapsed'));
+  });
+
+  /* Close sidebar when glass overlay is tapped on mobile */
+  var glass = document.getElementById('quarto-sidebar-glass');
+  if (glass) {
+    glass.addEventListener('click', function (e) {
+      if (media.matches) return;
+      e.preventDefault();
+    });
+  }
+
+  (media.addEventListener
+    ? function (fn) { media.addEventListener('change', fn); }
+    : function (fn) { media.addListener(fn); }
+  )(initSidebar);
+
+  initSidebar();
+
+  /* ── 3. Sidebar title link → site home ─────────────────────────────── */
+  var sidebar = document.getElementById('quarto-sidebar');
+  if (sidebar) {
+    var titleA = sidebar.querySelector('.sidebar-title a');
+    if (titleA) titleA.href = 'https://wayward.house/';
+  }
+
+  /* ── 4. Back-to-top button ──────────────────────────────────────────── */
+  var topBtn   = document.querySelector('.wh-bk-top');
+  var ticking  = false;
+  var reduced  = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function updateTop() {
+    if (!topBtn) return;
+    var scrolled  = window.scrollY || document.documentElement.scrollTop || 0;
+    var longPage  = document.documentElement.scrollHeight > window.innerHeight * 1.5;
+    var threshold = Math.max(380, window.innerHeight * 0.6);
+    topBtn.hidden = !(longPage && scrolled > threshold);
+    ticking = false;
+  }
+
+  if (topBtn) {
+    topBtn.hidden = true;
+    topBtn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' });
+    });
+    window.addEventListener('scroll',  function () {
+      if (!ticking) { requestAnimationFrame(updateTop); ticking = true; }
+    }, { passive: true });
+    window.addEventListener('resize', updateTop, { passive: true });
+    updateTop();
+  }
+
+  /* ── 5. Suppress Quarto's native page-footer ────────────────────────── */
+  var qtFtr = document.querySelector('footer.page-footer');
+  if (qtFtr) qtFtr.style.display = 'none';
+
+})();
+</script>
+<!-- Wayward House — essay ECharts auto-initialiser
+     Fires only when [data-viz="echarts"] elements are present.
+     Loads ECharts from CDN, then calls setOption on every data-viz div. -->
+<script>
+(function () {
+  if (!document.querySelector('[data-viz="echarts"]')) return;
+
+  var s = document.createElement('script');
+  s.src = 'https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js';
+  s.onload = function () {
+    document.querySelectorAll('[data-viz="echarts"][data-options]').forEach(function (el) {
+      try {
+        var opts = JSON.parse(el.getAttribute('data-options'));
+        var chart = echarts.init(el, null, { renderer: 'svg' });
+        chart.setOption(opts);
+        // Resize on window resize
+        window.addEventListener('resize', function () { chart.resize(); }, { passive: true });
+      } catch (e) {
+        console.warn('ECharts init failed for element', el, e);
+      }
+    });
+  };
+  document.head.appendChild(s);
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
