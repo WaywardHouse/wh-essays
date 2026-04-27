@@ -42,14 +42,14 @@
 .wh-pepper-fab{position:fixed;bottom:28px;right:28px;z-index:9100;width:52px;height:52px;background:var(--wh-red,#e02020);color:#fff;border:none;cursor:pointer;font-size:1.375rem;line-height:1;display:flex;align-items:center;justify-content:center;transition:transform .15s ease}
 .wh-pepper-fab:hover{transform:scale(1.08)}
 .wh-pepper-fab:active{transform:scale(.97)}
-.wh-pepper-panel{position:fixed;bottom:92px;right:28px;z-index:9101;width:340px;background:var(--wh-white,#fff);border:1px solid var(--wh-rule,#d0d0c8);border-top:3px solid var(--wh-red,#e02020);display:flex;flex-direction:column}
+.wh-pepper-panel{position:fixed;bottom:92px;right:28px;z-index:9101;width:340px;max-height:calc(100vh - 120px);background:var(--wh-white,#fff);border:1px solid var(--wh-rule,#d0d0c8);border-top:3px solid var(--wh-red,#e02020);display:flex;flex-direction:column}
 .wh-pepper-panel[hidden]{display:none}
 .wh-pepper-panel__hdr{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid var(--wh-rule,#d0d0c8)}
 .wh-pepper-panel__title{font-family:var(--wh-ff-display,'Barlow Condensed',sans-serif);font-size:.9rem;font-weight:600;color:var(--wh-dark,#1c1c1a);display:flex;align-items:center;gap:6px}
 .wh-pepper-panel__close{width:28px;height:28px;display:flex;align-items:center;justify-content:center;background:none;border:none;font-size:1.25rem;color:var(--wh-muted,#9a9a94);cursor:pointer;line-height:1}
 .wh-pepper-panel__close:hover{color:var(--wh-dark,#1c1c1a)}
 .wh-pepper-panel__body{padding:14px;display:flex;flex-direction:column;gap:12px}
-.wh-pepper-panel__resp{max-height:220px;overflow-y:auto;padding:10px 12px;background:var(--wh-paper,#f8f8f4);border-left:3px solid var(--wh-rule,#d0d0c8)}
+.wh-pepper-panel__resp{flex:1;min-height:0;max-height:min(380px,55vh);overflow-y:auto;padding:10px 12px;background:var(--wh-paper,#f8f8f4);border-left:3px solid var(--wh-rule,#d0d0c8)}
 .wh-pepper-panel__resp[hidden]{display:none}
 .wh-pepper-panel__answer{font-family:var(--wh-ff-read,Georgia,serif);font-size:.875rem;line-height:1.7;color:var(--wh-dark,#1c1c1a);margin:0;white-space:pre-wrap}
 .wh-pepper-panel__answer.is-loading::after{content:'▋';animation:wh-pepper-blink .8s step-end infinite}
@@ -115,6 +115,19 @@
           var data=line.slice(6);if(data==='[DONE]')continue;
           try{var p=JSON.parse(data);if(p.sources)continue;var t=p.response||(p.choices&&p.choices[0]&&p.choices[0].delta&&p.choices[0].delta.content)||'';text+=t;answer.textContent=text;}catch(e){}
         }
+      }
+      // If answer is substantial, surface the full-page link more prominently
+      if(text.length>500){
+        var enc=encodeURIComponent(question);
+        var fullLink=document.getElementById('wh-pepper-fullpage');
+        if(!fullLink){
+          fullLink=document.createElement('a');fullLink.id='wh-pepper-fullpage';
+          fullLink.style.cssText='display:block;margin-top:10px;font-size:0.75rem;color:var(--wh-red,#e02020);text-decoration:none;font-family:var(--wh-ff-body,Arial,sans-serif);';
+          fullLink.textContent='Read full answer on Ask Pepper →';
+          resp.appendChild(fullLink);
+        }
+        fullLink.href='https://wayward.house/ask/?q='+enc;
+        fullLink.target='_blank';fullLink.rel='noopener';
       }
     }catch(e){answer.textContent="Pepper's nose twitched but nothing came through. Try again.";}
     finally{answer.classList.remove('is-loading');submit.disabled=false;submit.textContent='→';}
