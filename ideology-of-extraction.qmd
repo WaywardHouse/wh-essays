@@ -1,0 +1,369 @@
+---
+title: The Ideology of Extraction
+subtitle: >
+  Commodity, class, and the collapse of distance — from the Banda Islands
+  to the Strait of Hormuz
+date: 2026-03-12
+description: >
+  The global economy was built on extracting valuable commodities from
+  distant frontiers. From the spice trade to modern oil markets, this
+  article traces the enduring ideology that justifies and organizes that
+  system.
+categories:
+  - "Historical Geography"
+  - "Economic Geography"
+image: assets/images/historical-economic-patterns.webp
+toc: true
+---
+
+Every act of commodity extraction has required a story. Not because the extraction demanded justification — in many eras it did not — but because the distance between the act and its consumer had to be managed. Distance was not merely geographical. It was informational, temporal, and moral. It was the machinery by which the price of a thing could be divorced from its cost.
+
+This article traces a single pattern across four episodes spanning roughly four centuries: a commodity becomes valuable enough to fight over; military or quasi-military force is deployed to secure access to it; an ideological story is told to explain why the force was necessary; and the distributional consequences — who captured the gain, who bore the loss — follow a remarkably stable map regardless of era, geography, or commodity class.
+
+The four cases are nutmeg, tea, opium, and oil. The pattern is not a conspiracy. It is a structure — one that emerges from the logic of how extraction economies organise themselves across time and space. This article is descriptive, not polemical. It documents what happened and how the gains and losses were distributed. The pattern is interesting precisely because it does not require bad faith to reproduce itself.
+
+---
+
+## The geometry of distance
+
+Before the first case, a structural observation. The physical remoteness of a commodity's origin from its point of consumption creates what might be called a moral buffer. When the consumer cannot observe the conditions of production, they cannot incorporate those conditions into their valuation. The price of nutmeg in Amsterdam in 1621 did not include the cost of the Banda Islands massacre — not because Dutch merchants chose to exclude it, but because the information never made the journey. The geography of supply chains was, for most of commercial history, also the geography of moral blindness.
+
+That buffer has been shrinking for centuries. The chart below tracks its direction — the approximate lag between a primary extractive act and widespread consumer-level awareness in metropolitan centres, expressed as a relative scale across the four cases.
+
+<div data-viz="echarts" style="height:280px" data-options='{
+  "tooltip": {"trigger": "axis", "axisPointer": {"type": "none"}},
+  "grid": {"left": "22%", "right": "8%", "top": "8%", "bottom": "12%"},
+  "xAxis": {
+    "type": "value",
+    "name": "Relative informational lag (1621 = 100)",
+    "nameLocation": "middle",
+    "nameGap": 28,
+    "max": 105,
+    "axisLine": {"show": false},
+    "axisTick": {"show": false},
+    "splitLine": {"lineStyle": {"type": "dashed", "opacity": 0.4}}
+  },
+  "yAxis": {
+    "type": "category",
+    "data": ["Hormuz 2026", "Mossadegh 1953", "Opium War 1839", "Boston Tea 1773", "Banda Islands 1621"],
+    "axisLine": {"show": false},
+    "axisTick": {"show": false}
+  },
+  "series": [{
+    "type": "bar",
+    "data": [2, 35, 60, 82, 100],
+    "barMaxWidth": 28,
+    "itemStyle": {"borderRadius": [0, 3, 3, 0]},
+    "label": {"show": true, "position": "right", "formatter": "{c}", "fontSize": 11}
+  }]
+}'></div>
+
+The five data points are approximate by nature — awareness is not a single threshold but a distribution across populations and media environments. What they describe is a direction, not a precise measurement. The bar for Hormuz 2026 is not a rounding error. The crude price moved within hours of the airstrike. The direction across the four centuries is unambiguous.
+
+---
+
+## Case I — Nutmeg and the Banda Islands, 1621
+
+The Banda Islands are a group of ten small islands in the eastern Moluccas, each of them green and steep and unremarkable except for one fact: they were, in the early seventeenth century, the only place on earth where nutmeg and mace grew. This accident of botany made them, by the logic of monopoly, enormously valuable — and by the logic of the *Vereenigde Oost-Indische Compagnie*, or VOC, worth taking at any cost.
+
+The VOC's 1621 campaign, led by Governor-General Jan Pieterszoon Coen, was the elimination of a population. Roughly fifteen thousand Bandanese were killed, enslaved, or starved in the course of a few months. The surviving population was replaced with Dutch colonists — *perkeniers* — who were assigned nutmeg plantations worked by enslaved labour imported from elsewhere in the archipelago. The VOC held its monopoly for the better part of two centuries.
+
+> "What profit and trade is there that is not conducted with weapons? And can the weapons be maintained without profit?"
+> — Jan Pieterszoon Coen, VOC Governor-General, c. 1614
+
+The ideological dressing on this episode is thin to the point of transparency. Coen's own letters make no sustained appeal to civilising purpose or divine mandate. The logic is commercial, stated plainly. The Bandanese had been selling nutmeg to English and Portuguese traders in violation of VOC exclusivity agreements — agreements they had not sought and did not recognise. From the VOC's perspective, the problem was enforcement. The solution was elimination.
+
+What the Banda case reveals, in its very rawness, is the baseline structure before ideology became necessary. Distance — six months' sail from Amsterdam — meant there was no domestic audience to address. The shareholders received their dividends. The spice arrived. The Bandanese were not, in the moral accounting of metropolitan Holland, a constituency whose interests required consideration.
+
+<div data-viz="echarts" style="height:260px" data-options='{
+  "tooltip": {"trigger": "item"},
+  "legend": {"bottom": 0, "textStyle": {"fontSize": 11}},
+  "series": [{
+    "type": "pie",
+    "radius": ["38%", "65%"],
+    "center": ["50%", "44%"],
+    "label": {"fontSize": 11, "formatter": "{b}\n{d}%"},
+    "data": [
+      {"value": 75, "name": "VOC monopoly margin (shareholders)", "itemStyle": {"color": "#5a7a4a"}},
+      {"value": 15, "name": "Dutch state revenues", "itemStyle": {"color": "#8a9a6a"}},
+      {"value": 10, "name": "Logistics / perkenier costs", "itemStyle": {"color": "#c4b89a"}}
+    ]
+  }]
+}'></div>
+
+The chart above represents the approximate distribution of nutmeg revenues under the VOC monopoly regime. The Bandanese population — whose labour and land made the entire structure possible, and who bore its full cost — appear in no revenue column. This is not an oversight in the accounting. It is the accounting.
+
+---
+
+## Case II — Tea, Monopoly, and the First Freedom, 1773
+
+The Boston Tea Party of December 1773 is remembered as an act of political principle — a protest against taxation without representation, a founding moment in the American narrative of liberty. It was also, in precise economic terms, a dispute about a corporate monopoly enforced by the state. The two framings are not contradictory. What is interesting is which one survived into the historical memory.
+
+The English East India Company held a monopoly on tea imported into the British American colonies. The Tea Act of 1773, passed by Parliament, actually reduced the price of tea for colonial consumers — it eliminated middlemen and allowed the Company to sell directly. Colonial merchants who had built businesses on smuggled Dutch tea stood to lose market share. The objection was not purely that the tea was taxed. It was that the terms of trade had been set without colonial consent, by a corporation operating under Parliamentary charter, in a market structured to benefit London capital.
+
+The protesters chose "freedom" as their organising concept — and in doing so, invented a rhetorical instrument of extraordinary durability. The commodity dispute was reframed as a contest between liberty and tyranny. This reframing was not dishonest. The political principle was genuine. But the economic grievance underneath it — who controls the terms of trade, who captures the margin — was the condition that made the principle urgent.
+
+What distinguishes the Boston case from Banda is proximity. The colonists were not remote from the commodity dispute — they were directly inside it. The distance that insulated Dutch consumers from the Banda massacre did not exist for American merchants experiencing the EIC monopoly. When the cost is visible, the story must work harder.
+
+This is the first appearance of the pattern that will dominate all subsequent cases: as the geographic buffer between extraction and consumer shrinks, the ideological apparatus required to manage the moral accounting becomes correspondingly more sophisticated.
+
+The tea case also introduces a new element that will recur: the ideological reframing produces genuine political consequences. The language of freedom, deployed to describe a commodity dispute, eventually generates a revolution. The story, once told, exceeds its immediate purpose. Ideology, once operational, has its own momentum.
+
+---
+
+## Case III — Opium and the Logic of Free Trade, 1839–1842
+
+The First Opium War is, by some distance, the most structurally clarifying episode in this sequence. Its underlying logic is visible in the historical record with unusual precision: the East India Company needed to balance its accounts in China, China ran a large trade surplus with Britain, and the only commodity Britain could reliably sell into China in sufficient volume was opium grown in Bengal and processed through EIC-controlled channels. China's emperor banned the opium trade. Britain went to war.
+
+The war was justified in Parliament as a defence of free trade — the principle that merchants had the right to sell their goods in open markets without interference from the Chinese state. Commissioner Lin Zexu's destruction of twenty thousand chests of opium in 1839 was a unilateral act by a foreign government against British commercial property. The free trade argument was not invented from nothing.
+
+What it omitted was the nature of the commodity. The EIC was not selling cloth or iron. It was selling an addictive substance into a population that its own government was attempting to protect. The "free market" whose freedom Britain was defending was a market in addiction. The ideological apparatus of liberal commerce had been enlisted to force open a market that the consumer's own sovereign had closed on public health grounds.
+
+> "We have triumphed. The principle of free trade is established."
+> — Lord Palmerston, Foreign Secretary, following the Treaty of Nanking, 1842
+
+The distributional map here is perhaps the starkest in the sequence. The EIC and its shareholders captured the opium margin. The British state captured the treaty ports — Hong Kong ceded in perpetuity, five ports opened to British trade, an indemnity of twenty-one million silver dollars. The Chinese population bearing the consequences — addiction rates historians have estimated in the tens of millions by the later nineteenth century — received nothing in any accounting that the victors kept.
+
+<div data-viz="echarts" style="height:300px" data-options='{
+  "tooltip": {"trigger": "axis"},
+  "legend": {"bottom": 0, "textStyle": {"fontSize": 11}},
+  "grid": {"left": "18%", "right": "5%", "top": "8%", "bottom": "15%"},
+  "xAxis": {"type": "category", "data": ["1820", "1830", "1839 (peak)", "1842 (post-treaty)"], "axisLine": {"show": false}, "axisTick": {"show": false}},
+  "yAxis": {"type": "value", "name": "Chests (thousands)", "axisLine": {"show": false}, "splitLine": {"lineStyle": {"type": "dashed", "opacity": 0.4}}},
+  "series": [
+    {
+      "name": "Opium imported to China",
+      "type": "bar",
+      "data": [4, 19, 40, 53],
+      "barMaxWidth": 36,
+      "itemStyle": {"color": "#7a5a3a", "borderRadius": [3, 3, 0, 0]}
+    },
+    {
+      "name": "EIC Bengal revenue share (%)",
+      "type": "line",
+      "yAxisIndex": 0,
+      "smooth": true,
+      "data": [8, 14, 17, 16],
+      "lineStyle": {"width": 2},
+      "itemStyle": {"color": "#4a6b5a"}
+    }
+  ]
+}'></div>
+
+The opium case also marks a significant evolution in the ideology. "Free trade" is a considerably more elaborate justificatory framework than anything deployed at Banda, and more universal in its claims than the "liberty" invoked at Boston. Free trade does not appeal to a particular grievance — it appeals to a principle. Principles are harder to rebut than grievances, and harder to localise. The ideology has become exportable.
+
+---
+
+## Case IV — Oil, Democracy, and Mossadegh, 1953
+
+Mohammad Mosaddegh was elected Prime Minister of Iran in 1951 on a programme that included nationalisation of the Anglo-Iranian Oil Company, whose concession agreement gave British shareholders the majority of revenues from Iranian oil. The nationalisation was enacted by a unanimous vote of the Iranian parliament. In August 1953, a CIA and MI6-organised coup removed Mosaddegh from office and restored Shah Mohammad Reza Pahlavi to full power.
+
+The declassified record on Operation Ajax is unusually explicit. Internal CIA documents acknowledge that the immediate trigger was the nationalisation — the threat to Anglo-Iranian's concession was the operational problem the coup was designed to solve. The framing deployed in public — and within the U.S. government's own deliberations — was anti-communism. Mosaddegh's government was characterised as vulnerable to Soviet influence, a potential domino in the Cold War geography of the Middle East.
+
+What distinguishes 1953 from the earlier cases is that the ideological framing was operationally necessary in a new way. By the mid-twentieth century, the notion that Western governments could openly deploy force to protect corporate commodity interests had become politically illegitimate. The post-war order — the UN Charter, the rhetoric of self-determination, the anti-colonial movements gaining momentum across Asia and Africa — had foreclosed the direct VOC approach. Anti-communism was not merely convenient cover. It was the required idiom for any intervention that needed to pass through democratic institutions at home and Cold War alliance structures abroad.
+
+The ideology was doing more work than ever before, precisely because the distance had shrunk enough to make the economic motive visible without it.
+
+<div data-viz="echarts" style="height:300px" data-options='{
+  "tooltip": {"trigger": "axis"},
+  "legend": {"bottom": 0, "textStyle": {"fontSize": 11}},
+  "grid": {"left": "16%", "right": "5%", "top": "8%", "bottom": "15%"},
+  "xAxis": {
+    "type": "category",
+    "data": ["Pre-nationalisation\n(1950)", "Mosaddegh\n(1951–53)", "Post-coup consortium\n(1954)"],
+    "axisLine": {"show": false},
+    "axisTick": {"show": false}
+  },
+  "yAxis": {"type": "value", "name": "Revenue share (%)", "max": 100, "axisLine": {"show": false}, "splitLine": {"lineStyle": {"type": "dashed", "opacity": 0.4}}},
+  "series": [
+    {
+      "name": "Anglo-Iranian / BP",
+      "type": "bar",
+      "stack": "total",
+      "data": [84, 0, 40],
+      "itemStyle": {"color": "#3a5c7a"}
+    },
+    {
+      "name": "Iranian state (NIOC)",
+      "type": "bar",
+      "stack": "total",
+      "data": [16, 100, 50],
+      "itemStyle": {"color": "#7a9a6a"}
+    },
+    {
+      "name": "U.S. oil majors (new)",
+      "type": "bar",
+      "stack": "total",
+      "data": [0, 0, 10],
+      "itemStyle": {"color": "#9a7a4a"}
+    }
+  ]
+}'></div>
+
+The coup installed a government that revoked the nationalisation and negotiated a new consortium agreement in which Anglo-Iranian (renamed BP in 1954) and American oil companies divided Iranian oil revenues under terms considerably more favourable to foreign capital than Mosaddegh's arrangement. The Shah's regime lasted until 1979. The shadow the coup cast on Iranian political culture — and on Iranian perceptions of Western intentions toward Iranian sovereignty — persists into the present.
+
+The Mossadegh case is also the first in which the ideological wrapper was reported on in real time. By the 1970s, the CIA's involvement was widely understood. By 2013, the CIA formally acknowledged it. The ideology's half-life had shortened dramatically from the centuries of opacity available to the VOC.
+
+---
+
+## The collapse of distance
+
+Something has changed. Not the structure — the structure is remarkably stable, as the preceding four cases demonstrate. What has changed is the relationship between the act of extraction and the consumer's awareness of it. The buffer that made the whole arrangement function — the months of sailing time, the newspaper delay, the managed opacity of corporate supply chains — has, over the course of the twentieth century, collapsed.
+
+The collapse is not merely technological, though technology is its vehicle. The globalisation of supply chains that made commodity extraction more efficient also made it more visible. The same communication infrastructure that allowed a trader in London to execute a futures contract on Nigerian oil also allowed a journalist in Abuja to file a report on the conditions in the Niger Delta within hours. The visibility and the extraction accelerated together.
+
+What this produces is a specific kind of political problem. The ideological apparatus that was built to manage the moral buffer — the stories about freedom, free trade, civilisation, anti-communism, democracy, non-proliferation — was calibrated for a world in which the consumer was insulated from the cost by geography and time. None of those conditions obtain today. The crude oil price moved within hours of the airstrike. The chain from extraction event to consumer consequence, which once stretched across seasons and oceans, now fits inside a news cycle.
+
+The story that once needed only to survive a six-month sea voyage now has to survive a six-minute scroll.
+
+The response to this compression has been, historically, not transparency but acceleration. The ideological framing is deployed faster, louder, and with more institutional resources than in any previous era. The story is not abandoned because the mechanism is visible. It is told more insistently, because the mechanism is visible. What is new is not the story itself. It is the speed at which the story must be told, and the speed at which it begins to fray.
+
+<div data-viz="echarts" style="height:320px" data-options='{
+  "tooltip": {"trigger": "axis", "formatter": "{b}<br/>{a0}: {c0}"},
+  "grid": {"left": "5%", "right": "5%", "top": "12%", "bottom": "16%"},
+  "xAxis": {
+    "type": "category",
+    "data": ["Banda\n1621", "Boston\n1773", "Opium\n1839", "Ajax\n1953", "Hormuz\n2026"],
+    "axisLine": {"show": false},
+    "axisTick": {"show": false}
+  },
+  "yAxis": [
+    {
+      "type": "value",
+      "name": "Ideological complexity\n(relative scale)",
+      "nameTextStyle": {"fontSize": 10},
+      "axisLine": {"show": false},
+      "splitLine": {"lineStyle": {"type": "dashed", "opacity": 0.4}}
+    }
+  ],
+  "series": [
+    {
+      "name": "Ideological elaboration required",
+      "type": "bar",
+      "data": [5, 30, 55, 80, 97],
+      "barMaxWidth": 44,
+      "itemStyle": {"borderRadius": [3, 3, 0, 0], "color": "#7a6a5a"},
+      "label": {
+        "show": true,
+        "position": "top",
+        "fontSize": 10,
+        "formatter": [
+          "none\nrequired",
+          "liberty",
+          "free trade",
+          "anti-\ncommunism",
+          "democracy /\nnon-proliferation"
+        ],
+        "rich": {}
+      }
+    }
+  ]
+}'></div>
+
+---
+
+## The class geography that did not collapse
+
+There is a second map that has remained constant across all four cases and four centuries. It is not a geographic map. It is a class map: a distribution of who captures the gains and who bears the costs of commodity extraction and the conflicts organised around it.
+
+In each of the cases above, the distributional outcome follows the same pattern with only minor variation. The shareholders and concession holders capture the commodity margin. The state that provides military backing captures geopolitical advantage. The population directly subject to the extraction — the Bandanese, the Bengali poppy cultivators, the Chinese opium consumers, the Iranian electorate — bears the primary cost. The metropolitan consumer receives a secondary, incidental benefit: cheaper spice, stable tea prices, affordable oil. The metropolitan worker receives little or nothing.
+
+This pattern has survived the industrial revolution, the abolition of slavery, decolonisation, and globalisation. It has survived because it is not a product of any particular political arrangement but of the underlying structure of how commodity rents are captured and how the costs of securing those rents are socialised.
+
+The proposition that "America benefits when oil prices rise" is true in aggregate. The United States is now the world's largest oil producer, and higher crude prices improve the revenues of American oil companies, the royalty income of oil-producing states, and the balance sheets of pension funds that hold energy sector equity. The distribution of that benefit within the United States is not uniform. Oil company shareholders capture the margin increase directly. The household that spends more to fill its car does not capture anything. It pays more. The IEA's modelling on household energy burden consistently shows that lower-income households spend a larger proportion of their income on fuel, and that oil price shocks therefore represent a regressive transfer: from poorer households to wealthier ones, mediated by the price mechanism.
+
+<div data-viz="echarts" style="height:340px" data-options='{
+  "tooltip": {"trigger": "axis"},
+  "legend": {"bottom": 0, "textStyle": {"fontSize": 11}},
+  "grid": {"left": "5%", "right": "5%", "top": "8%", "bottom": "15%"},
+  "xAxis": {
+    "type": "category",
+    "data": ["Banda 1621", "Boston 1773", "Opium 1839", "Ajax 1953"],
+    "axisLine": {"show": false},
+    "axisTick": {"show": false}
+  },
+  "yAxis": {"type": "value", "name": "Relative share (schematic)", "axisLine": {"show": false}, "splitLine": {"lineStyle": {"type": "dashed", "opacity": 0.4}}},
+  "series": [
+    {
+      "name": "Captured — capital / state",
+      "type": "bar",
+      "stack": "total",
+      "data": [92, 78, 85, 82],
+      "itemStyle": {"color": "#4a6b5a"}
+    },
+    {
+      "name": "Incidental — metropolitan consumer",
+      "type": "bar",
+      "stack": "total",
+      "data": [8, 12, 8, 10],
+      "itemStyle": {"color": "#9ab08a"}
+    },
+    {
+      "name": "Borne — extraction zone / lower-income",
+      "type": "bar",
+      "stack": "total",
+      "data": [-60, -45, -70, -55],
+      "itemStyle": {"color": "#8a4a3a"}
+    }
+  ]
+}'></div>
+
+The chart above is schematic. The negative bars represent the cost borne by extraction-zone populations and lower-income households — not a precise financial calculation, but a directional representation of the asymmetry that appears consistently across all four cases. The methodology is deliberately rough; the point is the direction, not the magnitude.
+
+There is a further dimension to the class map that the economics literature documents: the inflationary pass-through. When crude prices rise sharply, fuel costs increase immediately at the pump. But the secondary price effects — on food, on heating, on plastics and packaging, on freight — propagate through the economy over weeks and months. By the time the full inflationary consequence of a supply shock is visible in consumer price indices, the news cycle has typically moved on. The household experiencing the cost increase has limited leverage over the mechanism that produced it.
+
+The people most exposed to this lag effect are, consistently, those with the least financial buffer to absorb it: households near the poverty line, workers in transport-dependent sectors, residents of car-dependent regions without transit alternatives, lower-income consumers in countries that import both oil and food.
+
+---
+
+## What remains
+
+Four centuries is long enough for the pattern to be considered structural rather than coincidental. The commodity changes — nutmeg to tea to opium to oil — but the distributional map is recognisably the same in each case. The ideology changes, becoming progressively more elaborate as the geographic buffer between extraction and consumer shrinks. But the ideological elaboration tracks the compression of distance, not the moral evolution of the actors involved.
+
+What is genuinely new in the present moment is the simultaneity. The consumer is no longer insulated from the extraction by months of ocean or years of slow reporting. The price at the pump changes the day after the airstrike. The news of the airstrike and the news of the pump price arrive in the same feed, within minutes of each other. The mechanism has become visible in real time.
+
+And yet the class geography — the map of who captures and who bears — has not become more equitable in proportion to its increased visibility. The lower-income household paying a larger share of its budget for fuel, and a further share six months later when the freight costs reach the grocery shelf, is occupying the same distributional position as the Bengali poppy cultivator and the Bandanese.
+
+This article does not conclude from this pattern that commodity conflicts are always or only about extraction interests, or that the ideological framings deployed in their prosecution are always or only pretextual. The historical record is more complex than that, and the pattern does not require bad faith to produce. What it concludes is that the pattern exists, that it is durable, and that any serious reading of commodity conflict — past or present — requires attending to both the story being told and the distributional map beneath it.
+
+The two things are rarely the same.
+
+---
+
+## References
+
+Abrahamian, Ervand. 2013. *The Coup: 1953, the CIA, and the Roots of Modern U.S.–Iranian Relations*. New York: The New Press.
+
+Aldous, Richard. 2019. *Schlesinger: The Imperial Historian*. New York: W. W. Norton. [Background on Cold War ideological framing of interventions.]
+
+Bacon, Robert W. 1991. "Rockets and Feathers: The Asymmetric Speed of Adjustment of UK Retail Gasoline Prices to Cost Changes." *Energy Economics* 13 (3): 211–218. <https://doi.org/10.1016/0140-9883(91)90022-R>
+
+Bayly, C. A. 2004. *The Birth of the Modern World, 1780–1914*. Oxford: Blackwell.
+
+Central Intelligence Agency. 2013. "Clandestine Service History: Overthrow of Premier Mossadegh of Iran, November 1952–August 1953." Declassified under FOIA, August 2013. <https://www.cia.gov/readingroom/document/0000914498>
+
+Galeano, Eduardo. 1971. *Open Veins of Latin America: Five Centuries of the Pillage of a Continent*. Translated by Cedric Belfrage. New York: Monthly Review Press. [Structural analysis of commodity extraction and class distribution in the Western hemisphere; comparative reference.]
+
+Hanna, Willard A. 1978. *Indonesian Banda: Colonialism and its Aftermath in the Nutmeg Islands*. Philadelphia: Institute for the Study of Human Issues.
+
+International Energy Agency. 2022. *Vulnerable Households and the Energy Transition: Designing Effective Policies*. Paris: IEA. <https://www.iea.org/reports/vulnerable-households-and-the-energy-transition>
+
+International Energy Agency. 2024. *Oil Market Report*. Paris: IEA. <https://www.iea.org/reports/oil-market-report-march-2024>
+
+Labaree, Benjamin Woods. 1964. *The Boston Tea Party*. New York: Oxford University Press.
+
+Lovell, Julia. 2011. *The Opium War: Drugs, Dreams and the Making of China*. London: Picador.
+
+Milton, Giles. 1999. *Nathaniel's Nutmeg: How One Man's Courage Changed the Course of History*. London: Hodder & Stoughton.
+
+Peltzman, Sam. 2000. "Prices Rise Faster than They Fall." *Journal of Political Economy* 108 (3): 466–502. <https://doi.org/10.1086/262126>
+
+Trocki, Carl A. 1999. *Opium, Empire and the Global Political Economy: A Study of the Asian Opium Trade, 1750–1950*. London: Routledge.
+
+Yergin, Daniel. 1991. *The Prize: The Epic Quest for Oil, Money, and Power*. New York: Simon & Schuster.
+
+Young, Alfred F. 1999. *The Shoemaker and the Tea Party: Memory and the American Revolution*. Boston: Beacon Press.
+
+---
+
+*Companion article: [Rockets and Feathers — the asymmetric price adjustment at the pump](/article/alberta-gas-price-rockets-feathers/), Wayward House, March 2026.*

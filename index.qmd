@@ -1,0 +1,14 @@
+---
+title: "Essays"
+subtitle: "Long-form writing on place, economy, and environment."
+listing:
+  contents: "*.qmd"
+  type: default
+  sort: "date desc"
+  categories: true
+  sort-ui: false
+  filter-ui: false
+  fields: [date, title, subtitle, categories, reading-time]
+  date-format: "DD MMM YYYY"
+page-layout: full
+---

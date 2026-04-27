@@ -1,0 +1,31 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Wayward House"
+  site-url: "https://wayward.house/essays"
+  description: "Long-form writing on place, economy, and environment. Each essay is built to be re-read, not skimmed."
+  navbar:
+    left:
+      - href: index.qmd
+        text: All Essays
+    right:
+      - text: "↩ Wayward House"
+        href: "https://wayward.house"
+  page-navigation: false
+  back-to-top-navigation: true
+  search:
+    location: navbar
+    type: textbox
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    smooth-scroll: true
+    html-math-method: katex
+
+execute:
+  freeze: auto

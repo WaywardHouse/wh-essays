@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2026-04-21">
+<meta name="description" content="Alberta’s water comes from snowpack. The snowpack is measured from space. This bridge essay explains how satellite observation systems track water storage, forecast drought, and change what can be known about a watershed — and what that knowledge means for a province whose agriculture, cities, and energy sector all depend on mountain and boreal water.">
+
+<title>Watching Water – Wayward House</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Wayward House</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">All Essays</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://wayward.house"> 
+<span class="menu-text">↩︎ Wayward House</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#albertas-watershed-geography" id="toc-albertas-watershed-geography" class="nav-link active" data-scroll-target="#albertas-watershed-geography">Alberta’s Watershed Geography</a></li>
+  <li><a href="#reading-snow-from-space" id="toc-reading-snow-from-space" class="nav-link" data-scroll-target="#reading-snow-from-space">Reading Snow from Space</a></li>
+  <li><a href="#watching-the-rivers" id="toc-watching-the-rivers" class="nav-link" data-scroll-target="#watching-the-rivers">Watching the Rivers</a></li>
+  <li><a href="#weighing-water-from-space" id="toc-weighing-water-from-space" class="nav-link" data-scroll-target="#weighing-water-from-space">Weighing Water from Space</a></li>
+  <li><a href="#water-storage-and-reservoir-systems" id="toc-water-storage-and-reservoir-systems" class="nav-link" data-scroll-target="#water-storage-and-reservoir-systems">Water Storage and Reservoir Systems</a></li>
+  <li><a href="#groundwater-depletion-and-the-prairie-water-balance" id="toc-groundwater-depletion-and-the-prairie-water-balance" class="nav-link" data-scroll-target="#groundwater-depletion-and-the-prairie-water-balance">Groundwater Depletion and the Prairie Water Balance</a></li>
+  <li><a href="#timing-mismatches-an-emerging-problem" id="toc-timing-mismatches-an-emerging-problem" class="nav-link" data-scroll-target="#timing-mismatches-an-emerging-problem">Timing Mismatches: An Emerging Problem</a></li>
+  <li><a href="#the-bridge-between-observation-and-management" id="toc-the-bridge-between-observation-and-management" class="nav-link" data-scroll-target="#the-bridge-between-observation-and-management">The Bridge Between Observation and Management</a></li>
+  <li><a href="#looking-forward" id="toc-looking-forward" class="nav-link" data-scroll-target="#looking-forward">Looking Forward</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Watching Water</h1>
+<p class="subtitle lead">Snowpack satellites, radar altimeters, and gravity sensors now make it possible to watch Alberta’s water budget from orbit. Here is what they are telling us.</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">Monitoring</div>
+    <div class="quarto-category">Physical Geography</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    <p>Alberta’s water comes from snowpack. The snowpack is measured from space. This bridge essay explains how satellite observation systems track water storage, forecast drought, and change what can be known about a watershed — and what that knowledge means for a province whose agriculture, cities, and energy sector all depend on mountain and boreal water.</p>
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 21, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Alberta’s water does not come from rain. Not meaningfully. The prairie and parkland that cover most of the province receive between 300 and 500 millimetres of annual precipitation, most of it arriving in summer as convective storms that are intense, patchy, and rapidly evaporated from warm soils. That water drives local ecology but it does not fill rivers, recharge major aquifers, or sustain the irrigation systems that make southern Alberta’s agricultural economy possible.</p>
+<p>The water that does those things comes from the mountains. Specifically, it comes from the snowpack that accumulates in the Rocky Mountain front ranges through October to March and releases through May, June, and July as melt. The South Saskatchewan River, the North Saskatchewan, the Athabasca, the Peace — every major river system in Alberta originates in snowmelt from the eastern slopes. The province’s cities drink snowmelt. Its irrigated farmland is watered by snowmelt. The Athabasca oil sands operations consume approximately 170 million cubic metres of surface water annually, the majority ultimately traceable to mountain snowpack <span class="citation" data-cites="oilsands-water-monitoring2022">[@oilsands-water-monitoring2022]</span>.</p>
+<p>For most of human history in Alberta, knowledge of that snowpack was assembled slowly, station by station, through a network of manual snow surveys and stream gauges that measured what was directly accessible. That network is still important. But over the past three decades, satellite observation systems have transformed what can be known about Alberta’s water — measuring snow depth, soil moisture, surface water extent, and even the gravitational signature of groundwater depletion from hundreds of kilometres above the province.</p>
+<hr>
+<section id="albertas-watershed-geography" class="level2">
+<h2 class="anchored" data-anchor-id="albertas-watershed-geography">Alberta’s Watershed Geography</h2>
+<p>The map below shows the principal watersheds draining the Rocky Mountain front ranges into Alberta — the snowpack catchments whose annual accumulation and melt cycle determines river flows, reservoir levels, and drought risk across the province.</p>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"> <style> .fig-map { border-radius:6px; overflow:hidden; box-shadow:0 2px 14px rgba(0,0,0,0.18); margin:1.5rem 0 0.5rem; } .fig-caption { font-size:0.8rem; color:var(–text-muted,#666); line-height:1.6; margin:8px 0 2.5rem; font-style:italic; } .fig-caption strong { font-style:normal; } </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<div id="watershed-map" class="fig-map" style="height:560px;">
+
+</div>
+<p class="fig-caption">
+<strong>Figure 1.</strong> Alberta’s principal river systems and snowpack headwater zones. Blue polygons: approximate major watershed basins. Markers: river gauge stations and monitoring infrastructure. The Rocky Mountain front ranges generate approximately 70–80% of Alberta’s renewable surface water through snowmelt. Click watershed or marker for detail.
+</p>
+<script>
+(function(){
+  function tryInit() {
+    if (typeof L === 'undefined') { setTimeout(tryInit, 120); return; }
+    const map = L.map('watershed-map', { center: [53.5, -113.0], zoom: 5, zoomControl: true });
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.webp', {
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors © <a href="https://carto.com/">CARTO</a>',
+      subdomains: 'abcd', maxZoom: 19
+    }).addTo(map);
+
+    // Watershed polygons
+    const watersheds = [
+      {
+        name: 'Bow River Watershed (~25,000 km²)',
+        desc: 'Headwaters: Columbia Icefield south of Banff. Drains through Calgary. Primary water source for Calgary metropolitan area (~1.7M people) and the Bow Valley irrigation district. Heavily monitored; subject to 2013 flood event.',
+        color: '#2563eb',
+        coords: [[[49.5,-115.5],[49.5,-113.2],[51.3,-113.2],[51.5,-114.5],[50.5,-115.5],[49.5,-115.5]]]
+      },
+      {
+        name: 'Oldman River Watershed (~24,000 km²)',
+        desc: 'Headwaters: Livingstone Range and Crowsnest Pass. Feeds the Oldman Reservoir (primary irrigation storage for southern Alberta). Serves the Lethbridge Northern Irrigation District — the largest irrigation district in Canada.',
+        color: '#0891b2',
+        coords: [[[49.0,-114.5],[49.0,-112.0],[50.0,-112.0],[50.5,-113.5],[50.0,-114.5],[49.0,-114.5]]]
+      },
+      {
+        name: 'North Saskatchewan River Watershed',
+        desc: 'Headwaters: Columbia Icefield, Banff/Jasper area. Passes through Edmonton. Primary water source for Edmonton metropolitan area. Also source water for central Alberta and downstream Saskatchewan communities.',
+        color: '#1d4ed8',
+        coords: [[[51.8,-117.0],[51.8,-113.5],[53.5,-113.5],[54.5,-116.0],[53.0,-117.5],[51.8,-117.0]]]
+      },
+      {
+        name: 'Athabasca River Watershed',
+        desc: 'Headwaters: Columbia Icefield (world\'s largest non-polar icefield). Flows northeast past Jasper, Hinton, Athabasca, Fort McMurray. Primary surface water source for Athabasca oil sands operations (~170M m³/yr). Feeds Peace-Athabasca Delta — a globally significant freshwater wetland.',
+        color: '#3b82f6',
+        coords: [[[52.0,-118.0],[52.0,-115.0],[57.5,-112.0],[58.0,-115.0],[56.0,-118.0],[52.0,-118.0]]]
+      },
+      {
+        name: 'Peace River Watershed',
+        desc: 'Regulated by W.A.C. Bennett Dam (BC). Long-term hydroelectric regulation has reduced flood frequency in Peace-Athabasca Delta. Declining snowmelt inputs documented by satellite altimetry.',
+        color: '#6366f1',
+        coords: [[[55.0,-120.0],[55.0,-116.5],[59.0,-116.5],[60.0,-120.0],[55.0,-120.0]]]
+      }
+    ];
+
+    watersheds.forEach(w => {
+      L.polygon(w.coords, {color:'white',weight:1.5,fillColor:w.color,fillOpacity:0.18})
+        .bindPopup(`<strong>${w.name}</strong><br>${w.desc}`)
+        .addTo(map);
+    });
+
+    // River lines
+    const rivers = [
+      {name:'Bow River', color:'#2563eb', coords:[[51.5,-115.5],[51.3,-114.5],[51.05,-114.07],[51.0,-113.5],[50.7,-112.5]]},
+      {name:'North Saskatchewan', color:'#1d4ed8', coords:[[52.5,-117.0],[52.8,-116.0],[53.0,-115.0],[53.5,-113.49],[53.5,-112.5]]},
+      {name:'Athabasca River', color:'#3b82f6', coords:[[52.5,-117.5],[52.8,-116.5],[53.5,-116.5],[54.5,-115.0],[55.5,-113.0],[56.7,-111.4]]},
+      {name:'Oldman River', color:'#0891b2', coords:[[49.7,-114.0],[49.8,-113.5],[49.9,-113.0],[50.0,-112.0]]}
+    ];
+    rivers.forEach(r => {
+      L.polyline(r.coords, {color:r.color,weight:2,opacity:0.7})
+        .bindPopup(`<strong>${r.name}</strong>`)
+        .addTo(map);
+    });
+
+    // Key monitoring points
+    const monitors = [
+      {lat:51.05, lng:-114.07, name:'Calgary — Bow River gauge (WSC 05BH004)', desc:'One of the most critical stream gauges in western Canada. Real-time data feeds irrigation allocation decisions, flood warning systems, and municipal intake management for ~1.7M people.'},
+      {lat:53.54, lng:-113.49, name:'Edmonton — North Saskatchewan gauge', desc:'Provincial reference gauge for central Alberta water management. Baseline for Edmonton water intake regulation.'},
+      {lat:56.73, lng:-111.38, name:'Fort McMurray — Athabasca gauge', desc:'Critical for oil sands water allocation monitoring. Athabasca River water use limited under Alberta surface water regulations.'},
+      {lat:58.6, lng:-111.4, name:'Peace-Athabasca Delta (Wood Buffalo NP)', desc:'Globally significant freshwater delta. Satellite altimetry (CryoSat-2, SWOT) has documented long-term decline in flood frequency. Regulated by upstream hydroelectric infrastructure and declining snowmelt.'},
+      {lat:50.2, lng:-114.2, name:'Oldman Reservoir (Pincher Creek area)', desc:'Primary southern Alberta irrigation storage. Spring forecast for Oldman inflows — based in part on satellite snowpack data — determines irrigation allocations for the Lethbridge Northern Irrigation District.'},
+      {lat:51.9, lng:-117.2, name:'Columbia Icefield (headwaters)', desc:'World\'s largest non-polar icefield. Source of Bow, North Saskatchewan, Athabasca, and Columbia rivers. Icefield retreat visible in time-series Landsat imagery. MODIS snow cover tracks annual snowpack extent.'}
+    ];
+    monitors.forEach(m => {
+      L.circleMarker([m.lat, m.lng], {radius:7,color:'white',weight:2,fillColor:'#f59e0b',fillOpacity:0.9})
+        .bindPopup(`<strong>${m.name}</strong><br>${m.desc}`)
+        .addTo(map);
+    });
+
+    // Legend
+    const legend = L.control({position:'bottomright'});
+    legend.onAdd = function() {
+      const d = L.DomUtil.create('div','info legend');
+      d.style.cssText = 'background:white;padding:8px 12px;border-radius:4px;font-size:11px;line-height:1.9;box-shadow:0 1px 5px rgba(0,0,0,0.2)';
+      d.innerHTML = [
+        '<strong>Water geography</strong>',
+        '<span style="background:#2563eb;opacity:0.4;display:inline-block;width:14px;height:10px"></span> Watershed basin',
+        '<span style="color:#2563eb">──</span> River system',
+        '<span style="color:#f59e0b">●</span> Monitoring point',
+      ].join('<br>');
+      return d;
+    };
+    legend.addTo(map);
+  }
+  tryInit();
+})();
+</script>
+<hr>
+</section>
+<section id="reading-snow-from-space" class="level2">
+<h2 class="anchored" data-anchor-id="reading-snow-from-space">Reading Snow from Space</h2>
+<p>Snow is, in remote sensing terms, highly legible. Its optical properties — high reflectance in visible wavelengths, strong absorption in the shortwave infrared — produce a distinctive spectral signature that is easily distinguished from bare ground, vegetation, or cloud. MODIS instruments aboard the Terra and Aqua satellites have been mapping global snow cover at 500-metre resolution every one to two days since 2000. For Alberta, this means a 25-year archive of daily snow-cover extent across the province and the surrounding mountain catchments.</p>
+<p>The physics behind snow’s spectral behaviour is the same physics introduced in <em>What Light Reveals</em> in the context of vegetation monitoring: reflectance varies by wavelength in ways that encode material properties. Fresh dry snow reflects more than 90% of incoming visible light and near-infrared radiation. Wet snow, with liquid water in the snowpack, absorbs more in the near-infrared, producing a detectably different signature. Old, compacted, or dirty snow has lower reflectance across the board, indicating age and contamination.</p>
+<p>The limitation of optical snow mapping is what it cannot see: depth and density. Knowing that snow covers a pixel tells you where the snowpack is; it does not tell you how much water is stored in it. Snow Water Equivalent (SWE) — the depth of liquid water that would result from melting the snowpack — is the variable that hydro-forecasters actually need, and optical sensors cannot measure it directly.</p>
+<p>For SWE retrieval, the tool is passive microwave remote sensing. Microwave radiation emitted naturally by the Earth’s surface passes through dry snowpack and is partially scattered and absorbed by snow crystals; the degree of scattering is related to crystal size, depth, and density in ways that, under the right conditions, allow depth retrieval. The relationship can be expressed as:</p>
+<p><span class="math display">\text{SWE} = \rho_s \cdot d</span></p>
+<p>where <span class="math inline">\rho_s</span> is the snow density (typically 0.1–0.5 g/cm³ depending on pack age and condition) and <span class="math inline">d</span> is snow depth. Passive microwave retrieval algorithms typically express SWE as a function of the brightness temperature difference between channels at different frequencies, with the difference driven by volumetric scattering within the snowpack.</p>
+<div data-viz="echarts" style="height:360px" data-options="{
+  &quot;backgroundColor&quot;:&quot;#0f172a&quot;,
+  &quot;title&quot;:{&quot;text&quot;:&quot;South Saskatchewan River Basin: Estimated Peak SWE Anomaly, 2001–2023&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#f8fafc&quot;,&quot;fontSize&quot;:15},&quot;left&quot;:&quot;center&quot;},
+  &quot;tooltip&quot;:{&quot;trigger&quot;:&quot;axis&quot;,&quot;backgroundColor&quot;:&quot;#1e293b&quot;,&quot;borderColor&quot;:&quot;#334155&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#f8fafc&quot;},&quot;formatter&quot;:&quot;{b}: {c}% of 2001-2010 mean&quot;},
+  &quot;grid&quot;:{&quot;left&quot;:&quot;6%&quot;,&quot;right&quot;:&quot;5%&quot;,&quot;bottom&quot;:&quot;12%&quot;,&quot;containLabel&quot;:true},
+  &quot;xAxis&quot;:{&quot;type&quot;:&quot;category&quot;,&quot;data&quot;:[&quot;2001&quot;,&quot;2002&quot;,&quot;2003&quot;,&quot;2004&quot;,&quot;2005&quot;,&quot;2006&quot;,&quot;2007&quot;,&quot;2008&quot;,&quot;2009&quot;,&quot;2010&quot;,&quot;2011&quot;,&quot;2012&quot;,&quot;2013&quot;,&quot;2014&quot;,&quot;2015&quot;,&quot;2016&quot;,&quot;2017&quot;,&quot;2018&quot;,&quot;2019&quot;,&quot;2020&quot;,&quot;2021&quot;,&quot;2022&quot;,&quot;2023&quot;],&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#94a3b8&quot;,&quot;rotate&quot;:45},&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#334155&quot;}}},
+  &quot;yAxis&quot;:{&quot;type&quot;:&quot;value&quot;,&quot;name&quot;:&quot;% of baseline mean&quot;,&quot;nameTextStyle&quot;:{&quot;color&quot;:&quot;#94a3b8&quot;},&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#94a3b8&quot;,&quot;formatter&quot;:&quot;{value}%&quot;},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#1e293b&quot;}},&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#334155&quot;}},&quot;min&quot;:60},
+  &quot;series&quot;:[
+    {&quot;type&quot;:&quot;bar&quot;,&quot;data&quot;:[100,82,95,103,98,112,88,107,94,109,116,79,88,95,82,74,91,86,78,83,88,72,76],
+    &quot;itemStyle&quot;:{&quot;color&quot;:{&quot;type&quot;:&quot;linear&quot;,&quot;x&quot;:0,&quot;y&quot;:0,&quot;x2&quot;:0,&quot;y2&quot;:1,&quot;colorStops&quot;:[{&quot;offset&quot;:0,&quot;color&quot;:&quot;#3b82f6&quot;},{&quot;offset&quot;:1,&quot;color&quot;:&quot;#1e3a5f&quot;}]}}},
+    {&quot;type&quot;:&quot;line&quot;,&quot;data&quot;:[100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100],&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#64748b&quot;,&quot;type&quot;:&quot;dashed&quot;,&quot;width&quot;:1.5},&quot;symbol&quot;:&quot;none&quot;,&quot;name&quot;:&quot;Baseline mean&quot;}
+  ]
+}">
+
+</div>
+<p class="viz-caption">
+Source: NASA MODIS/Terra Snow Cover Daily L3 Global 500m Grid; AMSR-E/AMSR2 SWE products, National Snow and Ice Data Center; Alberta Agriculture and Irrigation snowpack survey network, annual peak SWE summaries. South Saskatchewan River Basin includes Bow, Oldman, and Red Deer sub-basins. Values expressed as percentage of 2001–2010 mean peak SWE; post-2010 anomalies are consistent with the broader warming and snowpack reduction trend documented in peer-reviewed literature.
+</p>
+<p>The pattern above the noise in the South Saskatchewan Basin is a trend toward below-average SWE in the post-2010 period. The years 2022 and 2023 recorded peak SWE estimates near 25–30% below the 2001–2010 baseline — a deficit that translated directly into reduced river flows, declining reservoir levels, and heightened drought risk through the summer growing season. Alberta Agriculture and Irrigation issues annual spring runoff forecasts based in part on this snowpack data; in both years, those forecasts warned of below-normal water supplies for irrigation allocation.</p>
+<hr>
+</section>
+<section id="watching-the-rivers" class="level2">
+<h2 class="anchored" data-anchor-id="watching-the-rivers">Watching the Rivers</h2>
+<p>Snowpack tells you how much water is stored heading into the melt season. Stream gauges and satellite altimetry tell you how much is moving.</p>
+<p>The Water Survey of Canada network operates approximately 150 active stream gauges in Alberta, measuring water level and flow at fixed points. These data — available in near-real time through the Meteorological Service of Canada’s Hydat database — form the operational backbone of Alberta’s water management system. Irrigation district allocations, municipal water intake management, hydroelectric operations, and environmental flow monitoring all depend on gauge data.</p>
+<p>Satellite radar altimetry extends this network to rivers and lakes that cannot be practically gauged. Instruments like the CryoSat-2 altimeter and the newer SWOT (Surface Water and Ocean Topography) satellite measure water surface elevation by timing the return of radar pulses from the water surface. For northern Alberta, where the Athabasca and Peace River systems drain enormous boreal catchments with limited ground-based monitoring, satellite altimetry has become an important supplement to the ground network.</p>
+<p>The Peace-Athabasca Delta — a globally significant freshwater wetland at the downstream end of the Peace and Athabasca systems, within Wood Buffalo National Park — has been monitored through satellite altimetry and optical imagery for water level trends over the past two decades. That monitoring documented a long-term decline in flood frequency in the delta, attributable partly to upstream hydroelectric regulation on the Peace River (the W.A.C. Bennett Dam in British Columbia) and partly to declining snowmelt runoff from the mountain headwaters.</p>
+<hr>
+</section>
+<section id="weighing-water-from-space" class="level2">
+<h2 class="anchored" data-anchor-id="weighing-water-from-space">Weighing Water from Space</h2>
+<p>The most conceptually striking tool in the satellite water monitoring toolkit measures not what water looks like, or where it is flowing, but how much it weighs.</p>
+<p>The GRACE mission (Gravity Recovery and Climate Experiment), operated from 2002 to 2017 and its successor GRACE-FO (launched 2018, still operational), measures Earth’s gravity field at monthly intervals using two satellites flying in formation approximately 220 kilometres apart. When the leading satellite passes over a region of higher mass — a landscape with more water stored in soil and aquifers than usual — it accelerates slightly, increasing the distance between the two satellites. GPS and microwave ranging systems measure that distance change to micrometer precision. The result is a monthly map of gravity anomalies that, once corrected for solid Earth processes and ice mass changes, isolates the signal from water mass changes in the hydrological system.</p>
+<p>Applied to Alberta and the Canadian prairies, GRACE data has documented a persistent and statistically significant decline in total water storage across the southern prairie region since the mid-2000s — a signal consistent with the combination of reduced snowpack inputs, elevated evapotranspiration under warming temperatures, and increasing agricultural water use <span class="citation" data-cites="pokhrel-grace-prairies2021">[@pokhrel-grace-prairies2021]</span>. The decline is not uniform across years — wet years partially reverse it — but the trend is downward, meaning the prairies are, in the aggregate, slowly losing water.</p>
+<hr>
+</section>
+<section id="water-storage-and-reservoir-systems" class="level2">
+<h2 class="anchored" data-anchor-id="water-storage-and-reservoir-systems">Water Storage and Reservoir Systems</h2>
+<p>The Colorado Doctrine — the legal framework that governs water allocation in Alberta and most of western North America — is built around the assumption of stable storage. The major reservoirs that buffer seasonal variability, allowing farmers to store spring snowmelt for summer use, were designed for the hydrological regime that existed when they were constructed.</p>
+<p>Oldman Reservoir, completed in 1982 and the critical storage node for southern Alberta’s Lethbridge Northern Irrigation District, was designed with an inflow assumption based on historical flow records from the Oldman River. That river system, fed by the Livingstone Range and Crowsnest Pass headwaters, now shows consistent below-average snowpack in post-2010 satellite records. The implications for reservoir fill are direct: less water enters the system in spring, and what water does arrive peaks earlier in the season, filling the reservoir when irrigation demand is still low.</p>
+<p>The Bow River system, more heavily regulated than the Oldman with multiple in-line reservoirs (Lake Louise, Banff, Ghost Lake, Bearspaw, and others), has greater flexibility to manage timing mismatches. But flexibility has limits. Bearspaw Reservoir, the final major storage node before Calgary, experiences declining inflows in the post-2010 period. The City of Calgary’s water intake — one of the largest in Canada — depends on summer flows maintained by stored snowmelt. A persistent trend toward earlier peak discharge and lower late-summer flows means a changing risk profile for a metropolitan area of 1.7 million people.</p>
+<p>Satellite data provides early warning of this shift. GRACE gravity measurements document the cumulative mass balance of surface water and groundwater across the major river basins. Altimetry tracks individual reservoir levels through repeat overpasses — changes in water surface elevation yield area-weighted volume estimates. Together, these systems create a monthly ledger of how much water is actually available for storage and allocation.</p>
+<hr>
+</section>
+<section id="groundwater-depletion-and-the-prairie-water-balance" class="level2">
+<h2 class="anchored" data-anchor-id="groundwater-depletion-and-the-prairie-water-balance">Groundwater Depletion and the Prairie Water Balance</h2>
+<p>The GRACE mission reveals something that optical and altimetry data alone cannot: the fate of water that falls as precipitation or melts from snowpack but does not immediately run off as surface flow. That water either evaporates, is transpired by vegetation, or recharges groundwater aquifers.</p>
+<p>The prairie regions of southern Alberta, despite receiving only 300–500 mm of annual precipitation, have historically supported large-scale irrigation because of two factors: (1) snowmelt input from the mountains through river systems, and (2) shallow aquifers that can be pumped for supplemental supply. The Oldman Aquifer — a regional groundwater system underlying the Lethbridge irrigation district — has been a buffer against years of below-average surface water supply.</p>
+<p>That buffer is being depleted. GRACE data, which integrates surface water, soil moisture, and groundwater changes into a single gravitational anomaly signal, documents a persistent decline in total water storage across the southern prairie region from the mid-2000s onward. The decline accelerates in drought years and partially reverses in wet years, but the long-term trend is downward <span class="citation" data-cites="pokhrel-grace-prairies2021">[@pokhrel-grace-prairies2021]</span>. The implications are that groundwater recharge — normally sustained by spring infiltration from snowmelt and summer precipitation — is not keeping pace with extraction.</p>
+<p>This is not the spectacle of a catastrophically collapsing aquifer. It is the quieter signal of a slow, steady water-storage deficit. Aquifers that recharged on a decadal or century scale during the 20th-century climate regime now face the prospect of draw-down on a similar timescale under current conditions. For irrigation systems that have operated with the implicit assumption of stable or growing groundwater reserves, the shift is significant.</p>
+<hr>
+</section>
+<section id="timing-mismatches-an-emerging-problem" class="level2">
+<h2 class="anchored" data-anchor-id="timing-mismatches-an-emerging-problem">Timing Mismatches: An Emerging Problem</h2>
+<p>One of the most important findings of satellite water monitoring is invisible in static snapshots but becomes clear in time series: snowmelt is arriving earlier.</p>
+<p>The Arctic Oscillation, a large-scale atmospheric circulation pattern, drives much of the variability in winter and spring temperature across western North America. Winters have become warmer on average, meaning snowpack accumulates more slowly, melts more readily when early warm spells occur, and reaches maximum extent — peak SWE — earlier in the calendar year. A peak that historically occurred in mid-April now frequently occurs in late March or early April. The shift is modest in calendar terms — two to three weeks over the past three decades — but profound in water management terms.</p>
+<p>Irrigation demand, by contrast, is concentrated in July and August, when growing-season evapotranspiration peaks and surface water supplies are naturally at their lowest. A snowmelt pulse that arrives in March fills reservoirs when irrigation demand is minimal. Water stored in reservoirs is not costless — it evaporates. Oldman Reservoir, under high summer temperatures and with a large surface-area-to-volume ratio, loses significant water to evaporation during storage. The longer water must be held from spring peak to summer demand, the larger the evaporative loss.</p>
+<p>Satellite observations of reservoir levels, combined with climate model projections, suggest that the mismatch between snowmelt timing and irrigation demand will grow. Some climate scenarios project the peak discharge of mountain rivers to shift by a month or more by 2050 <span class="citation" data-cites="climate-atlas2023">[@climate-atlas2023]</span>. That shift is manageable with good forecasting and adaptive allocation rules. But it requires understanding what is happening in real time — and that understanding comes from continuous satellite observation.</p>
+<hr>
+</section>
+<section id="the-bridge-between-observation-and-management" class="level2">
+<h2 class="anchored" data-anchor-id="the-bridge-between-observation-and-management">The Bridge Between Observation and Management</h2>
+<p>Water monitoring from space is not, by itself, a water management system. Satellites cannot make allocation decisions, cannot physically transport water between basins, and cannot resolve conflicts over competing demands. What satellites do provide is the information foundation that good management requires.</p>
+<p>Alberta’s water management institutions were built over more than a century, with different pieces designed at different times for different purposes. The Bow River system includes federally and provincially managed dams. The Oldman system is operated by the Lethbridge Northern Irrigation District under provincial licence. The Athabasca is subject to both the 1982 Boundary Waters Agreement between Canada and Alberta and the operational constraints of oil sands water allocation. The Peace River is regulated from British Columbia by the W.A.C. Bennett Dam, over which Alberta has no direct control.</p>
+<p>Within this complex institutional landscape, satellite data has become an increasingly important input. Water managers in Alberta Agriculture and Irrigation now incorporate satellite snowpack estimates into their annual spring runoff forecasts — the document that determines irrigation allocations for the season. The forecasts say, in effect: if the snowpack continues to melt at historical rates, here is how much water will be available in June, July, and August. Those forecasts have moved toward more conservative estimates, signalling increasing awareness of the post-2010 downward trend.</p>
+<p>But forecasts are one thing, and decisions are another. Adjusting irrigation allocations downward, in a system where the economy of southern Alberta has become dependent on the current allocation level, is difficult. Converting irrigated land to dryland farming, investing in more efficient irrigation technology, or negotiating different intra-basin allocation agreements all face institutional and political barriers. The satellite data makes the problem visible. Whether visibility becomes the catalyst for change depends on factors well beyond the scope of remote sensing.</p>
+<hr>
+</section>
+<section id="looking-forward" class="level2">
+<h2 class="anchored" data-anchor-id="looking-forward">Looking Forward</h2>
+<p>The satellite monitoring network that now watches Alberta’s water is mature and improving. New instruments launched in the past five years — including the SWOT satellite, which provides high-resolution radar altimetry of smaller lakes and rivers — are adding resolution and frequency to the picture. Climate models continue to improve at regional downscaling, allowing more precise projections of what changes in snowpack and runoff timing mean for specific river basins.</p>
+<p>The data story Alberta’s water is telling is not one of catastrophic collapse. It is a story of gradual, systematic shift — declining peak snowpack, earlier runoff timing, reduced late-summer flows, and groundwater stress in the southern prairies. These changes are large enough to matter for a province whose economy depends on reliable water, but gradual enough that they can be managed with appropriate forecasting and adaptation.</p>
+<p>The critical question is whether management systems designed for stability can adapt to change at the rate the satellite data is documenting. That is not a question for remote sensing. But it is a question that cannot be answered without the information that remote sensing provides.</p>
+<hr>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<div id="refs" role="list">
+
+</div>
+<p><em>This is the second article in Wayward House’s Monitoring series. The first, <a href="./articles/what-light-reveals.html">What Light Reveals</a>, introduces hyperspectral remote sensing. For the water-stress context, see <a href="./articles/fire-country.html">Fire Country</a>, which examines how reduced snowpack and advancing spring seasons are changing Alberta’s fire risk.</em></p>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/wayward\.house\/essays");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

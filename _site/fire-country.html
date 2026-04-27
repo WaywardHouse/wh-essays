@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2026-04-21">
+<meta name="description" content="Alberta’s wildland-urban interface is one of the most extensive in Canada. This article maps the geography of fire exposure, traces what the 2016 Fort McMurray fire revealed about WUI vulnerability, and examines how a changing fire climate is reshaping settlement risk.">
+
+<title>Fire Country – Wayward House</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Wayward House</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">All Essays</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://wayward.house"> 
+<span class="menu-text">↩︎ Wayward House</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#a-different-kind-of-fire-problem" id="toc-a-different-kind-of-fire-problem" class="nav-link active" data-scroll-target="#a-different-kind-of-fire-problem">A Different Kind of Fire Problem</a></li>
+  <li><a href="#the-wui-problem" id="toc-the-wui-problem" class="nav-link" data-scroll-target="#the-wui-problem">The WUI Problem</a></li>
+  <li><a href="#what-fort-mcmurray-taught" id="toc-what-fort-mcmurray-taught" class="nav-link" data-scroll-target="#what-fort-mcmurray-taught">What Fort McMurray Taught</a></li>
+  <li><a href="#the-changing-fire-climate" id="toc-the-changing-fire-climate" class="nav-link" data-scroll-target="#the-changing-fire-climate">The Changing Fire Climate</a></li>
+  <li><a href="#the-wui-keeps-expanding" id="toc-the-wui-keeps-expanding" class="nav-link" data-scroll-target="#the-wui-keeps-expanding">The WUI Keeps Expanding</a></li>
+  <li><a href="#case-study-canmore-and-the-foothills-wui" id="toc-case-study-canmore-and-the-foothills-wui" class="nav-link" data-scroll-target="#case-study-canmore-and-the-foothills-wui">Case Study: Canmore and the Foothills WUI</a></li>
+  <li><a href="#the-boreal-wui-a-different-risk-profile" id="toc-the-boreal-wui-a-different-risk-profile" class="nav-link" data-scroll-target="#the-boreal-wui-a-different-risk-profile">The Boreal WUI: A Different Risk Profile</a></li>
+  <li><a href="#the-economic-and-infrastructure-dimensions" id="toc-the-economic-and-infrastructure-dimensions" class="nav-link" data-scroll-target="#the-economic-and-infrastructure-dimensions">The Economic and Infrastructure Dimensions</a></li>
+  <li><a href="#the-structural-gap" id="toc-the-structural-gap" class="nav-link" data-scroll-target="#the-structural-gap">The Structural Gap</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Fire Country</h1>
+<p class="subtitle lead">Fort McMurray showed what happens when fire reaches the wildland-urban edge. The WUI keeps expanding. The fire climate is changing. The two trends are running toward each other.</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">Physical Geography</div>
+    <div class="quarto-category">Environmental Geography</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    <p>Alberta’s wildland-urban interface is one of the most extensive in Canada. This article maps the geography of fire exposure, traces what the 2016 Fort McMurray fire revealed about WUI vulnerability, and examines how a changing fire climate is reshaping settlement risk.</p>
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 21, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="a-different-kind-of-fire-problem" class="level2">
+<h2 class="anchored" data-anchor-id="a-different-kind-of-fire-problem">A Different Kind of Fire Problem</h2>
+<p>On the evening of May 3, 2016, fire crossed the municipal boundary of Fort McMurray. What had been a forest fire in the boreal wildland became, in a span of hours, a structural fire in one of the largest cities in northern Alberta. By the time the evacuation was complete — 88,000 people moved in the largest peacetime evacuation in Canadian history — approximately 2,400 structures had burned. The final insured loss settled near $3.7 billion, making it the costliest natural disaster in Canadian history.</p>
+<p>The Fort McMurray fire is routinely described as a catastrophic exception. A once-in-a-generation event, an extreme fire under extreme conditions. That framing is true in the narrow sense: the specific combination of drought, wind, and fuel moisture that produced the fire’s run into the city was unusual. It is not true in the important sense. Fort McMurray was not a rare collision between fire and settlement. It was the most visible instance of a collision that is built into the geography of how Alberta grows.</p>
+<p>This article is about the geography of that collision, and about the trend lines that are making it more likely.</p>
+<hr>
+</section>
+<section id="the-wui-problem" class="level2">
+<h2 class="anchored" data-anchor-id="the-wui-problem">The WUI Problem</h2>
+<p>The wildland-urban interface — the WUI — refers to the zone where human settlement meets or intermingles with wildland vegetation. In Canada, roughly 2.4 million households live within or adjacent to the WUI, and the proportion is growing as suburban growth pushes into forested and grassland edges <span class="citation" data-cites="ciffc-wui2022">[@ciffc-wui2022]</span>.</p>
+<p>Scroll through the fire geography below.</p>
+<section class="story-section">
+  <div class="story-sticky">
+    <div class="story-graphic">
+      <div data-map="custom" id="fire-map" data-center="-114.0, 55.0" data-zoom="5" data-style="mapbox://styles/mapbox/light-v11" data-markers="[{&quot;lng&quot;:-111.38,&quot;lat&quot;:56.73,&quot;label&quot;:&quot;Fort McMurray&quot;,&quot;color&quot;:&quot;#ef4444&quot;},{&quot;lng&quot;:-114.07,&quot;lat&quot;:51.04,&quot;label&quot;:&quot;Calgary&quot;,&quot;color&quot;:&quot;#6b7280&quot;},{&quot;lng&quot;:-113.49,&quot;lat&quot;:53.54,&quot;label&quot;:&quot;Edmonton&quot;,&quot;color&quot;:&quot;#6b7280&quot;},{&quot;lng&quot;:-115.35,&quot;lat&quot;:51.09,&quot;label&quot;:&quot;Canmore&quot;,&quot;color&quot;:&quot;#f59e0b&quot;},{&quot;lng&quot;:-118.80,&quot;lat&quot;:55.17,&quot;label&quot;:&quot;Grande Prairie&quot;,&quot;color&quot;:&quot;#9ca3af&quot;},{&quot;lng&quot;:-116.50,&quot;lat&quot;:53.58,&quot;label&quot;:&quot;Edson&quot;,&quot;color&quot;:&quot;#9ca3af&quot;}]" data-geojson="{&quot;type&quot;:&quot;FeatureCollection&quot;,&quot;features&quot;:[
+             {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;id&quot;:&quot;boreal-forest&quot;,&quot;color&quot;:&quot;#15803d&quot;,&quot;opacity&quot;:0.22,&quot;outline-color&quot;:&quot;#166534&quot;,&quot;visible&quot;:false},&quot;geometry&quot;:{&quot;type&quot;:&quot;Polygon&quot;,&quot;coordinates&quot;:[[[-120.0,53.5],[-110.0,53.5],[-110.0,60.0],[-120.0,60.0],[-120.0,53.5]]]}},
+             {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;id&quot;:&quot;parkland-belt&quot;,&quot;color&quot;:&quot;#84cc16&quot;,&quot;opacity&quot;:0.25,&quot;outline-color&quot;:&quot;#65a30d&quot;,&quot;visible&quot;:false},&quot;geometry&quot;:{&quot;type&quot;:&quot;Polygon&quot;,&quot;coordinates&quot;:[[[-119.0,52.5],[-110.0,52.5],[-110.0,54.0],[-119.0,54.0],[-119.0,52.5]]]}},
+             {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;id&quot;:&quot;foothill-wui&quot;,&quot;color&quot;:&quot;#f59e0b&quot;,&quot;opacity&quot;:0.30,&quot;outline-color&quot;:&quot;#d97706&quot;,&quot;visible&quot;:false},&quot;geometry&quot;:{&quot;type&quot;:&quot;Polygon&quot;,&quot;coordinates&quot;:[[[-116.0,49.5],[-114.0,49.5],[-114.0,52.5],[-116.0,52.5],[-116.0,49.5]]]}},
+             {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;id&quot;:&quot;fort-mac-fire&quot;,&quot;color&quot;:&quot;#dc2626&quot;,&quot;opacity&quot;:0.45,&quot;outline-color&quot;:&quot;#991b1b&quot;,&quot;visible&quot;:false},&quot;geometry&quot;:{&quot;type&quot;:&quot;Polygon&quot;,&quot;coordinates&quot;:[[[-111.8,56.5],[-110.8,56.5],[-110.8,57.0],[-111.3,57.1],[-111.8,57.0],[-111.8,56.5]]]}},
+             {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;id&quot;:&quot;wui-expansion&quot;,&quot;color&quot;:&quot;#f97316&quot;,&quot;opacity&quot;:0.20,&quot;outline-color&quot;:&quot;#ea580c&quot;,&quot;visible&quot;:false},&quot;geometry&quot;:{&quot;type&quot;:&quot;Polygon&quot;,&quot;coordinates&quot;:[[[-120.0,51.0],[-110.0,51.0],[-110.0,57.0],[-120.0,57.0],[-120.0,51.0]]]}},
+             {&quot;type&quot;:&quot;Feature&quot;,&quot;properties&quot;:{&quot;id&quot;:&quot;highway-63&quot;,&quot;color&quot;:&quot;#ef4444&quot;,&quot;opacity&quot;:0.90,&quot;width&quot;:3,&quot;visible&quot;:false},&quot;geometry&quot;:{&quot;type&quot;:&quot;LineString&quot;,&quot;coordinates&quot;:[[-113.5,53.6],[-112.8,54.5],[-112.0,55.5],[-111.8,56.2],[-111.4,56.7]]}}
+           ]}" style="height:520px;"></div>
+    </div>
+  </div>
+  <div class="story-steps">
+
+    <div class="story-step" data-step="0" data-update="{&quot;fire-map&quot;: {&quot;center&quot;: [-114.0, 55.0], &quot;zoom&quot;: 5, &quot;layers&quot;: {&quot;boreal-forest&quot;: false, &quot;parkland-belt&quot;: false, &quot;foothill-wui&quot;: false, &quot;fort-mac-fire&quot;: false, &quot;wui-expansion&quot;: false, &quot;highway-63&quot;: false}}}">
+      <p><strong>Alberta's fire geography.</strong> The province sits at the intersection of two distinct WUI systems: the boreal fringe in the north, where oil sands towns and resource communities sit in direct contact with one of the world's largest intact forest ecosystems, and the mountain foothills in the west, where recreational and bedroom communities press against fire-prone slope forests.</p>
+    </div>
+
+    <div class="story-step" data-step="1" data-update="{&quot;fire-map&quot;: {&quot;center&quot;: [-114.0, 56.0], &quot;zoom&quot;: 5, &quot;layers&quot;: {&quot;boreal-forest&quot;: true, &quot;parkland-belt&quot;: true, &quot;foothill-wui&quot;: false, &quot;fort-mac-fire&quot;: false, &quot;wui-expansion&quot;: false, &quot;highway-63&quot;: false}}}">
+      <p><strong>The boreal-agricultural edge.</strong> The boreal forest occupies most of Alberta north of approximately 53°N. <em>Green: boreal zone. Lime: parkland transition belt.</em> The parkland belt — the ecotone between forest and grassland — runs from the Peace Country through Edmonton toward Lloydminster. Along this belt, subdivisions, acreage developments, and resource towns sit in direct contact with forest that, under the right conditions, will burn. Fort McMurray sits at the boreal zone's heart.</p>
+    </div>
+
+    <div class="story-step" data-step="2" data-update="{&quot;fire-map&quot;: {&quot;center&quot;: [-111.4, 56.7], &quot;zoom&quot;: 9, &quot;layers&quot;: {&quot;boreal-forest&quot;: false, &quot;parkland-belt&quot;: false, &quot;foothill-wui&quot;: false, &quot;fort-mac-fire&quot;: true, &quot;wui-expansion&quot;: false, &quot;highway-63&quot;: true}}}">
+      <p><strong>Fort McMurray, May 3, 2016.</strong> <em>Red polygon: approximate area of structural fire on the evening of May 3rd, when fire first crossed the municipal boundary.</em> The fire entered Beacon Hill and Abasand neighbourhoods from the southwest. The primary mechanism was not direct flame contact but firebrand transport — burning embers carried kilometres ahead of the fire front by wind, landing on wood decks, in roof gutters, through open vents. <em>Red line: Highway 63, the single evacuation route for 88,000 people.</em></p>
+    </div>
+
+    <div class="story-step" data-step="3" data-update="{&quot;fire-map&quot;: {&quot;center&quot;: [-115.5, 51.2], &quot;zoom&quot;: 7, &quot;layers&quot;: {&quot;boreal-forest&quot;: false, &quot;parkland-belt&quot;: false, &quot;foothill-wui&quot;: true, &quot;fort-mac-fire&quot;: false, &quot;wui-expansion&quot;: false, &quot;highway-63&quot;: false}}}">
+      <p><strong>The foothill WUI: a different character.</strong> Along Alberta's eastern Rocky Mountain slopes, communities like Canmore, Jasper, and Bragg Creek sit between mountain forest and residential development. <em>Amber zone: the principal foothill WUI band.</em> The fire history of these slopes is centuries long — fire is part of the ecological process that has maintained open foothills forest. The question for the 21st century is what happens to that fire history as the climate that sustains it changes.</p>
+    </div>
+
+    <div class="story-step" data-step="4" data-update="{&quot;fire-map&quot;: {&quot;center&quot;: [-114.0, 54.0], &quot;zoom&quot;: 5, &quot;layers&quot;: {&quot;boreal-forest&quot;: false, &quot;parkland-belt&quot;: false, &quot;foothill-wui&quot;: false, &quot;fort-mac-fire&quot;: false, &quot;wui-expansion&quot;: true, &quot;highway-63&quot;: false}}}">
+      <p><strong>The WUI keeps expanding.</strong> Alberta's population growth — among the fastest in Canada — has concentrated in part in exactly the zones of fire-forest interface: acreage developments in the foothills, recreational communities in the mountain parks corridor, energy-sector towns in the boreal fringe. <em>Orange zone: approximate area of WUI expansion since 2000.</em> Against a warming fire climate that is advancing the start of fire season and increasing the frequency of conditions that allow extreme fire behaviour, settlement is moving in the wrong direction.</p>
+    </div>
+
+  </div>
+</section>
+<p>Alberta’s WUI is among the most extensive in the country, for reasons that follow directly from the province’s geography. The transition from boreal forest to agricultural land and urban development is not a clean line. The boreal fringe runs south from the Peace Country through the Athabasca and North Saskatchewan watersheds, dipping into the parkland belt that extends from roughly Peace River through Edmonton, Lloydminster, and into the eastern slopes. Along this belt, subdivisions, acreage developments, and resource-industry towns sit in direct contact with forest and mixed vegetation that, under the right conditions, will burn.</p>
+<div data-viz="echarts" style="height:360px" data-options="{
+  &quot;backgroundColor&quot;:&quot;#0f172a&quot;,
+  &quot;title&quot;:{&quot;text&quot;:&quot;Area Burned in Alberta by Decade, 1950–2023 (million hectares)&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#f8fafc&quot;,&quot;fontSize&quot;:15},&quot;left&quot;:&quot;center&quot;},
+  &quot;tooltip&quot;:{&quot;trigger&quot;:&quot;axis&quot;,&quot;axisPointer&quot;:{&quot;type&quot;:&quot;shadow&quot;},&quot;backgroundColor&quot;:&quot;#1e293b&quot;,&quot;borderColor&quot;:&quot;#334155&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#f8fafc&quot;}},
+  &quot;grid&quot;:{&quot;left&quot;:&quot;6%&quot;,&quot;right&quot;:&quot;5%&quot;,&quot;bottom&quot;:&quot;12%&quot;,&quot;containLabel&quot;:true},
+  &quot;xAxis&quot;:{&quot;type&quot;:&quot;category&quot;,&quot;data&quot;:[&quot;1950s&quot;,&quot;1960s&quot;,&quot;1970s&quot;,&quot;1980s&quot;,&quot;1990s&quot;,&quot;2000s&quot;,&quot;2010s&quot;,&quot;2016–2023&quot;],&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#94a3b8&quot;},&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#334155&quot;}}},
+  &quot;yAxis&quot;:{&quot;type&quot;:&quot;value&quot;,&quot;name&quot;:&quot;Million hectares&quot;,&quot;nameTextStyle&quot;:{&quot;color&quot;:&quot;#94a3b8&quot;},&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#94a3b8&quot;},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#1e293b&quot;}},&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#334155&quot;}}},
+  &quot;series&quot;:[{
+    &quot;type&quot;:&quot;bar&quot;,
+    &quot;data&quot;:[0.8,1.1,1.4,2.3,1.8,2.6,3.1,2.9],
+    &quot;itemStyle&quot;:{&quot;color&quot;:{&quot;type&quot;:&quot;linear&quot;,&quot;x&quot;:0,&quot;y&quot;:0,&quot;x2&quot;:0,&quot;y2&quot;:1,&quot;colorStops&quot;:[{&quot;offset&quot;:0,&quot;color&quot;:&quot;#dc2626&quot;},{&quot;offset&quot;:1,&quot;color&quot;:&quot;#7c2d12&quot;}]}},
+    &quot;label&quot;:{&quot;show&quot;:true,&quot;position&quot;:&quot;top&quot;,&quot;color&quot;:&quot;#94a3b8&quot;}
+  }]
+}">
+
+</div>
+<p class="viz-caption">
+Source: Canadian Forest Service, National Fire Database, provincial fire statistics for Alberta; Alberta Wildfire, historical area-burned summaries. Decade totals are approximate; the 2016–2023 bar covers eight years for comparability with the Fort McMurray period. High variability within decades reflects fire-weather dependence of annual burn totals.
+</p>
+<p>The decadal trend in area burned does not follow a smooth upward line — fire is inherently variable, and single extreme seasons can dominate a decade’s statistics. But the trend above the noise is upward: the average annual area burned in Alberta in the 2010s was approximately 50% higher than the 1980s average, and the fire seasons of 2019 and 2023 joined 2016 as historically large events.</p>
+<hr>
+</section>
+<section id="what-fort-mcmurray-taught" class="level2">
+<h2 class="anchored" data-anchor-id="what-fort-mcmurray-taught">What Fort McMurray Taught</h2>
+<p>Fort McMurray is a useful case not because it was the worst-case scenario — fire managers who have since modelled the 2016 fire under slightly different wind conditions have produced scenarios considerably worse — but because it was observable and extensively studied. It generated more post-event analysis than any previous Canadian wildfire, and what that analysis found is instructive.</p>
+<p><strong>Ember transport was the primary mechanism of structural ignition.</strong> The Beast moved into the Beacon Hill and Abasand neighbourhoods primarily not through direct flame contact but through the travel of burning embers — firebrands — carried ahead of the fire front by wind. Some of those firebrands travelled several kilometres. They landed on wood decks, in accumulated leaf litter in gutters, against combustible siding, in open vents. Structures ignited from outside inward. This has major implications for how WUI fire risk is managed: the fire perimeter may be 2 kilometres away and structures are already igniting.</p>
+<p><strong>Structure-to-structure spread extended the fire’s reach.</strong> Once one house ignited, the radiant heat and direct flame contact from that structure became the ignition source for its neighbours, independent of the wildland fire front. The fire moved through some neighbourhoods not as a forest fire but as a structural fire, consuming everything within reach regardless of defensible space around individual properties.</p>
+<p><strong>Development-era building materials mattered enormously.</strong> Neighbourhoods built in the 1970s and early 1980s with combustible materials and minimal fire-resistive design burned almost completely. Newer neighbourhoods with non-combustible cladding, enclosed soffits, and multi-pane windows had meaningfully better survival rates. Alberta adopted progressively stronger WUI construction codes in the decades between Fort McMurray’s early residential development and its later growth phases — and those codes made a measurable difference.</p>
+<p><strong>Evacuation logistics revealed infrastructure gaps.</strong> Highway 63 is the only major road connecting Fort McMurray to southern Alberta. During the evacuation, both lanes of the highway were reversed northbound to move evacuees through the active fire zone — a logistically improvised solution to a geography that has no redundancy. Nearly 90,000 people attempting to move through a single corridor, in both directions at different phases of the evacuation, through an active fire environment, remains one of the most challenging emergency logistics operations in Canadian history.</p>
+<hr>
+</section>
+<section id="the-changing-fire-climate" class="level2">
+<h2 class="anchored" data-anchor-id="the-changing-fire-climate">The Changing Fire Climate</h2>
+<p>The 2016 fire occurred under conditions that fire managers now classify as exceptional: a combination of drought, early spring warmth that advanced the senescence of forest floor materials, and a wind event that produced conditions at or above the threshold where active fire suppression becomes impossible. The Canadian Forest Fire Weather Index reached values that place the day of the fire’s urban run in the top percentile of the historical record for the region.</p>
+<p>The concern expressed by fire scientists is not that such days will become common. The concern is that the conditions that prime the landscape for extreme fire days — antecedent drought, winter precipitation deficits, early spring temperatures that advance fuel dryness — are becoming more frequently met.</p>
+<p>Alberta’s mean annual temperature has increased by approximately 1.5–2°C since the pre-industrial baseline, with the warming concentrated in winter and spring — precisely the seasons that determine soil and fuel moisture heading into the fire season <span class="citation" data-cites="climate-atlas2023">[@climate-atlas2023]</span>. Spring snowmelt is arriving earlier, exposing dried vegetation sooner. Drought indices in the boreal parkland zone have trended upward over the observed record.</p>
+<div data-viz="echarts" style="height:340px" data-options="{
+  &quot;backgroundColor&quot;:&quot;#0f172a&quot;,
+  &quot;title&quot;:{&quot;text&quot;:&quot;Alberta Spring Fire Season Start Date Trend, 1970–2023&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#f8fafc&quot;,&quot;fontSize&quot;:15},&quot;left&quot;:&quot;center&quot;},
+  &quot;tooltip&quot;:{&quot;trigger&quot;:&quot;axis&quot;,&quot;backgroundColor&quot;:&quot;#1e293b&quot;,&quot;borderColor&quot;:&quot;#334155&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#f8fafc&quot;}},
+  &quot;grid&quot;:{&quot;left&quot;:&quot;6%&quot;,&quot;right&quot;:&quot;5%&quot;,&quot;bottom&quot;:&quot;12%&quot;,&quot;containLabel&quot;:true},
+  &quot;xAxis&quot;:{&quot;type&quot;:&quot;category&quot;,&quot;data&quot;:[&quot;1970&quot;,&quot;1975&quot;,&quot;1980&quot;,&quot;1985&quot;,&quot;1990&quot;,&quot;1995&quot;,&quot;2000&quot;,&quot;2005&quot;,&quot;2010&quot;,&quot;2015&quot;,&quot;2020&quot;,&quot;2023&quot;],&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#94a3b8&quot;},&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#334155&quot;}}},
+  &quot;yAxis&quot;:{&quot;type&quot;:&quot;value&quot;,&quot;name&quot;:&quot;Day of year (lower = earlier)&quot;,&quot;nameTextStyle&quot;:{&quot;color&quot;:&quot;#94a3b8&quot;},&quot;inverse&quot;:true,&quot;min&quot;:90,&quot;max&quot;:160,&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#94a3b8&quot;},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#1e293b&quot;}},&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#334155&quot;}}},
+  &quot;series&quot;:[
+    {&quot;type&quot;:&quot;scatter&quot;,&quot;data&quot;:[[0,148],[1,142],[2,145],[3,138],[4,151],[5,133],[6,140],[7,136],[8,129],[9,124],[10,118],[11,112]],&quot;symbolSize&quot;:8,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#f59e0b&quot;},&quot;name&quot;:&quot;First significant fire&quot;},
+    {&quot;type&quot;:&quot;line&quot;,&quot;data&quot;:[[0,148],[1,143],[2,140],[3,137],[4,134],[5,131],[6,128],[7,125],[8,122],[9,119],[10,116],[11,113]],&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#dc2626&quot;,&quot;width&quot;:2,&quot;type&quot;:&quot;dashed&quot;},&quot;symbol&quot;:&quot;none&quot;,&quot;name&quot;:&quot;Trend&quot;}
+  ]
+}">
+
+</div>
+<p class="viz-caption">
+Source: Canadian Forest Service, National Fire Database; Alberta Wildfire fire occurrence data. “First significant fire” defined as first day of year with &gt;500 hectares cumulative provincial fire area. Trend line is linear regression on decade midpoints. Individual years show substantial variability driven by spring weather conditions.
+</p>
+<p>The 2023 fire season — which produced the largest area burned in Canadian history — offered a preview of what shifted fire climates produce at the provincial scale. Over 18 million hectares burned across Canada that year; Alberta contributed a significant portion through a spring season that began weeks ahead of the historical norm. Several WUI communities in northern Alberta experienced evacuations, and the town of Edson came within kilometres of the kind of structural threat Fort McMurray experienced in 2016.</p>
+<hr>
+</section>
+<section id="the-wui-keeps-expanding" class="level2">
+<h2 class="anchored" data-anchor-id="the-wui-keeps-expanding">The WUI Keeps Expanding</h2>
+<p>Against this fire-climate trend, Alberta’s WUI footprint continues to grow. The province’s population growth — among the fastest in Canada — has concentrated in part in precisely the zones of fire-forest interface: acreage developments in the foothills, recreational communities in the mountain parks corridor, energy-sector towns in the boreal fringe.</p>
+<p>The mechanics of WUI expansion in Alberta follow a recognizable pattern. Land is cheaper at the edge of town than in the urban core. Zoning is more permissive. The aesthetic appeal of living adjacent to natural areas — mountain views, forest backdrop, open space nearby — drives demand. Municipal tax bases expand when acreage is subdivided and developed. And critically, the costs of fire management and fire risk are often borne collectively, not by individual property owners, which creates a misalignment between the people making development decisions and the people bearing the risk.</p>
+<p>This pattern has played out at the margins of nearly every Alberta city and town that sits near forest or prairie-forest ecotone. The inventory of WUI communities in the province runs to dozens: not just the visible cases like Fort McMurray, Canmore, and Grande Prairie, but also smaller towns like Edson, Drayton Valley, Rocky Mountain House, and Pincher Creek — each of which has experienced growth into fire-prone terrain in the past 20 years.</p>
+<hr>
+</section>
+<section id="case-study-canmore-and-the-foothills-wui" class="level2">
+<h2 class="anchored" data-anchor-id="case-study-canmore-and-the-foothills-wui">Case Study: Canmore and the Foothills WUI</h2>
+<p>Canmore provides a detailed example of the planning tension that characterizes WUI growth. The town sits in a mountain valley with documented fire history going back centuries. Indigenous fire use shaped the foothills forest for millennia. European settlement changed those fire regimes, but the underlying fuel structure — coniferous forest at high density, prone to surface and crown fire under drought conditions — remains. Fire managers assess the current fuel load in and around Canmore as significant.</p>
+<p>The town’s permanent population has grown from approximately 7,000 in 2000 to approximately 12,000 by 2020 — a 70% increase in two decades. That growth has concentrated in residential subdivisions on the valley slopes, many of them built within or adjacent to the historical fire corridors that fire modelling identifies as the principal routes of fire spread in the event of an ignition on the higher slopes.</p>
+<p>The municipality has responded with substantial investment in community wildfire protection planning. Canmore is frequently cited by fire managers and insurance providers as a Canadian leader in WUI risk management. The community has adopted Fire Smart design standards, requires defensible space around structures, has invested in community fuel breaks, and maintains evacuation protocols. The construction code for new development includes non-combustible cladding, fire-resistant roofing, and enclosed soffits — measures known to reduce the likelihood of structure ignition from firebrand transport and radiant heat.</p>
+<p>These measures matter. But they do not resolve the underlying dynamic. A growing settlement embedded in a fire-prone landscape with a warming-driven trend toward earlier and larger fire seasons is not made safe by planning well. It is made manageable, contingently, in the hope that the management remains adequate. That hope depends on two things holding: (1) that the fire climate does not change faster than the community can adapt, and (2) that the adaptation investments remain sufficient given the change that does occur.</p>
+<p>In 2023, when the Jasper area fires evacuated communities to Canmore’s east, the town’s WUI management system was tested but not broken. The evacuation succeeded. No major fires entered the town. But the test demonstrated both the competence of the system and its fragility: a fire starting in slightly different conditions, with different wind patterns, might have produced a different outcome.</p>
+<hr>
+</section>
+<section id="the-boreal-wui-a-different-risk-profile" class="level2">
+<h2 class="anchored" data-anchor-id="the-boreal-wui-a-different-risk-profile">The Boreal WUI: A Different Risk Profile</h2>
+<p>The foothills WUI, where fire is part of a documented ecological history and communities have centuries of context for living with fire risk, differs meaningfully from the boreal WUI — the zone where resource towns and acreage developments sit at the direct interface with one of the world’s largest intact forest ecosystems.</p>
+<p>Fort McMurray, Athabasca, Grande Prairie, Edson: these are not communities with deep cultural fire knowledge. They are 20th-century resource and service towns that grew up in a fire climate where large conflagrations were rare enough to be manageable. The boreal forest, particularly in the age class that now dominates northern Alberta (stands aged 40–80 years, following suppression of fires through the mid-20th century), is highly flammable under the right conditions. The “right conditions” now occur with increasing frequency.</p>
+<p>The 2023 fire season, which saw evacuations in Edson and other boreal-zone communities, demonstrated the vulnerability of towns in this zone. Edson, a town of approximately 8,500 people, came within kilometres of the kind of structural threat Fort McMurray experienced in 2016. The town’s single evacuation route — Highway 16 — would have become impassable had the fire advanced further. There are no secondary routes. The evacuation would have been chaotic.</p>
+<p>This risk is not unique to Edson. The boreal fringe, running from the Peace Country through the Athabasca and North Saskatchewan drainages, contains dozens of communities in similar vulnerability profiles. And unlike the foothills, where historical fire use and Indigenous knowledge provide some framework for understanding fire as a normal process, these communities face fire risk in a landscape where fire suppression was successful through the 20th century — meaning residents and infrastructure have been built with the assumption that fires would not reach town.</p>
+<hr>
+</section>
+<section id="the-economic-and-infrastructure-dimensions" class="level2">
+<h2 class="anchored" data-anchor-id="the-economic-and-infrastructure-dimensions">The Economic and Infrastructure Dimensions</h2>
+<p>The Fort McMurray fire cost approximately $3.7 billion in insured losses — making it Canada’s costliest natural disaster. But insured loss is not total loss. Many homeowners in the fire zone carried insufficient insurance, or none at all. Small businesses, community infrastructure, and public services bore costs not captured in insurance figures. The total economic impact was estimated at closer to $5–6 billion.</p>
+<p>That scale of loss, repeated in another WUI community, would have severe consequences for provincial insurance markets. Following Fort McMurray, insurance in high-fire-risk zones became significantly more expensive and harder to obtain. Property values in WUI communities now explicitly reflect fire risk in ways they did not before 2016. Communities in high-risk zones have become less attractive as retirement destinations or as places for families to invest in a home purchase. New construction in these zones has slowed appreciably, though not stopped entirely — the economic forces driving residential sprawl toward natural areas remain powerful.</p>
+<p>The infrastructure implication is also significant. Most Alberta communities in WUI zones depend on single evacuation routes. Fort McMurray’s Highway 63, Grande Prairie’s access highways, Canmore’s Highway 1: each is a bottleneck. In an emergency evacuation, a bottleneck that can move 10,000 people per day is catastrophic if the required evacuation is 20,000 or 30,000. The infrastructure capacity was not built for the population now present, and the cost of building redundant evacuation routes or widening existing ones is substantial. Many communities lack the financial resources to undertake such capital projects.</p>
+<p>The fire-risk cost structure created by the 2016 Fort McMurray fire and the subsequent 2019 and 2023 seasons has also created a secondary market for fire risk: private wildfire mitigation services, specialized insurance products, and risk-assessment consulting have all grown. These are rational responses to a real problem. But they create a market where fire preparedness becomes available for those who can afford it, and less available for those who cannot — introducing an equity dimension to what was previously framed as a universal public safety challenge.</p>
+<hr>
+</section>
+<section id="the-structural-gap" class="level2">
+<h2 class="anchored" data-anchor-id="the-structural-gap">The Structural Gap</h2>
+<p>Alberta’s wildfire management system is genuinely capable. The provincial wildfire program operates one of the largest aerial suppression fleets in the world. Incident command expertise developed through decades of large-fire management is real and experienced. The investment in WUI construction standards, community fire smart planning, and evacuation protocol development post-Fort McMurray has been significant. The province has learned from the 2016 fire and applied those lessons systematically.</p>
+<p>What is newer — and telling — is that this is no longer only a small-town and mountain-foothills problem. Edmonton has begun developing a city-scale Wildland-Urban Interface (WUI) wildfire risk strategy for neighbourhoods where urban development meets the river valley, ravines, and undeveloped vegetated edges <span class="citation" data-cites="city-of-edmonton-wui-wildfire-strategy2025">[@city-of-edmonton-wui-wildfire-strategy2025]</span>. Calgary, while less exposed than the boreal and foothills fringe, has folded wildfires into its climate-risk planning and publishes wildfire hazard guidance aimed at households and communities adjacent to grasslands, river valleys, and large urban parks <span class="citation" data-cites="city-of-calgary-climate-implementation-plan2023 city-of-calgary-climate-hazards-wildfires2026">[@city-of-calgary-climate-implementation-plan2023; @city-of-calgary-climate-hazards-wildfires2026]</span>.</p>
+<p>What the system cannot do is reverse the two trend lines that define the structural challenge. It cannot stop the WUI from expanding, because WUI expansion is the product of population growth and land use decisions that operate on a different time scale and through different decision processes than wildfire management. And it cannot stabilise the fire climate, because that climate is driven by global emission trajectories that no provincial management system can influence.</p>
+<p>What this means, practically, is that the system is adapting to a moving target. The suppression capacity appropriate for the fire climate of 1990 is not the suppression capacity appropriate for 2030. The WUI construction standards appropriate for 2010 growth patterns are not appropriate for 2025 growth patterns. And the evacuation infrastructure designed for Fort McMurray’s population and road network in 2016 — already strained then — has not grown proportionally to the population it must now serve.</p>
+<p>Fire country is not a fixed geography. It is expanding, warming, and filling with people. The system that manages it is doing so with real competence. The question the trend lines raise is whether competent management is enough when the parameters keep shifting.</p>
+<hr>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<div id="refs" role="list">
+
+</div>
+<p><em>Related reading: <a href="./articles/storm-country.html">Storm Country</a> examines the meteorological volatility that drives extreme fire weather; <a href="./articles/the-insurance-geography.html">The Insurance Geography</a> maps what the repricing of WUI risk means for Alberta homeowners; <a href="./articles/watching-water.html">Watching Water</a> explores how declining snowpack and shifting runoff timing change both water availability and fire season intensity.</em></p>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/wayward\.house\/essays");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

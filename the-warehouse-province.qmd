@@ -1,0 +1,272 @@
+---
+title: The Warehouse Province
+subtitle: >
+  Alberta produces raw materials and exports them in bulk. Everything
+  else arrives by truck. This is the infrastructure that makes that
+  possible — and what it costs when it breaks.
+date: 2026-04-04
+description: >
+  Alberta's consumer economy depends on a vast logistics infrastructure
+  most residents never see: intermodal terminals, distribution centres,
+  trucking corridors, and cold-chain warehouses that move finished goods
+  thousands of kilometres into the interior. This article maps the
+  system.
+categories:
+  - "Economic Geography"
+image: assets/images/warehouse.jpeg
+toc: true
+---
+
+On a Tuesday morning in mid-January, a CPKC intermodal train pulls into the Alyth Terminal in southeast Calgary. The consist is long — eighty or ninety platforms carrying double-stacked containers that left the Port of Vancouver three days earlier. Most of the boxes originated in East Asian factories; some were trans-shipped from South American or European ports. The contents are ordinary consumer goods: appliances, electronics, clothing, packaged food, hardware, pharmaceuticals. A switching engine begins sorting the train. Within hours, containers are lifted by crane onto waiting semi-trailers and begin their final runs: north up Deerfoot Trail to distribution centres in Calgary's northeast industrial district, west on the Trans-Canada to a retail chain's Alberta facility, north on Highway 2 toward Edmonton.
+
+None of this is visible from the roads most Albertans drive. The Alyth Terminal and the Fairview Intermodal Terminal in northwest Calgary together process most of the province's inbound containerized freight. They are not tourist attractions. They are the hidden entry points for the consumer economy of a province that produces enormous quantities of primary goods and almost none of the manufactured products its residents buy.
+
+This is the logistics infrastructure of a landlocked commodity economy: not what Alberta makes and ships out, but the parallel and less-discussed system through which everything else comes in.
+
+---
+
+## The Asymmetry of Trade
+
+Alberta's export economy runs on primary commodities. Crude oil and bitumen move south and west through pipelines. Natural gas flows east. Wheat and canola move by rail to Port of Vancouver or Prince Rupert for Pacific loading, or east through Winnipeg toward Thunder Bay and the St. Lawrence seaway. Beef leaves in refrigerated rail and truck trailers heading to packing houses most of which sit in Ontario or the US Midwest.
+
+The common feature of all these exports is that they move in bulk, in undifferentiated form, through corridor infrastructure that was purpose-built for them. The export economy is a geography of flows: pipelines, hopper cars, ocean bulk carriers.
+
+The import economy is entirely different in form. Alberta imports roughly $70 billion in goods annually — finished and semi-finished manufactured goods, consumer products, industrial equipment, food that is processed elsewhere, pharmaceuticals, textiles [@statcan-trade-alberta2023]. These goods do not arrive through a pipeline or as hundred-car grain trains. They arrive in individual boxes, pallets, parcels, temperature-controlled trailers, and containers. They require not bulk movement but sortation, storage, sequencing, and last-mile delivery to thousands of distinct endpoints across a province the size of France.
+
+---
+
+## Where the Warehouses Are
+
+The map below shows Alberta's principal logistics nodes: intermodal rail terminals, primary distribution centres, border crossings, and the corridor infrastructure that connects them.
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
+<style>
+.fig-map { border-radius:6px; overflow:hidden; box-shadow:0 2px 14px rgba(0,0,0,0.18); margin:1.5rem 0 0.5rem; }
+.fig-caption { font-size:0.8rem; color:var(--text-muted,#666); line-height:1.6; margin:8px 0 2.5rem; font-style:italic; }
+.fig-caption strong { font-style:normal; }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+
+<div class="fig-map" id="logistics-map" style="height:520px;"></div>
+<p class="fig-caption"><strong>Figure 1.</strong> Alberta's principal logistics nodes and freight corridors. Orange markers: intermodal rail terminals. Blue markers: primary distribution and industrial zones. Green markers: border crossings. Red line: Highway 2 / CANAMEX corridor. Grey lines: principal highway and rail corridors. Click any marker for detail.</p>
+<script>
+(function() {
+  function tryInit() {
+    if (typeof L === 'undefined') { setTimeout(tryInit, 120); return; }
+    const map = L.map('logistics-map', { center: [53.5, -114.0], zoom: 6, zoomControl: true });
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.webp', {
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors © <a href="https://carto.com/">CARTO</a>',
+      subdomains: 'abcd', maxZoom: 19
+    }).addTo(map);
+
+    // Corridors
+    L.polyline([[51.05,-114.07],[49.0,-113.5],[47.5,-111.6]], {color:'#dc2626',weight:3,dashArray:'6,4',opacity:0.8})
+      .bindPopup('<strong>CANAMEX / Highway 2 South</strong><br>Primary northbound consumer goods corridor from US. ~600–800 commercial trucks/day at Coutts crossing.')
+      .addTo(map);
+    L.polyline([[51.05,-114.07],[52.27,-113.81],[53.54,-113.49],[55.17,-118.80]], {color:'#475569',weight:2.5,opacity:0.7})
+      .bindPopup('<strong>Highway 2 North / QEII Corridor</strong><br>The province\'s primary inter-city trucking route. Edmonton–Calgary–Lethbridge.')
+      .addTo(map);
+    L.polyline([[51.05,-114.07],[51.0,-116.0],[50.5,-119.5],[49.28,-123.1]], {color:'#1d4ed8',weight:2.5,dashArray:'4,3',opacity:0.7})
+      .bindPopup('<strong>CPKC Mainline (Kicking Horse Pass)</strong><br>Inbound container traffic from Port of Vancouver. ~1,050 km to port.')
+      .addTo(map);
+    L.polyline([[53.54,-113.49],[53.5,-116.0],[52.9,-118.1],[54.3,-130.3]], {color:'#15803d',weight:2.5,dashArray:'4,3',opacity:0.7})
+      .bindPopup('<strong>CN Mainline (Yellowhead Pass)</strong><br>Second intermodal corridor via Prince Rupert. Primary grain and potash route.')
+      .addTo(map);
+    L.polyline([[53.54,-113.49],[53.5,-114.0],[53.5,-115.5],[53.5,-116.5]], {color:'#7c3aed',weight:2,dashArray:'3,3',opacity:0.6})
+      .bindPopup('<strong>Yellowhead Highway 16 West</strong><br>Secondary road corridor to BC. Acheson and Spruce Grove industrial serve this route.')
+      .addTo(map);
+
+    // Intermodal terminals (orange)
+    const termColor = '#ea580c';
+    const terminals = [
+      {lat:51.01, lng:-114.01, name:'Alyth Intermodal Terminal (CPKC)', desc:'Calgary\'s primary eastern intermodal facility. Processes most CPKC container traffic from Vancouver. SE industrial district.'},
+      {lat:51.10, lng:-114.18, name:'Fairview Intermodal Terminal (CN)', desc:'Northwest Calgary. CN intermodal connection from Yellowhead / Prince Rupert corridor.'},
+      {lat:53.60, lng:-113.38, name:'Alberta Capital Region Intermodal (CN)', desc:'Edmonton\'s primary CN intermodal yard. Serves northern Alberta distribution network.'},
+    ];
+    terminals.forEach(t => {
+      L.circleMarker([t.lat, t.lng], {radius:10,color:'#fff',weight:2,fillColor:termColor,fillOpacity:0.9})
+        .bindPopup(`<strong>${t.name}</strong><br>${t.desc}`)
+        .addTo(map);
+    });
+
+    // Distribution zones (blue)
+    const dcColor = '#2563eb';
+    const dcs = [
+      {lat:51.15, lng:-113.95, name:'Calgary NE Industrial District', desc:'~60 km² primary logistics zone. Regional DCs for grocery chains, big-box retailers, cold chain facilities, parcel sortation centres. Vacancy <2% 2021–2024.'},
+      {lat:53.55, lng:-113.28, name:'Edmonton North Industrial (Manning Dr)', desc:'Second-largest Alberta logistics concentration. Grocery distribution, manufacturing-support, parcel ops.'},
+      {lat:53.53, lng:-113.85, name:'Acheson Industrial Area (Sturgeon County)', desc:'Fastest-growing Alberta logistics precinct. Large-format DCs requiring Yellowhead / Hwy 16 access. Home to several major retailer RDCs.'},
+      {lat:53.51, lng:-113.48, name:'Sherwood Park / Leduc Corridor', desc:'Southern Edmonton logistics fringe. Industrial Heartland adjacency; petrochemical supply chain DCs.'},
+      {lat:52.27, lng:-113.73, name:'Red Deer Logistics Node', desc:'Geographic midpoint of Edmonton–Calgary corridor. Secondary DC and trucking hub serving central Alberta.'},
+      {lat:49.69, lng:-112.82, name:'Lethbridge Distribution', desc:'Secondary node for southern Alberta and CANAMEX inbound. US-sourced cold chain product enters here from Coutts crossing.'},
+    ];
+    dcs.forEach(d => {
+      L.circleMarker([d.lat, d.lng], {radius:8,color:'#fff',weight:2,fillColor:dcColor,fillOpacity:0.85})
+        .bindPopup(`<strong>${d.name}</strong><br>${d.desc}`)
+        .addTo(map);
+    });
+
+    // Border crossings (green)
+    const bdrColor = '#16a34a';
+    const borders = [
+      {lat:49.00, lng:-111.97, name:'Coutts–Sweetgrass Border Crossing', desc:'Canada\'s third-busiest land crossing by commercial volume. ~600–800 trucks/day. Primary CANAMEX corridor entry for northbound consumer goods from US distribution network.'},
+      {lat:49.00, lng:-114.07, name:'Carway–Piegan Border Crossing', desc:'Secondary crossing on Hwy 2 south. Lower volume; primarily private vehicle and some agricultural cross-border movement.'},
+    ];
+    borders.forEach(b => {
+      L.circleMarker([b.lat, b.lng], {radius:9,color:'#fff',weight:2,fillColor:bdrColor,fillOpacity:0.9})
+        .bindPopup(`<strong>${b.name}</strong><br>${b.desc}`)
+        .addTo(map);
+    });
+
+    // Fort McMurray remote node
+    L.circleMarker([56.73,-111.38], {radius:7,color:'#fff',weight:2,fillColor:'#7c3aed',fillOpacity:0.8})
+      .bindPopup('<strong>Fort McMurray / Oil Sands Camp Corridor</strong><br>~500 km from Edmonton. Camp food service contractors maintain dedicated cold-chain supply lines. ~5,000–10,000 camp residents served by purpose-built logistics.')
+      .addTo(map);
+
+    // Legend
+    const legend = L.control({position:'bottomright'});
+    legend.onAdd = function() {
+      const d = L.DomUtil.create('div','info legend');
+      d.style.cssText = 'background:white;padding:8px 12px;border-radius:4px;font-size:11px;line-height:1.8;box-shadow:0 1px 5px rgba(0,0,0,0.2)';
+      d.innerHTML = [
+        '<strong>Logistics nodes</strong>',
+        '<span style="color:#ea580c">●</span> Intermodal terminal',
+        '<span style="color:#2563eb">●</span> Distribution zone',
+        '<span style="color:#16a34a">●</span> Border crossing',
+        '<span style="color:#7c3aed">●</span> Remote node',
+        '—— CANAMEX (Hwy 2)',
+        '<span style="color:#1d4ed8">- -</span> CPKC rail',
+        '<span style="color:#15803d">- -</span> CN rail',
+      ].join('<br>');
+      return d;
+    };
+    legend.addTo(map);
+  }
+  tryInit();
+})();
+</script>
+
+Canadian distribution centre geography follows population, with a heavy bias toward the southern Ontario corridor where most of the country's consumers live and where most national chains have located their primary infrastructure. Within Alberta, distribution geography follows a different but equally legible logic: it concentrates along the Edmonton-Calgary corridor, which carries the province's population and connects to both the Highway 2 / CANAMEX trucking axis to the south and the Yellowhead Highway 16 corridor to the west.
+
+Calgary's primary logistics district is the northeast industrial area — a roughly 60-square-kilometre zone between Deerfoot Trail, Airport Trail, and the city's eastern boundary. This district contains the highest concentration of distribution and warehouse facilities in the province: regional DCs for grocery chains, big-box retailer distribution hubs, cold-chain and temperature-controlled facilities, parcel sortation centres for national couriers, and the city's two intermodal rail terminals. Industrial vacancy in this district has run below 2% for most of the past four years, reflecting demand that has consistently exceeded supply of purpose-built logistics space [@cbre-calgary-industrial2024].
+
+Edmonton's primary logistics area is more dispersed, with significant facilities in the Acheson Industrial Area (Sturgeon County, immediately west of the city's boundary), the north Edmonton industrial zone along Manning Drive, and the Sherwood Park and Leduc corridors. Acheson in particular has grown substantially, drawing DCs that require large footprints and easy access to the Yellowhead and Highway 16 west. The Alberta Capital Region Intermodal facility (connected to CN's Edmonton yard) handles containerized freight for the northern half of the province.
+
+<div data-viz="echarts" style="height:380px" data-options='{
+  "backgroundColor":"#0f172a",
+  "title":{"text":"Alberta Industrial Vacancy Rate vs. National Average, 2019–2024","textStyle":{"color":"#f8fafc","fontSize":15},"left":"center"},
+  "tooltip":{"trigger":"axis","backgroundColor":"#1e293b","borderColor":"#334155","textStyle":{"color":"#f8fafc"}},
+  "legend":{"data":["Calgary NE Industrial","Edmonton Acheson/North","National Average"],"bottom":10,"textStyle":{"color":"#cbd5e1"}},
+  "grid":{"left":"6%","right":"5%","bottom":"15%","containLabel":true},
+  "xAxis":{"type":"category","data":["Q1 2019","Q1 2020","Q1 2021","Q1 2022","Q1 2023","Q1 2024"],"axisLabel":{"color":"#94a3b8"},"axisLine":{"lineStyle":{"color":"#334155"}}},
+  "yAxis":{"type":"value","name":"Vacancy rate (%)","nameTextStyle":{"color":"#94a3b8"},"min":0,"max":8,"axisLabel":{"color":"#94a3b8","formatter":"{value}%"},"splitLine":{"lineStyle":{"color":"#1e293b"}},"axisLine":{"lineStyle":{"color":"#334155"}}},
+  "series":[
+    {"name":"Calgary NE Industrial","type":"line","data":[3.8,4.2,3.1,1.8,1.6,1.9],"lineStyle":{"color":"#f59e0b","width":3},"itemStyle":{"color":"#f59e0b"},"symbol":"circle"},
+    {"name":"Edmonton Acheson/North","type":"line","data":[4.5,5.1,4.0,2.4,2.1,2.3],"lineStyle":{"color":"#60a5fa","width":3},"itemStyle":{"color":"#60a5fa"},"symbol":"circle"},
+    {"name":"National Average","type":"line","data":[4.1,4.8,3.9,1.9,1.7,2.0],"lineStyle":{"color":"#64748b","width":2,"type":"dashed"},"itemStyle":{"color":"#64748b"},"symbol":"none"}
+  ]
+}'></div>
+
+<p class="viz-caption">Source: CBRE Canada Industrial Market Reports, Q1 2019–Q1 2024 [@cbre-calgary-industrial2024]; Colliers Canada Industrial Market Report series. Vacancy figures reflect purpose-built logistics and distribution space; exclude heavy industrial and manufacturing. National average is the weighted composite across major Canadian markets.</p>
+
+Between these two anchors, secondary logistics nodes have developed at Lethbridge (serving southern Alberta and the US border crossing at Coutts), Red Deer (the geographical midpoint of the Edmonton-Calgary corridor), and Grande Prairie (serving the Peace Country and the resource extraction sector to the northwest).
+
+---
+
+## The CANAMEX Corridor
+
+Much of the public discussion of Alberta's trade geography focuses on Pacific export corridors — the Trans Mountain pipeline, the CN and CPKC rail mainlines to Prince Rupert and Vancouver, the highway routes through the mountain passes. These are the routes that matter for Alberta's commodity exports.
+
+For the province's consumer import economy, a different corridor matters more: the CANAMEX corridor, the north-south trucking and highway axis running from Mexico through the United States to Alberta via Montana.
+
+The Coutts-Sweetgrass border crossing, where Highway 4 crosses the 49th parallel, is Canada's third-busiest land border crossing by commercial vehicle volume. On a typical day, six to eight hundred commercial trucks cross in each direction. Southbound loads are dominated by Alberta-produced goods heading to US markets: beef, pork, agricultural products, manufactured goods. Northbound loads are what sustains the Alberta consumer economy: American-manufactured goods, US-sourced produce, industrial equipment, packaged food from US production facilities.
+
+<div data-viz="echarts" style="height:340px" data-options='{
+  "backgroundColor":"#0f172a",
+  "title":{"text":"Coutts-Sweetgrass Border Crossing: Commercial Vehicle Volume, 2017–2024","textStyle":{"color":"#f8fafc","fontSize":15},"left":"center"},
+  "tooltip":{"trigger":"axis","backgroundColor":"#1e293b","borderColor":"#334155","textStyle":{"color":"#f8fafc"}},
+  "legend":{"data":["Northbound (imports to AB)","Southbound (exports from AB)"],"bottom":10,"textStyle":{"color":"#cbd5e1"}},
+  "grid":{"left":"6%","right":"5%","bottom":"15%","containLabel":true},
+  "xAxis":{"type":"category","data":["2017","2018","2019","2020","2021","2022","2023","2024"],"axisLabel":{"color":"#94a3b8"},"axisLine":{"lineStyle":{"color":"#334155"}}},
+  "yAxis":{"type":"value","name":"Commercial vehicles (thousands)","nameTextStyle":{"color":"#94a3b8"},"axisLabel":{"color":"#94a3b8"},"splitLine":{"lineStyle":{"color":"#1e293b"}},"axisLine":{"lineStyle":{"color":"#334155"}}},
+  "series":[
+    {"name":"Northbound (imports to AB)","type":"bar","data":[210,218,224,164,195,231,244,238],"itemStyle":{"color":"#f59e0b"}},
+    {"name":"Southbound (exports from AB)","type":"bar","data":[198,205,211,152,183,218,230,225],"itemStyle":{"color":"#475569"}}
+  ]
+}'></div>
+
+<p class="viz-caption">Source: Transport Canada, Border Information Flow Architecture (BIFA) database, commercial vehicle border crossing counts; Canada Border Services Agency annual statistics. 2020 reflects COVID-19 border restrictions. Values are approximate annual commercial vehicle crossings in both directions.</p>
+
+The CANAMEX corridor matters specifically because the American distribution network — far larger, denser, and more redundant than Canada's — effectively reaches into Alberta through this crossing. A Walmart distribution centre in Great Falls, Montana, is logistically closer to Lethbridge than the chain's Brampton, Ontario facility is. American food-service distributors serve the Alberta hotel and restaurant sector extensively from facilities in Washington, Montana, and Utah states.
+
+This north-south integration creates a specific vulnerability that became visible in 2025 when tariff actions began to raise uncertainty about the cost and continuity of US-Alberta trade. An Alberta that cannot source efficiently from the south would face increased costs across a wide range of consumer categories.
+
+---
+
+## The Cold Chain
+
+Temperature-sensitive goods represent a special case within Alberta's logistics geography. Fresh produce, dairy, meat, pharmaceuticals, and certain industrial chemicals require continuous temperature control from origin to point of use — what the industry calls the cold chain. Managing the cold chain across the distances Alberta's geography imposes is both expensive and critical to food system function.
+
+Alberta's cold chain infrastructure divides into three tiers. The first is the national cold-storage network: large temperature-controlled distribution centres operated by national grocery chains and food-service distributors, located primarily in the Calgary NE and Edmonton north industrial districts. The second tier is the provincial distribution network: refrigerated trucking operations that move product from the tier-one DCs to retail stores, restaurants, and institutions across the province. This is where the challenge of Alberta's geography is most acute. Serving a city like Grande Prairie, Fort McMurray, or Lethbridge from a Calgary DC requires a refrigerated truck to travel 400, 450, or 220 kilometres respectively — each way. The economics of this service model mean that secondary and remote communities bear higher distribution costs than urban centres.
+
+The third tier is the institutional and specialty cold chain: hospitals, long-term care facilities, universities, remote industrial camps. The logistics of feeding a large oil sands camp — which may house 5,000 workers 500 kilometres from Edmonton — resembles a military logistics operation. The contractors who serve this market maintain dedicated cold-chain supply chains that are largely invisible to public scrutiny.
+
+---
+
+## Who Does This Work
+
+The logistics sector is Alberta's second-largest goods-handling employer after the resource extraction industries. When transportation and warehousing are combined with the courier and messenger sector, Alberta employs approximately 115,000 people in logistics-related occupations [@statcan-labour-force2024] — roughly comparable to the healthcare system's direct care workforce.
+
+<div data-viz="echarts" style="height:360px" data-options='{
+  "backgroundColor":"#0f172a",
+  "title":{"text":"Alberta Logistics Employment by Occupation Category, 2024","textStyle":{"color":"#f8fafc","fontSize":15},"left":"center"},
+  "tooltip":{"trigger":"item","formatter":"{b}: {c}k workers","backgroundColor":"#1e293b","borderColor":"#334155","textStyle":{"color":"#f8fafc"}},
+  "grid":{"left":"5%","right":"15%","bottom":"5%","top":"12%","containLabel":true},
+  "xAxis":{"type":"value","name":"Thousands of workers","nameTextStyle":{"color":"#94a3b8"},"axisLabel":{"color":"#94a3b8","formatter":"{value}k"},"splitLine":{"lineStyle":{"color":"#1e293b"}},"axisLine":{"lineStyle":{"color":"#334155"}}},
+  "yAxis":{"type":"category","data":["Courier/last mile","Logistics mgmt & planning","Air cargo","Rail freight ops","Customs & brokerage","Parcel sort & courier ops","Warehouse & material handler","Truck driver & owner-operator"],"axisLabel":{"color":"#94a3b8"},"axisLine":{"lineStyle":{"color":"#334155"}}},
+  "series":[{
+    "type":"bar",
+    "data":[8,9,4,5,6,14,25,38],
+    "itemStyle":{"color":{"type":"linear","x":0,"y":0,"x2":1,"y2":0,"colorStops":[{"offset":0,"color":"#1e3a5f"},{"offset":1,"color":"#f59e0b"}]}},
+    "label":{"show":true,"position":"right","color":"#94a3b8","formatter":"{c}k"}
+  }]
+}'></div>
+
+<p class="viz-caption">Source: Statistics Canada, Labour Force Survey, annual averages 2024, NAICS 48–49 [@statcan-labour-force2024]. Figures are rounded to nearest thousand.</p>
+
+The occupational structure of this sector is distinct. Truck drivers and driver-sales workers represent the largest single category — approximately 38,000 in Alberta. Warehouse and material handler occupations account for roughly 25,000. The sector is male-dominated, skews toward non-university-educated workers, and has a significant immigrant workforce, particularly in metropolitan warehouse and parcel operations. Wages vary enormously: long-haul owner-operators with good contracts can earn above $100,000 annually; warehouse floor workers in parcel sort facilities often earn near minimum wage.
+
+---
+
+## The Fragility Test
+
+Alberta's logistics system passed an inadvertent stress test in November 2021, when a series of atmospheric river weather systems struck British Columbia. The resulting floods severed multiple Trans-Canada Highway and CN/CPKC rail corridors simultaneously for approximately two weeks.
+
+With both mountain rail corridors severed and the Trans-Canada highway impassable, Alberta's intermodal terminals stopped receiving new containers from the Pacific gateway. Retailer inventory systems — already stressed by the post-COVID demand surge — began signalling shortfall risk on high-velocity consumer goods. Several national grocery chains quietly activated emergency sourcing protocols, rerouting product through the CANAMEX corridor from US distribution points.
+
+The disruption lasted roughly two weeks. Retail shelves in Calgary and Edmonton showed isolated but visible gaps. The fuel supply situation was more serious: with pipeline maintenance typically supplemented by product trucked through the mountain passes, the logistics corridor closure created real risk of regional fuel shortfall before the pipeline systems stabilized supply.
+
+What the 2021 event demonstrated is that Alberta's logistics geography has single points of failure that do not exist for provinces embedded in denser networks. Ontario, disrupted on one rail corridor, can reroute through another. Alberta, at the end of a continental supply chain that passes through three mountain ranges and one major Pacific port cluster, does not. When the gateway closes, the province is exposed.
+
+---
+
+## The Price of Distance, Again
+
+The logistics costs embedded in Alberta's consumer economy are real but largely invisible in retail prices, absorbed into retail margins and occasionally surfacing as regional price differentials:
+
+**Rail drayage and terminal handling.** Every container moving through an Alberta intermodal terminal incurs terminal handling charges — typically $400–800 per container in a competitive market — not specifically higher in Alberta than in other inland terminals, but adding a layer absent from direct port-to-DC delivery available in Toronto or Vancouver.
+
+**Intra-provincial distribution.** Serving secondary Alberta cities from metropolitan DCs adds between 15% and 25% to per-unit distribution cost compared to serving customers within the same urban market.
+
+**Cold chain premium.** Temperature-sensitive distribution over Alberta's distances runs materially above the Canadian average cost per pallet-kilometre. Refrigerated trailer capacity is tighter in western Canada, fuel costs per kilometre are higher in winter conditions, and the thin density of secondary markets makes efficient routing more difficult.
+
+**Tariff exposure.** With a significant portion of northbound consumer goods crossing the CANAMEX corridor from the United States, any tariff escalation in the Canada-US trade relationship flows directly into the cost of goods that Alberta consumers buy.
+
+These costs do not appear as a single line item in a household budget. They surface as the aggregate of slightly higher prices, slightly less product variety, slightly longer delivery windows, and the occasional shelf gap that Alberta consumers accept as background noise. They are, in aggregate, a significant and ongoing cost of the landlocked geography documented in this series.
+
+---
+
+## References
+
+---
+
+*This article is part of the Alberta in Context series. Previous entries include [Landlocked by Default](/articles/landlocked-by-default.html), which maps Alberta's export corridor vulnerabilities, and [The Checkout Problem](/articles/the-checkout-problem.html), which examines how distribution geography and market concentration shape grocery prices.*

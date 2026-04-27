@@ -1,0 +1,748 @@
+---
+title: The Burning Strait
+subtitle: >
+  A systems view of chokepoint activation, supply chain propagation, and
+  the asymmetric geography of oil dependence
+date: 2026-03-03
+description: >
+  The Strait of Hormuz sits at the centre of the global energy system,
+  where geography, politics, and shipping lanes converge. This article
+  examines why a narrow passage of water can shape oil markets and
+  geopolitical stability.
+categories:
+  - "Economic Geography"
+image: assets/images/choke-point.webp
+toc: true
+---
+
+> **Updated March 9, 2026.** This article was originally published on March 3, six days into the 2026 Iran war. The analysis below is preserved as written — reflecting the view from the opening days of the crisis. A new section appended at the end documents what has changed in the week since: Brent briefly hitting $126, the strait still effectively closed, the election of a new Supreme Leader, Hezbollah's second front, and the first Israeli strikes on Iranian oil infrastructure. [Jump to update →](#update-march-9-2026--the-crisis-enters-its-second-week)
+
+---
+
+## Preface: From Theoretical Risk to Operational Reality
+
+In *Contested Ground*, we described three forces pressing simultaneously on global oil markets: the sanctions-driven reshuffling of trade flows, China's renewable compression of demand growth, and the rising consumption profiles of Asia's population centres. That article was written into a world where the Strait of Hormuz was a theoretical risk — the classic "what if" of energy security modelling, discussed for decades but never actualised.[^1]
+
+On February 28, 2026, the theoretical became operational.
+
+This article examines what changes when the chokepoint activates. It is not a commentary on the conflict itself — the humanitarian and environmental consequences within the region are self-evidently severe and deserve separate treatment. What follows is the systems view: how physical geography, financial geography, and economic geography interact when the world's most consequential energy corridor goes dark.
+
+---
+
+## Part A: The Geography of Concentration
+
+To understand the current crisis is to understand the Persian Gulf not as a region that produces oil, but as a system in which the entire vertical — upstream extraction, midstream processing and transport, and downstream refining and export — is compressed into a narrow geographic corridor. Scroll through the five geographic facts below.
+
+::: {.story-section}
+::: {.story-sticky}
+<div class="story-graphic">
+  <div data-leaflet id="gulf-map"
+       data-lat="26.5" data-lng="52.0"
+       data-zoom="5"
+       data-tiles="carto-dark"></div>
+</div>
+:::
+::: {.story-steps}
+::: {.story-step data-step="0" data-update='{"gulf-map": {"lat": 26.5, "lng": 52.0, "zoom": 5, "animate": false}}'}
+**The Persian Gulf as a System.** No other region on Earth concentrates this much energy infrastructure in this little space, and no other chokepoint channels this large a fraction of global supply through a passage barely 34 kilometres wide at its narrowest point. Understanding the current crisis requires understanding this geography as a *system*, not a collection of independent facilities.
+:::
+
+::: {.story-step data-step="1" data-update='{"gulf-map": {"lat": 25.5, "lng": 50.5, "zoom": 6}}'}
+**Upstream: Where the Oil Comes From.** Five countries — Saudi Arabia, Iraq, the UAE, Kuwait, and Iran — account for approximately 93.6% of all crude and condensate volumes transiting Hormuz. Their fields sit within a few hundred kilometres of the Gulf coast: Ghawar 100 km inland, Basra fields feeding directly to the Basra Oil Terminal, Kuwait's entire export infrastructure facing the Gulf, UAE fields offshore, Iran's Kharg Island terminal in the northern Gulf.
+
+The geographic fact is plain: there is no inland alternative for the bulk of this production. The oil must cross water. And the water narrows to Hormuz.
+:::
+
+::: {.story-step data-step="2" data-update='{"gulf-map": {"lat": 26.3, "lng": 56.2, "zoom": 8}}'}
+**Midstream: The Chokepoint.** In 2024, approximately 20 million barrels per day of oil flowed through the Strait of Hormuz — roughly 20% of global petroleum liquids consumption and over 31% of all seaborne crude flows. Additionally, about 20% of global LNG exports — primarily from Qatar — transit the same waterway.
+
+The navigable channel at the strait's narrowest point measures just 34 kilometres across. The inbound and outbound traffic separation lanes are each 2 nautical miles wide — a pinch point with no parallel in global energy infrastructure. Alternative bypass routes cover perhaps a third of normal Hormuz flows. There is no engineering substitute for an open strait.
+:::
+
+::: {.story-step data-step="3" data-update='{"gulf-map": {"lat": 26.2, "lng": 50.8, "zoom": 6}}'}
+**Downstream: The Blast Radius.** The Gulf's downstream infrastructure sits directly on or near the coast: Ras Tanura (550,000 b/d refinery and 4.5 mb/d export pier), Ras Laffan (~20% of global LNG), ADNOC facilities offshore Abu Dhabi, Kuwait's Mina Al-Ahmadi complex. All are within drone range of Iran.
+
+The 2019 Abqaiq attack proved the vulnerability: a limited drone strike temporarily knocked out more than half of Saudi Arabia's crude production. Saudi Arabia's East-West Petroline — capacity 5 mb/d to the Red Sea — offers only partial relief; it handles Saudi crude alone and is already running at capacity.
+:::
+
+::: {.story-step data-step="4" data-update='{"gulf-map": {"lat": 20.0, "lng": 108.0, "zoom": 3}}'}
+**The Destination Geography.** 84% of crude oil and condensate transiting Hormuz in 2024 was destined for Asian markets: China 37.7%, India 14.7%, South Korea 12.0%, Japan 10.9%. The United States receives just 2.5%.
+
+When the strait closes, it is Asia — not Europe, not North America — that absorbs the immediate physical shortage. Japan sources 72% of its oil imports through Hormuz. South Korea 65%. Singapore 55%. The circles below are scaled to that dependence.
+:::
+:::
+:::
+
+<script>
+(function () {
+  var mapEl = document.getElementById('gulf-map');
+  if (!mapEl) return;
+  var initialized = false;
+
+  function label(html, anchor) {
+    return window.L.divIcon({
+      className: '',
+      html: html,
+      iconAnchor: anchor || [0, 0],
+      iconSize: null
+    });
+  }
+
+  function initLayers(map) {
+    if (initialized) return;
+    initialized = true;
+    var L = window.L;
+
+    // ── Layer groups ──────────────────────────────────────────────────────────
+
+    var lgCountries  = L.layerGroup();
+    var lgOilFields  = L.layerGroup();
+    var lgTerminals  = L.layerGroup();
+    var lgStrait     = L.layerGroup();
+    var lgDamage     = L.layerGroup();
+    var lgPipeline   = L.layerGroup();
+    var lgAsia       = L.layerGroup();
+
+    // ── Step 0: Country labels ────────────────────────────────────────────────
+
+    var countries = [
+      { lat: 24.0, lng: 44.5, name: 'SAUDI ARABIA' },
+      { lat: 33.2, lng: 44.5, name: 'IRAQ' },
+      { lat: 24.2, lng: 54.6, name: 'UAE' },
+      { lat: 29.4, lng: 47.6, name: 'KUWAIT' },
+      { lat: 32.5, lng: 53.5, name: 'IRAN' },
+      { lat: 25.3, lng: 51.0, name: 'QATAR' },
+      { lat: 22.5, lng: 57.8, name: 'OMAN' },
+    ];
+
+    countries.forEach(function (c) {
+      L.marker([c.lat, c.lng], {
+        icon: label('<span style="font-family:\'IBM Plex Mono\',monospace;font-size:10px;font-weight:700;letter-spacing:1.5px;color:#7a7060;text-shadow:0 1px 4px rgba(0,0,0,0.9);white-space:nowrap;">' + c.name + '</span>'),
+        interactive: false,
+        keyboard: false,
+      }).addTo(lgCountries);
+    });
+
+    // ── Step 1: Oil fields (proportional circles) + export terminals ──────────
+
+    var oilFields = [
+      { lat: 24.5, lng: 49.5, name: 'Ghawar',            mbd: 3.8, country: 'Saudi Arabia' },
+      { lat: 29.1, lng: 47.9, name: 'Burgan',             mbd: 1.7, country: 'Kuwait' },
+      { lat: 30.0, lng: 47.3, name: 'Rumaila',            mbd: 1.4, country: 'Iraq' },
+      { lat: 29.2, lng: 50.2, name: 'Ahvaz / Khuzestan',  mbd: 1.0, country: 'Iran' },
+      { lat: 24.2, lng: 53.4, name: 'Upper Zakum',        mbd: 0.8, country: 'UAE' },
+      { lat: 25.9, lng: 51.5, name: 'North Field',        mbd: 2.5, country: 'Qatar (LNG)' },
+    ];
+
+    oilFields.forEach(function (f) {
+      L.circle([f.lat, f.lng], {
+        radius: f.mbd * 40000,
+        color: '#e8cc6a',
+        fillColor: '#e8cc6a',
+        fillOpacity: 0.12,
+        weight: 1.5,
+      })
+        .bindTooltip('<strong>' + f.name + '</strong><br>' + f.mbd + ' mb/d — ' + f.country, { sticky: true })
+        .addTo(lgOilFields);
+
+      L.marker([f.lat, f.lng], {
+        icon: label('<span style="font-family:\'IBM Plex Mono\',monospace;font-size:9px;color:#e8cc6a;text-shadow:0 1px 3px rgba(0,0,0,0.9);white-space:nowrap;margin-left:6px;">' + f.name + '<br><strong>' + f.mbd + ' mb/d</strong></span>', [0, 8]),
+        interactive: false,
+        keyboard: false,
+      }).addTo(lgOilFields);
+    });
+
+    var terminals = [
+      { lat: 26.62, lng: 50.08, name: 'Ras Tanura',    cap: '4.5 mb/d export' },
+      { lat: 29.68, lng: 48.78, name: 'Basra Terminal', cap: '1.8 mb/d' },
+      { lat: 29.06, lng: 48.13, name: 'Mina Al-Ahmadi', cap: '1.0 mb/d' },
+      { lat: 24.88, lng: 52.87, name: 'Das Island',     cap: '0.5 mb/d' },
+      { lat: 25.88, lng: 51.55, name: 'Ras Laffan',     cap: '77 MTPA LNG' },
+      { lat: 29.24, lng: 50.32, name: 'Kharg Island',   cap: '5.0 mb/d export' },
+    ];
+
+    terminals.forEach(function (t) {
+      L.circleMarker([t.lat, t.lng], {
+        radius: 5,
+        color: '#c44e4e',
+        fillColor: '#c44e4e',
+        fillOpacity: 0.9,
+        weight: 1.5,
+      })
+        .bindTooltip('<strong>' + t.name + '</strong><br>' + t.cap, { sticky: true })
+        .addTo(lgTerminals);
+    });
+
+    // ── Step 2: Strait detail — shipping lanes + narrows measurement ──────────
+    //
+    // The TSS runs NW-SE: Gulf entrance at lower lng/higher lat, Indian Ocean
+    // at higher lng/lower lat. Outbound (exiting Gulf) uses the NE/Iranian side;
+    // inbound (entering Gulf) uses the SW/Omani side. Both lanes sit inside the
+    // ~34 km navigable channel between the Qeshm/Larak area and Musandam.
+
+    // Outbound — NE lane, exits toward SE (Iranian shore side)
+    var outbound = [[26.70, 55.9],[26.74, 56.35],[26.78, 56.75],[26.82, 57.2]];
+    // Inbound  — SW lane, enters toward NW (Musandam/Omani side)
+    var inbound  = [[26.50, 57.2],[26.44, 56.75],[26.38, 56.35],[26.34, 55.9]];
+
+    L.polyline(outbound, { color: '#e8cc6a', weight: 4, opacity: 0.85 })
+      .bindTooltip('Outbound lane (Sector B) — ~10 mb/d exiting Gulf', { sticky: true })
+      .addTo(lgStrait);
+
+    L.polyline(inbound, { color: '#4e8ac4', weight: 4, opacity: 0.85 })
+      .bindTooltip('Inbound lane (Sector A) — ~10 mb/d entering Gulf', { sticky: true })
+      .addTo(lgStrait);
+
+    // Ocean-mouth dots
+    L.circleMarker([26.82, 57.2], { radius: 5, color: '#e8cc6a', fillColor: '#e8cc6a', fillOpacity: 1, weight: 1 }).addTo(lgStrait);
+    L.circleMarker([26.50, 57.2], { radius: 5, color: '#4e8ac4', fillColor: '#4e8ac4', fillOpacity: 1, weight: 1 }).addTo(lgStrait);
+
+    // Lane labels positioned mid-strait alongside each lane
+    L.marker([26.76, 56.55], {
+      icon: label('<span style="font-family:\'IBM Plex Mono\',monospace;font-size:9px;font-weight:700;color:#e8cc6a;text-shadow:0 1px 3px rgba(0,0,0,0.9);white-space:nowrap;">OUTBOUND ↗</span>', [30, 8]),
+      interactive: false, keyboard: false,
+    }).addTo(lgStrait);
+
+    L.marker([26.41, 56.55], {
+      icon: label('<span style="font-family:\'IBM Plex Mono\',monospace;font-size:9px;font-weight:700;color:#4e8ac4;text-shadow:0 1px 3px rgba(0,0,0,0.9);white-space:nowrap;">INBOUND ↙</span>', [30, 8]),
+      interactive: false, keyboard: false,
+    }).addTo(lgStrait);
+
+    // Narrows measurement: span between the two lanes at ~56.5°E
+    // Outbound at 56.5°E ≈ 26.76°N, inbound ≈ 26.41°N → ~0.35° × 111 km = ~39 km
+    var measLng = 56.5;
+    var measN = 26.76, measS = 26.41;
+    L.polyline([[measN, measLng],[measS, measLng]], {
+      color: '#ffffff', weight: 2, dashArray: '5 4', opacity: 0.9,
+    })
+      .bindTooltip('<strong>~34 km</strong> — navigable channel width at narrows', { permanent: false })
+      .addTo(lgStrait);
+
+    // End ticks
+    L.polyline([[measN, measLng - 0.07],[measN, measLng + 0.07]], { color: '#fff', weight: 2, opacity: 0.9 }).addTo(lgStrait);
+    L.polyline([[measS, measLng - 0.07],[measS, measLng + 0.07]], { color: '#fff', weight: 2, opacity: 0.9 }).addTo(lgStrait);
+
+    // Measurement label at midpoint, left of the line
+    L.marker([(measN + measS) / 2, measLng], {
+      icon: label('<span style="font-family:\'IBM Plex Mono\',monospace;font-size:11px;font-weight:700;color:#ffffff;background:rgba(0,0,0,0.65);padding:2px 6px;border-radius:2px;white-space:nowrap;">~34 km</span>', [52, 8]),
+      interactive: false, keyboard: false,
+    }).addTo(lgStrait);
+
+    // Bandar Abbas — dot + tooltip only (basemap already labels the city)
+    L.circleMarker([27.18, 56.28], { radius: 5, color: '#c44e4e', fillColor: '#c44e4e', fillOpacity: 0.9, weight: 1.5 })
+      .bindTooltip('<strong>Bandar Abbas</strong> — IRGC naval headquarters<br>Primary base for Iranian anti-shipping operations')
+      .addTo(lgStrait);
+
+    // Musandam label (basemap may not label this clearly at zoom 8)
+    L.circleMarker([26.27, 56.38], { radius: 4, color: '#7a7060', fillColor: '#7a7060', fillOpacity: 0.8, weight: 1 }).addTo(lgStrait);
+    L.marker([26.27, 56.38], {
+      icon: label('<span style="font-family:\'IBM Plex Mono\',monospace;font-size:9px;font-weight:600;color:#8a8070;text-shadow:0 1px 3px rgba(0,0,0,0.9);white-space:nowrap;margin-left:7px;">MUSANDAM (Oman)</span>', [0, 6]),
+      interactive: false, keyboard: false,
+    }).addTo(lgStrait);
+
+    // Flow volume — left of the channel mouth (Gulf side) so it doesn't clip
+    L.marker([26.55, 55.65], {
+      icon: label('<span style="font-family:\'IBM Plex Mono\',monospace;font-size:15px;font-weight:700;color:#e8cc6a;text-shadow:0 1px 4px rgba(0,0,0,0.95);white-space:nowrap;">20 mb/d</span>', [30, 8]),
+      interactive: false, keyboard: false,
+    }).addTo(lgStrait);
+
+    // ── Step 3: Blast radius ─────────────────────────────────────────────────
+
+    var damaged = [
+      { lat: 26.62, lng: 50.08, name: 'Ras Tanura',  detail: 'Saudi Arabia — 550k b/d refinery + 4.5 mb/d export pier. Struck day 1.' },
+      { lat: 25.88, lng: 51.55, name: 'Ras Laffan',  detail: 'Qatar — handles ~20% of global LNG. Drone strikes day 3.' },
+      { lat: 29.24, lng: 50.32, name: 'Kharg Island', detail: 'Iran — 90%+ of Iranian crude exports. Retaliatory strike by Israel day 6.' },
+    ];
+
+    damaged.forEach(function (f) {
+      L.circle([f.lat, f.lng], {
+        radius: 60000,
+        color: '#c44e4e',
+        fillColor: '#c44e4e',
+        fillOpacity: 0.1,
+        weight: 1.5,
+        dashArray: '8 4',
+      }).addTo(lgDamage);
+
+      L.circleMarker([f.lat, f.lng], {
+        radius: 8,
+        color: '#c44e4e',
+        fillColor: '#c44e4e',
+        fillOpacity: 1,
+        weight: 2,
+      })
+        .bindTooltip('<strong>' + f.name + '</strong><br><small>' + f.detail + '</small>', { sticky: true })
+        .addTo(lgDamage);
+
+      L.marker([f.lat, f.lng], {
+        icon: label('<span style="font-family:\'IBM Plex Mono\',monospace;font-size:9px;font-weight:700;color:#c44e4e;text-shadow:0 1px 3px rgba(0,0,0,0.9);white-space:nowrap;margin-left:10px;">' + f.name + '</span>', [-2, -4]),
+        interactive: false, keyboard: false,
+      }).addTo(lgDamage);
+    });
+
+    // Fujairah — bypass hub (outside strait, amber)
+    L.circleMarker([25.13, 56.36], {
+      radius: 7,
+      color: '#c5a44e',
+      fillColor: '#c5a44e',
+      fillOpacity: 0.9,
+      weight: 2,
+    })
+      .bindTooltip('<strong>Fujairah</strong> — strategic bypass hub<br>Oil storage, bunkering, and tank farms east of the strait.<br>~25 mb in reserve storage; key re-export point.')
+      .addTo(lgDamage);
+
+    L.marker([25.13, 56.36], {
+      icon: label('<span style="font-family:\'IBM Plex Mono\',monospace;font-size:9px;font-weight:700;color:#c5a44e;text-shadow:0 1px 3px rgba(0,0,0,0.9);white-space:nowrap;margin-left:10px;">FUJAIRAH<br><span style="font-size:8px;opacity:0.8;">bypass hub</span></span>', [-2, -4]),
+      interactive: false, keyboard: false,
+    }).addTo(lgDamage);
+
+    // Saudi East-West Petroline: Abqaiq → Yanbu
+    var petroline = [[26.0, 49.7],[25.4, 46.5],[24.6, 42.5],[24.1, 38.1]];
+    L.polyline(petroline, {
+      color: '#c5a44e',
+      weight: 3,
+      opacity: 0.85,
+      dashArray: '10 5',
+    })
+      .bindTooltip('<strong>Saudi Petroline (East-West)</strong><br>5 mb/d — Abqaiq to Yanbu Red Sea terminal.<br>Only partial bypass; Saudi crude only; already near capacity.')
+      .addTo(lgPipeline);
+
+    L.marker([25.0, 44.2], {
+      icon: label('<span style="font-family:\'IBM Plex Mono\',monospace;font-size:9px;font-weight:700;color:#c5a44e;text-shadow:0 1px 3px rgba(0,0,0,0.9);white-space:nowrap;">PETROLINE<br><span style="font-size:8px;">5 mb/d capacity</span></span>', [35, 8]),
+      interactive: false, keyboard: false,
+    }).addTo(lgPipeline);
+
+    L.circleMarker([24.1, 38.1], { radius: 5, color: '#c5a44e', fillColor: '#c5a44e', fillOpacity: 0.9, weight: 1 })
+      .bindTooltip('<strong>Yanbu</strong> — Red Sea export terminal<br>Petroline terminus; Saudi bypass outlet')
+      .addTo(lgPipeline);
+
+    // ── Step 4: Asian oil-import dependence on Hormuz ─────────────────────────
+
+    var asianDep = [
+      { lat: 36.0,  lng: 138.0, name: 'Japan',       pct: 72 },
+      { lat: 37.5,  lng: 127.5, name: 'South Korea',  pct: 65 },
+      { lat:  1.35, lng: 103.8, name: 'Singapore',    pct: 55 },
+      { lat: 20.0,  lng:  77.0, name: 'India',        pct: 50 },
+      { lat: 15.5,  lng: 101.0, name: 'Thailand',     pct: 47 },
+      { lat: 36.0,  lng: 104.0, name: 'China',        pct: 40 },
+    ];
+
+    asianDep.forEach(function (c) {
+      L.circle([c.lat, c.lng], {
+        radius: c.pct * 28000,
+        color: '#c44e4e',
+        fillColor: '#c44e4e',
+        fillOpacity: 0.12,
+        weight: 1.5,
+      })
+        .bindTooltip('<strong>' + c.name + '</strong><br>' + c.pct + '% of oil imports transit Hormuz', { sticky: true })
+        .addTo(lgAsia);
+
+      L.marker([c.lat, c.lng], {
+        icon: label('<span style="font-family:\'IBM Plex Mono\',monospace;font-size:10px;font-weight:700;color:#e8cc6a;text-shadow:0 1px 4px rgba(0,0,0,0.95);white-space:nowrap;text-align:center;">' + c.name + '<br><strong style="font-size:13px;">' + c.pct + '%</strong></span>', [20, 8]),
+        interactive: false, keyboard: false,
+      }).addTo(lgAsia);
+    });
+
+    // ── Visibility per step ───────────────────────────────────────────────────
+
+    var stepConfig = {
+      0: [lgCountries],
+      1: [lgCountries, lgOilFields, lgTerminals],
+      2: [lgStrait],
+      3: [lgCountries, lgDamage, lgPipeline],
+      4: [lgAsia],
+    };
+
+    // Show step 0 initially
+    lgCountries.addTo(map);
+
+    // Listen for story:step events dispatched on .story-graphic (bubbles up)
+    var graphic = mapEl.closest('.story-graphic');
+    if (graphic) {
+      graphic.addEventListener('story:step', function (e) {
+        var idx = e.detail.index;
+        [lgCountries, lgOilFields, lgTerminals, lgStrait, lgDamage, lgPipeline, lgAsia]
+          .forEach(function (lg) { map.removeLayer(lg); });
+        var show = stepConfig[idx] || [];
+        show.forEach(function (lg) { lg.addTo(map); });
+      });
+    }
+  }
+
+  // ── Bootstrap: wait for leaflet:ready or poll ─────────────────────────────
+
+  mapEl.addEventListener('leaflet:ready', function (e) {
+    initLayers(e.detail.map);
+  });
+
+  // Fallback polling (event may fire before this script runs)
+  var attempts = 0;
+  var poll = setInterval(function () {
+    if (mapEl._leafletMap) { clearInterval(poll); initLayers(mapEl._leafletMap); }
+    if (++attempts > 80) clearInterval(poll);
+  }, 150);
+})();
+</script>
+
+The following chart summarises the export origin concentration.
+
+<div data-viz="echarts" data-options='{"backgroundColor":"transparent","title":{"text":"Strait of Hormuz Crude Exports by Origin","subtext":"Share of total crude and condensate flows, Q1 2025 (EIA / Vortexa)","left":"center","textStyle":{"color":"var(--text)","fontSize":14,"fontWeight":"normal"},"subtextStyle":{"color":"var(--text-muted)","fontSize":11}},"tooltip":{"trigger":"axis","axisPointer":{"type":"shadow"}},"grid":{"left":"18%","right":"10%","top":"18%","bottom":"8%"},"xAxis":{"type":"value","max":42,"axisLabel":{"formatter":"{value}%","color":"var(--text-muted)"},"splitLine":{"lineStyle":{"color":"var(--border)"}}},"yAxis":{"type":"category","data":["Others","Kuwait","Iran","UAE","Iraq","Saudi Arabia"],"axisLabel":{"color":"var(--text)"}},"series":[{"type":"bar","data":[{"value":6.4,"itemStyle":{"color":"#3a4a5c"}},{"value":10.1,"itemStyle":{"color":"#c5a44e"}},{"value":10.6,"itemStyle":{"color":"#c44e4e"}},{"value":12.9,"itemStyle":{"color":"#c5a44e"}},{"value":22.8,"itemStyle":{"color":"#c5a44e"}},{"value":37.2,"itemStyle":{"color":"#e8cc6a"}}],"barWidth":"60%","label":{"show":true,"position":"right","formatter":"{c}%","color":"var(--text-muted)","fontSize":11}}]}' style="height: 360px;"></div>
+
+And the destination concentration.
+
+<div data-viz="echarts" data-options='{"backgroundColor":"transparent","title":{"text":"Destination of Hormuz Crude Flows","subtext":"Share of total crude and condensate, Q1 2025 (EIA / Vortexa)","left":"center","textStyle":{"color":"var(--text)","fontSize":14,"fontWeight":"normal"},"subtextStyle":{"color":"var(--text-muted)","fontSize":11}},"tooltip":{"trigger":"item"},"series":[{"type":"pie","radius":["40%","70%"],"center":["50%","58%"],"avoidLabelOverlap":true,"itemStyle":{"borderColor":"var(--bg)","borderWidth":2},"label":{"color":"var(--text)","fontSize":11},"data":[{"value":37.7,"name":"China","itemStyle":{"color":"#c44e4e"}},{"value":14.7,"name":"India","itemStyle":{"color":"#c48a4e"}},{"value":12.0,"name":"South Korea","itemStyle":{"color":"#c5a44e"}},{"value":10.9,"name":"Japan","itemStyle":{"color":"#e8cc6a"}},{"value":13.9,"name":"Other Asia","itemStyle":{"color":"#4e8ac4"}},{"value":2.5,"name":"United States","itemStyle":{"color":"#4ec46a"}},{"value":8.3,"name":"Other","itemStyle":{"color":"#3a4a5c"}}]}]}' style="height: 400px;"></div>
+
+---
+
+## Part B: The Strait Closes — Not by Decree, but by Insurance
+
+A persistent misunderstanding in public discourse frames strait closure as a binary event: Iran either formally closes the Strait of Hormuz, or it does not. The reality that has unfolded since February 28 is more instructive. The strait was closed not by an official Iranian decree, but by the market itself.
+
+### The Sequence
+
+The United States and Israel initiated coordinated airstrikes on Iran on February 28, 2026, under what was designated Operation Epic Fury, targeting military facilities, nuclear sites, and regime leadership — including a strike that killed Supreme Leader Ali Khamenei.[^7] Iran's response was immediate and geographically distributed: retaliatory missile and drone attacks on Israeli territory and US military bases across the Gulf, including facilities in Qatar, the UAE, Kuwait, Bahrain, Jordan, Saudi Arabia, Iraq, and Oman.[^8]
+
+Within hours, the IRGC broadcast VHF transmissions on international maritime distress frequencies stating that no ship was permitted to pass the Strait of Hormuz. Every vessel in the area received the message. Most paused immediately.[^9]
+
+By March 2, an IRGC commander officially confirmed the strait was closed and threatened any vessel attempting passage. At least five tankers had been struck near the strait, two crew members killed, and over 150 vessels had anchored outside it.[^10] Just after midnight on March 2, no tankers in the strait were broadcasting automatic identification system signals — indicating near-zero traffic.
+
+But the decisive mechanism was economic, not military. Protection and indemnity insurance — the coverage that indemnifies shipowners against third-party liabilities — was withdrawn effective March 5. War-risk premiums, already at six-year highs before the strikes (having risen from 0.125% to 0.2–0.4% of ship value per transit in the days prior), became effectively unpriceable. Major container shipping companies including Maersk and Hapag-Lloyd suspended transits.[^11]
+
+The following diagram traces the cascade:
+
+```{=html}
+<div class="mermaid">
+flowchart LR
+    A["US-Israeli Strikes\nFeb 28"] --> B["IRGC VHF Warning\nHours later"]
+    B --> C["Tankers Struck\n3–5 vessels"]
+    C --> D["P&I Insurance\nWithdrawn Mar 5"]
+    D --> E["Traffic → ~Zero\nEffective closure"]
+    style C fill:#8a3535,stroke:#c44e4e,color:#fff
+    style D fill:#8a3535,stroke:#c44e4e,color:#fff
+    style E fill:#4a1a1a,stroke:#c44e4e,color:#fff
+</div>
+```
+
+### Infrastructure Damage Across the Gulf
+
+Iran's retaliation moved beyond military targets to critical energy assets — a deliberate escalation from the tanker harassment tactics employed by Houthi forces in the Red Sea through 2024.[^12]
+
+| Facility | Country | Type | Capacity | Status (3 Mar) |
+|---|---|---|---|---|
+| Ras Tanura Refinery | Saudi Arabia | Refinery + export terminal | 550,000 b/d | Shut down (precautionary, after drone debris fire) |
+| Ras Laffan Industrial City | Qatar | LNG complex | ~20% of global LNG | Halted (drone strike; force majeure declared) |
+| Mesaieed Industrial City | Qatar | LNG + petrochemicals | Major | Halted (drone strike) |
+| Iraqi Kurdistan fields | Iraq | Upstream (multiple operators) | ~200,000 b/d | Suspended (precautionary) |
+| Israeli gas fields | Israel | Upstream (gas) | Several major | Suspended |
+| Fujairah Port | UAE | Storage + terminal hub | Major regional hub | Fire reported |
+
+The Ras Laffan strike warrants particular attention. It is not just another industrial facility — it is the centre of Qatar's LNG export system and a pillar of global gas supply. QatarEnergy is the world's second-largest LNG exporter after the United States, and its Asian clients represent 82% of its customer base.[^13] Any prolonged outage immediately tightens European and Asian gas markets.
+
+### The Price Response
+
+The cost escalation was immediate and compound.[^14]
+
+<div data-viz="echarts" data-options='{"backgroundColor":"transparent","title":{"text":"Oil Price Movement: Feb 27 – Mar 3, 2026","left":"center","textStyle":{"color":"var(--text)","fontSize":14,"fontWeight":"normal"}},"tooltip":{"trigger":"axis"},"legend":{"data":["Brent Crude","WTI"],"top":30,"textStyle":{"color":"var(--text-muted)"}},"grid":{"left":"10%","right":"8%","top":"22%","bottom":"12%"},"xAxis":{"type":"category","data":["Feb 27","Feb 28","Mar 1","Mar 2","Mar 3"],"axisLabel":{"color":"var(--text-muted)"}},"yAxis":{"type":"value","min":60,"max":90,"axisLabel":{"formatter":"${value}","color":"var(--text-muted)"},"splitLine":{"lineStyle":{"color":"var(--border)"}}},"series":[{"name":"Brent Crude","type":"line","data":[69,73,75,78,84],"smooth":true,"lineStyle":{"color":"#c5a44e","width":3},"itemStyle":{"color":"#c5a44e"},"areaStyle":{"color":{"type":"linear","x":0,"y":0,"x2":0,"y2":1,"colorStops":[{"offset":0,"color":"rgba(197,164,78,0.3)"},{"offset":1,"color":"rgba(197,164,78,0)"}]}},"markPoint":{"data":[{"type":"max","name":"Peak"}],"label":{"formatter":"${c}/bbl"}}},{"name":"WTI","type":"line","data":[64,67,69,73,77],"smooth":true,"lineStyle":{"color":"#4e8ac4","width":2},"itemStyle":{"color":"#4e8ac4"}}]}' style="height: 340px;"></div>
+
+Supertanker rates from the Middle East to China surged over 94% to an all-time record of approximately $424,000 per day. Shipping costs rose by $1,500 for a standard 20-foot container and $3,500 for specialty cargo. European gas benchmark prices (Dutch TTF) surged more than 25% on the Qatar production halt alone, to over €39 per megawatt hour. The S&P Global Asia LNG benchmark (JKM) hit $15.07/MMBtu.
+
+| Benchmark | Pre-crisis (Feb 27) | Current (Mar 3) | Change |
+|---|---|---|---|
+| Brent Crude | ~$69/bbl | ~$84/bbl | +22% |
+| WTI | ~$64/bbl | ~$77/bbl | +20% |
+| Dutch TTF Natural Gas | ~€32/MWh | €39+/MWh | +25% |
+| VLCC Rate (ME → China) | ~$218K/day | ~$424K/day | +94% |
+| War-risk insurance (per transit) | 0.125% ship value | Effectively withdrawn | — |
+| Container surcharge | Baseline | +$1,500–3,500/box | — |
+
+> **For Alberta's oil sands:** The price upside that was suppressed by the shadow-fleet discount described in *Contested Ground* has been partially released. WTI at $77 approaches the threshold where greenfield SAGD projects become economically viable (~$80 WTI equivalent). But the critical variable is duration: if the conflict resolves in weeks, the spike fades. If the strait remains effectively closed for months, the investment calculus changes materially — and Alberta's Pacific-facing export route via TMX becomes one of the most strategically valuable crude oil pathways in the world.
+
+---
+
+## Part C: Who Loses the Oil
+
+The disruption is not evenly distributed. It falls disproportionately on Asia, which receives 84–89% of all crude oil and condensate transiting Hormuz.[^15] The concentration of exposure among a handful of major economies creates a vulnerability profile that no amount of strategic petroleum reserves can fully address in a sustained disruption.
+
+::: {.story-section}
+::: {.story-sticky}
+<div class="story-graphic">
+  <div data-viz="echarts" id="hormuz-dependence-chart" style="height:420px; min-height:320px"
+       data-options='{"backgroundColor":"transparent","title":{"text":"Hormuz Crude as Share of Total Oil Imports","left":"center","textStyle":{"color":"var(--text)","fontSize":13,"fontWeight":"normal"}},"tooltip":{"trigger":"axis","axisPointer":{"type":"shadow"}},"grid":{"left":"22%","right":"12%","top":"16%","bottom":"6%"},"xAxis":{"type":"value","max":80,"axisLabel":{"formatter":"{value}%","color":"var(--text-muted)"},"splitLine":{"lineStyle":{"color":"var(--border)"}}},"yAxis":{"type":"category","data":["United States","Europe (avg.)","China","India","South Korea","Japan"],"axisLabel":{"color":"var(--text)","fontSize":11}},"series":[{"type":"bar","data":[{"value":2,"itemStyle":{"color":"#4ec46a"}},{"value":18,"itemStyle":{"color":"#4e8ac4"}},{"value":50,"itemStyle":{"color":"#c48a4e"}},{"value":50,"itemStyle":{"color":"#c48a4e"}},{"value":65,"itemStyle":{"color":"#c44e4e"}},{"value":72,"itemStyle":{"color":"#c44e4e"}}],"barWidth":"55%","label":{"show":true,"position":"right","formatter":"{c}%","color":"var(--text-muted)","fontSize":11}}]}'></div>
+</div>
+:::
+::: {.story-steps}
+::: {.story-step data-step="0"}
+**Japan and South Korea: Maximum Structural Exposure.** Japan imports all of its oil; approximately 72% of those imports transit the Strait of Hormuz. South Korea's dependence is roughly 65%. Both nations have substantial strategic petroleum reserves — but reserves are designed to bridge short disruptions, not sustained blockades.
+
+South Korea's net oil imports represent 2.7% of GDP. Japan's Nikkei fell 1.3% on the first trading day after the strikes.
+:::
+
+::: {.story-step data-step="1"}
+**India: The Dual Shock.** India faces the largest combined exposure in Asia. More than 60% of its oil imports originate in the Middle East. Over half of its LNG imports are Gulf-linked and Brent-indexed — meaning a Hormuz-driven crude spike simultaneously raises both oil import costs and LNG contract prices: a "dual physical and financial shock."
+
+India also subsidises domestic fuel and fertiliser heavily. A sustained price spike compresses fiscal space, forcing trade-offs between subsidies and other public spending.
+:::
+
+::: {.story-step data-step="2"}
+**China: Exposed but Buffered.** China enters this crisis better positioned than any other major importer. Through aggressive purchasing of discounted Russian and Iranian crude throughout 2024&#8202;–&#8202;25, China built substantial strategic petroleum reserves. Only about 40% of its oil imports transit Hormuz, and it has pipeline-delivered crude from Russia and Central Asia.
+
+China purchases more than 80% of Iranian oil exports, so the loss of Iranian production (~3.3 million b/d) affects China's supply chain specifically. Roughly 30% of China's LNG imports also come from Qatar and the UAE.
+:::
+
+::: {.story-step data-step="3"}
+**Thailand and Southeast Asia: Cost Amplifiers.** Thailand's net oil imports represent 4.7% of GDP — the highest in Asia. Each 10% rise in oil prices worsens its current account by approximately 0.5 percentage points. Across the Philippines, Indonesia, and Thailand, the first-order hit is cost inflation rather than an immediate physical shortage.
+
+Malaysia, as a net energy exporter, is a relative beneficiary — an asymmetry that underlines the redistributive rather than purely destructive character of a supply disruption.
+:::
+:::
+:::
+
+---
+
+## Part D: Beyond Oil — The Propagation Channels
+
+One of the most persistent failures in public energy discourse is the treatment of oil as a single-use commodity — as though its primary function were to power automobiles and nothing more. In *Contested Ground*, we noted that petrochemical feedstocks would account for more than 60% of all new demand growth by 2026, and that the IEA projects petrochemicals will drive over a third of oil demand growth through 2030.[^20] The corollary is that disrupting oil supply does not merely raise the price of petrol. It propagates through every sector that depends on petroleum-derived inputs — and those sectors are far broader than most people recognise.
+
+### The Petrochemical Backbone
+
+Petrochemical feedstock — primarily naphtha derived from crude oil refining, and ethane from natural gas — produces the plastics, synthetic fibres, adhesives, lubricants, detergents, medical equipment, packaging, and industrial chemicals that constitute the material infrastructure of modern economies. Petrochemicals are now the single largest growth driver of global oil demand, having overtaken transportation.
+
+The Gulf states are not peripheral to this system. Saudi Aramco's 2020 acquisition of a 70% stake in SABIC — the world's fourth-largest chemical company — was specifically designed to integrate petrochemical production with upstream oil.[^21] Qatar's Ras Laffan is not merely an LNG facility; it is an integrated petrochemical hub. The attacks on these facilities do not merely remove energy from the market. They remove industrial feedstocks.
+
+### The Food System
+
+Oil price movements influence as much as 64% of food price variation, according to World Bank analysis.[^22] The transmission channels are multiple and reinforcing: diesel powers the trucks and ships that move food; natural gas produces the ammonia that becomes nitrogen fertiliser (underpinning roughly half the world's food production); petrochemical-derived packaging preserves food through supply chains that span continents; and petroleum-based agrochemicals protect crops from pathogens. A sustained oil price spike tightens every one of these channels simultaneously.
+
+```{=html}
+<div class="mermaid">
+flowchart TD
+    A["Crude Oil\nDisruption"] --> B["Diesel / Fuel"]
+    A --> C["Naphtha"]
+    D["Natural Gas\nDisruption"] --> E["Ammonia"]
+    C --> F["Plastics / Packaging"]
+    C --> G["Synthetic Fibres"]
+    C --> H["Industrial Chemicals"]
+    E --> I["Nitrogen Fertiliser"]
+    I --> J["~50% of Global\nFood Production"]
+    B --> K["Freight / Shipping"]
+    K --> J
+    F --> J
+    style A fill:#8a3535,stroke:#c44e4e,color:#fff
+    style D fill:#8a3535,stroke:#c44e4e,color:#fff
+    style J fill:#4a3a1a,stroke:#c5a44e,color:#fff
+</div>
+```
+
+### The LNG Dimension
+
+The Qatar production halt compounds the oil disruption with a parallel gas crisis. QatarEnergy supplies roughly 20% of global LNG. European gas benchmark prices surged 25% on the Qatar halt alone. For European manufacturers still adjusting to the loss of Russian pipeline gas after 2022, a simultaneous disruption to their primary LNG replacement source is a structural threat to energy costs and industrial competitiveness.[^23]
+
+Asian LNG buyers face a different but equally acute problem: spot-reliant purchasers must now compete with Europe for Atlantic Basin cargoes, driving prices higher for both regions simultaneously.
+
+---
+
+## Part E: The Disproportionate Geographies
+
+Beyond the immediate energy-importing economies, the propagation effects create a second ring of disproportionate impact in regions that are simultaneously oil-dependent, food-insecure, and institutionally fragile.
+
+### Sub-Saharan Africa
+
+Sub-Saharan Africa imports nearly all of its refined petroleum products and a growing share of fertiliser. Food inflation was already running at double-digit rates — Nigeria at 17.1%, Angola at 14.8%, Zambia at 10.8%, Ethiopia at 10.1% — before the current crisis, according to FAO projections.[^24] The region's food systems are acutely sensitive to both oil prices (via transport and fertiliser costs) and to exchange rates (currencies under pressure depreciate further when oil import bills surge, creating a vicious spiral).
+
+During the 2022 energy shock, the number of people in acute food insecurity in Sub-Saharan Africa rose by 22 million.[^25] The current crisis arrives without meaningful recovery from that episode.
+
+### South and Southeast Asia
+
+India's dual exposure — oil and LNG simultaneously — makes it perhaps the single most consequentially exposed major economy beyond direct conflict participants. The Philippines, Thailand, and Indonesia share structural vulnerabilities: high oil import dependence, significant food import bills, and currencies sensitive to current account deterioration.
+
+### Latin America
+
+In Latin American economies with currency instability — Argentina, Colombia, Ecuador — the combination of higher dollar-denominated oil costs and weaker local currencies amplifies food price movements beyond what the oil price alone would suggest. Empirical research consistently finds that the oil price and exchange rate jointly explain the majority of food inflation variance in the region, with their effects becoming larger over time rather than dissipating.[^26]
+
+> **The compounding effect:** Each previous oil disruption — 1973, 1979, 1990, 2019, 2022 — affected one or two supply channels. This crisis activates crude oil flows, LNG supply, petrochemical feedstock production, and downstream refining capacity simultaneously, across every major Gulf producer state, through a chokepoint that was closed not by military blockade but by the withdrawal of commercial insurance. And it arrives into an existing tariff environment that has already elevated trade frictions and shipping costs globally.
+
+---
+
+## Part F: Market Response and the Duration Variable
+
+The market response in the first 72 hours has been sharp but not yet catastrophic — Brent at $84, up 22% from pre-crisis levels. This relative restraint reflects several countervailing factors. OPEC+ announced a larger-than-expected output increase of 206,000 barrels per day starting in April.[^27] The global market entered 2026 with approximately 1.5 million barrels per day of oversupply.[^28] And traders have not yet priced in worst-case scenarios of sustained infrastructure damage.
+
+Oxford Economics assesses that Iran cannot win a conventional military contest but can inflict material economic damage through Gulf disruption. Their recommendation — sell extreme price spikes because the conflict will not last beyond two months — represents the consensus trading view.[^29] But this consensus depends on assumptions about rational de-escalation that may not hold when the stated objective is regime change.[^30]
+
+<div data-viz="echarts" data-options='{"backgroundColor":"transparent","title":{"text":"Oil Price Scenario Matrix by Conflict Duration","left":"center","textStyle":{"color":"var(--text)","fontSize":14,"fontWeight":"normal"}},"tooltip":{"trigger":"axis"},"legend":{"data":["Brent Low","Brent High"],"top":30,"textStyle":{"color":"var(--text-muted)"}},"grid":{"left":"12%","right":"8%","top":"22%","bottom":"15%"},"xAxis":{"type":"category","data":["1–2 weeks","4–8 weeks","3–6 months","6+ months"],"axisLabel":{"color":"var(--text-muted)"},"name":"Conflict Duration","nameLocation":"center","nameGap":30,"nameTextStyle":{"color":"var(--text-muted)"}},"yAxis":{"type":"value","min":70,"max":140,"axisLabel":{"formatter":"${value}","color":"var(--text-muted)"},"splitLine":{"lineStyle":{"color":"var(--border)"}}},"series":[{"name":"Brent Low","type":"bar","data":[80,90,100,120],"itemStyle":{"color":"#c5a44e"},"barGap":"0%"},{"name":"Brent High","type":"bar","data":[85,100,120,135],"itemStyle":{"color":"#c44e4e"}}]}' style="height: 360px;"></div>
+
+The duration variable is everything. What is already clear, regardless of duration, is that the pre-crisis oversupply buffer of approximately 1.5 million barrels per day is entirely insufficient to offset 15–20 million barrels per day of Hormuz flows. OPEC+ can increase production, but much of that additional production must itself transit Hormuz to reach Asian buyers. Saudi Arabia's East-West pipeline can redirect some volume to Red Sea ports, but at a fraction of the scale needed. The arithmetic is unforgiving.
+
+If a sustained oil price increase to $100 per barrel materialises — a scenario analysts now describe as plausible if infrastructure damage proves extensive — Capital Economics estimates it could add 0.6–0.7 percentage points to global inflation.[^31] In developing economies where food-price inflation already runs at double the advanced-economy norm, the effect is amplified further.
+
+---
+
+### Explore the Propagation Model
+
+**Updated March 27, 2026.** The original simulator on this page was built for the opening-week shock: abrupt supply removal, rapid price repricing, and uncertain duration. It has now been overhauled to reflect the regime that actually emerged over the rest of March: partial corridor reopening, strategic stock releases, shipping and insurance friction, refining and LNG disruption, and importer-side state intervention.
+
+The model below is therefore less a pure embargo simulator than a managed-disruption simulator. It still rests on region-level asymmetries — Japan's dependence versus Canada's, Sub-Saharan Africa's food-channel exposure versus the United States' reserve depth — but it now lets you vary the mechanisms that have proved decisive in this crisis and see how those differences translate into different impact profiles across 12 world regions over 24 months.
+
+<div data-viz="oil-shock" style="min-height: 980px;"></div>
+
+---
+
+## Part G: Updating the Contested Ground Framework
+
+In *Contested Ground*, we described three forces acting on the global oil market. The 2026 Iran conflict introduces a fourth — or, more precisely, converts a latent variable into an active one.
+
+**Force I — The Sanctions Reshuffle.** Remains operative. Russian discounted crude continues to flow via shadow fleet. But Iran's own production — roughly 3.3 million barrels per day of crude plus 1.3 million barrels per day of condensate — is now directly at risk from conflict damage. This removes one of the structural price-floor suppliers identified in *Contested Ground*.
+
+**Force II — The Renewable Compression.** Unchanged in medium-term trajectory. China's EV adoption and solar buildout continue to compress demand growth. But the immediate crisis overrides demand-side analysis: supply shocks dominate in the short run.
+
+**Force III — The Demand Rise of the Global South.** Severely complicated. Rising economies that were expected to drive incremental oil demand — India, Southeast Asia, Africa — are now the economies most exposed to supply disruption and price-driven inflation. The demand growth curve analysed in *Contested Ground* depended on affordable energy inputs; that assumption is now under stress.
+
+**Force IV — The Chokepoint Activation.** New. The theoretical risk of Hormuz disruption, discussed for decades, is now an operational reality. The entire Gulf value chain — upstream, midstream, downstream, LNG, petrochemicals — is under simultaneous stress. This is not a supply constraint in one channel but a system-wide disruption across the most geographically concentrated energy corridor on Earth.
+
+### What This Means for Alberta
+
+Alberta's position in this reconfigured landscape is paradoxical but structurally advantageous. The Trans Mountain Expansion pipeline, analysed in *Contested Ground* as a strategic reorientation toward Asian markets, has become more valuable precisely because it routes Canadian heavy crude to the Pacific coast — bypassing every chokepoint currently under stress. No Red Sea. No Strait of Hormuz. No Bab-el-Mandeb. No Suez. The crude loads at Burnaby or the Westridge Marine Terminal and sails west across the open Pacific.[^32]
+
+If Asian buyers — particularly China, Japan, and South Korea — face sustained uncertainty about Gulf supply, the premium on non-Gulf, non-sanctioned, geopolitically stable crude increases materially. Canada is one of very few suppliers that can credibly offer all three attributes at scale. The question remains whether this advantage is transient (a weeks-long crisis) or structural (a lasting revaluation of supply security). Alberta's capital investment decisions in 2026 and 2027 will be shaped by the answer.
+
+The bitumen insight from *Contested Ground* holds with added force: if disrupted Gulf petrochemical production forces Asian buyers to seek alternative hydrocarbon feedstocks, Alberta's bitumen — rich in long-chain hydrocarbons suitable for chemical conversion — becomes valuable not merely as a fuel source but as a petrochemical input. The TMX pipeline does not merely open an energy export route. It opens a materials supply route into the world's largest and most disrupted petrochemical market.
+
+---
+
+## Conclusion: What Systems See
+
+The lesson, stated plainly, is concentration risk. The world built its energy system around the assumption that a 34-kilometre-wide strait between Iran and Oman would always remain open. That assumption has been tested before and survived. Whether it survives this test — and what the world looks like if it doesn't — is the defining energy question of 2026.
+
+What distinguishes this crisis from its predecessors is not the scale of the military operation or the price of crude oil on any given day. It is the simultaneity. Previous disruptions — 1973, 1979, 1990, 2019, 2022 — each affected one or two supply channels. This crisis activates crude oil flows, LNG supply, petrochemical feedstock production, and downstream refining capacity simultaneously, across every major Gulf producer state, through a chokepoint that was closed not by military blockade but by the withdrawal of the commercial insurance that underpins global shipping.
+
+The propagation is not theoretical. It is already measurable: in the 22% rise in Brent, in the record supertanker rates, in the force majeure declaration on Qatari LNG, in the shutdown of the world's largest refinery by a drone that cost a fraction of a single day's production value. And behind the price movements, the second-order effects are beginning: tighter fertiliser markets, higher food import bills, compressed fiscal space in the developing economies least equipped to absorb the shock.
+
+For Alberta, the moment is clarifying. The long-term structural forces analysed in *Contested Ground* — demand-side compression from renewables, the petrochemical pivot, the geographic diversification of export routes — remain operative. But the immediate effect of the 2026 crisis is to demonstrate, in real time and at global scale, the value of supply diversity. A country that can produce crude oil, deliver it to Asian markets without transiting any contested waterway, and supply it from one of the most politically stable jurisdictions on Earth holds a position that no amount of sanctions architecture, shadow-fleet logistics, or strategic petroleum reserves can replicate.
+
+The strait is 34 kilometres wide. The world built its energy system as though it were infinite.
+
+---
+
+## Notes and References
+
+[^1]: See [*Contested Ground*](./contested-ground.html) for the foundational framework. This article is a direct continuation and assumes familiarity with the shadow fleet, the renewable tide, and the demand profiles analysed there.
+
+[^7]: Wikipedia, '2026 Israeli–United States strikes on Iran.' The strikes followed the failure of indirect nuclear negotiations mediated by Oman and a second round in Geneva. Iran had signalled potential Hormuz disruptions in the weeks prior, including a temporary partial closure in mid-February as a warning.
+
+[^8]: Al Jazeera, 'Multiple Arab states that host US assets targeted in Iran retaliation,' 28 February 2026. Oman was the only GCC state not struck — consistent with its role as diplomatic intermediary.
+
+[^9]: Al Jazeera, 'Shutdown of Hormuz Strait raises fears of soaring oil prices,' 3 March 2026. As Cormac McGarry of Control Risks noted: 'Every ship in the area would have heard that… and it was enough for most ships to pause.'
+
+[^10]: Wikipedia, '2026 Strait of Hormuz crisis.' Late on February 28, outgoing traffic was heavy while ingoing traffic was light. By early March 2, no tankers in the strait were broadcasting AIS signals.
+
+[^11]: As Lloyd's List put it: 'The Strait is closed — not by Iran, but by shipping itself.' Cited in multiple analyses of the 2026 Hormuz crisis.
+
+[^12]: Middle East Forum, 'Iran's War on Gulf State Energy Infrastructure Reverberates Beyond Oil and Gas,' 3 March 2026. Amena Bakr of Kpler described the strikes on energy installations as 'a turning point' that 'opens a new chapter where you're exposing the entire system, the entire oil facilities in the Gulf to these kinds of attacks.'
+
+[^13]: Reuters / CNBC, 2 March 2026. Qatar declared force majeure on LNG shipments following the production halt. Two drones launched from Iran struck facilities at Ras Laffan Industrial City and Mesaieed Industrial City.
+
+[^14]: CNBC, 'Oil supertanker rates hit all-time high as insurers drop war risk protection in the Middle East,' 3 March 2026.
+
+[^15]: Visual Capitalist, 'Charted: Oil Trade Through the Strait of Hormuz by Country,' 3 March 2026, based on EIA / Vortexa data.
+
+[^20]: IEA, *The Future of Petrochemicals*. Petrochemical feedstock accounts for approximately 12% of global oil demand, a share expected to increase. Synthetic nitrogen fertilisers — derived from natural gas via ammonia — underpin roughly half the world's food production.
+
+[^21]: SABIC was founded in 1976 to capitalise on associated gas that was being flared during oil production. By 2018 it was the fourth-largest chemical company worldwide. Aramco's 70% acquisition created a vertically integrated crude-to-chemicals entity.
+
+[^22]: World Ports Organisation / World Economic Forum, citing World Bank data. The transmission channels are multiple: diesel for freight, natural gas for ammonia-based fertiliser, petrochemical packaging, and agrochemicals.
+
+[^23]: Al Jazeera, 'Gas prices soar as QatarEnergy halts LNG production after Iran attacks,' 2 March 2026. Dutch TTF benchmark rose more than 25%.
+
+[^24]: Visual Capitalist, 'Mapped: Where Food Inflation Will Hit Hardest in 2026,' based on FAO projections across 160 countries. Iran itself tops the list at 55.9% projected food inflation — projections made before the conflict.
+
+[^25]: World Bank / WFP, cited by World Ports Organisation. High fuel and food prices have been empirically correlated with mass protests, political violence, and government instability across developing economies.
+
+[^26]: Aydın and Esen (2022), 'The effects of the oil price and temperature on food inflation in Latin America,' *Humanities and Social Sciences Communications*.
+
+[^27]: Al Jazeera, 'Oil prices rise sharply after US, Israeli attacks on Iran,' 2 March 2026. The OPEC+ decision was taken in a meeting planned before the war began. The countries boosting output are Saudi Arabia, Russia, Iraq, the UAE, Kuwait, Kazakhstan, Algeria, and Oman.
+
+[^28]: Kpler data cited in The National (UAE). 'That buffer could evaporate quickly if refining or upstream capacity is taken offline by prolonged Iranian attacks.'
+
+[^29]: Oxford Economics / Alpine Macro, 'The 2026 Iran War: An Initial Take and Implications,' 3 March 2026.
+
+[^30]: In his March 1 video statement, President Trump said the purpose of the strikes was 'effectively regime change,' urging IRGC members to 'lay down your weapons and have complete immunity, or in the alternative, face certain death.'
+
+[^31]: Al Jazeera, citing Hamad Hussain of Capital Economics, 1 March 2026. 'If crude oil prices were to rise to $100 per barrel and remain at those levels for a while, that could add 0.6–0.7 percent to global inflation.'
+
+[^32]: See *Contested Ground* Part A for the TMX routing analysis. The pipeline explicitly creates a routing advantage for Canadian crude into Asian markets — an advantage that becomes more pronounced when Gulf-to-Asia routes are disrupted.
+
+---
+
+### Further Reading
+
+- U.S. Energy Information Administration, "Amid regional conflict, the Strait of Hormuz remains critical oil chokepoint," *Today in Energy*, June 2025.
+- IEA, *The Future of Petrochemicals: Towards More Sustainable Plastics and Fertilisers*, 2018.
+- Oxford Economics / Alpine Macro, "The 2026 Iran War: An Initial Take and Implications," 3 March 2026.
+- Columbia University CGEP, "US-Israeli Attacks on Iran and Global Energy Impacts," 2 March 2026.
+- American Action Forum, "Global Oil Market Implications of U.S.-Israel Attack on Iran," 2 March 2026.
+- World Bank, *Commodity Markets Outlook*, October 2024.
+
+*Market data as of 3 March 2026 morning.*
+
+---
+
+## Update: March 9, 2026 — The Crisis Enters Its Second Week
+
+*The following section was added six days after original publication. The analysis above reflects conditions and understanding as of March 3. It is preserved intact as a record of the positional view at publication. What follows documents how quickly that view was overtaken by events.*
+
+---
+
+Six days is a long time in a war. The framework built above — chokepoint activated by insurance withdrawal, price spike of 22%, Asian importers scrambling — now reads as a description of the opening hours. The week since has produced escalations that exceeded most analyst scenarios at publication.
+
+### The Oil Price Rewrite
+
+On March 3, Brent crude was trading at approximately $84 per barrel — a 22% spike that felt dramatic at the time. By the evening of March 8, Brent briefly touched **$126 per barrel** before closing around $99. WTI posted its biggest weekly gain in recorded history at 35.6%. The chart in Part B showing a $84 peak on March 3 understates the current situation by roughly 50%.
+
+<div data-viz="echarts" data-options='{"backgroundColor":"transparent","title":{"text":"Brent Crude: Feb 27 – Mar 9, 2026","subtext":"Price per barrel (USD). March 3–9 data added in update. Intraday peak of $126 on Mar 8 not shown.","left":"center","textStyle":{"color":"#000000","fontSize":14,"fontWeight":"normal"},"subtextStyle":{"color":"#000000","fontSize":11}},"tooltip":{"trigger":"axis"},"legend":{"data":["At publication (Mar 3)","Update (Mar 4–9)"],"top":36,"textStyle":{"color":"#000000"}},"grid":{"left":"10%","right":"8%","top":"26%","bottom":"12%"},"xAxis":{"type":"category","data":["Feb 27","Feb 28","Mar 1","Mar 2","Mar 3","Mar 4","Mar 5","Mar 6","Mar 7","Mar 8","Mar 9"],"axisLabel":{"color":"var(--text-muted)"}},"yAxis":{"type":"value","min":60,"max":120,"axisLabel":{"formatter":"${value}","color":"var(--text-muted)"},"splitLine":{"lineStyle":{"color":"var(--border)"}}},"series":[{"name":"At publication (Mar 3)","type":"line","data":[69,73,75,78,84,null,null,null,null,null,null],"smooth":true,"lineStyle":{"color":"#c5a44e","width":3},"itemStyle":{"color":"#c5a44e"}},{"name":"Update (Mar 4–9)","type":"line","data":[null,null,null,null,84,82,84,90,97,99,108],"smooth":true,"lineStyle":{"color":"#c44e4e","width":3,"type":"dashed"},"itemStyle":{"color":"#c44e4e"},"areaStyle":{"color":{"type":"linear","x":0,"y":0,"x2":0,"y2":1,"colorStops":[{"offset":0,"color":"rgba(196,78,78,0.25)"},{"offset":1,"color":"rgba(196,78,78,0)"}]}}}]}' style="height: 340px;"></div>
+
+The disruption to global supply is being described as the largest in recorded history — roughly twice the scale of the Suez Crisis of 1956–57, according to Rapidan Energy Group. Neil Atkinson, former head of oil at the International Energy Agency, said the effective closure of the Strait of Hormuz was something energy markets had never seen before, warning of a "potentially game-changing and unprecedented energy crisis."
+
+### The Strait Has Not Reopened
+
+The most consequential update is the most straightforward: the strait remains effectively closed. Trump's announcement on March 3 that the US Development Finance Corporation would provide political risk insurance and guarantee safe transit briefly calmed markets — but did not reopen the waterway. Tanker traffic that had dropped to near zero has not recovered materially.
+
+The consequences have cascaded into production. Iraq and Kuwait have already begun to shut in output. Analysts warn that the UAE and Saudi Arabia may also be vulnerable if the closure persists for another two to three weeks. Gulf Arab producers are not reducing output by choice — they are running out of storage capacity because crude is accumulating with nowhere to go. The G7 finance ministers convened a virtual meeting on March 9 and issued a joint statement indicating readiness to release emergency petroleum reserves.
+
+### Escalations Not Priced In at Publication
+
+Several developments since March 3 have materially altered the picture.
+
+**A new Supreme Leader — and an immediate target.** Mojtaba Khamenei, the second son of the slain Supreme Leader, was elected by the Assembly of Experts on March 8 to replace his father. The IDF immediately warned that any successor to Khamenei would be treated as a target, introducing new uncertainty about whether the leadership transition accelerates de-escalation or merely extends the conflict under different management.
+
+**Ceasefire formally rejected.** Iranian Foreign Minister Abbas Araghchi rejected all ceasefire calls on NBC News' *Meet the Press*, stating Iran needs to continue fighting for the sake of its people and its security. His argument: the US and Israel had already shattered the ceasefire that ended last year's twelve-day war, making a new short-term arrangement non-credible. Iran has not asked for a ceasefire — Araghchi noted Iran did not ask for one last time either.
+
+**Hezbollah's second front opens.** On March 2, Hezbollah began firing rockets and missiles on Israel in retaliation for the killing of Khamenei. Israel launched air strikes on southern Lebanon and south Beirut, followed by a ground incursion by the 91st Division. As of March 9, nearly 400 people have been killed since Israel opened its campaign in Lebanon — and Israel stated that Lebanon has now made more attacks against them than Iran has over the past week. The conflict has formally expanded beyond the Iran–Israel bilateral.
+
+**Iran's own oil infrastructure struck.** On March 7, Israel struck Iranian oil infrastructure for the first time since the start of the war, targeting the Shahran oil depot in Tehran. This marks a qualitative escalation: Iran shifts from a supply-corridor risk (blocking other countries' exports) to a supply-volume risk (losing its own roughly 4.6 million barrels per day of crude and condensate production capacity). The symmetry is now established — both sides are targeting oil assets.
+
+**Russia's intelligence support.** NBC News reported that Russia is providing Iran with intelligence on the location of US forces in the Middle East, including information that could help Iran locate American warships. The great-power dimension of the crisis has expanded in a direction not anticipated in the original analysis.
+
+### The Duration Question Reassessed
+
+The original article framed duration as the critical variable. Entering week two, the scenario distribution has shifted materially toward the longer tail.
+
+ExxonMobil chief economist Tyler Goodspeed put the analytical problem directly: "When I think of the probability distribution of possible outcomes here, it seems to me there are many more scenarios, and more probable scenarios, in which the strait remains effectively closed harder for longer than there are scenarios in which normal traffic resumes." Rystad Energy estimated Brent could reach $135 per barrel if current conditions persist for four months; above $110 for two months.
+
+The forward curve tells a different story: oil futures contracts for delivery in 2027 and 2028 are trading in the high $60s, indicating that markets still price a return to pre-war conditions. The backwardation — current barrels trading at roughly $14 premium over next-month futures — is extreme, and it signals that the physical shortage is real even as traders expect eventual resolution.
+
+### What Changes for the Framework — and for Alberta
+
+The four-force framework in Part G remains structurally valid. The directional argument for Alberta's TMX advantage has strengthened. But the magnitude assumptions need revision.
+
+At publication, the scenario range in Part F was built around a $84–$90 Brent shock with resolution in weeks. The market is now pricing $108+ with meaningful probability attached to $135 and a duration measured in months. Every variable in the oil-shock simulator — inflation transmission, food security exposure, emerging market fiscal stress — should be re-run with those updated parameters.
+
+One new variable has entered the picture: Trump is reportedly considering reducing oil sanctions on Russia to ease crude prices. If enacted, this would partially offset the Gulf supply disruption with increased Russian flows via the shadow fleet infrastructure described in *Contested Ground* — a politically complex move that reintroduces the sanction-reshuffle dynamic the original article documented.
+
+Alberta's position: the window is open and materially larger than anticipated. WTI at $94 on March 9, compared with approximately $60 before the strikes, represents a roughly $34/barrel premium that significantly exceeds any credible estimate of break-even costs for incremental oil sands output. The question is no longer whether the window exists — it is whether existing TMX throughput can be expanded quickly enough to capture the premium before the conflict resolves, and whether the current price level is sufficient to unlock capital for any remaining expansion capacity.
+
+The original article closed by observing that the world built its energy system as though the Strait of Hormuz were infinite. One week later, that assumption is not merely being tested — it is being priced.
+
+---
+
+*Update reflects publicly available information as of March 9, 2026. The situation is evolving rapidly; data cited may move by time of reading.*
