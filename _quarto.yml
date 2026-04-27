@@ -20,12 +20,11 @@ website:
     type: textbox
 
 format:
-  html:
-    theme: cosmo
+  WaywardHouse/waywardhouse-book-html:
     toc: true
     toc-depth: 3
-    smooth-scroll: true
-    html-math-method: katex
+    include-after-body:
+      - assets/includes/echarts-init.html
 
 execute:
   freeze: auto
