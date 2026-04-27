@@ -211,19 +211,22 @@ export const REGISTRY = [
     update:   updateD3,
   },
 
-  // ── Mapbox GL (full-featured maps — requires API token) ───────────────────────
-  //   Front matter: geo: true  →  body class tag-hash-geo
-  //   Also auto-detected from [data-map] elements.
-  //   Token: set window.MAPBOX_TOKEN or data-token="pk.…" on the element.
-  //   Note: for token-free maps use Leaflet above.
+  // ── Geo maps via Leaflet (replaces Mapbox GL — no API token required) ────────
+  //   Handles [data-map] elements with the same declarative API as before.
+  //   Front matter: geo: true  →  body class tag-hash-geo (unchanged).
+  //   Accepts data-center="lng, lat", data-zoom, data-geojson, data-markers,
+  //   data-update with center/zoom/layers — all in the original Mapbox format.
+  //   data-style is silently ignored; CartoDB Positron is used for all maps.
+  //   CDN: Leaflet 1.9 (same version as the [data-leaflet] entry above —
+  //   the loadStyle/loadScript dedup prevents double-loading on pages with both).
   {
     id: 'mapbox',
     detect: () =>
       document.body.classList.contains('tag-hash-geo') ||
       !!document.querySelector('[data-map]'),
     cdn: {
-      styles:  ['https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.css'],
-      scripts: ['https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.js'],
+      styles:  ['https://unpkg.com/leaflet@1.9/dist/leaflet.css'],
+      scripts: ['https://unpkg.com/leaflet@1.9/dist/leaflet.js'],
     },
     init:     null,
     selector: '[data-map]',
