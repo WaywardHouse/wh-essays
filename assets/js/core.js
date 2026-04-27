@@ -666,7 +666,11 @@ function enhanceReadingTitleBlock(main, title, toc) {
 }
 
 function injectWaywardChrome() {
-  if (document.querySelector('.wayward-header')) return;
+  // Skip when site-level chrome is already present:
+  //   .wayward-header — already injected by this function (idempotent guard)
+  //   .wh-bk-hdr      — WH book theme extension is active; it provides its own
+  //                     header, footer, and search — don't inject a second set.
+  if (document.querySelector('.wayward-header, .wh-bk-hdr')) return;
 
   const path = currentPath();
   const body = document.body;
