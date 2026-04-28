@@ -1,0 +1,240 @@
+---
+title: "The Distance to Care"
+subtitle: "Alberta has among the worst physician-to-population ratios in Canada. For most residents that is a statistic. For a growing number it is a geography — measured in hours and kilometres."
+date: 2026-04-04
+type: article
+draft: true
+article-series: health-and-place
+article-sequence: 1
+topics: [Health Geography]
+tags: [alberta, health, primary-care, rural, access, geography, physicians, tag-hash-viz, tag-hash-story]
+image: /assets/images/alberta.webp
+toc: true
+description: >
+  What does healthcare access mean once geography is treated as a serious variable?
+  This article maps Alberta's primary care shortage — where it is most acute,
+  why it persists, and what it costs in lived time and deferred treatment.
+body-classes: "reading-body tag-hash-viz tag-hash-story"
+interactive:
+  charts: true
+  story: true
+  mapbox: true
+---
+
+In the spring of 2024, a woman in her mid-fifties living in a small town north of Drumheller developed a persistent cough and unexplained weight loss. She did not have a family doctor. The nearest walk-in clinic was forty kilometres away in Drumheller itself, operating three days a week with a capped daily patient roster. The clinic saw her on her third attempt, referred her to a respirologist in Calgary, and she waited eleven weeks for the appointment. By the time the diagnosis arrived — lung cancer, stage three — the treatment window had narrowed materially.
+
+Her situation is not a system failure in the way that term is usually used. No one made an error. No procedure was misapplied. The referral was appropriate, the specialist was competent, the diagnostic process followed its logic. What happened was the system working exactly as designed — and the design contains, as a structural feature, a geography that adds weeks to every non-emergency pathway for people who live outside the province's two major cities.
+
+This article is about that geography.
+
+---
+
+## What Access Means
+
+The policy language of healthcare access tends to be abstract. Access is measured in coverage rates, rostered populations, bed counts per thousand, wait-time percentiles. These metrics are real and useful. They are also, by themselves, incomplete.
+
+A rural resident who is technically within catchment of a regional hospital is not in the same position as an urban resident who can reach a walk-in clinic in fifteen minutes on foot. A patient rostered to a family practice that operates four days a week with a six-week booking window is not in the same position as a patient who can reach their physician the same day. Formal coverage and practical access are different things, and in Alberta the gap between them is geographic.
+
+Scroll through the spatial context below.
+
+```{=html}
+<section class="story-section">
+  <div class="story-sticky">
+    <div class="story-graphic">
+      <div data-map="custom" id="care-map"
+           data-center="-114.0, 54.5"
+           data-zoom="5"
+           data-style="mapbox://styles/mapbox/light-v11"
+           data-markers='[{"lng":-114.07,"lat":51.04,"label":"Calgary","color":"#ef4444"},{"lng":-113.49,"lat":53.54,"label":"Edmonton","color":"#ef4444"},{"lng":-113.81,"lat":52.27,"label":"Red Deer","color":"#9ca3af"},{"lng":-112.82,"lat":49.69,"label":"Lethbridge","color":"#9ca3af"},{"lng":-118.80,"lat":55.17,"label":"Grande Prairie","color":"#9ca3af"},{"lng":-111.38,"lat":56.73,"label":"Fort McMurray","color":"#9ca3af"},{"lng":-114.86,"lat":49.70,"label":"Cardston","color":"#6b7280"},{"lng":-112.73,"lat":51.48,"label":"Drumheller","color":"#6b7280"}]'
+           data-geojson='{"type":"FeatureCollection","features":[
+             {"type":"Feature","properties":{"id":"calgary-zone","color":"#22c55e","opacity":0.18,"outline-color":"#16a34a","visible":false},"geometry":{"type":"Polygon","coordinates":[[[-115.5,50.0],[-111.5,50.0],[-111.5,52.0],[-115.5,52.0],[-115.5,50.0]]]}},
+             {"type":"Feature","properties":{"id":"edmonton-zone","color":"#3b82f6","opacity":0.18,"outline-color":"#2563eb","visible":false},"geometry":{"type":"Polygon","coordinates":[[[-115.0,52.5],[-111.5,52.5],[-111.5,54.5],[-115.0,54.5],[-115.0,52.5]]]}},
+             {"type":"Feature","properties":{"id":"central-zone","color":"#f59e0b","opacity":0.22,"outline-color":"#d97706","visible":false},"geometry":{"type":"Polygon","coordinates":[[[-115.5,51.8],[-111.5,51.8],[-111.5,53.0],[-115.5,53.0],[-115.5,51.8]]]}},
+             {"type":"Feature","properties":{"id":"south-zone","color":"#f97316","opacity":0.25,"outline-color":"#ea580c","visible":false},"geometry":{"type":"Polygon","coordinates":[[[-115.0,49.0],[-110.0,49.0],[-110.0,51.0],[-115.0,51.0],[-115.0,49.0]]]}},
+             {"type":"Feature","properties":{"id":"north-zone","color":"#dc2626","opacity":0.28,"outline-color":"#b91c1c","visible":false},"geometry":{"type":"Polygon","coordinates":[[[-120.0,54.0],[-110.0,54.0],[-110.0,60.0],[-120.0,60.0],[-120.0,54.0]]]}},
+             {"type":"Feature","properties":{"id":"rural-ring","color":"#7f1d1d","opacity":0.35,"outline-color":"#450a0a","visible":false},"geometry":{"type":"Polygon","coordinates":[[[-116.0,49.5],[-110.5,49.5],[-110.5,52.5],[-116.0,52.5],[-116.0,49.5]]]}}
+           ]}'
+           style="height:520px;"></div>
+    </div>
+  </div>
+  <div class="story-steps">
+
+    <div class="story-step" data-step="0"
+         data-update='{"care-map": {"center": [-114.0, 54.5], "zoom": 5, "layers": {"calgary-zone": false, "edmonton-zone": false, "central-zone": false, "south-zone": false, "north-zone": false, "rural-ring": false}}}'>
+      <p><strong>661,000 km² of province.</strong> Alberta is roughly the size of France. Its 4.7 million people are distributed across two large cities, a handful of mid-sized cities, and hundreds of small towns and hamlets. The province is served by Alberta Health Services through five administrative health zones — each zone a distinct healthcare geography.</p>
+    </div>
+
+    <div class="story-step" data-step="1"
+         data-update='{"care-map": {"center": [-113.5, 51.3], "zoom": 7, "layers": {"calgary-zone": true, "edmonton-zone": false, "central-zone": false, "south-zone": false, "north-zone": false, "rural-ring": false}}}'>
+      <p><strong>Calgary Zone: 262 physicians per 100,000.</strong> The Calgary metropolitan area anchors the province's strongest primary care geography. Physicians in private practice choose urban settings; Calgary's population density, university hospitals, and specialist ecosystem make it the most attractive practice environment in Alberta. <em>Green zone: Calgary AHS health zone.</em></p>
+    </div>
+
+    <div class="story-step" data-step="2"
+         data-update='{"care-map": {"center": [-113.8, 53.0], "zoom": 6, "layers": {"calgary-zone": true, "edmonton-zone": true, "central-zone": true, "south-zone": false, "north-zone": false, "rural-ring": false}}}'>
+      <p><strong>Beyond the cities, the count drops.</strong> Edmonton Zone sits at 248 per 100,000 — still above national average. Central Zone (Red Deer corridor) drops to 178 — a third below national average. <em>Blue: Edmonton Zone. Amber: Central Zone.</em> The space between Calgary and Edmonton is the first tier of the physician desert. A patient in Drumheller, Ponoka, or Wetaskiwin navigates a care landscape that looks nothing like what a Calgary resident experiences.</p>
+    </div>
+
+    <div class="story-step" data-step="3"
+         data-update='{"care-map": {"center": [-113.0, 51.0], "zoom": 6, "layers": {"calgary-zone": false, "edmonton-zone": false, "central-zone": false, "south-zone": true, "north-zone": true, "rural-ring": false}}}'>
+      <p><strong>South and North: 152–165 physicians per 100,000.</strong> South Zone (Lethbridge, Medicine Hat) sits at 165. North Zone (Grande Prairie and the boreal fringe) reaches only 152 — nearly 40% below the national average. <em>Orange: South Zone. Red: North Zone.</em> For a patient in High Level, Peace River, or Fort Chipewyan, the routine healthcare interactions available to an urban Albertan require hours of travel or simply do not happen.</p>
+    </div>
+
+    <div class="story-step" data-step="4"
+         data-update='{"care-map": {"center": [-113.5, 51.5], "zoom": 6, "layers": {"calgary-zone": false, "edmonton-zone": false, "central-zone": false, "south-zone": false, "north-zone": false, "rural-ring": true}}}'>
+      <p><strong>Rural communities: ~88 physicians per 100,000.</strong> Outside the zonal system — the hamlets, agricultural service centres, and small towns — physician coverage averages around 88 per 100,000. In many specific communities, the figure is zero. <em>Dark red zone: approximate rural coverage gap in the agricultural plains.</em> This is not a shortage in the usual policy sense. For many communities, it is absence.</p>
+    </div>
+
+  </div>
+</section>
+```
+
+Alberta covers approximately 661,000 square kilometres. Its population of roughly 4.7 million is distributed very unevenly: approximately 1.7 million in the Calgary metropolitan area, 1.5 million in the Edmonton region, and the remainder spread across a system of small and mid-sized cities and several hundred small towns, hamlets, and rural municipalities, many of which have never supported a permanent physician population and are becoming less likely to do so over time.
+
+The gradient between the two major cities and the rural remainder is not subtle. Urban Albertans in Calgary and Edmonton navigate the same pressures as urban Canadians generally: insufficient family doctors, long specialist waits, overcrowded emergency departments. Rural Albertans face all of that and then a travel distance that converts a bad system experience into a genuinely punishing one.
+
+---
+
+## The Physician Map
+
+Alberta had approximately 11,200 active physicians in 2023 across all specialties — a ratio of roughly 235 physicians per 100,000 population, one of the lower figures among Canadian provinces [@cihi-physicians2023]. The national average is approximately 257. Ontario sits at approximately 260. British Columbia at approximately 270. Quebec, despite persistent complaints about its healthcare system, at approximately 280.
+
+The provincial average understates the problem because it is a composite. Within the province, physician distribution tracks population density with an additional urban bias: physicians in private or group practice choose practice locations, and they choose, disproportionately, cities.
+
+<div data-viz="echarts" style="height:380px" data-options='{
+  "backgroundColor":"#0f172a",
+  "title":{"text":"Physicians per 100,000 Population by Alberta Zone, 2023","textStyle":{"color":"#f8fafc","fontSize":15},"left":"center"},
+  "tooltip":{"trigger":"axis","axisPointer":{"type":"shadow"},"backgroundColor":"#1e293b","borderColor":"#334155","textStyle":{"color":"#f8fafc"}},
+  "grid":{"left":"22%","right":"8%","bottom":"10%","top":"15%","containLabel":false},
+  "xAxis":{"type":"value","name":"Physicians per 100k","nameTextStyle":{"color":"#94a3b8"},"axisLabel":{"color":"#94a3b8"},"splitLine":{"lineStyle":{"color":"#1e293b"}},"axisLine":{"lineStyle":{"color":"#334155"}}},
+  "yAxis":{"type":"category","data":["Rural/remote","South Zone","Central Zone","North Zone","Edmonton Zone","Calgary Zone","Canada avg"],"axisLabel":{"color":"#94a3b8","width":160,"overflow":"truncate"},"axisLine":{"lineStyle":{"color":"#334155"}}},
+  "series":[{"type":"bar","data":[88,165,178,152,248,262,257],"itemStyle":{"color":{"type":"linear","x":0,"y":0,"x2":1,"y2":0,"colorStops":[{"offset":0,"color":"#1e3a5f"},{"offset":1,"color":"#f59e0b"}]}},"label":{"show":true,"position":"right","color":"#94a3b8","formatter":"{c}"}}]
+}'></div>
+
+<p class="viz-caption">Source: Canadian Institute for Health Information, Supply, Distribution and Migration of Physicians in Canada, 2023 [@cihi-physicians2023]; Alberta Health Physician Registry. "Rural/remote" excludes First Nations communities served by Indigenous Services Canada. Calgary and Edmonton zones use AHS health zone definitions. Canada average is the national composite.</p>
+
+The Central Zone — Red Deer and the agricultural corridor north of Calgary — runs at roughly 178 physicians per 100,000, a third below the national average. The South Zone, covering Lethbridge, Medicine Hat, and the irrigated farming communities between them, sits at approximately 165. The North Zone, stretching from the Peace Country through the boreal fringe, reaches only 152 — in large part because Grande Prairie, the major service centre, cannot attract and retain physicians at rates proportional to the population it serves.
+
+Rural and remote communities outside the zonal system average approximately 88 physicians per 100,000. In many specific communities, the figure is zero.
+
+The figure for First Nations communities served by Indigenous Services Canada is not directly comparable because federal health service provision operates under a separate administrative structure, but access indicators — rostered population rates, travel time to specialist care, ambulatory care-sensitive condition hospitalization rates — consistently show worse outcomes than even the rural Alberta non-Indigenous comparators [@fnha-health-indicators2022].
+
+---
+
+## The Family Doctor Deficit
+
+The family doctor is the routing mechanism of the healthcare system. A rostered patient with a functioning family physician relationship has a professional who knows their history, can triage effectively, manages chronic conditions longitudinally, and — critically — can make referrals into specialist networks with the contextual information that makes those referrals efficient. The family doctor is not primarily a treatment provider. They are a system navigator.
+
+When the family doctor is absent, the system's routing mechanism fails. Patients without a primary care provider use emergency departments as their first point of contact for conditions that should be managed in primary care: infections that progress because they are not caught early, diabetes management that slips because there is no quarterly monitoring, mental health deterioration that reaches crisis point before the system intervenes. This pattern has a clinical name — ambulatory care-sensitive conditions (ACSCs), conditions whose hospitalization rates serve as a proxy for primary care access adequacy — and Alberta's ACSC hospitalization rate for rural zones consistently runs above provincial and national averages [@cihi-acsc-alberta2022].
+
+In 2024, Alberta Health estimated that approximately 700,000 Albertans — roughly 15% of the population — did not have a rostered family physician [@ab-health-pcn2023]. This figure is contested but the order of magnitude is not: the province has a significant and growing population that navigates the healthcare system without primary care attachment.
+
+<div data-viz="echarts" style="height:340px" data-options='{
+  "backgroundColor":"#0f172a",
+  "title":{"text":"Estimated Unrostered Population by Alberta Zone, 2024","textStyle":{"color":"#f8fafc","fontSize":15},"left":"center"},
+  "tooltip":{"trigger":"item","formatter":"{b}: {c}%","backgroundColor":"#1e293b","borderColor":"#334155","textStyle":{"color":"#f8fafc"}},
+  "legend":{"orient":"vertical","left":"left","textStyle":{"color":"#cbd5e1"},"top":"middle"},
+  "series":[{"type":"pie","radius":["40%","68%"],"center":["60%","50%"],
+    "data":[
+      {"value":11,"name":"Calgary Zone","itemStyle":{"color":"#f59e0b"}},
+      {"value":13,"name":"Edmonton Zone","itemStyle":{"color":"#d97706"}},
+      {"value":19,"name":"Central Zone","itemStyle":{"color":"#dc2626"}},
+      {"value":22,"name":"South Zone","itemStyle":{"color":"#b91c1c"}},
+      {"value":26,"name":"North Zone","itemStyle":{"color":"#7f1d1d"}},
+      {"value":9,"name":"Other / unknown","itemStyle":{"color":"#334155"}}
+    ],
+    "label":{"color":"#f8fafc","formatter":"{b}: {c}%"},
+    "emphasis":{"itemStyle":{"shadowBlur":10,"shadowColor":"rgba(0,0,0,0.5)"}}
+  }]
+}'></div>
+
+<p class="viz-caption">Source: Alberta Health, Primary Care Network Rostering Data, 2024 [@ab-health-pcn2023]; author calculations from AHS zone population estimates. "Unrostered" refers to individuals not attached to a Primary Care Network family physician; does not include patients with nurse practitioners, walk-in only users, or those accessing care through Indigenous health networks. Figures are approximate.</p>
+
+The unrostered population is not randomly distributed. It skews toward: recent immigrants; young adults who last had a family doctor in a different province or city and have not re-registered; rural residents where the local physician has retired and not been replaced; and low-income urban residents who move frequently and lose continuity with practice registries. These are not unusual demographic groups. They are, cumulatively, a substantial fraction of the population.
+
+---
+
+## The Wait
+
+Even for Albertans who have a family physician, specialist access follows a wait-time geography that is directly shaped by where the patient lives.
+
+The median wait time from GP referral to specialist consultation in Alberta in 2023 was approximately 22 weeks provincially — already above the 18-week national median recommended by the Wait Times Alliance [@wta-report-cards2023]. But the provincial median smooths a substantial internal variation. In Calgary and Edmonton, where the specialist workforce is concentrated, wait times for many specialties track closer to 14–18 weeks. In regional centres like Red Deer, Lethbridge, or Grande Prairie, wait times for the same specialties are consistently longer — partly because the regional specialist supply is thinner, partly because patients compete with larger rural catchment areas.
+
+For some specialties the gap is more severe. Psychiatry in Grande Prairie has had periods where the wait for non-crisis assessment exceeded twelve months. Orthopedic surgery in the South Zone routinely exceeds the Calgary wait by eight to twelve weeks. Dermatology in Central Zone operates primarily through visiting clinics with wait times that can extend beyond a year for non-urgent conditions.
+
+<div data-viz="echarts" style="height:360px" data-options='{
+  "backgroundColor":"#0f172a",
+  "title":{"text":"Median Specialist Wait Times by Zone and Specialty, 2023 (weeks)","textStyle":{"color":"#f8fafc","fontSize":15},"left":"center"},
+  "tooltip":{"trigger":"axis","axisPointer":{"type":"shadow"},"backgroundColor":"#1e293b","borderColor":"#334155","textStyle":{"color":"#f8fafc"}},
+  "legend":{"data":["Calgary/Edmonton","Rural zones (avg)"],"bottom":8,"textStyle":{"color":"#cbd5e1"}},
+  "grid":{"left":"5%","right":"5%","bottom":"15%","top":"12%","containLabel":true},
+  "xAxis":{"type":"category","data":["Internal medicine","Orthopedic surgery","Psychiatry","Dermatology","Cardiology","General surgery"],"axisLabel":{"color":"#94a3b8","rotate":25},"axisLine":{"lineStyle":{"color":"#334155"}}},
+  "yAxis":{"type":"value","name":"Weeks","nameTextStyle":{"color":"#94a3b8"},"axisLabel":{"color":"#94a3b8"},"splitLine":{"lineStyle":{"color":"#1e293b"}},"axisLine":{"lineStyle":{"color":"#334155"}}},
+  "series":[
+    {"name":"Calgary/Edmonton","type":"bar","data":[16,28,32,38,18,22],"itemStyle":{"color":"#475569"}},
+    {"name":"Rural zones (avg)","type":"bar","data":[24,42,58,67,29,36],"itemStyle":{"color":"#f59e0b"}}
+  ]
+}'></div>
+
+<p class="viz-caption">Source: Alberta Health Services, Wait Times Reporting, 2023; Wait Times Alliance, Report Card on Wait Times in Canada 2023 [@wta-report-cards2023]. Rural zones average combines Central, South, and North Zone reporting. Psychiatry and dermatology rural figures reflect estimated wait times from visiting-clinic availability data; direct zone-level reporting is inconsistent.</p>
+
+These waits carry a travel multiplier. A patient in Rocky Mountain House referred to a specialist in Red Deer is managing a 90-kilometre drive for each appointment — not once, but potentially three, four, or five times over the course of a diagnostic and treatment pathway. If the referral leads to surgery, recovery may require additional follow-up in the regional centre, or travel to Calgary or Edmonton if the procedure is not available locally. The travel cost — in money, in time away from work, in the logistics of childcare, in the physical challenge for an elderly or disabled patient — is borne entirely by the patient and is invisible to the wait-time statistics.
+
+---
+
+## Hospital Consolidation and the Catchment Geography
+
+Alberta's acute care hospital network has consolidated steadily over the past three decades. The pattern is not unique to Alberta — it reflects a national trend driven by specialization economics, maintenance cost, and staffing challenges — but its consequences are geographically specific.
+
+In 1990, Alberta operated approximately 130 acute care facilities. By 2024 that number had fallen to approximately 95, with additional facilities reduced to continuing care or day-procedure status. The closures and reductions have been concentrated in small communities: towns of 2,000 to 8,000 that once supported a small hospital with basic emergency capacity, obstetrics, and general surgery. Many of those communities now have a continuing care facility and a health centre with visiting clinicians but no inpatient acute care.
+
+The consequence is a shift in the effective catchment geography of emergency care. A resident of a town that once had local emergency capacity now faces a 60, 80, or 100-kilometre drive for anything beyond first response. Ambulance response times in rural Alberta reflect this: the provincial target for time-sensitive emergencies is 8 minutes in urban areas; in rural areas the same response often takes 20–45 minutes from dispatch to first paramedic contact, and transport time to a facility with the required treatment capability adds another 30–90 minutes [@ahs-ems-response2023].
+
+The clinical implications are documented and specific. For ST-elevation myocardial infarction, every 30-minute delay in door-to-balloon time is associated with measurable increases in mortality. The current clinical standard targets door-to-balloon times under 90 minutes for urban hospitals; in rural Alberta, transport time alone frequently consumes more than 90 minutes before the patient reaches a facility capable of performing the intervention.
+
+Stroke is similarly time-sensitive. The treatment window for thrombolytic therapy is approximately 4.5 hours from symptom onset. A patient in a rural Alberta community who experiences stroke symptoms, recognizes them, calls 911, waits for an ambulance, and is transported to the nearest capable facility may arrive at the boundary of that window or outside it. Geography does not pause the clock.
+
+---
+
+## The Maternity Gap
+
+Obstetric services have followed the consolidation pattern with particular consequence. Deliveries require staffing levels — obstetricians or rural generalist physicians with surgical privileges, anesthesiologists, operating room nursing staff — that small hospitals cannot sustain on the economics of their birth volumes. When a rural hospital loses its obstetric program, it restructures the geography of pregnancy.
+
+Women in communities that have lost obstetric services must either arrange to relocate near a delivering facility before their due date, or accept the risk of laboring at a distance from the facility where delivery will occur. In communities with Indigenous populations, the enforced travel for birth creates additional harm: separation from family and community support during delivery, exposure to racism in distant urban hospital settings, disconnection from ceremony and cultural practices that are part of the birth process in many First Nations communities [@nccih-birth-outcomes2021].
+
+Several First Nations communities in northern Alberta have not had local obstetric services within practical reach for decades. The expectation that pregnant women travel to Edmonton or Grand Prairie for the last weeks of pregnancy — away from their families, their communities, their land — is treated as logistically unremarkable within the planning system. It is not experienced as unremarkable.
+
+---
+
+## What the System Is Actually Optimising For
+
+Healthcare systems optimise for the things they measure and fund, and Alberta's primary care funding structure has historically created incentives that concentrate services in high-volume urban settings.
+
+The fee-for-service model that governs most primary care in Alberta pays physicians a fixed fee per patient encounter regardless of the clinical complexity or the geographic context. A family doctor in rural Lac La Biche managing a panel of patients with higher disease burden, more complex social circumstances, and greater need for coordination with social services is paid the same per-visit fee as a colleague in southwest Calgary managing a healthy, mobile professional population. The rural physician typically sees fewer patients per day due to travel, administrative burden, and complexity. The financial outcome is a lower income for more demanding work — a structural disincentive that the various rural retention programs partially offset but do not resolve.
+
+The hospital funding model has similar effects. Facilities that generate high volumes of well-reimbursed procedures attract specialist staff and investment. Small rural facilities that generate high volumes of low-reimbursement primary emergency care and social admissions run structural deficits and are chronically understaffed.
+
+None of this is the product of bad intentions. It is the product of a funding architecture built around a particular image of the healthcare consumer: urban, mobile, technologically capable, able to arrange their own transport, with a household structure that allows flexibility. For the population that fits that profile, the system works reasonably well. For those who do not, the system contains geography as a load-bearing element.
+
+---
+
+## The Cost
+
+The cost of this geography is partially measurable and partially not.
+
+The measurable component includes: excess hospitalization for ambulatory care-sensitive conditions in rural zones, which costs Alberta Health Services an estimated $200–300 million annually in avoidable acute care spending; productivity loss from travel time for medical appointments, which Statistics Canada's time-use surveys suggest averages 40–60 minutes per appointment for rural Albertans versus 20 minutes for urban; and the direct out-of-pocket travel costs for rural patients, which are partially reimbursed under the Alberta Aids to Daily Living program but imperfectly and with significant administrative friction [@statcan-health-utilization2022].
+
+The unmeasured cost includes: deferred diagnoses like the woman outside Drumheller, where delay represents a shift in treatment outcomes that does not appear in any wait-time statistic because the patient never entered the queue; the mental health burden of living with uncertain or absent care access; and the structural cost to rural communities whose ability to attract and retain population is partially conditioned on their healthcare infrastructure. Towns that cannot sustain a family practice face a harder time attracting young families, which reduces school enrollment, which reduces services, which makes physician recruitment harder — a compound spiral that several rural Alberta communities are presently navigating.
+
+---
+
+## What Would Improvement Require
+
+This article is not a healthcare policy prescription. There are well-developed arguments in the literature for nurse practitioner expansion, for team-based primary care models, for rural compensation reform, for telehealth infrastructure investment, and for Indigenous-controlled health service development — all of which would improve the situation documented here, and most of which are actively being pursued to varying degrees by Alberta Health.
+
+What this article can offer is a frame: the geographic unevenness of care access in Alberta is not an oversight. It is a structural outcome of how healthcare systems are funded, how physicians make practice location decisions, how hospital consolidation proceeds, and how population distribution interacts with the economics of healthcare delivery. Treating it as a geography problem — rather than simply a physician supply problem or a wait-time problem — makes visible a different set of interventions: ones focused on reducing the friction of distance, on restructuring incentives at the point of practice location rather than after the fact, and on measuring access in terms of travel time and practical reach rather than formal coverage statistics.
+
+The distance to care is, in many parts of Alberta, the system itself. Understanding it geographically is the precondition for changing it.
+
+---
+
+*This is the first article in Wayward House's Health and Place series. Related reading: [Winter as a Health System](/articles/winter-as-a-health-system.html) examines how cold amplifies every healthcare access gap this article maps.*
