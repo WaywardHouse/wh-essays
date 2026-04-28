@@ -1,9 +1,9 @@
 ---
 title: "The Distance to Care"
 subtitle: "Alberta has among the worst physician-to-population ratios in Canada. For most residents that is a statistic. For a growing number it is a geography — measured in hours and kilometres."
-date: 2026-04-04
+date: 2026-04-28
 type: article
-draft: true
+draft: false
 article-series: health-and-place
 article-sequence: 1
 topics: [Health Geography]
@@ -92,11 +92,13 @@ Alberta covers approximately 661,000 square kilometres. Its population of roughl
 
 The gradient between the two major cities and the rural remainder is not subtle. Urban Albertans in Calgary and Edmonton navigate the same pressures as urban Canadians generally: insufficient family doctors, long specialist waits, overcrowded emergency departments. Rural Albertans face all of that and then a travel distance that converts a bad system experience into a genuinely punishing one.
 
+The traditional access metric — whether a physician practice exists within a defined catchment area — obscures the compounding effect of time. A person who lives forty kilometres from the nearest physician is not equally served by that physician as a person who lives four kilometres away, even if both are technically within the same health zone. Travel time compounds at every step: the appointment itself requires a half-day rather than an hour; follow-up becomes a logistical problem rather than a routine; specialist referrals require additional journeys to larger centres. For a working parent, an elderly patient without reliable transportation, or a farmworker during seeding season, each of these barriers can be individually negotiable but collectively decisive. What the aggregate statistics describe as a physician ratio is experienced, in practice, as a calendar problem and a fuel cost.
+
 ---
 
 ## The Physician Map
 
-Alberta had approximately 11,200 active physicians in 2023 across all specialties — a ratio of roughly 235 physicians per 100,000 population, one of the lower figures among Canadian provinces [@cihi-physicians2023]. The national average is approximately 257. Ontario sits at approximately 260. British Columbia at approximately 270. Quebec, despite persistent complaints about its healthcare system, at approximately 280.
+Alberta had approximately 11,200 active physicians in 2023 across all specialties — a ratio of roughly 235 physicians per 100,000 population, one of the lower figures among Canadian provinces.<sup>1</sup> The national average is approximately 257. Ontario sits at approximately 260. British Columbia at approximately 270. Quebec, despite persistent complaints about its healthcare system, at approximately 280.
 
 The provincial average understates the problem because it is a composite. Within the province, physician distribution tracks population density with an additional urban bias: physicians in private or group practice choose practice locations, and they choose, disproportionately, cities.
 
@@ -110,13 +112,13 @@ The provincial average understates the problem because it is a composite. Within
   "series":[{"type":"bar","data":[88,165,178,152,248,262,257],"itemStyle":{"color":{"type":"linear","x":0,"y":0,"x2":1,"y2":0,"colorStops":[{"offset":0,"color":"#1e3a5f"},{"offset":1,"color":"#f59e0b"}]}},"label":{"show":true,"position":"right","color":"#94a3b8","formatter":"{c}"}}]
 }'></div>
 
-<p class="viz-caption">Source: Canadian Institute for Health Information, Supply, Distribution and Migration of Physicians in Canada, 2023 [@cihi-physicians2023]; Alberta Health Physician Registry. "Rural/remote" excludes First Nations communities served by Indigenous Services Canada. Calgary and Edmonton zones use AHS health zone definitions. Canada average is the national composite.</p>
+<p class="viz-caption">Source: Canadian Institute for Health Information, Supply, Distribution and Migration of Physicians in Canada, 2023;<sup>1</sup> Alberta Health Physician Registry. "Rural/remote" excludes First Nations communities served by Indigenous Services Canada. Calgary and Edmonton zones use AHS health zone definitions. Canada average is the national composite.</p>
 
 The Central Zone — Red Deer and the agricultural corridor north of Calgary — runs at roughly 178 physicians per 100,000, a third below the national average. The South Zone, covering Lethbridge, Medicine Hat, and the irrigated farming communities between them, sits at approximately 165. The North Zone, stretching from the Peace Country through the boreal fringe, reaches only 152 — in large part because Grande Prairie, the major service centre, cannot attract and retain physicians at rates proportional to the population it serves.
 
 Rural and remote communities outside the zonal system average approximately 88 physicians per 100,000. In many specific communities, the figure is zero.
 
-The figure for First Nations communities served by Indigenous Services Canada is not directly comparable because federal health service provision operates under a separate administrative structure, but access indicators — rostered population rates, travel time to specialist care, ambulatory care-sensitive condition hospitalization rates — consistently show worse outcomes than even the rural Alberta non-Indigenous comparators [@fnha-health-indicators2022].
+The figure for First Nations communities served by Indigenous Services Canada is not directly comparable because federal health service provision operates under a separate administrative structure, but access indicators — rostered population rates, travel time to specialist care, ambulatory care-sensitive condition hospitalization rates — consistently show worse outcomes than even the rural Alberta non-Indigenous comparators.<sup>2</sup>
 
 ---
 
@@ -124,9 +126,9 @@ The figure for First Nations communities served by Indigenous Services Canada is
 
 The family doctor is the routing mechanism of the healthcare system. A rostered patient with a functioning family physician relationship has a professional who knows their history, can triage effectively, manages chronic conditions longitudinally, and — critically — can make referrals into specialist networks with the contextual information that makes those referrals efficient. The family doctor is not primarily a treatment provider. They are a system navigator.
 
-When the family doctor is absent, the system's routing mechanism fails. Patients without a primary care provider use emergency departments as their first point of contact for conditions that should be managed in primary care: infections that progress because they are not caught early, diabetes management that slips because there is no quarterly monitoring, mental health deterioration that reaches crisis point before the system intervenes. This pattern has a clinical name — ambulatory care-sensitive conditions (ACSCs), conditions whose hospitalization rates serve as a proxy for primary care access adequacy — and Alberta's ACSC hospitalization rate for rural zones consistently runs above provincial and national averages [@cihi-acsc-alberta2022].
+When the family doctor is absent, the system's routing mechanism fails. Patients without a primary care provider use emergency departments as their first point of contact for conditions that should be managed in primary care: infections that progress because they are not caught early, diabetes management that slips because there is no quarterly monitoring, mental health deterioration that reaches crisis point before the system intervenes. This pattern has a clinical name — ambulatory care-sensitive conditions (ACSCs), conditions whose hospitalization rates serve as a proxy for primary care access adequacy — and Alberta's ACSC hospitalization rate for rural zones consistently runs above provincial and national averages.<sup>3</sup>
 
-In 2024, Alberta Health estimated that approximately 700,000 Albertans — roughly 15% of the population — did not have a rostered family physician [@ab-health-pcn2023]. This figure is contested but the order of magnitude is not: the province has a significant and growing population that navigates the healthcare system without primary care attachment.
+In 2024, Alberta Health estimated that approximately 700,000 Albertans — roughly 15% of the population — did not have a rostered family physician.<sup>4</sup> This figure is contested but the order of magnitude is not: the province has a significant and growing population that navigates the healthcare system without primary care attachment.
 
 <div data-viz="echarts" style="height:340px" data-options='{
   "backgroundColor":"#0f172a",
@@ -147,9 +149,11 @@ In 2024, Alberta Health estimated that approximately 700,000 Albertans — rough
   }]
 }'></div>
 
-<p class="viz-caption">Source: Alberta Health, Primary Care Network Rostering Data, 2024 [@ab-health-pcn2023]; author calculations from AHS zone population estimates. "Unrostered" refers to individuals not attached to a Primary Care Network family physician; does not include patients with nurse practitioners, walk-in only users, or those accessing care through Indigenous health networks. Figures are approximate.</p>
+<p class="viz-caption">Source: Alberta Health, Primary Care Network Rostering Data, 2024;<sup>4</sup> author calculations from AHS zone population estimates. "Unrostered" refers to individuals not attached to a Primary Care Network family physician; does not include patients with nurse practitioners, walk-in only users, or those accessing care through Indigenous health networks. Figures are approximate.</p>
 
 The unrostered population is not randomly distributed. It skews toward: recent immigrants; young adults who last had a family doctor in a different province or city and have not re-registered; rural residents where the local physician has retired and not been replaced; and low-income urban residents who move frequently and lose continuity with practice registries. These are not unusual demographic groups. They are, cumulatively, a substantial fraction of the population.
+
+The absence of rostered care has a downstream effect that is rarely counted in physician shortage statistics: the silent accumulation of unmanaged chronic disease. A patient who has not seen a family physician in three years — not because they are healthy, but because they cannot access one — has three years of unmonitored hypertension, unscreened diabetes risk, unaddressed depression. When they eventually present to the healthcare system, they present with conditions that have compounded. The system then spends significantly more per episode of care on what could have been caught and managed incrementally. The physician shortage thus appears in the data as acute care cost pressure rather than as primary care absence — a framing that displaces the root cause and makes the right intervention less visible.
 
 ---
 
@@ -157,7 +161,7 @@ The unrostered population is not randomly distributed. It skews toward: recent i
 
 Even for Albertans who have a family physician, specialist access follows a wait-time geography that is directly shaped by where the patient lives.
 
-The median wait time from GP referral to specialist consultation in Alberta in 2023 was approximately 22 weeks provincially — already above the 18-week national median recommended by the Wait Times Alliance [@wta-report-cards2023]. But the provincial median smooths a substantial internal variation. In Calgary and Edmonton, where the specialist workforce is concentrated, wait times for many specialties track closer to 14–18 weeks. In regional centres like Red Deer, Lethbridge, or Grande Prairie, wait times for the same specialties are consistently longer — partly because the regional specialist supply is thinner, partly because patients compete with larger rural catchment areas.
+The median wait time from GP referral to specialist consultation in Alberta in 2023 was approximately 22 weeks provincially — already above the 18-week national median recommended by the Wait Times Alliance.<sup>5</sup> But the provincial median smooths a substantial internal variation. In Calgary and Edmonton, where the specialist workforce is concentrated, wait times for many specialties track closer to 14–18 weeks. In regional centres like Red Deer, Lethbridge, or Grande Prairie, wait times for the same specialties are consistently longer — partly because the regional specialist supply is thinner, partly because patients compete with larger rural catchment areas.
 
 For some specialties the gap is more severe. Psychiatry in Grande Prairie has had periods where the wait for non-crisis assessment exceeded twelve months. Orthopedic surgery in the South Zone routinely exceeds the Calgary wait by eight to twelve weeks. Dermatology in Central Zone operates primarily through visiting clinics with wait times that can extend beyond a year for non-urgent conditions.
 
@@ -175,9 +179,11 @@ For some specialties the gap is more severe. Psychiatry in Grande Prairie has ha
   ]
 }'></div>
 
-<p class="viz-caption">Source: Alberta Health Services, Wait Times Reporting, 2023; Wait Times Alliance, Report Card on Wait Times in Canada 2023 [@wta-report-cards2023]. Rural zones average combines Central, South, and North Zone reporting. Psychiatry and dermatology rural figures reflect estimated wait times from visiting-clinic availability data; direct zone-level reporting is inconsistent.</p>
+<p class="viz-caption">Source: Alberta Health Services, Wait Times Reporting, 2023; Wait Times Alliance, Report Card on Wait Times in Canada 2023.<sup>5</sup> Rural zones average combines Central, South, and North Zone reporting. Psychiatry and dermatology rural figures reflect estimated wait times from visiting-clinic availability data; direct zone-level reporting is inconsistent.</p>
 
 These waits carry a travel multiplier. A patient in Rocky Mountain House referred to a specialist in Red Deer is managing a 90-kilometre drive for each appointment — not once, but potentially three, four, or five times over the course of a diagnostic and treatment pathway. If the referral leads to surgery, recovery may require additional follow-up in the regional centre, or travel to Calgary or Edmonton if the procedure is not available locally. The travel cost — in money, in time away from work, in the logistics of childcare, in the physical challenge for an elderly or disabled patient — is borne entirely by the patient and is invisible to the wait-time statistics.
+
+The rural general practitioner also absorbs a function that rarely appears in their job description: specialist travel coordination. A GP in a community two hours from the nearest specialist centre is not simply writing referrals; they are counselling patients on the logistics of appointments, identifying patients who cannot manage the travel alone, arranging interim management for people who will wait months before being seen, and triaging which conditions can wait and which cannot. This coordinative labour is uncompensated, unmeasured, and entirely absent from any wait-time reporting framework. It is one of the main reasons rural physicians describe their workload as qualitatively different from — not merely more than — urban practice.
 
 ---
 
@@ -187,7 +193,7 @@ Alberta's acute care hospital network has consolidated steadily over the past th
 
 In 1990, Alberta operated approximately 130 acute care facilities. By 2024 that number had fallen to approximately 95, with additional facilities reduced to continuing care or day-procedure status. The closures and reductions have been concentrated in small communities: towns of 2,000 to 8,000 that once supported a small hospital with basic emergency capacity, obstetrics, and general surgery. Many of those communities now have a continuing care facility and a health centre with visiting clinicians but no inpatient acute care.
 
-The consequence is a shift in the effective catchment geography of emergency care. A resident of a town that once had local emergency capacity now faces a 60, 80, or 100-kilometre drive for anything beyond first response. Ambulance response times in rural Alberta reflect this: the provincial target for time-sensitive emergencies is 8 minutes in urban areas; in rural areas the same response often takes 20–45 minutes from dispatch to first paramedic contact, and transport time to a facility with the required treatment capability adds another 30–90 minutes [@ahs-ems-response2023].
+The consequence is a shift in the effective catchment geography of emergency care. A resident of a town that once had local emergency capacity now faces a 60, 80, or 100-kilometre drive for anything beyond first response. Ambulance response times in rural Alberta reflect this: the provincial target for time-sensitive emergencies is 8 minutes in urban areas; in rural areas the same response often takes 20–45 minutes from dispatch to first paramedic contact, and transport time to a facility with the required treatment capability adds another 30–90 minutes.<sup>6</sup>
 
 The clinical implications are documented and specific. For ST-elevation myocardial infarction, every 30-minute delay in door-to-balloon time is associated with measurable increases in mortality. The current clinical standard targets door-to-balloon times under 90 minutes for urban hospitals; in rural Alberta, transport time alone frequently consumes more than 90 minutes before the patient reaches a facility capable of performing the intervention.
 
@@ -199,7 +205,7 @@ Stroke is similarly time-sensitive. The treatment window for thrombolytic therap
 
 Obstetric services have followed the consolidation pattern with particular consequence. Deliveries require staffing levels — obstetricians or rural generalist physicians with surgical privileges, anesthesiologists, operating room nursing staff — that small hospitals cannot sustain on the economics of their birth volumes. When a rural hospital loses its obstetric program, it restructures the geography of pregnancy.
 
-Women in communities that have lost obstetric services must either arrange to relocate near a delivering facility before their due date, or accept the risk of laboring at a distance from the facility where delivery will occur. In communities with Indigenous populations, the enforced travel for birth creates additional harm: separation from family and community support during delivery, exposure to racism in distant urban hospital settings, disconnection from ceremony and cultural practices that are part of the birth process in many First Nations communities [@nccih-birth-outcomes2021].
+Women in communities that have lost obstetric services must either arrange to relocate near a delivering facility before their due date, or accept the risk of laboring at a distance from the facility where delivery will occur. In communities with Indigenous populations, the enforced travel for birth creates additional harm: separation from family and community support during delivery, exposure to racism in distant urban hospital settings, disconnection from ceremony and cultural practices that are part of the birth process in many First Nations communities.<sup>7</sup>
 
 Several First Nations communities in northern Alberta have not had local obstetric services within practical reach for decades. The expectation that pregnant women travel to Edmonton or Grand Prairie for the last weeks of pregnancy — away from their families, their communities, their land — is treated as logistically unremarkable within the planning system. It is not experienced as unremarkable.
 
@@ -221,9 +227,11 @@ None of this is the product of bad intentions. It is the product of a funding ar
 
 The cost of this geography is partially measurable and partially not.
 
-The measurable component includes: excess hospitalization for ambulatory care-sensitive conditions in rural zones, which costs Alberta Health Services an estimated $200–300 million annually in avoidable acute care spending; productivity loss from travel time for medical appointments, which Statistics Canada's time-use surveys suggest averages 40–60 minutes per appointment for rural Albertans versus 20 minutes for urban; and the direct out-of-pocket travel costs for rural patients, which are partially reimbursed under the Alberta Aids to Daily Living program but imperfectly and with significant administrative friction [@statcan-health-utilization2022].
+The measurable component includes: excess hospitalization for ambulatory care-sensitive conditions in rural zones, which costs Alberta Health Services an estimated $200–300 million annually in avoidable acute care spending; productivity loss from travel time for medical appointments, which Statistics Canada's time-use surveys suggest averages 40–60 minutes per appointment for rural Albertans versus 20 minutes for urban; and the direct out-of-pocket travel costs for rural patients, which are partially reimbursed under the Alberta Aids to Daily Living program but imperfectly and with significant administrative friction.<sup>8</sup>
 
 The unmeasured cost includes: deferred diagnoses like the woman outside Drumheller, where delay represents a shift in treatment outcomes that does not appear in any wait-time statistic because the patient never entered the queue; the mental health burden of living with uncertain or absent care access; and the structural cost to rural communities whose ability to attract and retain population is partially conditioned on their healthcare infrastructure. Towns that cannot sustain a family practice face a harder time attracting young families, which reduces school enrollment, which reduces services, which makes physician recruitment harder — a compound spiral that several rural Alberta communities are presently navigating.
+
+There is also a cost that is rarely framed in economic terms: the asymmetry of knowledge. Urban Albertans typically know what good primary care access looks like because they have experienced it. Many rural Albertans have not had a rostered family physician in years — in some cases, ever — and have calibrated their expectations to a system that was never adequately resourced for them. The absence has been normalised. Deferred care is not experienced as deprivation of something that exists; it is experienced as simply how things are. That normalisation makes the gap harder to measure and harder to argue for, because the people most affected by it are least likely to describe their situation as an emergency.
 
 ---
 
@@ -233,8 +241,30 @@ This article is not a healthcare policy prescription. There are well-developed a
 
 What this article can offer is a frame: the geographic unevenness of care access in Alberta is not an oversight. It is a structural outcome of how healthcare systems are funded, how physicians make practice location decisions, how hospital consolidation proceeds, and how population distribution interacts with the economics of healthcare delivery. Treating it as a geography problem — rather than simply a physician supply problem or a wait-time problem — makes visible a different set of interventions: ones focused on reducing the friction of distance, on restructuring incentives at the point of practice location rather than after the fact, and on measuring access in terms of travel time and practical reach rather than formal coverage statistics.
 
+Improvement also requires a shift in what the system counts. When access is measured as a ratio — physicians per population, beds per thousand — geography disappears. When access is measured as a distribution of actual travel times to actual services, the problem becomes impossible to aggregate away. The people who live in the dark parts of the physician map are not statistical residuals. They are the majority of Alberta's land surface, a significant fraction of its population, and the communities least equipped to absorb the cost of a system that was not designed with them in mind.
+
 The distance to care is, in many parts of Alberta, the system itself. Understanding it geographically is the precondition for changing it.
 
 ---
 
-*This is the first article in Wayward House's Health and Place series. Related reading: [Winter as a Health System](/articles/winter-as-a-health-system.html) examines how cold amplifies every healthcare access gap this article maps.*
+*This is the first article in Wayward House's Health and Place series.*
+
+---
+
+## References
+
+1. Canadian Institute for Health Information. (2023). *Supply, Distribution and Migration of Physicians in Canada, 2023*. Ottawa: CIHI. Retrieved from cihi.ca/en/physicians-in-canada
+
+2. First Nations Health Authority. (2022). *First Nations Health Status Report: Comparative Health Access Indicators*. West Vancouver: FNHA. See also: National Collaborating Centre for Indigenous Health. (2022). *Social Determinants of Health as an Analytical Lens for Indigenous People's Health in Canada*. Prince George: NCCIH.
+
+3. Canadian Institute for Health Information. (2022). *Ambulatory Care Sensitive Conditions in Canada: Hospitalization Rates by Health Region*. Ottawa: CIHI. Retrieved from cihi.ca/en/ambulatory-care-sensitive-conditions
+
+4. Alberta Health. (2023). *Primary Care Network Rostering Data: Provincial Summary 2023–24*. Edmonton: Government of Alberta, Health Workforce Planning.
+
+5. Wait Times Alliance. (2023). *Report Card on Wait Times in Canada, 2023: Time for Results*. Ottawa: WTA. Retrieved from waittimesalliance.ca
+
+6. Alberta Health Services. (2023). *EMS Response Time Performance Reporting: Rural and Remote Zone Summary*. Edmonton: AHS Emergency Medical Services.
+
+7. National Collaborating Centre for Indigenous Health. (2021). *Birth Outcomes and Maternity Care Access for Indigenous Peoples in Canada*. Prince George: NCCIH. Retrieved from nccih.ca
+
+8. Statistics Canada. (2022). *Health Care Use and Insurance: Annual Estimates*. Ottawa: Statistics Canada. Catalogue no. 82-626-X. Retrieved from statcan.gc.ca
