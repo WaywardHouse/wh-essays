@@ -18,6 +18,9 @@ description: >
 body-classes: "reading-body tag-hash-viz"
 interactive:
   charts: true
+bibliography: references.bib
+csl: chicago-author-date.csl
+link-citations: true
 ---
 
 In the summer of 1869, surveyors working for the Dominion of Canada began dividing the land that would become Alberta into a grid of townships, ranges, and sections using theodolites, chains, and wooden stakes. The Dominion Land Survey imposed a geometry on approximately 800,000 square kilometres of prairie and parkland — marking, recording, and making legible a territory that the Canadian state was about to inherit from the Hudson's Bay Company and administer as agricultural, mineral, and eventually hydrocarbon resource space.
@@ -125,7 +128,7 @@ The gaps in the measurement infrastructure are as informative as its coverage. T
 
 ---
 
-*This is the third article in the Wayward House Monitoring series. The first two — [What Light Reveals](/articles/what-light-reveals.html) and [Watching Water](/articles/watching-water.html) — introduce the spectral and hydrological foundations of Earth observation. For the governance context of measurement asymmetry, see [The Ideology of Extraction](/articles/ideology-of-extraction.html).*
+*This is the third article in the Wayward House Monitoring series. The first two — [What Light Reveals](/essays/what-light-reveals.html) and [Watching Water](/essays/watching-water.html) — introduce the spectral and hydrological foundations of Earth observation. For the governance context of measurement asymmetry, see [The Ideology of Extraction](/essays/ideology-of-extraction.html).*
 
 ## References
 
