@@ -354,29 +354,3 @@ World's Top Exports. 2024. "Alberta's Top Exports 2024." <https://www.worldstope
 ---
 
 *· Next in the Series: [The Texas of the North](/texas-of-the-north/)*
-
-## Feedback {#feedback .section-title}
-
-::: {.section-copy}
-Articles work better with structured feedback than open comment threads. If something is wrong, unclear, or worth discussing, use the route that fits best.
-:::
-
-```{=html}
-<div class="feedback-grid">
-  <div class="feedback-card">
-    <h3>Report An Error</h3>
-    <p>Use this when a number, source, or factual claim needs correction.</p>
-    <a href="../pages/contact.html">Send a correction →</a>
-  </div>
-  <div class="feedback-card">
-    <h3>Send A Note</h3>
-    <p>Use this for responses, nuance, or follow-up questions about the article.</p>
-    <a href="../pages/contact.html">Send a note →</a>
-  </div>
-  <div class="feedback-card">
-    <h3>Keep Reading</h3>
-    <p>This article is part of the Alberta in Context sequence.</p>
-    <a href="./texas-of-the-north.html">Read the next article →</a>
-  </div>
-</div>
-```
