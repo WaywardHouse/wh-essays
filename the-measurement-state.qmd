@@ -1,0 +1,133 @@
+---
+title: "The Measurement State"
+subtitle: "Before a government can manage a territory, it has to see it. The sensors, registries, and observation systems that make Alberta legible to the state are also making it legible to everyone else."
+date: 2026-05-05
+type: article
+draft: false
+article-series: monitoring
+article-sequence: 3
+topics: [Monitoring, Economic Geography]
+tags: [alberta, remote-sensing, monitoring, governance, data, energy-regulator, tag-hash-viz]
+image: /assets/images/alberta.webp
+toc: true
+description: >
+  Modern territory is managed through measurement: sensors, registries, satellite feeds, and
+  administrative databases that make landscapes legible to the institutions governing them.
+  This bridge essay traces the measurement infrastructure that makes Alberta visible —
+  and asks what gets counted and what does not.
+body-classes: "reading-body tag-hash-viz"
+interactive:
+  charts: true
+---
+
+In the summer of 1869, surveyors working for the Dominion of Canada began dividing the land that would become Alberta into a grid of townships, ranges, and sections using theodolites, chains, and wooden stakes. The Dominion Land Survey imposed a geometry on approximately 800,000 square kilometres of prairie and parkland — marking, recording, and making legible a territory that the Canadian state was about to inherit from the Hudson's Bay Company and administer as agricultural, mineral, and eventually hydrocarbon resource space.
+
+The survey was a measurement project. Everything that followed — homestead allocation, mineral lease registration, pipeline rights-of-way, municipal boundaries — depended on the grid being there to locate claims and resolve disputes. Before you can govern a territory, you have to be able to describe it: to assign coordinates to places, names to parcels, owners to assets, risks to zones. The Dominion Survey was Alberta's first large-scale measurement infrastructure.
+
+The province's measurement infrastructure now runs to several hundred systems, networks, and databases that collectively answer the question: what is where? They include Earth observation satellites collecting imagery every few days, seismic monitoring networks tracking induced earthquakes from injection wells, air quality sensors measuring industrial emissions across the industrial heartland, the Alberta Energy Regulator's integrated oil and gas database tracking 430,000 wells and their associated infrastructure, and the Land Titles Office maintaining a cadastral record that stretches in direct lineage from those 1869 survey stakes.
+
+This article is about that infrastructure — how it works, what it makes visible, and what remains invisible within it.
+
+---
+
+## The Regulatory Eye
+
+The Alberta Energy Regulator (AER) operates what is probably the largest integrated industrial monitoring system in Canada. The oil and gas sector it regulates is enormous: approximately 430,000 wells drilled since provincial records began, of which roughly 165,000 are currently active or inactive but not yet abandoned, spread across approximately 600,000 square kilometres of producing area [@aer-annual-report2023].
+
+The AER's measurement apparatus includes:
+
+**Well licensing and production reporting.** Every well in Alberta requires an AER licence, and every producing well must report monthly production volumes — oil, gas, water, and by-products. This data, aggregated, constitutes one of the most granular pictures of an oil and gas province's production geography available anywhere. It is largely public.
+
+**Seismic monitoring.** Alberta operates a seismic network — the Regulatory Seismicity Monitoring System (RSMS) — specifically designed to detect induced seismicity from injection operations, primarily produced water disposal wells associated with hydraulic fracturing. The system operates automatic traffic-light protocols: wells exceeding a set seismic threshold are required to reduce or suspend injection, and the AER receives real-time alerts.
+
+**Tailings pond monitoring.** The oil sands tailings ponds — the largest engineered structures in North America — are monitored for seepage, stability, and atmospheric emissions through a combination of on-site instrumentation, groundwater monitoring wells, and periodic inspection. The adequacy of this monitoring has been contested. A 2023 peer-reviewed study applied satellite interferometric synthetic aperture radar (InSAR) — using C-band data from the RADARSAT Constellation Mission — to detect slow millimetre-scale deformation in tailings pond levees that had not been identified through AER's inspection-based monitoring programme [@aer-tailings-insar2023]. The AER subsequently updated its monitoring protocols to incorporate satellite-based levee deformation monitoring, and InSAR analysis is now a standing component of the tailings surveillance framework [@mda-rcm-csa2023]. This is one of the cleaner examples in recent Alberta regulatory history of a public measurement capability being used to identify, and then close, a gap in the formal monitoring system.
+
+---
+
+## What Satellites See in Alberta
+
+Previous articles in this series have discussed optical and microwave Earth observation for snow and water monitoring. Alberta is also one of the most intensively satellite-monitored industrial landscapes in the world, largely because of the environmental and regulatory interest in the oil sands.
+
+**Methane monitoring.** Oil and gas operations are significant methane emitters. Alberta's reporting obligations under federal greenhouse gas regulations require operators to estimate their emissions — but estimation from engineering models has been persistently shown to understate actual emissions relative to direct measurement. The Environmental Defence Fund's MethaneSAT satellite, launched in March 2024, and the Montreal-based Canadian firm GHGSat's constellation of imaging spectrometers both collect direct atmospheric methane measurements over Alberta, allowing comparison with operator-reported figures. GHGSat's instruments, capable of attributing emissions to individual facilities at fine spatial scales, have identified specific point sources that operator self-reporting did not capture. Early findings from MethaneSAT and GHGSat have identified facility-level and basin-level emission discrepancies now informing regulatory compliance reviews [@ghgsat-methane2024; @methaneSAT-edf2024].
+
+**Canadian satellite infrastructure.** Alberta is a primary application domain for two distinctly Canadian commercial satellite capabilities. MDA Space — the heritage Canadian company responsible for the Canadarm programme and operator of the RADARSAT Constellation Mission (RCM) on behalf of the Canadian Space Agency — provides C-band synthetic aperture radar (SAR) coverage of Alberta with a nominal four-day revisit interval. SAR imaging penetrates cloud cover and operates day and night, a significant operational advantage in the northern boreal context where cloud cover limits optical imaging for much of the year. Beyond the tailings levee deformation work described above, RCM data supports frost heave monitoring along pipeline rights-of-way, wetland inundation mapping across the Peace-Athabasca Delta, and surface subsidence analysis over underground cavern storage facilities [@mda-rcm-csa2023]. Wyvern, a Calgary-based company, operates the Dragonette-002 hyperspectral satellite, collecting imagery in hundreds of contiguous narrow spectral bands at spatial resolutions suited to facility-scale monitoring. Broadband multispectral sensors — Landsat, Sentinel-2, Planet — record reflected energy in four to twelve broad wavelength intervals; Wyvern's instrument records the full spectral curve, enabling capabilities that broadband sensors cannot approach: discrimination between plant functional types in reclaimed well pad vegetation assessments, detection of early-stage vegetation stress from subsurface hydrocarbon contamination before visible symptoms appear, and identification of mineralogical signatures in exposed oil sands overburden and tailings surfaces [@wyvern-dragonette2024]. The combination of RCM's all-weather radar geometry and Wyvern's spectral depth represents a distinctly Canadian contribution to the satellite monitoring of a distinctly Canadian industrial landscape.
+
+**Vegetation and disturbance monitoring.** Boreal forest disturbance from oil sands development, seismic exploration lines, pipeline rights-of-way, and well pad networks is tracked using annual Landsat and Sentinel-2 time series, with Planet Labs' daily optical constellation providing change detection at temporal frequencies that were not commercially available a decade ago. The footprint of in situ oil sands development — which uses steam injection rather than surface mining and therefore has a smaller immediate surface signature than the Athabasca mines — is nonetheless substantial when the full linear network of access roads, pipelines, and cleared seismic lines is accounted for. Analysis published by the Alberta Biodiversity Monitoring Institute suggests that approximately 20% of the province's boreal forest has been disturbed to some degree by industrial activity, though the definition of "disturbed" is contested [@abmi-footprint2022]. Hyperspectral monitoring of the kind Wyvern's Dragonette-002 enables — discriminating recovering native species from invasive grasses colonising nominally reclaimed well pads — addresses a specific gap in broadband time-series analysis: the ability to confirm ecological, not merely visual, recovery.
+
+**Urban heat and surface change.** Landsat thermal bands allow mapping of urban heat islands across Calgary and Edmonton with sufficient temporal density to track change. The heat island pattern in Calgary — higher temperatures in the industrial northeast, the concrete-and-asphalt core, and large parking lot districts; lower temperatures in the river valley parkways and the larger suburban lots with mature tree canopy — maps onto the greenspace analysis in *Hidden in Plain Sight* with precision that field measurement could not achieve at comparable spatial extent.
+
+---
+
+## The Air Quality Network
+
+Alberta's ambient air quality monitoring network consists of approximately 120 monitoring stations operated by Alberta Environment and Protected Areas, the Wood Buffalo Environmental Association, and industry-funded regional monitoring bodies [@aepsa-airquality2023]. The stations measure the standard criteria air contaminants — particulate matter (PM2.5 and PM10), ozone, nitrogen dioxide, sulphur dioxide, carbon monoxide — and transmit readings in near-real time to a public data portal.
+
+The monitoring geography reflects the distribution of concern more than the distribution of population. The Fort Air Partnership operates a dense network of stations around the Fort Saskatchewan and Strathcona County industrial complex — home to petrochemical facilities, refineries, and the Edmonton-area upgrader cluster — because that is where the regulatory and community pressure for air quality data is highest. In contrast, residential areas of smaller cities with less industrial concentration have thinner monitoring coverage, and some agricultural areas with significant livestock operations have essentially no ambient monitoring.
+
+<div data-viz="echarts" style="height:340px" data-options='{
+  "backgroundColor":"#0f172a",
+  "title":{"text":"Alberta Air Quality Monitoring Station Distribution by Region and Operator, 2023","textStyle":{"color":"#f8fafc","fontSize":15},"left":"center"},
+  "tooltip":{"trigger":"item","formatter":"{b}: {c} stations","backgroundColor":"#1e293b","borderColor":"#334155","textStyle":{"color":"#f8fafc"}},
+  "legend":{"orient":"vertical","left":"left","textStyle":{"color":"#cbd5e1"},"top":"middle"},
+  "series":[{"type":"pie","radius":["40%","68%"],"center":["62%","50%"],
+    "data":[
+      {"value":28,"name":"Fort Air Partnership (industrial heartland)","itemStyle":{"color":"#dc2626"}},
+      {"value":22,"name":"Wood Buffalo Environmental Assoc (oil sands)","itemStyle":{"color":"#f59e0b"}},
+      {"value":31,"name":"Alberta Environment (provincial network)","itemStyle":{"color":"#3b82f6"}},
+      {"value":18,"name":"Calgary/Edmonton municipal","itemStyle":{"color":"#10b981"}},
+      {"value":14,"name":"Other regional/industry","itemStyle":{"color":"#6366f1"}},
+      {"value":7,"name":"Research/temporary","itemStyle":{"color":"#475569"}}
+    ],
+    "label":{"color":"#f8fafc","formatter":"{b|{b}}\n{c} stations","rich":{"b":{"fontSize":9}}},
+    "emphasis":{"itemStyle":{"shadowBlur":10,"shadowColor":"rgba(0,0,0,0.5)"}}
+  }]
+}'></div>
+
+<p class="viz-caption">Source: Alberta Environment and Protected Areas, Air Monitoring Directive station registry, 2023 [@aepsa-airquality2023]; Wood Buffalo Environmental Association monitoring network documentation; Fort Air Partnership station list. Station counts are approximate; temporary research stations excluded from totals. Industrial heartland over-representation reflects regulatory and community monitoring agreements tied to approvals processes.</p>
+
+What the air quality network does not cover is, in its own way, informative. It measures where monitoring was required as a condition of industrial approval, or where community pressure made the political cost of non-measurement too high. It does not systematically measure the cumulative ambient air quality experienced by residential populations in agricultural zones, on reserve communities adjacent to production areas, or in small towns downwind of operations too small to individually trigger monitoring requirements.
+
+---
+
+## The Cadastre and What It Records
+
+Alberta's Land Titles system maintains the legal record of who owns what land and what encumbrances attach to it. The system is digital, reasonably current, and accessible to professionals and, with some friction, to the general public through the Alberta Land Titles Office online portal.
+
+The cadastre records ownership and registered interests. It does not record environmental condition, historical land use, or contamination status. This gap is bridged — imperfectly — by the Abandoned Well Registry (tracking wells whose operators no longer exist or have not completed abandonment obligations), the Environmental Site Assessment (Phase I and II) process required for certain property transactions, and the Contaminated Sites Registry maintained by Alberta Environment.
+
+The gap is not academic. Alberta has approximately 100,000 inactive oil and gas wells that have not been fully abandoned — wells whose surface casings have been cut off but whose subsurface completion may leak hydrocarbons or brine over time. The liability associated with this inventory falls, in theory, on the operators. In practice, an estimated 3,000–5,000 wells belong to operators who are insolvent or otherwise unable to meet abandonment obligations, leaving the Orphan Well Association (funded by industry levies) to manage a growing queue of sites that require regulated abandonment work [@owa-inventory2023].
+
+The land titles record does not make this liability visible to a prospective rural land purchaser. The cadastre says who owns the surface. It does not say what is underneath, who is responsible for it, or what it might cost to fully remediate.
+
+---
+
+## Who Has Access to the Measurement Infrastructure
+
+The measurement infrastructure of Alberta — the satellite data, the regulatory databases, the monitoring networks — is, in principle, largely public. The AER's well licensing database is searchable online. The air quality monitoring data is published in near-real time. Landsat and Sentinel-2 imagery is free to download from NASA and the European Space Agency. The Land Titles system is accessible to anyone who can pay the search fee.
+
+In practice, the meaningful use of this data requires technical capacity that is not uniformly distributed. Processing a time series of Sentinel-2 imagery to detect tailings pond deformation requires remote sensing expertise. Querying the AER's database to map the distribution of inactive wells in a specific watershed requires familiarity with database structures and geospatial tools. Interpreting an air quality monitoring dataset to understand cumulative exposure requires epidemiological context.
+
+Firms that operate in the oil and gas sector have this capacity. Major environmental non-profits have developed it. Academic research groups produce analysis. Government agencies have it internally. Community groups, First Nations bands tracking impacts on traditional territory, and rural residents trying to understand what the industrial footprint around their property means for their water supply or air quality typically do not — not because the data is unavailable, but because the barrier to use is higher than the availability of the data implies.
+
+This asymmetry in measurement capacity is a governance question as well as a technical one. The monitoring infrastructure exists, in part, because the public has a legitimate interest in the environmental and safety performance of the industrial systems operating in their landscape. If the technical capacity to interpret that monitoring data is accessible only to the parties who generated the environmental impact, the monitoring's accountability function is reduced.
+
+---
+
+## Measurement and Its Discontents
+
+The systems described in this article make the province legible: to the state that regulates it, to the industry that operates in it, to the researchers who study it, and increasingly to the satellite networks that observe it without asking permission. The data is real, substantial, and growing.
+
+But measurement is also a political act. Deciding what to measure, where to place a monitoring station, what data to make public and what to hold as commercial-in-confidence, what resolution to publish and what to aggregate — these are decisions with distributional consequences. The oil sands region has some of the most intensive environmental monitoring in the world. The agricultural sector has comparatively little. The industrial heartland's ambient air quality is continuously tracked. The cumulative exposure of First Nations communities to emissions from wells and facilities across their traditional territories is not tracked in any integrated system.
+
+The Dominion Survey of 1869 made Alberta legible in the way that the Canadian state needed it to be legible: as a resource base to be allocated to settlers and investors. The monitoring infrastructure of 2026 makes it legible in the way that the regulatory economy needs it to be: as a complex of industrial operations whose risks must be managed. Both measurement systems encode the priorities of the institutions that built them.
+
+The gaps in the measurement infrastructure are as informative as its coverage. They tell you what the system was not designed to see.
+
+---
+
+*This is the third article in the Wayward House Monitoring series. The first two — [What Light Reveals](/articles/what-light-reveals.html) and [Watching Water](/articles/watching-water.html) — introduce the spectral and hydrological foundations of Earth observation. For the governance context of measurement asymmetry, see [The Ideology of Extraction](/articles/ideology-of-extraction.html).*
+
+## References
+
+::: {#refs}
+:::
