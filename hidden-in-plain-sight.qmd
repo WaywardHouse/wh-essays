@@ -13,6 +13,8 @@ categories:
   - "Urban Geography"
 image: assets/images/calgary-greenspace.jpg
 toc: true
+include-in-header:
+  - text: '<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js" crossorigin="anonymous"></script>'
 ---
 
 On a November morning with the temperature somewhere near zero and a Chinook arch sitting on the western horizon like a bruise, Fish Creek Provincial Park is almost entirely empty. The paved trail that in July carries cyclists, joggers, and stroller brigades three abreast now belongs to a few dog walkers and the occasional cross-country skier breaking fresh track through a cottonwood stand. The creek itself runs black and cold between banks furred with hoarfrost. A mule deer stands perfectly still in the willows twenty metres away and watches with no particular urgency. It is, in every meaningful sense, a wilderness encounter — the kind of thing you might expect to find a day's drive from the city rather than eleven kilometres from downtown Calgary, on the southern edge of a metropolitan area of 1.6 million people.
