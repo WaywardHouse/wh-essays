@@ -566,22 +566,4 @@ The ledger is still being written. The 2025 July storm's final tally was not in 
 
 **Alberta Utilities Commission.** *Electric Energy Market Report: January 2024 Cold Snap Event.* AUC, February 2024. Documents the grid stress event during the January 2024 polar vortex intrusion, conservation alerts, and near-miss rolling blackout scenario.
 
-### Hydrological Modelling — Related Series
-
-This article connects to several articles in the **Computational Geography Laboratory** modelling series:
-
-- **[Series 2, Model 18 — Runoff Generation Mechanisms](/series/2/):** Infiltration-excess versus saturation-excess runoff. The saturated-soil conditions during June 2013 shifted the watershed almost entirely into saturation-excess mode.
-- **[Series 2, Model 20 — Streamflow Routing](/series/2/):** Kinematic wave approximation and flood wave propagation. The coincident Bow-Elbow peaks are a routing problem as much as a precipitation problem.
-- **[Series 2, Model 21 — Snowmelt Processes](/series/2/):** Energy balance for snow, degree-day models, rain-on-snow events. The charged 2013 snowpack is the starting condition for the flood model.
-- **[Series 6, Models 60–62 — Fire Science](/series/6/):** Fuel moisture, the Canadian Fire Weather Index, fire spread via the Rothermel equation, and smoke dispersion. The physical framework behind fire danger rating and the conditions that drove both Fort McMurray and Jasper.
-- **[Series 6, Model 68 — Rainfall Intensity-Duration-Frequency](/series/6/):** IDF curves and extreme value statistics. The design storm framework underpinning Calgary's flood infrastructure.
-- **[Series 6, Model 69 — Flood Frequency Analysis](/series/6/):** Log-Pearson Type III distribution and return period estimation. The standard framework for evaluating whether a 2013-scale event is a 1-in-100-year or 1-in-50-year flood under current and future climate.
-- **[Series 6, Model 70 — Urban Flood modelling and Green Infrastructure](/series/6/):** The SCS Curve Number method, detention basin design, and the principles underlying the McLean Creek dry dam and associated infrastructure.
-
-For the thunderstorm dynamics and hail formation physics that drive Calgary's hailstorm hazard, see **[Series 6, Models 63–65](/series/6/):** Thunderstorm Dynamics, Tornado Formation, and Hail Formation and Forecasting.
-
-### Maps and Data
-
-Maps use Mapbox GL JS with Mapbox Outdoors basemap. Watershed boundary polygons are simplified for illustration; authoritative watershed delineations are available from Alberta Environment and Protected Areas via the Alberta Environment data portal. Flood extent polygons represent approximate 2013 inundation areas based on published post-event mapping; they are not engineering-grade flood maps. Updated regulatory flood maps are available from the City of Calgary Flood Resilience Program.
-
 *Insured loss figures are approximate estimates derived from Insurance Bureau of Canada public data and industry reporting. They should not be used for engineering, insurance, or planning purposes. All figures are in Canadian dollars at time of event.*

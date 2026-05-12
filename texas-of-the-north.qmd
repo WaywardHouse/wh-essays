@@ -283,28 +283,4 @@ All U.S. dollar figures in USD; Canadian figures in CAD unless noted. Exchange r
 
 *Previous: [A Trade Reality Check](/alberta-trade-reality-check/) · Next: [Contested Ground](/global-energy-markets/)*
 
-## Feedback {#feedback .section-title}
 
-::: {.section-copy}
-For article readers, the useful interaction is usually correction, response, or onward reading, not a permanent public thread.
-:::
-
-```{=html}
-<div class="feedback-grid">
-  <div class="feedback-card">
-    <h3>Report An Error</h3>
-    <p>Use this when a comparison, number, or citation needs correction.</p>
-    <a href="../pages/contact.html">Send a correction →</a>
-  </div>
-  <div class="feedback-card">
-    <h3>Send A Note</h3>
-    <p>Use this for reactions, disagreement, or a stronger comparative case.</p>
-    <a href="../pages/contact.html">Send a note →</a>
-  </div>
-  <div class="feedback-card">
-    <h3>Article Sequence</h3>
-    <p>This piece belongs to Alberta in Context.</p>
-    <a href="./alberta-trade-reality-check.html">Read the previous article →</a>
-  </div>
-</div>
-```

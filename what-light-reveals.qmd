@@ -338,29 +338,3 @@ The analysis here rests on mathematical foundations covered in dedicated models 
 *Imagery data: ©2025 Wyvern Incorporated. Dragonette-002 scene acquired 2025-07-28, available under CC BY 4.0. Spectral curves shown in the visualizations are representative simulations consistent with the Dragonette-002 band specification (445–869 nm, 31 bands, 5.3 m GSD); they are not extracted from the actual scene, which requires download from the open data catalogue.*
 
 *Open data catalogue: [opendata.wyvern.space](https://opendata.wyvern.space) · Knowledge centre and Python tutorials: [knowledge.wyvern.space](https://knowledge.wyvern.space)*
-
-## Feedback {#feedback .section-title}
-
-::: {.section-copy}
-If this article has an error, an unclear section, or a good follow-up question, structured feedback is more useful than page comments.
-:::
-
-```{=html}
-<div class="feedback-grid">
-  <div class="feedback-card">
-    <h3>Report An Error</h3>
-    <p>Use this for source, citation, or technical corrections.</p>
-    <a href="../pages/contact.html">Send a correction →</a>
-  </div>
-  <div class="feedback-card">
-    <h3>Send A Note</h3>
-    <p>Use this for discussion, follow-up, or suggestions for related topics.</p>
-    <a href="../pages/contact.html">Send a note →</a>
-  </div>
-  <div class="feedback-card">
-    <h3>Learn The Mechanics</h3>
-    <p>The underlying concepts connect directly to the textbook path.</p>
-    <a href="../learn/foundations/what-is-a-spatial-model.html">Open the textbook →</a>
-  </div>
-</div>
-```

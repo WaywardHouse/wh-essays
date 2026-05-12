@@ -260,4 +260,3 @@ The critical question is whether management systems designed for stability can a
 ::: {#refs}
 :::
 
-*This is the second article in Wayward House's Monitoring series. The first, [What Light Reveals](/articles/what-light-reveals.html), introduces hyperspectral remote sensing. For the water-stress context, see [Fire Country](/articles/fire-country.html), which examines how reduced snowpack and advancing spring seasons are changing Alberta's fire risk.*

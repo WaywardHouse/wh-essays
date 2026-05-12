@@ -843,5 +843,3 @@ Transport Canada. 2024. *Transportation in Canada: Annual Report.* Ottawa: Minis
 Transport Canada. 2025. *National Trade Corridors Fund: Funded Projects.* Ottawa: Transport Canada. <https://tc.canada.ca/en/rail-transportation/national-trade-corridors-fund/funded-projects>
 
 ---
-
-*This article is part of the **Alberta in Context** series, which examines Alberta's economic geography through quantitative and spatial analytical lenses. The series does not advocate for particular policy positions but aims to document the structural conditions that shape the province's economic geography with analytical rigor and impartiality.*

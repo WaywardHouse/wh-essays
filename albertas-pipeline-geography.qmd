@@ -658,6 +658,3 @@ infrastructure:
 
 ---
 
-*This article is the narrative introduction to the Pipeline Connectivity
-cluster within the Alberta in Context series. The computational articles
-P1–P5 follow with full mathematical treatments of each commodity system.*

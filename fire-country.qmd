@@ -214,5 +214,3 @@ Fire country is not a fixed geography. It is expanding, warming, and filling wit
 
 ::: {#refs}
 :::
-
-*Related reading: [Storm Country](/articles/storm-country.html) examines the meteorological volatility that drives extreme fire weather; [The Insurance Geography](/articles/the-insurance-geography.html) maps what the repricing of WUI risk means for Alberta homeowners; [Watching Water](/articles/watching-water.html) explores how declining snowpack and shifting runoff timing change both water availability and fire season intensity.*
