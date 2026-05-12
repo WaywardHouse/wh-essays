@@ -200,7 +200,7 @@ To understand how Calgary or Airdrie ends up with a maintenance liability that g
 
 **Phase 4: The infrastructure lifecycle.** Local roads have a typical useful life of 25–40 years before requiring substantial rehabilitation. Water mains run 40–80 years depending on material and operating conditions. Sanitary sewer mains: 50–100 years. The community built in 2005 will need its first major road rehabilitation starting in the late 2020s. The community built in 1995 needs it now.
 
-The revenue stream from a new community — primarily property taxes — does not scale with the maintenance liability in the way that intuition might suggest. A household paying \$ 4,500 annually in property taxes generates approximately \$ 1,000–1,500 in municipal services revenue after provincial grants, school requisitions, and debt charges are deducted. Against a per-household infrastructure maintenance obligation of \$ 1,500–2,500 per year, that gap is a structural deficit that accumulates quietly through the early lifecycle of every new community.
+The revenue stream from a new community — primarily property taxes — does not scale with the maintenance liability in the way that intuition might suggest. A household paying \$4500 annually in property taxes generates approximately \$1,000–1,500 in municipal services revenue after provincial grants, school requisitions, and debt charges are deducted. Against a per-household infrastructure maintenance obligation of \$1,500–2,500 per year, that gap is a structural deficit that accumulates quietly through the early lifecycle of every new community.
 
 ---
 
@@ -208,7 +208,7 @@ The revenue stream from a new community — primarily property taxes — does no
 
 The infrastructure deficit — the gap between what municipalities have set aside for infrastructure replacement and what they will actually need — is not unique to Alberta, but Alberta's aggressive growth pattern has made it more acute.
 
-The City of Edmonton's 2022 infrastructure report estimated a current infrastructure renewal gap of approximately \$ 6.4 billion, growing by roughly \$ 250 million annually [@city-of-edmonton-infrastructure2022]. The City of Calgary's equivalent figure is likely comparable or larger, reflecting both the scale of the city's suburban build-out and the age of inner-city infrastructure. Smaller cities that grew rapidly in the resource boom years — Fort McMurray, Grande Prairie, Lloydminster — face proportionally even larger gaps, because their growth was faster and their tax bases are more exposed to energy sector cyclicality.
+The City of Edmonton's 2022 infrastructure report estimated a current infrastructure renewal gap of approximately \$6.4 billion, growing by roughly \$250 million annually [@city-of-edmonton-infrastructure2022]. The City of Calgary's equivalent figure is likely comparable or larger, reflecting both the scale of the city's suburban build-out and the age of inner-city infrastructure. Smaller cities that grew rapidly in the resource boom years — Fort McMurray, Grande Prairie, Lloydminster — face proportionally even larger gaps, because their growth was faster and their tax bases are more exposed to energy sector cyclicality.
 
 <div data-viz="echarts" style="height:320px" data-options='{
   "backgroundColor":"#0f172a",
