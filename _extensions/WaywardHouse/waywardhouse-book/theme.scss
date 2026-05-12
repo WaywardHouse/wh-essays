@@ -730,14 +730,20 @@ body.split-home {
        → updateMap()/updateLeaflet() on each step enter
    ════════════════════════════════════════════════════════════════════════════ */
 
-/* Outer section — two-column grid: [map] [steps] */
+/* Outer section — two-column grid: [map] [steps]
+   JS sets --story-left-offset to the section's measured left edge from the
+   viewport, letting the map column break out to the screen left edge while
+   the steps column stays within the content area. */
 .story-section {
   position:              relative;
   display:               grid;
   grid-template-columns: 1fr 40ch;
-  column-gap:            2.5rem;
+  column-gap:            0;
   align-items:           start;
   margin-block:          3rem;
+  /* Break out to left viewport edge */
+  margin-left:           calc(-1 * var(--story-left-offset, 0px));
+  width:                 calc(100% + var(--story-left-offset, 0px));
 }
 
 /* Sticky panel — map/viz in left column, pins while steps scroll */
@@ -771,7 +777,9 @@ body.split-home {
 .story-steps {
   position:       relative;
   z-index:        1;
+  padding-top:    2rem;
   padding-bottom: 30vh;
+  padding-left:   1.5rem;
   pointer-events: none;
 }
 

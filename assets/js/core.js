@@ -130,10 +130,20 @@ function initKeyboardNav() {
 
 let storyInited = false;
 
+function measureStoryOffsets() {
+  document.querySelectorAll('.story-section').forEach((section) => {
+    const left = section.getBoundingClientRect().left;
+    section.style.setProperty('--story-left-offset', `${left}px`);
+  });
+}
+
 async function initStorytelling() {
   if (storyInited) return;
   const sections = Array.from(document.querySelectorAll('.story-section'));
   if (sections.length === 0) return;
+
+  measureStoryOffsets();
+  window.addEventListener('resize', measureStoryOffsets, { passive: true });
 
   sections.forEach((section, sectionIdx) => {
     const graphic = section.querySelector('.story-graphic');
