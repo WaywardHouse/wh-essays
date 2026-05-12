@@ -1,0 +1,326 @@
+---
+title: "Who Pays for Sprawl"
+subtitle: "Every new suburb generates development fees and property taxes. It also creates kilometres of pipe, road, and wire that someone will have to maintain forever. The math rarely adds up."
+date: 2026-04-04
+type: article
+draft: false
+article-series: urban-canada
+article-sequence: 1
+topics: [Urban Geography, Economic Geography]
+tags: [alberta, calgary, edmonton, urban-growth, sprawl, infrastructure, municipal-finance, tag-hash-viz, tag-hash-math]
+image: /assets/images/alberta.webp
+toc: true
+description: >
+  The fiscal cost of low-density suburban growth is well-documented in urban economics but almost
+  invisible in the municipal planning decisions that produce it. This article traces how sprawl
+  generates infrastructure obligations that outlast the revenues that justified them.
+body-classes: "reading-body tag-hash-viz tag-hash-math"
+interactive:
+  charts: true
+  math: true
+  leaflet: true
+bibliography: references.bib
+csl: chicago-author-date.csl
+link-citations: true
+---
+
+On the northern edge of Airdrie, Alberta — a city of approximately 80,000 people that did not exist as a city until 1985 — new residential streets are under construction in a subdivision called Bayview. The lots are large by urban standards, the homes detached, the street cross-sections generous. A cul-de-sac of forty houses requires roughly 400 metres of road, the associated curb and gutter, a stormwater drainage system, a water main, a sanitary sewer, and the electrical and telecommunications conduit that runs alongside. The developer builds this infrastructure and then, at completion, turns it over to the municipality. From that moment, it is Airdrie's infrastructure to maintain, repair, and eventually replace.
+
+This is not a problem that Airdrie is doing wrong. It is the development model. Across Alberta — across Canada — the standard fiscal logic of suburban growth involves developers fronting infrastructure costs in exchange for development approvals, collecting those costs back from homebuyers in the purchase price, and then handing the ongoing liability to the municipality while moving to the next subdivision.
+
+The question the model defers is the same one that surfaces, with increasing urgency, in municipal budget cycles across the country: when the pipes need replacing in 2055, who pays?
+
+---
+
+## The Geometry of Cost
+
+The fiscal economics of development density follow from geometry. Low-density development uses more land per household. More land per household means more linear infrastructure — pipe, road, wire — per household. More linear infrastructure per household means a higher per-household cost to build and maintain the city.
+
+The relationship can be expressed simply. If a city grows by adding $N$ households at density $d$ (households per hectare), the additional lane-kilometres of road required scale roughly as:
+
+$$L \approx \frac{N}{d \cdot k}$$
+
+where $k$ is a packing efficiency factor reflecting the road network geometry. At twice the density, the same number of households requires roughly half the road infrastructure. The non-linear effects are larger than the linear approximation implies, because denser development also allows shorter utility runs, shared walls (reducing heat loss per unit), and more efficient emergency service routing. But the linear relationship captures the core trade-off: suburban lots at 8 households per hectare require approximately four times the linear infrastructure of mid-rise development at 32 households per hectare.
+
+<div data-viz="echarts" style="height:360px" data-options='{
+  "backgroundColor":"#0f172a",
+  "title":{"text":"Infrastructure Cost per Household by Development Form, Calgary Region","textStyle":{"color":"#f8fafc","fontSize":15},"left":"center"},
+  "tooltip":{"trigger":"axis","axisPointer":{"type":"shadow"},"backgroundColor":"#1e293b","borderColor":"#334155","textStyle":{"color":"#f8fafc"}},
+  "legend":{"data":["Roads & sidewalks","Water & sewer","Parks & amenity","Annual maintenance (20yr PV)"],"bottom":8,"textStyle":{"color":"#cbd5e1"}},
+  "grid":{"left":"5%","right":"5%","bottom":"18%","top":"12%","containLabel":true},
+  "xAxis":{"type":"category","data":["Low-density suburban (8 hu/ha)","Suburban (16 hu/ha)","Mixed-use mid-rise (40 hu/ha)","Inner-city infill (60+ hu/ha)"],"axisLabel":{"color":"#94a3b8","rotate":20,"width":120,"overflow":"break"},"axisLine":{"lineStyle":{"color":"#334155"}}},
+  "yAxis":{"type":"value","name":"$ per household (000s)","nameTextStyle":{"color":"#94a3b8"},"axisLabel":{"color":"#94a3b8","formatter":"${value}k"},"splitLine":{"lineStyle":{"color":"#1e293b"}},"axisLine":{"lineStyle":{"color":"#334155"}}},
+  "series":[
+    {"name":"Roads & sidewalks","type":"bar","stack":"total","data":[38,24,12,7],"itemStyle":{"color":"#475569"}},
+    {"name":"Water & sewer","type":"bar","stack":"total","data":[28,18,9,6],"itemStyle":{"color":"#1e40af"}},
+    {"name":"Parks & amenity","type":"bar","stack":"total","data":[12,9,6,4],"itemStyle":{"color":"#15803d"}},
+    {"name":"Annual maintenance (20yr PV)","type":"bar","stack":"total","data":[48,31,15,9],"itemStyle":{"color":"#dc2626"}}
+  ]
+}'></div>
+
+<p class="viz-caption">Source: City of Calgary, New Community Infrastructure Funding Review, 2022 [@city-of-calgary-offsite2023]; Canadian Urban Institute, True Costs of Growth study series; author calculations using present-value methodology for 20-year maintenance obligations at 3.5% discount rate. Figures are approximate and vary significantly by specific site conditions, topography, and service standards. "Low-density suburban" corresponds to standard Calgary new-community greenfield development. All costs are 2023 Canadian dollars.</p>
+
+The 20-year present value of maintenance obligations is, in many analyses, the number that matters most — because it is the obligation that municipalities consistently underfund. Upfront infrastructure is typically paid through development levies that have grown substantially in Alberta over the past decade in response to exactly this fiscal pressure. Ongoing maintenance comes out of operating budgets that are also under pressure from service cost increases, a growing existing infrastructure base, and a property tax system that does not automatically generate revenue proportional to maintenance obligations.
+
+---
+
+## Calgary and Edmonton's Growth Bands
+
+The map below shows the principal growth bands of Calgary and Edmonton since 1980 — the successive rings of suburban development that have added road-lane-kilometres and pipe-kilometres faster than either city has been able to set aside capital for their eventual renewal.
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
+<style>
+.fig-map { border-radius:6px; overflow:hidden; box-shadow:0 2px 14px rgba(0,0,0,0.18); margin:1.5rem 0 0.5rem; }
+.fig-caption { font-size:0.8rem; color:var(--text-muted,#666); line-height:1.6; margin:8px 0 2.5rem; font-style:italic; }
+.fig-caption strong { font-style:normal; }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+
+<div class="fig-map" id="sprawl-map" style="height:540px;"></div>
+<p class="fig-caption"><strong>Figure 1.</strong> Urban growth bands: Calgary and Edmonton, approximate extent by era. Infrastructure built during the 1970s–1990s growth bands is now entering its major rehabilitation window. Growth since 2000 represents the next generation of deferred obligation. Satellite communities (Airdrie, Cochrane, Spruce Grove, Leduc) follow the same pattern at smaller scale. Click any zone for detail.</p>
+
+<script>
+(function(){
+  function tryInit() {
+    if (typeof L === 'undefined') { setTimeout(tryInit, 120); return; }
+    const map = L.map('sprawl-map', { center: [52.4, -113.8], zoom: 7, zoomControl: true });
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.webp', {
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors © <a href="https://carto.com/">CARTO</a>',
+      subdomains: 'abcd', maxZoom: 19
+    }).addTo(map);
+
+    // Calgary growth rings
+    const calgaryZones = [
+      {
+        name: 'Calgary — Inner City (pre-1970)',
+        desc: 'Original streetcar suburbs and early automobile-era development. Infrastructure 50–80+ years old. Much now in active renewal. Dense enough to generate tax revenue above maintenance cost. Inner-city cross-subsidy helps support outer ring obligations.',
+        color: '#7c3aed',
+        coords: [[51.07,-114.18],[51.07,-113.92],[51.00,-113.92],[51.00,-114.18],[51.07,-114.18]]
+      },
+      {
+        name: 'Calgary — 1970s–1980s Growth Band',
+        desc: 'Major suburban expansion era. Communities: Ranchlands, Sandstone, Queensland, Fairview, Ogden. Roads built to early Calgary standards now entering rehabilitation window (25–40 year lifecycle). Water mains in this era used asbestos-cement pipe with known failure rates. Major infrastructure renewal pressure 2025–2040.',
+        color: '#dc2626',
+        coords: [[51.13,-114.25],[51.13,-113.80],[50.95,-113.80],[50.95,-114.25],[51.13,-114.25]]
+      },
+      {
+        name: 'Calgary — 1990s–2000s Growth Band',
+        desc: 'Resource boom era expansion. Communities: Tuscany, Cougar Ridge, Auburn Bay, Panorama Hills, Coventry Hills. Infrastructure 20–35 years old; approaching early rehabilitation lifecycle for roads, approaching mid-life for pipes. Fiscal pressure 2035–2055.',
+        color: '#ea580c',
+        coords: [[51.18,-114.35],[51.18,-113.72],[50.88,-113.72],[50.88,-114.35],[51.18,-114.35]]
+      },
+      {
+        name: 'Calgary — 2010s–2020s Growth Band',
+        desc: 'Current growth frontier. Communities: Livingston, Belmont, Cornerstone, Rangeview, Glacier Ridge. Developer-built infrastructure handed to City; off-site levy now >$50,000/unit. Infrastructure obligations to begin maturing 2045–2060. Revenue currently appears positive; maintenance liability deferred.',
+        color: '#f59e0b',
+        coords: [[51.22,-114.18],[51.22,-113.82],[50.85,-113.82],[50.85,-114.18],[51.22,-114.18]]
+      }
+    ];
+
+    // Edmonton growth rings
+    const edmontonZones = [
+      {
+        name: 'Edmonton — Inner City (pre-1970)',
+        desc: 'Dense pre-automobile core plus early streetcar suburbs (Glenora, Spruce Avenue, Bonnie Doon). Major river valley park system. Inner-city density generates positive fiscal contribution. Older infrastructure in active renewal program.',
+        color: '#7c3aed',
+        coords: [[53.58,-113.58],[53.58,-113.42],[53.50,-113.42],[53.50,-113.58],[53.58,-113.58]]
+      },
+      {
+        name: 'Edmonton — 1970s–1980s Suburbs',
+        desc: 'Large suburban expansion: Millwoods, Castle Downs, Riverbend, Wedgewood. Roads and pipes now at or near end of design life. Edmonton\'s infrastructure renewal gap of ~$6.4B (2022 estimate) [@city-of-edmonton-infrastructure2022] largely driven by this era.',
+        color: '#dc2626',
+        coords: [[53.65,-113.65],[53.65,-113.30],[53.45,-113.30],[53.45,-113.65],[53.65,-113.65]]
+      },
+      {
+        name: 'Edmonton — 2000s–2020s Growth',
+        desc: 'Sprawl into Windermere, Glenridding, Secord, Rosenthal, Laurel, Tamarack. High off-site levies but continued low-density greenfield. Infrastructure obligations maturing 2040–2060.',
+        color: '#f59e0b',
+        coords: [[53.70,-113.72],[53.70,-113.22],[53.40,-113.22],[53.40,-113.72],[53.70,-113.72]]
+      }
+    ];
+
+    [...calgaryZones, ...edmontonZones].forEach(z => {
+      L.polygon([z.coords[0].map(([lat,lng]) => [lat,lng])], {color:'white',weight:1.5,fillColor:z.color,fillOpacity:0.25})
+        .bindPopup(`<strong>${z.name}</strong><br>${z.desc}`)
+        .addTo(map);
+    });
+
+    // Satellite communities
+    const satellites = [
+      {lat:51.30, lng:-114.01, name:'Airdrie', desc:'~80,000 population. Fastest-growing city in Canada multiple years 2015–2024. Bedroom community to Calgary. Enormous road and pipe network relative to current assessment base. No mature neighbourhood cross-subsidy yet.'},
+      {lat:51.19, lng:-114.48, name:'Cochrane', desc:'~35,000 population. WUI community in foothills. Rapid growth combined with wildfire interface risk. Infrastructure lifecycle obligation accelerating.'},
+      {lat:53.52, lng:-113.90, name:'Spruce Grove', desc:'~40,000 population. Edmonton bedroom community west of city. Acheson Industrial adjacency; some commercial tax base.'},
+      {lat:53.26, lng:-113.55, name:'Leduc', desc:'~35,000 population. Near Edmonton International Airport. Strong industrial and commercial base relative to residential; better fiscal position than pure bedroom communities.'},
+    ];
+    satellites.forEach(s => {
+      L.circleMarker([s.lat, s.lng], {radius:7,color:'white',weight:2,fillColor:'#64748b',fillOpacity:0.85})
+        .bindPopup(`<strong>${s.name}</strong><br>${s.desc}`)
+        .addTo(map);
+    });
+
+    // City centres
+    [[51.045,-114.072,'Calgary'],[53.546,-113.491,'Edmonton']].forEach(([lat,lng,name]) => {
+      L.circleMarker([lat, lng], {radius:9,color:'white',weight:2,fillColor:'#0f172a',fillOpacity:0.9})
+        .bindPopup(`<strong>${name}</strong>`)
+        .addTo(map);
+    });
+
+    // Legend
+    const legend = L.control({position:'bottomright'});
+    legend.onAdd = function() {
+      const d = L.DomUtil.create('div','info legend');
+      d.style.cssText = 'background:white;padding:8px 12px;border-radius:4px;font-size:11px;line-height:1.9;box-shadow:0 1px 5px rgba(0,0,0,0.2)';
+      d.innerHTML = [
+        '<strong>Growth era</strong>',
+        '<span style="color:#7c3aed">■</span> Pre-1970 (renewing now)',
+        '<span style="color:#dc2626">■</span> 1970s–1980s (renewal pressure)',
+        '<span style="color:#ea580c">■</span> 1990s–2000s (approaching)',
+        '<span style="color:#f59e0b">■</span> 2010s–present (deferred)',
+        '<span style="color:#64748b">●</span> Satellite community',
+      ].join('<br>');
+      return d;
+    };
+    legend.addTo(map);
+  }
+  tryInit();
+})();
+</script>
+
+---
+
+## How the Model Works
+
+To understand how Calgary or Airdrie ends up with a maintenance liability that grows faster than its tax base, it helps to follow the lifecycle of a new community from approval to obligation.
+
+**Phase 1: Approval and development fees.** A developer applies to extend the city boundary or develop within the urban growth boundary. The municipality negotiates development charges covering the developer's share of off-site infrastructure: trunk water and sewer mains, arterial road connections, transit facilities. In Alberta, these fees have increased substantially since the 2010s — in Calgary, the off-site levy for new residential development now exceeds $50,000 per unit in many communities [@city-of-calgary-offsite2023]. The developer embeds these fees in the land price, which is embedded in the home price, which is paid by the buyer.
+
+**Phase 2: Build-out.** The developer constructs the neighbourhood and turns over local infrastructure — streets, sidewalks, local water and sewer mains, parks — to the municipality at no cost. This is standard practice under Alberta's Municipal Government Act. The infrastructure is immediately added to the municipality's asset register as a liability.
+
+**Phase 3: The warranty period.** For a period typically between two and five years, the developer is responsible for defects in the infrastructure it built. After that, the municipality assumes full maintenance responsibility.
+
+**Phase 4: The infrastructure lifecycle.** Local roads have a typical useful life of 25–40 years before requiring substantial rehabilitation. Water mains run 40–80 years depending on material and operating conditions. Sanitary sewer mains: 50–100 years. The community built in 2005 will need its first major road rehabilitation starting in the late 2020s. The community built in 1995 needs it now.
+
+The revenue stream from a new community — primarily property taxes — does not scale with the maintenance liability in the way that intuition might suggest. A household paying $4,500 annually in property taxes generates approximately $1,000–1,500 in municipal services revenue after provincial grants, school requisitions, and debt charges are deducted. Against a per-household infrastructure maintenance obligation of $1,500–2,500 per year, that gap is a structural deficit that accumulates quietly through the early lifecycle of every new community.
+
+---
+
+## Alberta's Infrastructure Gap
+
+The infrastructure deficit — the gap between what municipalities have set aside for infrastructure replacement and what they will actually need — is not unique to Alberta, but Alberta's aggressive growth pattern has made it more acute.
+
+The City of Edmonton's 2022 infrastructure report estimated a current infrastructure renewal gap of approximately $6.4 billion, growing by roughly $250 million annually [@city-of-edmonton-infrastructure2022]. The City of Calgary's equivalent figure is likely comparable or larger, reflecting both the scale of the city's suburban build-out and the age of inner-city infrastructure. Smaller cities that grew rapidly in the resource boom years — Fort McMurray, Grande Prairie, Lloydminster — face proportionally even larger gaps, because their growth was faster and their tax bases are more exposed to energy sector cyclicality.
+
+<div data-viz="echarts" style="height:320px" data-options='{
+  "backgroundColor":"#0f172a",
+  "title":{"text":"Municipal Infrastructure Deficit as % of Asset Replacement Value, Selected AB Cities","textStyle":{"color":"#f8fafc","fontSize":15},"left":"center"},
+  "tooltip":{"trigger":"axis","axisPointer":{"type":"shadow"},"backgroundColor":"#1e293b","borderColor":"#334155","textStyle":{"color":"#f8fafc"}},
+  "grid":{"left":"5%","right":"10%","bottom":"10%","top":"15%","containLabel":true},
+  "xAxis":{"type":"value","name":"Deficit as % of replacement value","nameTextStyle":{"color":"#94a3b8"},"axisLabel":{"color":"#94a3b8","formatter":"{value}%"},"splitLine":{"lineStyle":{"color":"#1e293b"}},"axisLine":{"lineStyle":{"color":"#334155"}}},
+  "yAxis":{"type":"category","data":["Lethbridge","Red Deer","Grande Prairie","Edmonton","Calgary","Airdrie"],"axisLabel":{"color":"#94a3b8"},"axisLine":{"lineStyle":{"color":"#334155"}}},
+  "series":[{"type":"bar","data":[18,22,31,24,19,14],
+    "itemStyle":{"color":{"type":"linear","x":0,"y":0,"x2":1,"y2":0,"colorStops":[{"offset":0,"color":"#1e3a5f"},{"offset":1,"color":"#dc2626"}]}},
+    "label":{"show":true,"position":"right","color":"#94a3b8","formatter":"{c}%"}}]
+}'></div>
+
+<p class="viz-caption">Source: Municipal infrastructure condition reports and asset management plans; Federation of Canadian Municipalities, Canadian Infrastructure Report Card, 2019 and 2023 editions; individual municipality financial statements and capital budget documents. "Deficit" represents unfunded renewal backlog as estimated by each municipality's asset management methodology; comparability across municipalities is imperfect due to differing methodologies.</p>
+
+The pattern compounds in the satellite communities that orbit Calgary. Cochrane — a foothills town 18 kilometres west of Calgary's city limits — recorded population growth of 47 per cent between 2011 and 2016, one of the highest rates of any municipality in Canada in that period. By the 2021 census its population of 32,199 qualified it for city status under provincial definitions [@statcan-cochrane2021]. Its fiscal capacity does not match that status. Cochrane operates without a business tax, making its entire municipal revenue base dependent on residential property assessments — the least efficient instrument for funding the per-household infrastructure obligation that low-density bedroom communities generate. Its primary road connection to Calgary is Highway 1A, a route that functions as a commuter corridor for a city-sized population with no viable transit alternative. A local on-demand service (COLT, launched 2019) connects some residents to Calgary by app. The wildfire interface risk that defines Cochrane's foothills setting adds a fire service cost premium that no growth-era fiscal impact assessment accounted for. Airdrie, growing at comparable pace to the north, at least has a business park and some commercial assessment base. Cochrane has the infrastructure obligation without the tax base diversification that would make it manageable.
+
+The political economy of this gap is not difficult to understand. The municipality that approves a new subdivision receives development fees and the immediate political benefit of growth — new residents, a larger tax base on paper, construction employment. The maintenance liability arrives ten to thirty years later, under a different council, in a different fiscal environment. There is no mechanism that forces the initial decision-makers to account for the full lifecycle cost. The developers who build the infrastructure have already been paid. The homebuyers who paid the development fees embedded in their purchase price have moved on. The liability sits on a municipal balance sheet that most voters never read.
+
+---
+
+## Snow Clearing as a Fiscal Stress Test
+
+Winter operations provide an unusually clear lens on the economics of sprawl because the cost is proportional to lane-kilometres regardless of how many people use those lanes.
+
+Calgary maintains approximately 14,000 lane-kilometres of road for snow clearing [@city-of-calgary-roads2023]. The city spends approximately $100–140 million annually on winter road maintenance depending on the severity of the season. That figure is almost entirely a function of road network extent — not population, not economic activity, not the intensity of road use. The lowest-density suburban street in the far northwest uses the same width of lane-kilometres as the highest-traffic arterial, but generates a tiny fraction of the traffic volume and economic activity.
+
+Equivalently: the large-lot cul-de-sac in Bayview, Airdrie has the same snow-clearing cost per linear metre as a dense inner-city street that serves ten times more people. The snow does not fall less densely on low-density neighbourhoods.
+
+The same logic applies to pipe maintenance, road rehabilitation, and emergency response times. In each case, the cost driver is network extent, not intensity of use. Every additional kilometre of low-density network adds cost without adding proportional revenue or tax base to cover it.
+
+---
+
+## Spring and the Pipe
+
+Winter obscures the infrastructure deficit. Spring reveals it.
+
+The freeze-thaw cycles that define Alberta's shoulder seasons do to poorly-maintained pavement what compound interest does to an underfunded pension: they amplify deferred maintenance into sudden, visible failures. The pothole on Sarcee Trail NW is not an accident; it is the physical expression of a maintenance backlog materialising at the point where the surface can no longer absorb the stress. Every spring, Calgary's 311 system receives a surge of reports that tracks, with reasonable precision, which roads are approaching or past the end of their useful maintenance lifecycle.
+
+Below ground, the same cycle applies. The Bearspaw South Feeder Main — a large-diameter transmission main that carries treated drinking water from the Bearspaw Water Treatment Plant through Calgary's northwest — is being replaced. Stage A began in January 2026, using microtunnelling to install a parallel steel pipe without surface disruption across 16 Avenue, the Bow River, and a CPKC rail corridor. By April, 544 metres of new pipe had been completed through three launching shafts. Stage B, running May through November 2026 along 34 Avenue NW, uses open-cut construction where surface access is simpler. Completion is expected December 2026 [@city-of-calgary-bearspaw2026].
+
+The project illustrates planned renewal working as intended. The city identified a critical-condition asset, secured the capital, designed an approach, and is executing it. The microtunnelling method for Stage A — expensive, technically demanding, non-disruptive — reflects the constraint of replacing infrastructure in a built-out urban environment where decades of development have grown up around the original pipe. This is the work that gets done when the asset in question is important enough and the planning cycle long enough to accommodate it.
+
+The question is what happens to the pipes that cannot get a spot in that planned renewal queue. Edmonton's 2022 infrastructure assessment estimated an unfunded renewal backlog of approximately $6.4 billion, growing by roughly $250 million annually. That figure represents the gap between what the city has set aside and what it will actually need — in water mains, roads, bridges, and drainage infrastructure installed during the 1970s and 1980s suburban expansions and now at or past the end of their design life. Calgary's equivalent figure is not smaller. The Bearspaw replacement is the work that gets done. The accumulated gap is the work that does not.
+
+---
+
+## The Complete Service Stack
+
+Infrastructure asset management plans tend to count what municipalities own: lane-kilometres of road, linear metres of pipe, bridge deck area, facility square footage. This accounting, however rigorous, is a partial ledger. The full cost of servicing a new suburban community includes services that appear in different budgets, under different governance structures, funded by different levels of government — and which, in the development approval process, are often not counted at all.
+
+Murtaza Haider's GIS analysis of Edmonton neighbourhoods makes the service gap visible spatially. Using Statistics Canada's proximity database, the analysis scored Edmonton neighbourhoods on access to schools, pharmacies, parks, employment, and retail by sustainable transportation modes — the amenity checklist for the 15-minute neighbourhood concept. Most Edmonton neighbourhoods score poorly. The newest suburban communities score worst. Haider's conclusion is direct: simply adding residential density will not create amenity-rich areas. Intensification needs to be directed at already-accessible, already-built-up areas, not at peripheral communities whose infrastructure cost is already too high and whose service environment is already too thin. The finding applies to Calgary's growth frontier with equal force.
+
+The full service stack that a new community requires, and that fiscal impact assessments routinely undercount:
+
+**Schools.** Education capital is a provincial responsibility, but school sites are designated in municipal area structure plans and serviced at municipal expense. The result is a persistent mismatch: communities are approved with school sites reserved, but provincial capital funding arrives on a timeline governed by a provincial priority queue that bears no relationship to the municipal approval cycle. Children from communities like Livingston or Rangeview are bused to schools several subdivisions away — sometimes for years after the community reaches sufficient population. The deferred capital liability sits in the provincial budget. The service gap is experienced locally.
+
+**Recreation.** Calgary operates a network of recreation centres whose placement reflects a legacy service model, not the geography of current growth. New communities at the suburban fringe routinely lack proximate recreation facilities for a decade or more after their build-out. This is not an oversight; it is a rationing decision. The population concentration required to justify a new recreation facility — roughly 25,000–35,000 residents within a reasonable service radius — takes years to accumulate in low-density development. In the interim, residents drive. The car dependence that urban critics identify as a quality-of-life deficit is, from a municipal finance perspective, a predictable consequence of the development form that created the demand. The contrast with higher-density mixed-use development is not hypothetical: University District, the University of Calgary's 200-acre leasehold community in Calgary's northwest, opened with over 50 shops and services integrated from the outset, connected to three LRT stations, and 40 acres of programmed open space [@ucpg-university-district2024]. The amenities are not deferred; they are part of the development model. The density that makes them viable is what low-density greenfield development structurally cannot provide.
+
+**Fire and emergency services.** Response time standards require fire station spacing calibrated to dense street networks. New communities at the urban fringe require new stations or accept degraded response times — with consequences for Fire Underwriters Survey ratings and property insurance premiums. The cost of the new station arrives in the municipal capital budget several years after the community's population is large enough that cross-coverage from adjacent stations can no longer manage the gap. By that point, the development decisions are irreversible.
+
+**Electricity.** ENMAX serves a fast-growing city from a distribution network that expands with it. New residential subdivisions require distribution substations, feeder lines, and eventually new transmission capacity as cumulative load grows. The infrastructure investment is recovered through rates rather than property taxes — a different mechanism, but one that spreads cost across all ratepayers rather than the specific growth that drove it. The structural dynamic is identical to the municipal case: low-density growth requires more distribution infrastructure per connected customer than high-density growth.
+
+Residential sprawl is not, however, the only vector of grid stress that planning frameworks are failing to anticipate. The Alberta Electric System Operator's Large Load Integration programme — designed to manage connection requests from hyperscale data centres — allocated its entire Phase 1 interim limit of 1,200 MW before Phase 2 had opened [@aeso-large-load2025]. Two contracts account for that ceiling: a 970 MW load project and the 230 MW Keephills Data Centre Phase I, the latter sited at a former coal generation facility west of Edmonton. AESO's own technical documentation notes that "data centres present novel technical and operating challenges" — language that is, by the standards of regulatory documentation, an admission that the existing planning framework was not built for this load profile.
+
+The connection to suburban infrastructure is indirect but real. A 970 MW load arriving on the Alberta grid in a concentrated location stresses the same provincial transmission network that serves Calgary's growing residential areas. Reliability assessments by the North American Electric Reliability Corporation have flagged data centre load growth as a region-wide planning challenge across multiple jurisdictions — a demand signal that grows faster than utility planning cycles, and that sits almost entirely outside municipal planning frameworks. The communities near proposed data centre sites — Olds and the rural corridor north of Calgary among them — face a version of the same problem that suburban municipalities face with residential growth: infrastructure obligations that the planning system did not anticipate and that the local tax base cannot address. The difference is that data centre load lands on the provincial grid and AESO's connection queue rather than on a municipal asset register. The obligation is no less real for being someone else's column on a spreadsheet.
+
+Nor is the response as simple as building more generation. GE Vernova entered Q1 2026 with a total order backlog of approximately $163 billion — up from $116 billion at the time of its 2024 spin-off, with $13 billion added in the first quarter alone [@ge-vernova-q1-2026]. Gas turbine reservations and orders reached 100 GW, with expectations of 110 GW by year-end. The company's book-to-bill ratio is approaching 2x: orders are arriving twice as fast as revenue is being recognised, meaning the queue is lengthening, not clearing. AI and data centre demand accounted for $2.4 billion in orders in a single quarter. The company projects its backlog will reach $200 billion by 2027. Large power transformers — the equipment that steps voltage at every point in the transmission and distribution chain — carry comparable lead times, with utilities in some cases reporting waits of four years or more for the largest units.
+
+A hyperscale data centre can move from site selection to operational in under three years. The generation and transmission infrastructure required to serve it reliably cannot. The supply chain chokepoint is not a temporary disruption; it reflects a global convergence of energy transition investment, post-COVID manufacturing constraints, and an AI-driven demand surge that no major turbine or transformer manufacturer had in its planning assumptions five years ago. The planning problem is not merely institutional — a matter of frameworks that could be updated. It is material: the physical infrastructure cannot be willed into existence faster than the supply chain that produces it allows.
+
+The Calgary-Edmonton comparison illuminates the same structural failure at different phases of the lifecycle. Edmonton is managing the renewal obligations of its 1970s and 1980s growth now — the $6.4 billion gap, the arterials requiring rehabilitation, the asbestos-cement water mains at end of life. Calgary is managing the revenue phase of its 1990s and 2000s growth now, while the maintenance obligations of that era are still several years from maturity. In another decade, Calgary will face what Edmonton is managing today. Haider's Edmonton analysis shows what comes with that: the neighbourhoods built in those eras score poorly on amenity accessibility not because their residents didn't want walkable services, but because the development form that created them made walkable services economically unviable. The infrastructure cost problem and the service quality problem are the same problem.
+
+---
+
+## Transit, the Province, and the Infrastructure That Gets Built Instead
+
+Calgary's Green Line LRT is the most expensive planning lesson the city has undertaken in recent memory, and it is not finished teaching.
+
+The original Green Line concept was a north-south corridor of approximately 46 kilometres, connecting far-north communities near 160 Avenue with the southeast communities of Seton and Shepard, passing through a downtown connection that would link to the existing Red and Blue LRT lines. It was designed to provide the transit spine that Calgary's suburban growth at both ends of the corridor required. The 2015 approved concept carried a cost estimate in the range of $4.9 billion.
+
+What is under construction as of 2026 is a 16-kilometre southeast segment, from Shepard to an Event Centre/Grand Central Station on the downtown's east side, with 10 stations and a projected 2031 opening [@city-of-calgary-greenline2026]. The north segment does not exist. The downtown connector remains in planning. Communities in Calgary's northwest and north — Livingston, Cornerstone, Glacier Ridge, among the fastest-growing in Canada — have no LRT service on any committed timeline.
+
+The truncation is traceable to a specific decision: in 2021, the Kenney government withdrew $1.53 billion in previously committed Green Line funding, forcing Calgary to either absorb the gap or reduce scope. The city reduced scope. The economics of this decision are punishing in a direction that receives insufficient attention. Fixed costs — planning, land acquisition, engineering, the downtown connection infrastructure — are now amortised over 16 kilometres rather than 46. The cost per kilometre of the truncated segment is substantially higher than it would have been in the original corridor. Scope reduction does not reduce costs proportionally; it concentrates them. The communities that the full Green Line would eventually have connected to the transit network will be car-dependent for at least another generation.
+
+This is the provincial interference pattern. The province did not build an alternative. It did not propose a different route that would serve the communities the Green Line was intended to serve. It withdrew funding from a project in mid-development and left Calgary to manage the consequences. The development approvals that created car-dependent communities in the north of the city proceeded regardless; the infrastructure that would have reduced that car dependence did not.
+
+The same pattern operates at the intercity scale. The Calgary-Edmonton rail corridor is the most studied transportation gap in Alberta. The 300-kilometre distance is near-ideal for rapid rail: too short for flying to be competitive door-to-door, too long for driving to be comfortable at scale. Studies confirm corridor viability. Announcements precede further studies. The track does not exist. The Calgary-Banff corridor has followed a similar arc: repeated proposals, a substantial commuter workforce and tourism economy that would use the service, and a Trans-Canada Highway that has been widened repeatedly because widening a highway has a political economy that rail construction does not. Highway investment generates car-dependent demand that justifies further highway investment. Rail requires committing to a corridor before the demand it would generate is visible. The infrastructure that would make low-density suburban settlement patterns less expensive to serve does not get built. The infrastructure that makes them more expensive does.
+
+Calgary International Airport has no rapid transit connection. YYC is among the busiest airports in Canada, a gateway the city promotes in the same breath as its aspirations to be a global hub for energy, technology, and financial services. The Red Line of the CTrain runs through the city's northeast — the same quadrant as the airport — and has done so since 1981. The airport remains accessible by taxi, rideshare, and a bus route. Vancouver connected its airport to rapid transit in 2009. Toronto opened the Union-Pearson Express in 2015. Calgary is still studying the question. The gap between a city's self-image and its willingness to fund the infrastructure that image requires is rarely this visible, or this easy to catch a cab from. Edmonton is no different: the Capital Line terminates at Century Park, roughly 25 kilometres short of Edmonton International Airport in Leduc — served, in the interim, by a bus connection that crosses a municipal boundary the LRT has never been funded to cross. Alberta markets itself aggressively as a destination for global investment, global tourism, and global talent. Visitors are welcome to form their own conclusions about the ground transportation.
+
+Edmonton's LRT network — the Metro Line, the Valley Line, the Capital Line — is more extensive than Calgary's, reflecting decades of different choices rather than different fiscal constraints. Both cities have grown predominantly through low-density suburban extension. Edmonton chose earlier and more consistently to build transit infrastructure alongside that growth. The consequence is visible in Haider's accessibility analysis: Edmonton's established suburban communities score better on transit-accessible amenity density than their Calgary equivalents. Its newest outer suburbs do not — because the same development model, applied at the same densities, produces the same service deserts regardless of which city approves them.
+
+---
+
+## Who Actually Pays
+
+The answer to this article's title question is: not, primarily, the households whose development created the obligation.
+
+Development fees have increased substantially but remain well below the full lifecycle cost of servicing new development at low density. Property taxes in outer suburban communities are generally lower than in inner-city neighbourhoods, while the per-household infrastructure costs are higher. The gap is filled by cross-subsidies from inner-city property taxpayers whose assessments generate revenue above their cost-to-service; by provincial grants that partially cover capital and some operating costs; and by debt accumulated against future revenue — revenue from future growth, which will itself generate new maintenance obligations.
+
+The question compounds when the full service stack is brought into account. The municipality that approves a new community at 8 households per hectare is not only accepting the road and pipe liability that will materialise in the 2030s and 2040s. It is also initiating a demand for school capacity that will be funded — or not — by a different government on a different timeline. It is creating a fire service coverage gap that will require a new station within a decade. It is generating electricity distribution demand that will be capitalised and recovered through rates. It is producing a population cluster that, because of its density, will not generate sufficient foot traffic to attract the pharmacies, groceries, and services that make a neighbourhood self-sustaining. These are not municipal liabilities in any strict accounting sense. They are municipal obligations in the only sense that matters: people will live there, and they will require services.
+
+There is a terminology for this structure in municipal finance. It is called a Ponzi scheme by its critics, which is hyperbolic but captures the essential dependency: the fiscal model of growth-dependent municipalities requires continuous growth to service the obligations generated by previous growth. The moment growth stalls — as it did in Fort McMurray after the 2014 oil price collapse and as it has in numerous Alberta resource towns — the underlying deficit becomes immediately visible in operating budgets.
+
+Alberta is unlikely to face that stall in its major urban centres in the near term. Calgary and Edmonton are among the fastest-growing metropolitan areas in Canada. But the trajectory of their infrastructure asset base — the accelerating accumulation of suburban road, pipe, and utility network that will require replacement in the 2030s, 2040s, and 2050s — is a structural budget pressure that no amount of growth marketing will resolve. Edmonton is managing that pressure now. Calgary is watching it arrive. The development decisions that will determine the scale of that pressure are being made today, in area structure plans and subdivision approvals that will add road-lane-kilometres and pipe-kilometres to the municipal asset register for the next thirty years. Calgary's policy response — the Calgary Plan, a unified land use and transportation framework that replaces the Municipal Development Plan and emphasises transit-oriented development and housing diversity — was still awaiting Council adoption as of mid-2026, deferred from December 2024 for further public engagement [@city-of-calgary-plan2026]. The problem the plan is designed to address is not waiting for the plan. The pipe that needs replacing does not care how optimistic the growth forecast was when it was installed. Neither does the school that was never built.
+
+---
+
+*Related reading: [Hidden in Plain Sight](/articles/hidden-in-plain-sight.html) examines the greenspace infrastructure underlying Calgary's livability; [The Distance to Care](/articles/the-distance-to-care.html) traces how settlement patterns shape healthcare access in the province.*
+
+## References
+
+::: {#refs}
+:::
