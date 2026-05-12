@@ -117,7 +117,8 @@ export const REGISTRY = [
     id: 'echarts',
     detect: () =>
       document.body.classList.contains('tag-hash-viz') ||
-      !!document.querySelector('[data-viz]'),
+      !!document.querySelector('[data-viz]') ||
+      Array.from(document.scripts).some(s => s.textContent.includes('echarts')),
     cdn: {
       styles:  [],
       scripts: ['https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js'],

@@ -689,7 +689,7 @@ function injectWaywardChrome() {
         <span class="wayward-brand__dot" aria-hidden="true">.</span>
       </a>
       <nav class="wayward-nav" aria-label="Primary">
-        <a href="/articles/" data-nav="/articles/">Articles</a>
+        <a href="/" data-nav="/">Articles</a>
         <a href="/learn/" data-nav="/learn/">Learn</a>
         <a href="/pages/about.html" data-nav="/pages/about/">About</a>
       </nav>
@@ -782,7 +782,7 @@ function injectWaywardChrome() {
         </div>
         <div class="wayward-footer__group">
           <h2>Reading</h2>
-          <a href="/articles/">Articles</a>
+          <a href="/">Articles</a>
           <a href="/learn/">Learn</a>
           <a href="/topics/">Topics</a>
         </div>

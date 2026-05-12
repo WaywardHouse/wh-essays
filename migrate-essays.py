@@ -4,7 +4,7 @@ Migrate essays to wh-essays/wh-essays/
 
 Sources:
   1. wayward-house/src/content/essays/*.mdx  (Astro MDX format)
-  2. waywardhouse-site/articles/*.qmd         (old Quarto/Jekyll hybrid format)
+  2. waywardhouse-site/*.qmd         (old Quarto/Jekyll hybrid format)
 
 Output:
   wh-essays/wh-essays/<slug>.qmd  (vanilla Quarto front matter)
