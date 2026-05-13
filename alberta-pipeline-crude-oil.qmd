@@ -7,12 +7,12 @@ categories: [pipelines, hydraulics, energy, Alberta, economic geography]
 bibliography: alberta-pipeline-crude-oil.bib
 ---
 
-*Part of the [Alberta Pipeline Geography](/essays/albertas-pipeline-geography) cluster.
+*Part of the [Alberta Pipeline Geography](//albertas-pipeline-geography) cluster.
 This is **P1** of five articles.
-[P2 — NGL and Condensate](/essays/alberta-pipeline-ngl-condensate) ·
-[P3 — Natural Gas Transmission](/essays/alberta-pipeline-natural-gas) ·
-[P4 — Refined Products Distribution](/essays/alberta-pipeline-refined-products) ·
-[P5 — The Integrated Network](/essays/alberta-pipeline-integrated-network)*
+[P2 — NGL and Condensate](//alberta-pipeline-ngl-condensate) ·
+[P3 — Natural Gas Transmission](//alberta-pipeline-natural-gas) ·
+[P4 — Refined Products Distribution](//alberta-pipeline-refined-products) ·
+[P5 — The Integrated Network](//alberta-pipeline-integrated-network)*
 
 ---
 
