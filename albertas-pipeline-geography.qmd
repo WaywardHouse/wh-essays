@@ -81,7 +81,7 @@ The **diluent route** — approximately 60% of current output — is chemically 
 
 The **upgrader route** — approximately 40% of output — involves genuine chemical transformation [@aer-st98-2025]. Bitumen is subjected to thermal coking, which cracks long hydrocarbon chains into shorter ones under heat and pressure, leaving a carbon-rich coke byproduct; or to catalytic hydrocracking, which achieves the same chain-breaking by adding hydrogen under pressure with a catalyst. Both processes are followed by hydrotreating to remove sulphur. The output is **Synthetic Crude Oil** (SCO): API gravity of roughly 32–34°, equivalent to a conventional medium crude, needing no diluent and commanding a refinery feedstock premium. Upgraders are capital-intensive and energy-intensive; their marginal economics relative to the dilbit path vary with the light-heavy price spread [@cer-crude-oil-markets-2025].
 
-```{mermaid}
+```mermaid
 flowchart TD
   A["Oil Sands — Athabasca region"] --> B{Deposit depth}
   B -->|"Surface — less than 75 m"| C["Open-pit mining\nShovels · trucks · extraction plant\nClark hot water separation"]
