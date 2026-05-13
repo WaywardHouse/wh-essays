@@ -748,7 +748,7 @@ The mass balance equations that govern each column are simple. Their economic co
 
 ---
 
-*Next: [P3 — Natural Gas Transmission](/essays/alberta-pipeline-natural-gas) — the NOVA Gas Transmission system, the Weymouth equation for compressible flow, and the AECO–Henry Hub basis differential derived from transport cost arithmetic.*
+*Next: [P3 — Natural Gas Transmission](/alberta-pipeline-natural-gas) — the NOVA Gas Transmission system, the Weymouth equation for compressible flow, and the AECO–Henry Hub basis differential derived from transport cost arithmetic.*
 
 ## References {.unnumbered}
 

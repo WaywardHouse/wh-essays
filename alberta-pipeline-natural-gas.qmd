@@ -787,7 +787,7 @@ Different friction approximations give slightly different diameter exponents. Th
 
 ---
 
-*Next: [P4 — Refined Products Distribution](/essays/alberta-pipeline-refined-products) — batch scheduling, the Cola equation for transmix volume, and terminal inventory design from Edmonton to Burnaby.*
+*Next: [P4 — Refined Products Distribution](/alberta-pipeline-refined-products) — batch scheduling, the Cola equation for transmix volume, and terminal inventory design from Edmonton to Burnaby.*
 
 ## References {.unnumbered}
 

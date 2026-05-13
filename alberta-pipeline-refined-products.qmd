@@ -774,7 +774,7 @@ The $L^{1/2}$ growth means that terminal storage grows only as $\sqrt{L}$, not a
 
 ---
 
-*Next: [P5 — The Integrated Network](/essays/alberta-pipeline-integrated-network) — all four commodity systems as a directed graph, max-flow min-cut analysis, network centrality, and the full netback price surface across all market destinations.*
+*Next: [P5 — The Integrated Network](/alberta-pipeline-integrated-network) — all four commodity systems as a directed graph, max-flow min-cut analysis, network centrality, and the full netback price surface across all market destinations.*
 
 ## References {.unnumbered}
 
