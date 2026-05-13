@@ -81,26 +81,26 @@ The **diluent route** — approximately 60% of current output — is chemically 
 
 The **upgrader route** — approximately 40% of output — involves genuine chemical transformation [@aer-st98-2025]. Bitumen is subjected to thermal coking, which cracks long hydrocarbon chains into shorter ones under heat and pressure, leaving a carbon-rich coke byproduct; or to catalytic hydrocracking, which achieves the same chain-breaking by adding hydrogen under pressure with a catalyst. Both processes are followed by hydrotreating to remove sulphur. The output is **Synthetic Crude Oil** (SCO): API gravity of roughly 32–34°, equivalent to a conventional medium crude, needing no diluent and commanding a refinery feedstock premium. Upgraders are capital-intensive and energy-intensive; their marginal economics relative to the dilbit path vary with the light-heavy price spread [@cer-crude-oil-markets-2025].
 
-```mermaid
+```{mermaid}
 flowchart TD
-  A["Oil Sands — Athabasca region"] --> B{Deposit depth}
-  B -->|"Surface — less than 75 m"| C["Open-pit mining\nShovels · trucks · extraction plant\nClark hot water separation"]
-  B -->|"Deep — greater than 75 m"| D["SAGD\nSteam heats bitumen in situ\nDrains by gravity to producer well"]
-  C --> E["Primary separation\nStrip residual sand and water\nOutput: raw bitumen"]
-  D --> E
-  E --> F{Processing route}
-  F -->|"~60% of output"| G["Diluent blending\n30% condensate + 70% bitumen\nDensity target: 880 kg per cubic metre\nOutput: dilbit"]
-  F -->|"~40% of output"| H["Upgrading\nCoking or hydrocracking\nHydrotreating removes sulphur\nOutput: SCO, 32 to 34 degrees API"]
-  G --> I["Hardisty Hub\nStorage · blending · metering\nCustody transfer point"]
-  H --> I
-  I --> J["Export pipeline\nMultiple grades travel in sequence\nBatch-scheduled transport"]
-  J -->|"Enbridge — 62%"| K["Midwest refineries\nSarnia · Superior · Patoka"]
-  J -->|"Trans Mountain — 19%"| L["Pacific terminal\nBurnaby to tanker to Asia"]
-  J -->|"Keystone and Express — 19%"| M["Gulf Coast\nPort Arthur · Cushing"]
-  K --> N["Crude distillation tower\nFractionation by boiling point"]
-  L --> N
-  M --> N
-  N --> O["Gasoline · Jet fuel · Diesel · Asphalt · Petrochemical feedstocks"]
+    A[ Oil Sands — Athabasca region ] --> B{Deposit depth}
+    B -->| Surface — less than 75 m | C["Open-pit mining<br>Shovels · trucks · extraction plant<br>Clark hot water separation"]
+    B -->| Deep — greater than 75 m | D["SAGD<br>Steam heats bitumen in situ<br>Drains by gravity to producer well"]
+    C --> E["Primary separation<br>Strip residual sand and water<br>Output: raw bitumen"]
+    D --> E
+    E --> F{Processing route}
+    F -->| ~60% of output | G["Diluent blending<br>30% condensate + 70% bitumen<br>Density target: 880 kg per cubic metre<br>Output: dilbit"]
+    F -->| ~40% of output | H["Upgrading<br>Coking or hydrocracking<br>Hydrotreating removes sulphur<br>Output: SCO, 32 to 34 degrees API"]
+    G --> I["Hardisty Hub<br>Storage · blending · metering<br>Custody transfer point"]
+    H --> I
+    I --> J["Export pipeline<br>Multiple grades travel in sequence<br>Batch-scheduled transport"]
+    J -->| Enbridge — 62% | K["Midwest refineries<br>Sarnia · Superior · Patoka"]
+    J -->| Trans Mountain — 19% | L["Pacific terminal<br>Burnaby to tanker to Asia"]
+    J -->| Keystone and Express — 19% | M["Gulf Coast<br>Port Arthur · Cushing"]
+    K --> N["Crude distillation tower<br>Fractionation by boiling point"]
+    L --> N
+    M --> N
+    N --> O["Gasoline · Jet fuel · Diesel · Asphalt · Petrochemical feedstocks"]
 ```
 
 ### One Pipe, Many Products: Batch Scheduling
