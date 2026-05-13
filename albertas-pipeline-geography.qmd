@@ -81,26 +81,148 @@ The **diluent route** — approximately 60% of current output — is chemically 
 
 The **upgrader route** — approximately 40% of output — involves genuine chemical transformation [@aer-st98-2025]. Bitumen is subjected to thermal coking, which cracks long hydrocarbon chains into shorter ones under heat and pressure, leaving a carbon-rich coke byproduct; or to catalytic hydrocracking, which achieves the same chain-breaking by adding hydrogen under pressure with a catalyst. Both processes are followed by hydrotreating to remove sulphur. The output is **Synthetic Crude Oil** (SCO): API gravity of roughly 32–34°, equivalent to a conventional medium crude, needing no diluent and commanding a refinery feedstock premium. Upgraders are capital-intensive and energy-intensive; their marginal economics relative to the dilbit path vary with the light-heavy price spread [@cer-crude-oil-markets-2025].
 
-```{mermaid}
-flowchart TD
-    A[ Oil Sands — Athabasca region ] --> B{Deposit depth}
-    B -->|"Surface &lt; 75 m"| C["Open-pit mining<br>Shovels · trucks · extraction plant<br>Clark hot water separation"]
-    B -->|"Deep &gt; 75 m"| D["SAGD<br>Steam heats bitumen in situ<br>Drains by gravity to producer well"]
-    C --> E["Primary separation<br>Strip residual sand and water<br>Output: raw bitumen"]
-    D --> E
-    E --> F{Processing route}
-    F -->|"~60 pct of output"| G["Diluent blending<br>30% condensate + 70% bitumen<br>Density target: 880 kg/m3<br>Output: dilbit"]
-    F -->|"~40 pct of output"| H["Upgrading<br>Coking or hydrocracking<br>Hydrotreating removes sulphur<br>Output: SCO, 32-34 API"]
-    G --> I["Hardisty Hub<br>Storage · blending · metering<br>Custody transfer point"]
-    H --> I
-    I --> J["Export pipeline<br>Multiple grades travel in sequence<br>Batch-scheduled transport"]
-    J -->|"Enbridge 62%"| K["Midwest refineries<br>Sarnia · Superior · Patoka"]
-    J -->|"Trans Mountain 19%"| L["Pacific terminal<br>Burnaby to tanker to Asia"]
-    J -->|"Keystone + Express 19%"| M["Gulf Coast<br>Port Arthur · Cushing"]
-    K --> N["Crude distillation tower<br>Fractionation by boiling point"]
-    L --> N
-    M --> N
-    N --> O["Gasoline · Jet fuel · Diesel · Asphalt · Petrochemical feedstocks"]
+```{python}
+#| label: fig-oilsands-flow
+#| fig-cap: "Alberta oil sands: from deposit to refined product. Two extraction methods feed one separation step, which branches into two processing routes, both converging at Hardisty before splitting across three export corridors to the same refinery destinations."
+#| fig-width: 9
+#| fig-height: 11
+#| echo: false
+
+import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
+import numpy as np
+
+fig, ax = plt.subplots(figsize=(9, 11))
+ax.set_xlim(0, 9)
+ax.set_ylim(0, 11)
+ax.axis('off')
+fig.patch.set_facecolor('#f8f8f4')
+
+C_BOX  = '#264653'   # dark teal — process nodes
+C_DEC  = '#e07b39'   # amber — decision nodes
+C_MKT  = '#457b9d'   # blue — market/output nodes
+C_TXT  = '#f8f8f4'   # paper — label text
+C_EDGE = '#5a5a56'   # mid — arrows
+C_BG   = '#f8f8f4'
+
+def box(ax, x, y, w, h, label, color=C_BOX, fontsize=8.5):
+    rect = mpatches.FancyBboxPatch(
+        (x - w/2, y - h/2), w, h,
+        boxstyle="round,pad=0.05", linewidth=0,
+        facecolor=color, zorder=3)
+    ax.add_patch(rect)
+    ax.text(x, y, label, ha='center', va='center', fontsize=fontsize,
+            color=C_TXT, fontfamily='monospace', zorder=4,
+            multialignment='center')
+
+def diamond(ax, x, y, w, h, label, color=C_DEC, fontsize=8.5):
+    verts = [(x, y+h/2), (x+w/2, y), (x, y-h/2), (x-w/2, y)]
+    poly = mpatches.Polygon(verts, closed=True, linewidth=0,
+                            facecolor=color, zorder=3)
+    ax.add_patch(poly)
+    ax.text(x, y, label, ha='center', va='center', fontsize=fontsize,
+            color=C_TXT, fontfamily='monospace', zorder=4)
+
+def arrow(ax, x0, y0, x1, y1, label='', lw=1.6):
+    ax.annotate('', xy=(x1, y1), xytext=(x0, y0),
+                arrowprops=dict(arrowstyle='->', color=C_EDGE, lw=lw,
+                                connectionstyle='arc3,rad=0.0'),
+                zorder=2)
+    if label:
+        mx, my = (x0+x1)/2, (y0+y1)/2
+        ax.text(mx + 0.08, my, label, fontsize=7.5, color='#5a5a56',
+                fontfamily='monospace', va='center', style='italic')
+
+def harrow(ax, x0, y0, x1, y1, label='', rad=0.0):
+    ax.annotate('', xy=(x1, y1), xytext=(x0, y0),
+                arrowprops=dict(arrowstyle='->', color=C_EDGE, lw=1.6,
+                                connectionstyle=f'arc3,rad={rad}'),
+                zorder=2)
+    if label:
+        mx, my = (x0+x1)/2, (y0+y1)/2
+        ax.text(mx, my + 0.18, label, fontsize=7.5, color='#5a5a56',
+                fontfamily='monospace', ha='center', style='italic')
+
+# ── nodes (x, y) ──────────────────────────────────────────────────────────────
+# row 1: oil sands production
+box(ax, 4.5, 10.3, 3.8, 0.6, 'Oil Sands production\n(Athabasca, Cold Lake, Peace River)')
+
+# row 2: deposit depth decision
+diamond(ax, 4.5, 9.2, 2.4, 0.8, 'Deposit\ndepth?')
+arrow(ax, 4.5, 10.0, 4.5, 9.6)
+
+# row 3: two extraction methods
+box(ax, 2.0, 8.0, 3.2, 0.8, 'Open-pit mining\nShovels, trucks, hot-water\nextraction (Clark process)')
+box(ax, 7.0, 8.0, 3.2, 0.8, 'SAGD in-situ\nSteam heats bitumen in\nformation; drains to producer')
+
+# arrows from diamond to extraction
+harrow(ax, 3.4, 9.2, 2.0, 8.4, 'depth < 75 m', rad=-0.15)
+harrow(ax, 5.6, 9.2, 7.0, 8.4, 'depth > 75 m', rad=0.15)
+
+# row 4: primary separation
+box(ax, 4.5, 6.8, 3.6, 0.65, 'Primary separation\nOutput: raw bitumen')
+arrow(ax, 2.0, 7.6, 3.6, 7.1)   # mining → separation
+arrow(ax, 7.0, 7.6, 5.4, 7.1)   # SAGD   → separation
+
+# row 5: processing route decision
+diamond(ax, 4.5, 5.85, 2.4, 0.8, 'Processing\nroute?')
+arrow(ax, 4.5, 6.48, 4.5, 6.25)
+
+# row 6: two processing routes
+box(ax, 2.0, 4.7, 3.2, 0.8,
+    'Diluent blending\n30 pct condensate +\n70 pct bitumen → dilbit')
+box(ax, 7.0, 4.7, 3.2, 0.8,
+    'Upgrading\nCoking / hydrocracking\n+ hydrotreating → SCO')
+
+harrow(ax, 3.4, 5.85, 2.0, 5.1, '60 pct', rad=-0.15)
+harrow(ax, 5.6, 5.85, 7.0, 5.1, '40 pct', rad=0.15)
+
+# row 7: Hardisty hub
+box(ax, 4.5, 3.6, 4.0, 0.7,
+    'Hardisty Hub\nStorage · blending · custody transfer')
+arrow(ax, 2.0, 4.3, 3.5, 3.9)
+arrow(ax, 7.0, 4.3, 5.5, 3.9)
+
+# row 8: export corridors
+box(ax, 4.5, 2.55, 3.4, 0.65, 'Export pipeline corridors')
+arrow(ax, 4.5, 3.25, 4.5, 2.88)
+
+# row 9: three market destinations
+box(ax, 1.2, 1.4, 2.6, 0.65,
+    'Midwest refineries\nSarnia · Superior · Patoka\n(Enbridge, 62 pct)',
+    color=C_MKT)
+box(ax, 4.5, 1.4, 2.6, 0.65,
+    'Pacific terminal\nBurnaby → tanker\n(Trans Mountain, 19 pct)',
+    color=C_MKT)
+box(ax, 7.8, 1.4, 2.6, 0.65,
+    'Gulf Coast\nPort Arthur · Cushing\n(Keystone + Express, 19 pct)',
+    color=C_MKT)
+
+harrow(ax, 3.3, 2.55, 1.2, 1.73, rad=-0.1)
+arrow(ax, 4.5, 2.23, 4.5, 1.73)
+harrow(ax, 5.7, 2.55, 7.8, 1.73, rad=0.1)
+
+# row 10: refinery products
+box(ax, 4.5, 0.38, 5.0, 0.55,
+    'Crude distillation → Gasoline · Diesel · Jet fuel · Asphalt',
+    color=C_MKT)
+arrow(ax, 1.2, 1.07, 3.0, 0.55)
+arrow(ax, 4.5, 1.07, 4.5, 0.65)
+arrow(ax, 7.8, 1.07, 6.0, 0.55)
+
+# ── legend ─────────────────────────────────────────────────────────────────────
+legend_els = [
+    mpatches.Patch(color=C_BOX, label='Process step'),
+    mpatches.Patch(color=C_DEC, label='Decision point'),
+    mpatches.Patch(color=C_MKT, label='Market / output'),
+]
+ax.legend(handles=legend_els, loc='lower left', fontsize=8,
+          framealpha=0.9, edgecolor='#d0d0c8', bbox_to_anchor=(0.01, 0.01))
+
+plt.tight_layout(pad=0.3)
+plt.savefig('fig-oilsands-flow.png', dpi=150, bbox_inches='tight',
+            facecolor=C_BG, edgecolor='none')
+plt.show()
 ```
 
 ### One Pipe, Many Products: Batch Scheduling
