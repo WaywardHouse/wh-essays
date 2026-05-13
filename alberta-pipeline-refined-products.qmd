@@ -7,12 +7,12 @@ categories: [pipelines, refined products, batch scheduling, dispersion, energy, 
 bibliography: alberta-pipeline-refined-products.bib
 ---
 
-*Part of the [Alberta Pipeline Geography](/essays/albertas-pipeline-geography) cluster.
+*Part of the [Alberta Pipeline Geography](//albertas-pipeline-geography) cluster.
 This is **P4** of five articles.
-[P1 — Crude Oil Pipelines](/essays/alberta-pipeline-crude-oil) ·
-[P2 — NGL and Condensate Systems](/essays/alberta-pipeline-ngl-condensate) ·
-[P3 — Natural Gas Transmission](/essays/alberta-pipeline-natural-gas) ·
-[P5 — The Integrated Network](/essays/alberta-pipeline-integrated-network)*
+[P1 — Crude Oil Pipelines](//alberta-pipeline-crude-oil) ·
+[P2 — NGL and Condensate Systems](//alberta-pipeline-ngl-condensate) ·
+[P3 — Natural Gas Transmission](//alberta-pipeline-natural-gas) ·
+[P5 — The Integrated Network](//alberta-pipeline-integrated-network)*
 
 ---
 
