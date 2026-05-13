@@ -20,7 +20,7 @@ website:
   back-to-top-navigation: true
   search:
     location: navbar
-    type: textbox
+    type: overlay
 
 format:
   WaywardHouse/waywardhouse-book-html:
