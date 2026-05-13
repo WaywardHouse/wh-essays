@@ -7,12 +7,12 @@ categories: [pipelines, network theory, max-flow, netback, graph theory, energy,
 bibliography: alberta-pipeline-integrated-network.bib
 ---
 
-*Part of the [Alberta Pipeline Geography](//albertas-pipeline-geography) cluster.
+*Part of the [Alberta Pipeline Geography](/albertas-pipeline-geography) cluster.
 This is **P5** of five articles.
-[P1 — Crude Oil Pipelines](//alberta-pipeline-crude-oil) ·
-[P2 — NGL and Condensate Systems](//alberta-pipeline-ngl-condensate) ·
-[P3 — Natural Gas Transmission](//alberta-pipeline-natural-gas) ·
-[P4 — Refined Products Distribution](//alberta-pipeline-refined-products)*
+[P1 — Crude Oil Pipelines](/alberta-pipeline-crude-oil) ·
+[P2 — NGL and Condensate Systems](/alberta-pipeline-ngl-condensate) ·
+[P3 — Natural Gas Transmission](/alberta-pipeline-natural-gas) ·
+[P4 — Refined Products Distribution](/alberta-pipeline-refined-products)*
 
 ---
 
