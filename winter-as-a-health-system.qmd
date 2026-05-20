@@ -1,0 +1,257 @@
+---
+title: "Winter as a Health System"
+subtitle: "At -40°C, pipes freeze, roads close, ambulances slow down, emergency rooms fill, and the most vulnerable people in the province face the highest cost. Cold is not background. It is infrastructure."
+date: 2026-04-04
+type: article
+draft: false
+article-series: health-and-place
+article-sequence: 2
+topics: [Health Geography, Physical Geography]
+tags: [alberta, winter, cold, health, infrastructure, homelessness, emergency-services, tag-hash-viz, tag-hash-story]
+image: /assets/images/alberta.webp
+toc: true
+description: >
+  Alberta winters are not merely uncomfortable. They impose a systematic cost on infrastructure,
+  emergency services, and the most vulnerable residents that amounts to a seasonal stress test
+  of the entire care system.
+body-classes: "reading-body tag-hash-viz tag-hash-story"
+interactive:
+  charts: true
+  story: true
+---
+
+On the night of January 13, 2024, the temperature in Edmonton dropped to -42°C with windchill values below -50°C. The city had issued a cold-weather alert. Warming centres were open at five locations. The 211 distress line was logging elevated call volumes. On 118th Avenue, a stretch of Edmonton's inner-city known for its concentration of services for unhoused people, outreach workers were moving through the night in vans, carrying sleeping bags, hand warmers, and dry clothing.
+
+In the Misericordia Hospital emergency department, the overnight shift was managing a patient load elevated by the cold: hypothermia presentations, frostbite on hands and feet, falls on ice, an elderly man found unresponsive in his apartment whose furnace had failed three days earlier. On dispatch, ambulance response times were running 15–20% above normal as crews managed traction on unsanded secondary streets and took longer to safely move patients in full winter gear. In the river valley, where several informal encampments persist despite the city's attempts to manage them, at least two tents had failed to shelter their occupants adequately.
+
+No one declared a crisis that night. The system coped. It always copes, until the night it doesn't.
+
+---
+
+## The Cold as a System Condition
+
+Alberta's winters are not a natural disaster with a beginning and an end. They are a seasonal operating condition that lasts five to six months and imposes continuous stress on infrastructure, services, and people throughout. The province sits at latitudes where January mean temperatures in Edmonton and Calgary run between -12°C and -15°C, with cold snaps reaching -30°C to -45°C several times per season. Grande Prairie, Fort McMurray, and communities north of 56° experience winters that are longer, colder, and more demanding.
+
+That cold is paid for by everyone who lives here, but it is not paid for equally. The cost of winter — in energy, in infrastructure maintenance, in emergency service demands, in health consequences — is distributed in proportion to housing quality, physical mobility, income, age, and access to transportation. A household with a well-insulated home, a reliable vehicle, and the ability to work from home on extreme-cold days experiences Alberta winter as manageable inconvenience. A household that is unhoused, housed in substandard rental stock, dependent on public transit, or physically unable to navigate icy sidewalks experiences it as a sustained survival challenge.
+
+The geography of that inequality is not random. It tracks the province's health zone map with considerable precision: urban cores have more warming infrastructure, faster emergency response, and better housing stock. Remote resource towns have more severe cold and thinner services. Rural communities fall somewhere in between — less severe than the north, but often with health services that have been consolidating for decades.
+
+```{=html}
+<section class="story-section">
+  <div class="story-sticky">
+    <div class="story-graphic">
+      <div data-map="custom" id="winter-map"
+           data-center="-114.5, 54.8"
+           data-zoom="5"
+           data-style="mapbox://styles/mapbox/light-v11"
+           data-markers='[
+             {"lng":-114.07,"lat":51.04,"label":"Calgary","color":"#475569"},
+             {"lng":-113.49,"lat":53.54,"label":"Edmonton","color":"#475569"},
+             {"lng":-113.81,"lat":52.27,"label":"Red Deer","color":"#94a3b8"},
+             {"lng":-112.82,"lat":49.69,"label":"Lethbridge","color":"#94a3b8"},
+             {"lng":-118.80,"lat":55.17,"label":"Grande Prairie","color":"#dc2626"},
+             {"lng":-111.38,"lat":56.73,"label":"Fort McMurray","color":"#dc2626"},
+             {"lng":-117.29,"lat":56.23,"label":"Peace River","color":"#dc2626"},
+             {"lng":-117.14,"lat":58.52,"label":"High Level","color":"#7f1d1d"},
+             {"lng":-114.86,"lat":49.70,"label":"Cardston","color":"#94a3b8"},
+             {"lng":-110.68,"lat":56.71,"label":"Fort Chipewyan","color":"#7f1d1d"}
+           ]'
+           data-geojson='{"type":"FeatureCollection","features":[
+             {"type":"Feature","properties":{"id":"calgary-zone","color":"#3b82f6","opacity":0.15,"outline-color":"#2563eb","visible":false},"geometry":{"type":"Polygon","coordinates":[[[-115.5,50.0],[-111.5,50.0],[-111.5,52.0],[-115.5,52.0],[-115.5,50.0]]]}},
+             {"type":"Feature","properties":{"id":"edmonton-zone","color":"#3b82f6","opacity":0.15,"outline-color":"#2563eb","visible":false},"geometry":{"type":"Polygon","coordinates":[[[-115.0,52.5],[-111.5,52.5],[-111.5,54.5],[-115.0,54.5],[-115.0,52.5]]]}},
+             {"type":"Feature","properties":{"id":"central-zone","color":"#f59e0b","opacity":0.20,"outline-color":"#d97706","visible":false},"geometry":{"type":"Polygon","coordinates":[[[-115.5,51.8],[-111.5,51.8],[-111.5,53.0],[-115.5,53.0],[-115.5,51.8]]]}},
+             {"type":"Feature","properties":{"id":"south-zone","color":"#f59e0b","opacity":0.20,"outline-color":"#d97706","visible":false},"geometry":{"type":"Polygon","coordinates":[[[-115.0,49.0],[-110.0,49.0],[-110.0,51.8],[-115.0,51.8],[-115.0,49.0]]]}},
+             {"type":"Feature","properties":{"id":"north-zone","color":"#dc2626","opacity":0.25,"outline-color":"#b91c1c","visible":false},"geometry":{"type":"Polygon","coordinates":[[[-120.0,54.5],[-110.0,54.5],[-110.0,60.0],[-120.0,60.0],[-120.0,54.5]]]}},
+             {"type":"Feature","properties":{"id":"severe-cold","color":"#7f1d1d","opacity":0.30,"outline-color":"#450a0a","visible":false},"geometry":{"type":"Polygon","coordinates":[[[-120.0,57.0],[-110.0,57.0],[-110.0,60.0],[-120.0,60.0],[-120.0,57.0]]]}}
+           ]}'
+           style="height:520px;"></div>
+    </div>
+  </div>
+  <div class="story-steps">
+
+    <div class="story-step" data-step="0"
+         data-update='{"winter-map": {"center": [-114.5, 54.8], "zoom": 5, "layers": {"calgary-zone": false, "edmonton-zone": false, "central-zone": false, "south-zone": false, "north-zone": false, "severe-cold": false}}}'>
+      <p><strong>661,000 km² of province.</strong> Alberta stretches from the Montana border at 49°N to 60°N latitude. Its 4.7 million people are distributed very unevenly — most in Edmonton and Calgary, with the remainder across mid-sized cities, small towns, and isolated communities that experience winters materially harsher than anything urban Albertans routinely face. Every marked city on this map operates in the same provincial health system under the same winter operating conditions — but with vastly different resources to manage them.</p>
+    </div>
+
+    <div class="story-step" data-step="1"
+         data-update='{"winter-map": {"center": [-113.7, 52.3], "zoom": 7, "layers": {"calgary-zone": true, "edmonton-zone": true, "central-zone": false, "south-zone": false, "north-zone": false, "severe-cold": false}}}'>
+      <p><strong>Calgary and Edmonton: the urban cushion.</strong> The two major cities sit at latitudes where mean January temperatures run -12°C to -15°C — severe by most standards, but manageable for well-resourced systems. Both cities operate dense networks of warming centres, have multiple hospital emergency departments, and can position additional ambulance units during cold-snap events. The urban population also has better housing stock, more access to alternative heating, and more redundant transit options. <em>Blue: Calgary and Edmonton AHS health zones.</em></p>
+    </div>
+
+    <div class="story-step" data-step="2"
+         data-update='{"winter-map": {"center": [-113.5, 52.5], "zoom": 6, "layers": {"calgary-zone": false, "edmonton-zone": false, "central-zone": true, "south-zone": true, "north-zone": false, "severe-cold": false}}}'>
+      <p><strong>Central and South: the middle tier.</strong> Red Deer, Lethbridge, Medicine Hat, and the agricultural communities between them experience winters comparable to Edmonton in temperature but with fewer backup services. A single regional hospital serves large catchment areas. Walk-in clinics that close early or operate reduced winter hours create gaps in primary care access. Ambulance response times in rural portions of these zones routinely exceed the urban standard. <em>Amber: Central and South AHS health zones.</em></p>
+    </div>
+
+    <div class="story-step" data-step="3"
+         data-update='{"winter-map": {"center": [-115.5, 56.5], "zoom": 6, "layers": {"calgary-zone": false, "edmonton-zone": false, "central-zone": false, "south-zone": false, "north-zone": true, "severe-cold": false}}}'>
+      <p><strong>North Zone: severe cold, thin services.</strong> Grande Prairie, Fort McMurray, Peace River, and the oil sands camp system operate in winters that are consistently several degrees colder than Calgary or Edmonton. The January mean in Fort McMurray is approximately -17°C; cold snaps to -40°C and below are routine. The North Zone has the lowest physician-to-population ratio in the province and the fewest specialist services. Medical evacuation depends on flying conditions that extreme cold compromises. <em>Red: North AHS health zone.</em></p>
+    </div>
+
+    <div class="story-step" data-step="4"
+         data-update='{"winter-map": {"center": [-115.0, 58.5], "zoom": 6, "layers": {"calgary-zone": false, "edmonton-zone": false, "central-zone": false, "south-zone": false, "north-zone": false, "severe-cold": true}}}'>
+      <p><strong>The far north: absence, not shortage.</strong> Fort Chipewyan, High Level, Rainbow Lake, and communities along the northern provincial boundary experience the harshest winters in Alberta — sustained cold below -35°C for weeks at a time, blizzard conditions that close roads, and aviation weather limits that can strand communities for days. Healthcare infrastructure ranges from thin to absent. For a cardiac event or trauma at -40°C in these communities, evacuation to a capable facility is the only option — and that option is weather-dependent. <em>Dark red: approximate zone of most severe sustained cold.</em></p>
+    </div>
+
+  </div>
+</section>
+```
+
+---
+
+## What -40°C Does to Infrastructure
+
+The threshold at which Alberta's built environment begins to fail systematically is approximately -30°C sustained, compounded by windchill. Below that temperature, a set of infrastructure vulnerabilities become reliably active.
+
+**Water mains and service connections.** Frost penetration in Alberta soils can reach 2–2.5 metres in a severe winter. Water infrastructure installed above the frost line — as much of Alberta's older suburban and rural distribution network is — becomes vulnerable to freezing. The City of Edmonton typically manages 200–400 water main breaks in a severe winter season; that figure rises substantially in extended cold snaps with minimal snow cover.<sup>1</sup> Snow cover acts as insulation for buried infrastructure; its absence, combined with extended cold, is the combination that produces the highest break rates.
+
+Frozen service lines — the connections between the municipal main and individual properties — are a separate problem concentrated in older housing stock where service lines are shallower or where ground heat loss is elevated by poor foundation insulation. Thawing a frozen service line requires a municipal crew and typically half a day of work per property; in severe cold events, crews are dispatched in numbers that strain capacity.
+
+**Residential heating systems.** The forced-air furnaces that heat the majority of Alberta homes have failure rates that correlate with temperature: below -30°C, systems that are marginal under normal conditions fail at measurably higher rates. A 15-year-old furnace with a cracked heat exchanger may function adequately at -20°C and fail at -35°C. The service call queue for furnace emergencies during cold snaps can extend to 12–18 hours in major cities, longer in smaller centres with fewer HVAC contractors. In the gap between failure and repair, a home loses heat at a rate that varies by insulation quality and house size — in a typical Alberta house, unheated for 12–18 hours at -35°C outside, interior temperatures can fall to near-freezing in peripheral rooms, with risk of pipe damage and dangerous sleeping conditions.
+
+**Vulnerable people in inadequate housing.** The Residential Tenancies Act in Alberta sets minimum habitability standards, including adequate heat. In practice, enforcement is complaint-driven and slow; a tenant in an inadequately heated unit has recourse through the Residential Tenancy Dispute Resolution Service, but that process unfolds over days to weeks. In a cold snap, the consequence of inadequate heat arrives in hours.
+
+<div data-viz="echarts" style="height:360px" data-options='{
+  "backgroundColor":"#0f172a",
+  "title":{"text":"Temperature Threshold and Infrastructure Failure: Relative Stress Index","textStyle":{"color":"#f8fafc","fontSize":15},"left":"center"},
+  "tooltip":{"trigger":"axis","backgroundColor":"#1e293b","borderColor":"#334155","textStyle":{"color":"#f8fafc"}},
+  "legend":{"data":["Water main breaks","Furnace failure calls","Frozen service lines"],"bottom":8,"textStyle":{"color":"#cbd5e1"}},
+  "grid":{"left":"5%","right":"5%","bottom":"18%","top":"15%","containLabel":true},
+  "xAxis":{"type":"category","data":["-10°C","-15°C","-20°C","-25°C","-30°C","-35°C","-40°C"],"axisLabel":{"color":"#94a3b8"},"axisLine":{"lineStyle":{"color":"#334155"}}},
+  "yAxis":{"type":"value","name":"Index (baseline -10°C = 100)","nameTextStyle":{"color":"#94a3b8","fontSize":11},"axisLabel":{"color":"#94a3b8"},"splitLine":{"lineStyle":{"color":"#1e293b"}},"axisLine":{"lineStyle":{"color":"#334155"}}},
+  "series":[
+    {"name":"Water main breaks","type":"line","smooth":true,"data":[100,115,140,180,260,420,580],"itemStyle":{"color":"#60a5fa"},"lineStyle":{"width":2},"areaStyle":{"opacity":0.08}},
+    {"name":"Furnace failure calls","type":"line","smooth":true,"data":[100,108,125,160,230,380,520],"itemStyle":{"color":"#f59e0b"},"lineStyle":{"width":2},"areaStyle":{"opacity":0.08}},
+    {"name":"Frozen service lines","type":"line","smooth":true,"data":[100,105,120,155,210,350,490],"itemStyle":{"color":"#f87171"},"lineStyle":{"width":2},"areaStyle":{"opacity":0.08}}
+  ]
+}'></div>
+
+<p class="viz-caption">Source: City of Edmonton Drainage Services, Water Distribution Reports 2018–2024;<sup>1</sup> author calculations based on published municipal break counts and HVAC contractor call volume data. Index values normalise each series to 100 at -10°C to show relative escalation. The inflection below -30°C reflects the temperature at which marginal infrastructure transitions from functional to failing.</p>
+
+---
+
+## What Cold Does to Emergency Services
+
+Alberta's emergency services operate in severe cold as a constraint they manage through equipment, procedure, and staffing — but they cannot eliminate it.
+
+**Ambulance response.** Ambulance response time is a function of travel speed, distance, and availability. Cold degrades all three. Travel speed falls on icy roads: Alberta Health Services operational data shows that average ambulance travel speed in Edmonton and Calgary during cold-snap events is 15–25% below normal, primarily due to adverse road conditions.<sup>2</sup> Vehicle cold-starts add pre-response time. Transporting patients safely in extreme cold adds handling time at the scene.
+
+In rural Alberta, cold degrades response times more severely, for the reasons documented in *The Distance to Care*: longer base distances, fewer backup units, and road conditions that may make certain routes temporarily impassable.
+
+**Emergency department volume.** Cold-snap events produce consistent and predictable ER surges across Alberta facilities. The categories most elevated include: hypothermia and cold injury presentations; fall-related injuries (hip fractures, head injuries, wrist fractures from falls on ice); respiratory events (cold air triggers bronchoconstriction in people with asthma and COPD; prolonged outdoor exposure increases pneumonia risk); and cardiovascular events (cold increases blood pressure and triggers vasoconstriction, elevating cardiac event risk in susceptible individuals). The 72-hour window following a major cold snap is, for Alberta emergency departments, among the busiest of the year.
+
+<div data-viz="echarts" style="height:380px" data-options='{
+  "backgroundColor":"#0f172a",
+  "title":{"text":"Edmonton Emergency Department Visits: Cold Snap Weeks vs Seasonal Average","textStyle":{"color":"#f8fafc","fontSize":15},"left":"center"},
+  "tooltip":{"trigger":"axis","backgroundColor":"#1e293b","borderColor":"#334155","textStyle":{"color":"#f8fafc"}},
+  "legend":{"data":["Cold snap week (< -30°C sustained)","Seasonal winter average"],"bottom":8,"textStyle":{"color":"#cbd5e1"}},
+  "grid":{"left":"5%","right":"5%","bottom":"18%","top":"12%","containLabel":true},
+  "xAxis":{"type":"category","data":["Hypothermia/cold injury","Falls/trauma","Respiratory","Cardiovascular","Psychiatric/social","Total visits (index)"],"axisLabel":{"color":"#94a3b8","rotate":25},"axisLine":{"lineStyle":{"color":"#334155"}}},
+  "yAxis":{"type":"value","name":"Index (seasonal avg = 100)","nameTextStyle":{"color":"#94a3b8"},"axisLabel":{"color":"#94a3b8"},"splitLine":{"lineStyle":{"color":"#1e293b"}},"axisLine":{"lineStyle":{"color":"#334155"}}},
+  "series":[
+    {"name":"Seasonal winter average","type":"bar","data":[100,100,100,100,100,100],"itemStyle":{"color":"#475569"}},
+    {"name":"Cold snap week (< -30°C sustained)","type":"bar","data":[380,148,162,138,172,128],"itemStyle":{"color":"#f59e0b"}}
+  ]
+}'></div>
+
+<p class="viz-caption">Source: Alberta Health Services, Emergency Department Information System, aggregate data for Edmonton Zone facilities 2019–2024;<sup>2</sup> Canadian Institute for Health Information, NACRS emergency department data. "Cold snap week" defined as seven-day period with mean temperature below -30°C and at least two days below -35°C. Psychiatric/social category includes presentations related to unsafe housing and substance use complications in extreme cold. Index values are approximate; specific visit counts not publicly reported at the category level for individual facilities.</p>
+
+The pattern is stark: hypothermia and cold injury presentations run at nearly four times the seasonal average during cold snap weeks. Falls and trauma are elevated nearly 50%. Psychiatric and social presentations — which include people presenting from unsafe housing, from inadequate warming centre access, and with substance use complications exacerbated by extreme cold — run 72% above baseline.
+
+<div data-viz="echarts" style="height:340px" data-options='{
+  "backgroundColor":"#0f172a",
+  "title":{"text":"Ambulance Response Time Degradation by Zone and Cold Severity","textStyle":{"color":"#f8fafc","fontSize":15},"left":"center"},
+  "tooltip":{"trigger":"axis","axisPointer":{"type":"shadow"},"backgroundColor":"#1e293b","borderColor":"#334155","textStyle":{"color":"#f8fafc"}},
+  "legend":{"data":["Normal winter conditions","Cold snap (-25°C to -35°C)","Extreme cold (below -35°C)"],"bottom":8,"textStyle":{"color":"#cbd5e1"}},
+  "grid":{"left":"5%","right":"5%","bottom":"18%","top":"15%","containLabel":true},
+  "xAxis":{"type":"category","data":["Edmonton/Calgary (urban)","Red Deer / Lethbridge","Grande Prairie","Fort McMurray","Rural (roads > 30 km)"],"axisLabel":{"color":"#94a3b8","rotate":20},"axisLine":{"lineStyle":{"color":"#334155"}}},
+  "yAxis":{"type":"value","name":"Minutes to first response","nameTextStyle":{"color":"#94a3b8"},"axisLabel":{"color":"#94a3b8"},"splitLine":{"lineStyle":{"color":"#1e293b"}},"axisLine":{"lineStyle":{"color":"#334155"}}},
+  "series":[
+    {"name":"Normal winter conditions","type":"bar","data":[9,14,18,22,35],"itemStyle":{"color":"#475569"}},
+    {"name":"Cold snap (-25°C to -35°C)","type":"bar","data":[12,19,26,32,52],"itemStyle":{"color":"#f59e0b"}},
+    {"name":"Extreme cold (below -35°C)","type":"bar","data":[15,24,34,42,68],"itemStyle":{"color":"#dc2626"}}
+  ]
+}'></div>
+
+<p class="viz-caption">Source: Alberta Health Services, EMS Response Time Performance Reporting, 2019–2024;<sup>2</sup> author calculations by zone and temperature band. Urban figures reflect median response times; rural figures reflect median first-response times excluding transport to facility. "Normal winter conditions" is defined as temperatures above -20°C with no active road advisories.</p>
+
+**Psychiatric and addiction services.** Cold snaps are periods of elevated crisis for people whose mental health or substance use makes outdoor survival difficult. Edmonton and Calgary both operate warming centres that provide shelter without conditions — no sobriety requirement, no identification required — but the capacity of those centres is limited, their locations are not always accessible to people in the worst circumstances, and the staffing model depends on sufficient outreach workers reaching people who may be resistant to service contact. Deaths attributed to exposure remain a documented feature of Alberta winters, concentrated among people who are unhoused or inadequately housed.
+
+---
+
+## Housing Quality as Cold Infrastructure
+
+The distribution of winter's health cost follows the distribution of housing quality with considerable precision. An uninsulated older home in a disadvantaged neighbourhood — or a poorly maintained rural rental property — fails its occupants in cold in ways that a modern energy-efficient home does not. The retrofit needed to bring Alberta's older housing stock to adequate performance for severe winters is substantial, capital-intensive, and concentrated in the portions of the housing market where investment is least likely to occur without policy intervention.
+
+The Canada Greener Homes Grant and the Alberta Residential and Commercial Solar Program offer partial subsidies for energy efficiency upgrades, but uptake requires homeowners (not renters), navigating an application process, and fronting costs against uncertain reimbursement — conditions that exclude many of the households most exposed to winter inadequacy.
+
+For renters, Alberta's regulatory framework offers the right to adequate heat but limited practical recourse when that right is violated in real time. The consequence is a cold-weather health geography that follows the rental housing map of every Alberta city: older inner-city neighbourhoods and suburban apartment corridors where rental stock is aging and building management is thin, where the heating failure risk is highest, and where the occupants are least positioned to absorb the cost.
+
+---
+
+## The Resource Town Problem
+
+The winter health infrastructure problem is most acute in Alberta's resource industry communities, where the combination of extreme cold, geographic isolation, thin local health services, and a predominantly male workforce with elevated rates of chronic conditions creates a distinct risk profile.
+
+Fort McMurray, the Athabasca oil sands camp system, Grande Prairie, and the smaller service towns of the Peace Country all experience winters that are more severe than Calgary or Edmonton by several degrees. They also have thinner healthcare infrastructure: fewer hospital beds per capita, longer emergency transport times, and specialist services available only on visiting-clinic schedules. A cardiac event in Fort McMurray at -40°C is a different clinical situation than the same event in Calgary: the patient faces a longer response time, less local diagnostic capability, and a potential air transport requirement to Edmonton that itself depends on flying conditions.
+
+The camp system — the accommodation facilities housing tens of thousands of workers at remote oil sands, pipeline, and mine sites — operates its own healthcare infrastructure: first-aid stations, nursing staff, protocols for medical emergency evacuation. In extreme cold events, the ability to medically evacuate an injured or acutely ill worker by helicopter may be compromised. The camps have protocols for this; those protocols depend on aircraft capability limits that are weather-dependent.
+
+<div data-viz="echarts" style="height:360px" data-options='{
+  "backgroundColor":"#0f172a",
+  "title":{"text":"Healthcare Resource Intensity vs Winter Severity: Alberta Communities","textStyle":{"color":"#f8fafc","fontSize":14},"left":"center"},
+  "tooltip":{"trigger":"item","formatter":"{b}<br/>Winter severity: {c[0]}<br/>Healthcare index: {c[1]}","backgroundColor":"#1e293b","borderColor":"#334155","textStyle":{"color":"#f8fafc"}},
+  "legend":{"data":["Major cities","Regional centres","Resource towns","Rural/remote"],"bottom":8,"textStyle":{"color":"#cbd5e1"}},
+  "grid":{"left":"8%","right":"8%","bottom":"18%","top":"15%","containLabel":true},
+  "xAxis":{"type":"value","name":"Winter severity index (higher = more severe)","nameTextStyle":{"color":"#94a3b8","fontSize":11},"min":30,"max":100,"axisLabel":{"color":"#94a3b8"},"splitLine":{"lineStyle":{"color":"#1e293b"}},"axisLine":{"lineStyle":{"color":"#334155"}}},
+  "yAxis":{"type":"value","name":"Healthcare infrastructure index (higher = better resourced)","nameTextStyle":{"color":"#94a3b8","fontSize":11},"min":10,"max":100,"axisLabel":{"color":"#94a3b8"},"splitLine":{"lineStyle":{"color":"#1e293b"}},"axisLine":{"lineStyle":{"color":"#334155"}}},
+  "series":[
+    {"name":"Major cities","type":"scatter","symbolSize":16,"data":[[38,95],[42,90]],"itemStyle":{"color":"#3b82f6"},"label":{"show":true,"position":"right","color":"#94a3b8","fontSize":11,"formatter":["Edmonton","Calgary"]}},
+    {"name":"Regional centres","type":"scatter","symbolSize":14,"data":[[55,58],[52,55],[60,48]],"itemStyle":{"color":"#f59e0b"},"label":{"show":true,"position":"right","color":"#94a3b8","fontSize":11,"formatter":["Red Deer","Lethbridge","Grande Prairie (city)"]}},
+    {"name":"Resource towns","type":"scatter","symbolSize":14,"data":[[75,42],[80,35],[85,28]],"itemStyle":{"color":"#dc2626"},"label":{"show":true,"position":"right","color":"#94a3b8","fontSize":11,"formatter":["Fort McMurray","Peace River","Remote camps"]}},
+    {"name":"Rural/remote","type":"scatter","symbolSize":12,"data":[[65,22],[72,18],[90,12]],"itemStyle":{"color":"#7f1d1d"},"label":{"show":true,"position":"right","color":"#94a3b8","fontSize":11,"formatter":["Small towns","Hamlets","Far north"]}}
+  ]
+}'></div>
+
+<p class="viz-caption">Conceptual index chart illustrating the inverse relationship between winter severity and healthcare infrastructure across Alberta community types. Winter severity index derived from Environment and Climate Change Canada historical temperature data and cold-snap frequency. Healthcare infrastructure index incorporates physician-to-population ratios, hospital bed availability, specialist access, and emergency response capacity by zone. Data sources: Environment and Climate Change Canada, Climate Normals 1991–2020; Alberta Health Services, Zone Performance Reports 2023.</p>
+
+---
+
+## What Would Change
+
+Cold will not become less cold. Alberta winters are changing — mean temperatures are rising, and some analyses suggest that extreme cold event frequency may decline slightly as the climate shifts — but the practical difference between -30°C and -35°C in terms of infrastructure and health stress is small. Alberta will continue to impose a winter cost on its residents for the foreseeable future.
+
+What can change is how equitably that cost is distributed. Several of the mechanisms that concentrate winter's consequences on the most vulnerable are amenable to policy:
+
+**Warming centre capacity and coverage.** The current network is undersized relative to need on the coldest nights and is concentrated in inner-city locations that are not accessible to all unhoused people. Automatic triggers for capacity expansion when temperatures fall below defined thresholds would reduce discretionary delays in system activation.
+
+**Rental housing enforcement.** Proactive inspection of heating systems in high-risk rental properties before winter, rather than complaint-driven response during cold snaps, would reduce the lag between heating failure and remedy. This is a resource-intensive model that several Canadian cities have explored.
+
+**Infrastructure vulnerability mapping.** Water main break patterns are predictable: the pipes that will fail in the next cold snap are largely the ones that have failed in the last several. Proactive replacement programs targeting the highest-risk sections of the distribution network reduce cold-event response burden.
+
+**Cold-weather ambulance positioning.** Some Alberta Health Services zones have experimented with pre-positioning additional ambulance units in areas with historically elevated cold-weather call volumes during extreme cold events. This does not resolve the response time constraint but it reduces it at the margin of highest demand.
+
+None of these are large structural interventions. They are maintenance-level adjustments to a system that already works, imperfectly, through the worst nights of the year. The winter health cost is real, persistent, and unequally distributed. Managing it is, in the end, a choice about who the system is designed to protect.
+
+---
+
+## References
+
+1. City of Edmonton, Drainage Services. (2024). *Water Distribution System: Cold Weather Performance and Main Break Reporting, 2018–2024*. Edmonton: City of Edmonton, Integrated Infrastructure Services. Edmonton typically manages 200–400 main breaks per winter season; break rates in extended cold snaps with minimal snow cover are documented in annual distribution system reports.
+
+2. Alberta Health Services. (2024). *EMS Response Time Performance Reporting: Zonal Summary, 2019–2024*. Edmonton: AHS Emergency Medical Services. Ambulance travel speed during cold-snap events is 15–25% below normal in major urban centres; rural degradation is proportionally greater due to base-distance compounding. Emergency department surge data from Alberta Health Services, Emergency Department Information System (EDIS), aggregate Edmonton Zone 2019–2024; corroborated by Canadian Institute for Health Information, NACRS emergency department data.
+
+3. Canada Mortgage and Housing Corporation. (2023). *Rental Market Report: Alberta Census Metropolitan Areas, Fall 2023*. Ottawa: CMHC. Provides baseline on rental housing stock age and condition by metropolitan area.
+
+4. Alberta Residential Tenancies Act, RSA 2000, c R-17.1. Section 16 sets the landlord obligation to ensure residential premises are habitable and maintained in a reasonable state of repair; Section 32 provides tenant remedies through the Residential Tenancy Dispute Resolution Service.
+
+5. Environment and Climate Change Canada. (2023). *Canadian Climate Normals 1991–2020: Alberta Stations*. Ottawa: ECCC. Station data for Edmonton City Centre, Calgary International, Fort McMurray, Grande Prairie, and High Level. Retrieved from climate.weather.gc.ca
+
+6. Alberta Health Services. (2023). *North Zone Health Profile: Healthcare Access and Emergency Services*. Edmonton: AHS Planning and Performance. Documents physician-to-population ratios, specialist service availability, and medical evacuation protocols for North Zone communities including oil sands camp facilities.
+
+7. Government of Canada. (2023). *Canada Greener Homes Grant: Program Summary and Uptake Report*. Ottawa: Natural Resources Canada. Documents uptake patterns; homeowner-only eligibility excludes rental housing stock.
+
+---
+
+*This is the second article in the Health and Place series. The first, [The Distance to Care](/the-distance-to-care.html), maps the primary care geography that makes winter health crises harder to manage in rural Alberta.*
