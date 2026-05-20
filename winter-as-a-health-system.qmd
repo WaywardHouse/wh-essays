@@ -1,7 +1,7 @@
 ---
 title: "Winter as a Health System"
 subtitle: "At -40°C, pipes freeze, roads close, ambulances slow down, emergency rooms fill, and the most vulnerable people in the province face the highest cost. Cold is not background. It is infrastructure."
-date: 2026-04-04
+date: 2026-05-19
 type: article
 draft: false
 article-series: health-and-place
