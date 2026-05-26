@@ -43,9 +43,24 @@ Calgary averages four to six significant hail events — events with stones larg
   "yAxis":{"type":"value","name":"Insured loss ($B CAD)","nameTextStyle":{"color":"#94a3b8"},"axisLabel":{"color":"#94a3b8","formatter":"${value}B"},"splitLine":{"lineStyle":{"color":"#1e293b"}},"axisLine":{"lineStyle":{"color":"#334155"}}},
   "series":[{
     "type":"bar",
-    "data":[0.49,0.15,0.55,0.08,0.05,0.12,0.22,0.09,0.18,0.08,1.20,0.14,0.08,0.11,2.80],
-    "itemStyle":{"color":{"type":"linear","x":0,"y":0,"x2":0,"y2":1,"colorStops":[{"offset":0,"color":"#f59e0b"},{"offset":1,"color":"#92400e"}]}},
-    "label":{"show":true,"position":"top","color":"#94a3b8","formatter":"function(v){return v.value>=0.1?\"$\"+v.value.toFixed(2)+\"B\":\"\";}"}
+    "data":[
+      {"value":0.49,"label":{"show":true,"position":"top","color":"#94a3b8","formatter":"$0.49B"}},
+      {"value":0.15,"label":{"show":false}},
+      {"value":0.55,"label":{"show":true,"position":"top","color":"#94a3b8","formatter":"$0.55B"}},
+      {"value":0.08,"label":{"show":false}},
+      {"value":0.05,"label":{"show":false}},
+      {"value":0.12,"label":{"show":false}},
+      {"value":0.22,"label":{"show":false}},
+      {"value":0.09,"label":{"show":false}},
+      {"value":0.18,"label":{"show":false}},
+      {"value":0.08,"label":{"show":false}},
+      {"value":1.20,"label":{"show":true,"position":"top","color":"#94a3b8","formatter":"$1.20B"}},
+      {"value":0.14,"label":{"show":false}},
+      {"value":0.08,"label":{"show":false}},
+      {"value":0.11,"label":{"show":false}},
+      {"value":2.80,"label":{"show":true,"position":"top","color":"#f8fafc","formatter":"$2.80B"}}
+    ],
+    "itemStyle":{"color":{"type":"linear","x":0,"y":0,"x2":0,"y2":1,"colorStops":[{"offset":0,"color":"#f59e0b"},{"offset":1,"color":"#92400e"}]}}
   }]
 }'></div>
 
