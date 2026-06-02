@@ -1,0 +1,366 @@
+---
+title: "Smoke in the Lungs of the City"
+subtitle: "Wildfire smoke blankets Alberta for weeks each summer. Not everyone can close a window."
+date: 2026-06-02
+type: article
+draft: false
+article-series: health-and-place
+article-sequence: 3
+topics: [Health Geography, Environmental Geography]
+tags: [alberta, wildfire, smoke, air-quality, health, housing, inequality, tag-hash-viz, tag-hash-story]
+image: /assets/images/alberta.webp
+toc: true
+description: >
+  When wildfire smoke descends on an Alberta city, the official advice is simple: stay indoors.
+  That advice lands very differently depending on where you live, what your home is made of,
+  and whether you have a job that lets you follow it.
+body-classes: "reading-body tag-hash-viz tag-hash-story"
+interactive:
+  charts: true
+  story: true
+---
+
+As of this morning, Calgary is under a yellow alert. The Bow River is running high — carrying snowmelt from a late mountain spring and the last two weeks of June rain — and the city's river-watch system is reminding people with low-lying property to watch their sump pumps. The sky is grey, the streets are wet, and the dominant local hazard is water.
+
+In a few weeks, if the pattern holds, it will not be.
+
+The fires typically start in earnest in mid-July in Alberta's boreal north, and in BC's interior plateau even sooner. The weather that produces spring flooding — persistent low-pressure systems drawing moisture north — eventually gives way to the high-pressure ridge that parks itself over the interior of the continent in late summer, driving temperatures up, shutting off precipitation, and creating the kind of prolonged dry that turns living fuel into tinder. When those fires grow large enough, the smoke travels east and south. By August in a bad year, the Bow River will have dropped back to normal and Calgary's yellow alert will be about air, not water.
+
+Alberta cycles through its hazards by season. This article is about the summer one — about what happens when the wind blows the wrong way and the city's air becomes something you have to manage rather than simply breathe. And about why that management falls so unevenly across the people who live here.
+
+---
+
+## The New Smoke Season
+
+Wildfire smoke was historically an occasional feature of Alberta summers — present in bad years, absent or mild in good ones, managed by staying indoors for a day or two and waiting for the wind to shift. The 2023 fire season changed the experiential baseline. Across Canada, approximately 18.4 million hectares burned — a record that more than doubled any previous season in the modern measurement record.<sup>5</sup> British Columbia, Alberta, Nova Scotia, and Quebec all experienced major smoke events simultaneously. Edmonton and Calgary each recorded multiple weeks of Air Quality Health Index readings above 7 — the threshold at which Health Canada recommends limiting outdoor activity for vulnerable populations.<sup>1</sup>
+
+On the afternoon of June 7, 2023, Edmonton's AQHI reading climbed to 10-plus — the maximum on the scale, indicating very high risk. The sky had turned amber. School divisions cancelled outdoor activities. The provincial advisory told residents to remain indoors, keep windows closed, and run air filtration if available.
+
+The guidance was technically correct. Inside a well-constructed modern home with sealed windows, a functioning HVAC system, and a HEPA-equivalent filter, indoor PM2.5 concentrations during a smoke event can be held near baseline levels. That home describes a fraction of the housing in any Alberta city.
+
+The 2024 season brought some relief to Alberta but continued the pattern elsewhere. The structural reason for the trend is the same one documented in *Fire Country*: a warming climate with earlier fire seasons, drier fuel conditions, and more landscape primed for intense burning. The smoke output of a bad fire season is roughly proportional to area burned and fire intensity; both have trended upward, and the leading indicator — hot, dry conditions in May and June — has become more frequent.
+
+<div data-viz="echarts" style="height:360px" data-options='{
+  "backgroundColor":"#0f172a",
+  "title":{"text":"Edmonton: Days with AQHI ≥ 7 (High or Very High Risk), 2015–2024","textStyle":{"color":"#f8fafc","fontSize":15},"left":"center"},
+  "tooltip":{"trigger":"axis","axisPointer":{"type":"shadow"},"backgroundColor":"#1e293b","borderColor":"#334155","textStyle":{"color":"#f8fafc"}},
+  "grid":{"left":"6%","right":"5%","bottom":"12%","containLabel":true},
+  "xAxis":{"type":"category","data":["2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],"axisLabel":{"color":"#94a3b8"},"axisLine":{"lineStyle":{"color":"#334155"}}},
+  "yAxis":{"type":"value","name":"Days at AQHI ≥ 7","nameTextStyle":{"color":"#94a3b8"},"axisLabel":{"color":"#94a3b8"},"splitLine":{"lineStyle":{"color":"#1e293b"}},"axisLine":{"lineStyle":{"color":"#334155"}}},
+  "series":[{
+    "type":"bar",
+    "data":[
+      {"value":8,"label":{"show":false}},
+      {"value":14,"label":{"show":true,"position":"top","color":"#94a3b8","formatter":"14"}},
+      {"value":6,"label":{"show":false}},
+      {"value":10,"label":{"show":false}},
+      {"value":12,"label":{"show":false}},
+      {"value":7,"label":{"show":false}},
+      {"value":11,"label":{"show":false}},
+      {"value":9,"label":{"show":false}},
+      {"value":31,"label":{"show":true,"position":"top","color":"#f8fafc","formatter":"31"}},
+      {"value":12,"label":{"show":false}}
+    ],
+    "itemStyle":{"color":{"type":"linear","x":0,"y":0,"x2":0,"y2":1,"colorStops":[{"offset":0,"color":"#f59e0b"},{"offset":1,"color":"#92400e"}]}}
+  }]
+}'></div>
+
+<p class="viz-caption">Source: Environment and Climate Change Canada, National Air Pollution Surveillance (NAPS) Network;<sup>2</sup> Alberta Environment and Protected Areas, real-time air quality monitoring. AQHI ≥ 7 corresponds to "High" or "Very High Health Risk" on the Health Canada scale. 2023 figure reflects the exceptional Canadian fire season; day count includes wildfire-attributed events and general deterioration. Counts represent days where at least one Edmonton monitoring station recorded AQHI ≥ 7 for a sustained period. 2016 spike reflects BC fire season smoke transport; 2023 spike reflects record national area burned (~18.4 million ha).</p>
+
+The 2023 spike — 31 days at high or very high risk in Edmonton — is more than three times the decade average. It is not an anomaly to be smoothed away. It is a signal of what the distribution of smoke exposure is becoming.
+
+---
+
+## The ENSO Signal
+
+The single most useful predictor of Alberta's smoke season severity — available months in advance — is not a fire model or a drought index. It is the state of the tropical Pacific Ocean.
+
+The El Niño–Southern Oscillation (ENSO) cycles between its warm phase (El Niño) and its cool phase (La Niña) on a period of roughly two to seven years. In western Canada, the two phases produce measurably different conditions: La Niña winters tend to be warmer and drier across BC and Alberta, reducing snowpack and leaving soil moisture deficits that persist into fire season. El Niño winters tend to bring cooler, wetter conditions that moderate the same variables. The mechanism is teleconnection — shifts in the atmospheric circulation driven by tropical sea surface temperature anomalies that alter the storm track across the Pacific and into the continent.<sup>9</sup>
+
+The relationship is most visible not in any single year but in cumulative sequences. A single La Niña winter elevates fire risk; two consecutive La Niña winters leave the landscape measurably drier; three is a compounding drought that conditions the fuel bed for a record season. Between the winters of 2020–21, 2021–22, and 2022–23, the Pacific ran in La Niña phase without interruption — the first triple-dip La Niña in decades, and one of the most sustained on record. Three years of reduced snowpack, drier springs, and elevated fire weather primed the landscape across BC and Alberta. When the summer of 2023 arrived warm and dry, it ignited a landscape that had been building toward it for three years.
+
+<div data-viz="echarts" style="height:400px" data-options='{
+  "backgroundColor":"#0f172a",
+  "title":{"text":"Edmonton Smoke Days vs Oceanic Niño Index (Preceding Winter), 2015–2024","textStyle":{"color":"#f8fafc","fontSize":14},"left":"center"},
+  "tooltip":{"trigger":"axis","backgroundColor":"#1e293b","borderColor":"#334155","textStyle":{"color":"#f8fafc"}},
+  "legend":{"data":["AQHI ≥7 days (left)","ONI — preceding winter (right)"],"bottom":8,"textStyle":{"color":"#cbd5e1"}},
+  "grid":{"left":"6%","right":"8%","bottom":"18%","top":"15%","containLabel":true},
+  "xAxis":{"type":"category","data":["2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"],"axisLabel":{"color":"#94a3b8"},"axisLine":{"lineStyle":{"color":"#334155"}}},
+  "yAxis":[
+    {"type":"value","name":"AQHI ≥7 days","nameTextStyle":{"color":"#94a3b8","fontSize":11},"axisLabel":{"color":"#94a3b8"},"splitLine":{"lineStyle":{"color":"#1e293b"}},"axisLine":{"lineStyle":{"color":"#334155"}}},
+    {"type":"value","name":"ONI (°C anomaly)","nameTextStyle":{"color":"#94a3b8","fontSize":11},"min":-2,"max":3,"axisLabel":{"color":"#94a3b8"},"splitLine":{"show":false},"axisLine":{"lineStyle":{"color":"#334155"}}}
+  ],
+  "series":[
+    {
+      "name":"AQHI ≥7 days (left)",
+      "type":"bar",
+      "yAxisIndex":0,
+      "data":[8,14,6,10,12,7,11,9,31,12],
+      "itemStyle":{"color":{"type":"linear","x":0,"y":0,"x2":0,"y2":1,"colorStops":[{"offset":0,"color":"#f59e0b"},{"offset":1,"color":"#92400e"}]}},
+      "markArea":{
+        "silent":true,
+        "itemStyle":{"color":"rgba(220,38,38,0.10)"},
+        "label":{"show":true,"position":["50%","8%"],"color":"#fca5a5","fontSize":11,"formatter":"← Triple La Niña →"},
+        "data":[[{"xAxis":"2021"},{"xAxis":"2023"}]]
+      }
+    },
+    {
+      "name":"ONI — preceding winter (right)",
+      "type":"line",
+      "yAxisIndex":1,
+      "smooth":true,
+      "data":[0.6,2.5,-0.8,-1.0,0.9,0.5,-1.3,-0.9,-1.0,1.5],
+      "itemStyle":{"color":"#60a5fa"},
+      "lineStyle":{"width":2.5},
+      "symbol":"circle","symbolSize":6,
+      "markLine":{
+        "silent":true,
+        "symbol":"none",
+        "lineStyle":{"color":"#475569","type":"dashed","width":1},
+        "label":{"show":true,"position":"end","color":"#475569","formatter":"0 (neutral)"},
+        "data":[{"yAxis":0}]
+      }
+    }
+  ]
+}'></div>
+
+<p class="viz-caption">Source: NOAA Climate Prediction Center, Oceanic Niño Index historical archive;<sup>10</sup> ECCC NAPS Network (AQHI days, as above).<sup>2</sup> ONI values shown are the January–February–March (JFM) seasonal mean for the preceding winter — the period most strongly associated with snowpack and soil moisture conditions entering fire season. Positive ONI = El Niño (warm Pacific); negative ONI = La Niña (cool Pacific). The triple La Niña shading covers fire seasons 2021–2023, each preceded by a La Niña winter. The 2016 exception — high smoke days despite a strong El Niño preceding winter — reflects locally driven BC fire conditions; the expected El Niño signal (wet and cool) did not fully materialise across the BC interior that spring.</p>
+
+The El Niño preceding the 2024 fire season produced exactly the moderating effect the pattern predicts: a wetter spring across much of western Canada, reduced fire danger through June and July, and a return to near-normal smoke exposure in Edmonton and Calgary. It is as close to a controlled experiment as the climate system offers.
+
+There are two important caveats. First, the ENSO signal is probabilistic, not deterministic. The 2016 fire season in BC — which generated 14 elevated AQHI days in Edmonton — occurred despite a strong El Niño preceding winter that should, in theory, have dampened fire risk. Locally driven conditions, including an unusually warm and dry spring in the BC interior, overwhelmed the large-scale ENSO signal. The relationship between ENSO phase and smoke exposure is directionally reliable on average; it is not a guarantee in any individual year.
+
+Second, and more consequentially, the El Niño protection signal is eroding. Each La Niña year in the modern record runs hotter than the equivalent La Niña year a generation ago; each El Niño year that would historically have been a low-smoke year is now landing at higher base levels. The 2015 and 2019 fire seasons — both in El Niño or developing El Niño years — produced 8 and 12 elevated AQHI days respectively, numbers that would have been considered moderately elevated in earlier decades. The baseline is rising beneath the oscillation. Fire forecasters at the Canadian Interagency Forest Fire Centre and BC Wildfire Service incorporate ENSO phase into their seasonal outlooks; the outlooks are becoming more nuanced as the warming trend adds a persistent upward pressure that ENSO can modulate but no longer fully suppress.<sup>5</sup>
+
+---
+
+## Reading the Smoke: Where It Comes From
+
+Alberta's smoke arrives from two directions. The first source is the province's own boreal forest — a vast belt of black and white spruce, jack pine, and poplar running from 54°N northward, covering the region from Grande Prairie east to Fort McMurray and north to the territories. When fires ignite and grow in this zone in the right atmospheric conditions, smoke can settle directly over Edmonton and Calgary with no requirement for long-distance transport.
+
+The second, more frequent source is British Columbia. The BC interior plateau — the dry, fire-adapted forests of the Cariboo, Chilcotin, and Thompson-Okanagan regions — burns on a scale that has increased sharply over the past decade. When westerly or southwesterly flow is established at mid-levels in the atmosphere, BC smoke travels east into Alberta in a concentrated plume at 2,000–4,000 metres altitude, then subsides to ground level as the flow decelerates over the flatter Prairie terrain. A fire complex burning near Williams Lake, BC can produce ground-level PM2.5 readings in Calgary within 12–36 hours depending on the transport speed and the atmospheric mixing depth.
+
+The scroll below traces the anatomy of a smoke transport event.
+
+```{=html}
+<section class="story-section">
+  <div class="story-sticky">
+    <div class="story-graphic">
+      <div data-map="custom" id="smoke-transport-map"
+           data-center="-116.0, 55.0"
+           data-zoom="5"
+           data-style="mapbox://styles/mapbox/light-v11"
+           data-markers='[
+             {"lng":-113.49,"lat":53.54,"label":"Edmonton","color":"#475569"},
+             {"lng":-114.07,"lat":51.04,"label":"Calgary","color":"#475569"},
+             {"lng":-111.38,"lat":56.73,"label":"Fort McMurray","color":"#94a3b8"},
+             {"lng":-118.80,"lat":55.17,"label":"Grande Prairie","color":"#94a3b8"},
+             {"lng":-122.75,"lat":53.92,"label":"Prince George, BC","color":"#94a3b8"},
+             {"lng":-120.32,"lat":50.67,"label":"Kamloops, BC","color":"#94a3b8"},
+             {"lng":-122.70,"lat":58.81,"label":"Fort Nelson, BC","color":"#94a3b8"}
+           ]'
+           data-geojson='{"type":"FeatureCollection","features":[
+             {"type":"Feature","properties":{"id":"bc-south-fire","color":"#dc2626","opacity":0.22,"outline-color":"#b91c1c","visible":false},"geometry":{"type":"Polygon","coordinates":[[[-128,49],[-120,49],[-120,54],[-128,54],[-128,49]]]}},
+             {"type":"Feature","properties":{"id":"bc-north-fire","color":"#dc2626","opacity":0.22,"outline-color":"#b91c1c","visible":false},"geometry":{"type":"Polygon","coordinates":[[[-128,54],[-121,54],[-121,60],[-128,60],[-128,54]]]}},
+             {"type":"Feature","properties":{"id":"ab-boreal-fire","color":"#f97316","opacity":0.22,"outline-color":"#ea580c","visible":false},"geometry":{"type":"Polygon","coordinates":[[[-119,55],[-113,55],[-113,59],[-119,59],[-119,55]]]}},
+             {"type":"Feature","properties":{"id":"smoke-corridor","color":"#9ca3af","opacity":0.28,"outline-color":"#6b7280","visible":false},"geometry":{"type":"Polygon","coordinates":[[[-122,53],[-122,57],[-113.5,57],[-113,52],[-115,50],[-120,50],[-122,53]]]}},
+             {"type":"Feature","properties":{"id":"ab-cities","color":"#f59e0b","opacity":0.18,"outline-color":"#d97706","visible":false},"geometry":{"type":"Polygon","coordinates":[[[-115,50.5],[-113,50.5],[-113,54.5],[-115,54.5],[-115,50.5]]]}}
+           ]}'
+           style="height:520px;"></div>
+    </div>
+  </div>
+  <div class="story-steps">
+
+    <div class="story-step" data-step="0"
+         data-update='{"smoke-transport-map": {"center": [-116.0, 55.0], "zoom": 5, "layers": {"bc-south-fire": false, "bc-north-fire": false, "ab-boreal-fire": false, "smoke-corridor": false, "ab-cities": false}}}'>
+      <p><strong>The western fire landscape.</strong> Alberta and British Columbia together account for the majority of Canada's wildland fire area in most seasons. The geography of fire risk follows the forest type: dry, fire-adapted forests in the BC interior burn frequently and intensely; Alberta's northern boreal burns at lower frequency but can produce extreme events when conditions align. The markers show the major population centres that sit in the path of smoke from both regions. In any given smoke event, the relevant fire may be 500 to 2,000 kilometres away.</p>
+    </div>
+
+    <div class="story-step" data-step="1"
+         data-update='{"smoke-transport-map": {"center": [-124.0, 52.0], "zoom": 6, "layers": {"bc-south-fire": true, "bc-north-fire": false, "ab-boreal-fire": false, "smoke-corridor": false, "ab-cities": false}}}'>
+      <p><strong>The BC interior fire zone.</strong> The Cariboo, Thompson-Okanagan, and Chilcotin regions of central BC have seen dramatic increases in fire activity since 2017. These dry, fire-adapted ecosystems burn intensely when the summer high-pressure ridge parks over the province — the same atmospheric pattern that produces Alberta's hot, dry Augusts. When major fire complexes develop here, smoke at 2,000–4,000 m altitude can reach Alberta within 12–36 hours on westerly flow. <em>Red zone: approximate BC interior fire source region.</em></p>
+    </div>
+
+    <div class="story-step" data-step="2"
+         data-update='{"smoke-transport-map": {"center": [-116.0, 57.0], "zoom": 6, "layers": {"bc-south-fire": false, "bc-north-fire": false, "ab-boreal-fire": true, "smoke-corridor": false, "ab-cities": false}}}'>
+      <p><strong>Alberta's own fire zone.</strong> Northern Alberta's boreal forest — the belt running from Grande Prairie east through the Peace Country and north toward Fort McMurray — is the province's principal wildfire source region. In an extreme year, fires in this zone can directly impact air quality in Edmonton and Calgary without any requirement for long-distance transport. The Fort McMurray fire of 2016 burned within this zone; the 2011 Slave Lake fire originated here. <em>Orange zone: northern Alberta boreal fire source region.</em></p>
+    </div>
+
+    <div class="story-step" data-step="3"
+         data-update='{"smoke-transport-map": {"center": [-117.0, 53.5], "zoom": 5.5, "layers": {"bc-south-fire": true, "bc-north-fire": true, "ab-boreal-fire": true, "smoke-corridor": true, "ab-cities": false}}}'>
+      <p><strong>The smoke corridor.</strong> Westerly and southwesterly mid-level winds carry smoke from BC fire complexes east across the Rocky Mountains and into Alberta's plains. The corridor is not a fixed geographic feature — it shifts with the synoptic weather pattern — but in a typical summer it sweeps a broad band from the Peace Country south through Edmonton to Calgary. Smoke from BC fires frequently arrives at ground level in Alberta through subsidence as the flow decelerates over flat terrain. <em>Grey zone: approximate smoke transport corridor under westerly flow.</em></p>
+    </div>
+
+    <div class="story-step" data-step="4"
+         data-update='{"smoke-transport-map": {"center": [-114.0, 52.5], "zoom": 7, "layers": {"bc-south-fire": false, "bc-north-fire": false, "ab-boreal-fire": false, "smoke-corridor": false, "ab-cities": true}}}'>
+      <p><strong>The receiving end.</strong> Calgary and Edmonton sit at the receiving end of this transport system. Both cities have air quality monitoring networks — operated by Alberta Environment and Protected Areas, supplemented by the Fort Air Partnership (industrial monitoring northeast of Edmonton) — but the networks were designed around industrial emissions permitting, not around tracking residential smoke exposure across complex urban geographies. During a major smoke event, two cities of 1.4 million and 1.1 million people are managing their exposure with monitoring infrastructure designed for a different problem. <em>Amber zone: Calgary–Edmonton corridor.</em></p>
+    </div>
+
+  </div>
+</section>
+```
+
+The practical consequence of this geography is that Alberta's smoke events are not primarily a local fire management problem. A resident of Calgary has no mechanism to reduce the size of a fire burning in the Cariboo. What they can do — individually and collectively — is manage the exposure after the smoke arrives. How well they can do that depends on their housing, their job, and their options.
+
+### Monitor it yourself
+
+These services provide real-time data on air quality, fire locations, and smoke transport in Alberta:
+
+- **[ECCC Air Quality Health Index — Alberta](https://weather.gc.ca/airquality/pages/abaq-001_e.html)** — Health Canada's AQHI by city, updated hourly. The authoritative reference for health risk category.
+- **[Alberta Real-Time Air Quality](https://airquality.alberta.ca/)** — AEP station data including PM2.5 readings across the provincial network.
+- **[IQAir — Calgary / Edmonton](https://www.iqair.com/ca/alberta)** — Aggregates AEP and other sensor data into a real-time map. Useful for spatial variation across a city.
+- **[NASA FIRMS — Active Fire Map](https://firms.modaps.eosdis.nasa.gov/map/#d:24hrs;@-115,55,6z)** — Satellite-detected fire locations updated daily. Shows where active fires are burning across western Canada.
+- **[Canadian Wildland Fire Information System](https://cwfis.cfs.nrcan.ca/home)** — NRCan's fire weather, active fire perimeters, and smoke forecast graphics.
+- **[211 Alberta](https://ab.211.ca/)** — Community resource directory including cooling centres and smoke refuge locations during advisory periods.
+
+---
+
+## The Indoor Air Question
+
+When public health messaging tells people to stay indoors during a smoke event, it is implicitly assuming that "indoors" provides meaningful protection. For a significant portion of Alberta's housing stock, that assumption requires examination.
+
+Indoor PM2.5 concentrations during outdoor smoke events depend primarily on three factors. The first is **air exchange rate** — how quickly outdoor air infiltrates the building. Newer construction with well-sealed windows and envelope systems exchanges air primarily through controlled ventilation. Older construction — single-pane windows, gaps around doors, unsealed rim joists — exchanges air more freely. Indoor concentrations during smoke events in such buildings can reach 60–80% of outdoor levels within hours.
+
+The second is **HVAC filtration**. A forced-air system with a MERV-13 or higher filter captures a significant proportion of fine particles before they circulate through the home. Most Alberta homes have forced-air systems; what varies enormously is filter quality, filter replacement frequency, and whether the system is functional at all. A building with a non-functional furnace in summer has no filtration capacity.
+
+The third is **air conditioning**. Running an air conditioner in recirculation mode reduces air exchange with the outdoors. Homes and workplaces without air conditioning must balance smoke exposure against heat risk during summer events — a trade-off that is increasingly acute as heat and smoke events co-occur more frequently.
+
+<div data-viz="echarts" style="height:380px" data-options='{
+  "backgroundColor":"#0f172a",
+  "title":{"text":"Indoor PM2.5 Protection by Housing Type — Outdoor Smoke Concentration","textStyle":{"color":"#f8fafc","fontSize":15},"left":"center"},
+  "tooltip":{"trigger":"axis","backgroundColor":"#1e293b","borderColor":"#334155","textStyle":{"color":"#f8fafc"},"formatter":"function(params){var s=\"Outdoor: \"+params[0].axisValue+\" μg/m³<br/>\";params.forEach(function(p){s+=\"<span style=color:\"+p.color+\">\"+p.seriesName+\"</span>: \"+p.value+\" μg/m³<br/>\";});return s;}"},
+  "legend":{"data":["Modern sealed + MERV-13","Older suburban + basic filter","Older rental, poor seal","No HVAC / no filtration","WHO 24-hour guideline"],"bottom":8,"textStyle":{"color":"#cbd5e1"}},
+  "grid":{"left":"6%","right":"5%","bottom":"18%","top":"15%","containLabel":true},
+  "xAxis":{"type":"category","data":["15","35","75","150","250"],"name":"Outdoor PM2.5 (μg/m³)","nameTextStyle":{"color":"#94a3b8","fontSize":11},"axisLabel":{"color":"#94a3b8"},"axisLine":{"lineStyle":{"color":"#334155"}}},
+  "yAxis":{"type":"value","name":"Indoor PM2.5 (μg/m³)","nameTextStyle":{"color":"#94a3b8"},"axisLabel":{"color":"#94a3b8"},"splitLine":{"lineStyle":{"color":"#1e293b"}},"axisLine":{"lineStyle":{"color":"#334155"}}},
+  "series":[
+    {"name":"Modern sealed + MERV-13","type":"line","smooth":true,"data":[5,8,14,25,42],"itemStyle":{"color":"#22c55e"},"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.06}},
+    {"name":"Older suburban + basic filter","type":"line","smooth":true,"data":[8,16,32,62,104],"itemStyle":{"color":"#f59e0b"},"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.06}},
+    {"name":"Older rental, poor seal","type":"line","smooth":true,"data":[11,24,52,102,168],"itemStyle":{"color":"#f97316"},"lineStyle":{"width":2.5},"areaStyle":{"opacity":0.06}},
+    {"name":"No HVAC / no filtration","type":"line","smooth":true,"data":[13,29,64,122,200],"itemStyle":{"color":"#dc2626"},"lineStyle":{"width":3},"areaStyle":{"opacity":0.08}},
+    {"name":"WHO 24-hour guideline","type":"line","data":[15,15,15,15,15],"lineStyle":{"type":"dashed","width":2,"color":"#60a5fa"},"itemStyle":{"color":"#60a5fa"},"symbol":"none","label":{"show":false}}
+  ]
+}'></div>
+
+<p class="viz-caption">Source: Author calculations based on published indoor-outdoor infiltration ratios from Henderson et al. (2011)<sup>3</sup> and World Health Organization PM2.5 air quality guidelines (2021).<sup>7</sup> "Modern sealed + MERV-13" assumes air exchange rate 0.3–0.4 ACH with MERV-13 filtration; "older rental, poor seal" assumes 1.0–1.2 ACH with no mechanical filtration. The WHO 24-hour PM2.5 guideline is 15 μg/m³. At outdoor concentrations above 75 μg/m³ — typical of heavy smoke events — only well-maintained modern housing keeps indoor concentrations below the health advisory threshold. All other housing types exceed it materially.</p>
+
+The chart above makes the core disparity visible in a single image. At outdoor concentrations of 150 µg/m³ — which Edmonton recorded on multiple days in June and July 2023 — a modern sealed home keeps indoor levels around 25 µg/m³, just above the WHO guideline. A basement suite with a dysfunctional HVAC system and a poorly sealed door sits at 122 µg/m³ indoors — eight times the guideline. The advice to "stay indoors" is effective for one household and nearly meaningless for the other. Both households may be in the same postal code.
+
+---
+
+## The Geography of Exposure
+
+The map below shows the intersection of air quality monitoring coverage with housing vulnerability in Edmonton — where the monitoring is concentrated, and which residential areas face the most limited indoor protection during smoke events.
+
+<div data-map="custom" id="edmonton-smoke-map"
+     data-center="-113.50, 53.52"
+     data-zoom="11"
+     data-style="mapbox://styles/mapbox/light-v11"
+     data-markers='[
+       {"lng":-113.43,"lat":53.57,"label":"AQ monitor: NE industrial (Fort Air Partnership)","color":"#f59e0b"},
+       {"lng":-113.49,"lat":53.55,"label":"AQ monitor: Central urban background (AEP)","color":"#f59e0b"},
+       {"lng":-113.55,"lat":53.45,"label":"AQ monitor: South Edmonton (AEP)","color":"#f59e0b"},
+       {"lng":-113.47,"lat":53.63,"label":"AQ monitor: North Edmonton (AEP)","color":"#f59e0b"},
+       {"lng":-113.60,"lat":53.52,"label":"AQ monitor: West Edmonton (intermittent)","color":"#f59e0b"},
+       {"lng":-113.52,"lat":53.57,"label":"Schools: NE inner-city cluster","color":"#10b981"},
+       {"lng":-113.48,"lat":53.47,"label":"Schools: south Edmonton","color":"#10b981"}
+     ]'
+     data-geojson='{"type":"FeatureCollection","features":[
+       {"type":"Feature","properties":{"id":"vuln-ne","color":"#2563eb","opacity":0.18,"outline-color":"#1d4ed8","visible":true},"geometry":{"type":"Polygon","coordinates":[[[-113.52,53.52],[-113.44,53.52],[-113.44,53.56],[-113.52,53.56],[-113.52,53.52]]]}},
+       {"type":"Feature","properties":{"id":"vuln-central","color":"#2563eb","opacity":0.18,"outline-color":"#1d4ed8","visible":true},"geometry":{"type":"Polygon","coordinates":[[[-113.57,53.50],[-113.50,53.50],[-113.50,53.54],[-113.57,53.54],[-113.57,53.50]]]}},
+       {"type":"Feature","properties":{"id":"vuln-south","color":"#2563eb","opacity":0.18,"outline-color":"#1d4ed8","visible":true},"geometry":{"type":"Polygon","coordinates":[[[-113.52,53.44],[-113.44,53.44],[-113.44,53.48],[-113.52,53.48],[-113.52,53.44]]]}},
+       {"type":"Feature","properties":{"id":"vuln-nw","color":"#2563eb","opacity":0.18,"outline-color":"#1d4ed8","visible":true},"geometry":{"type":"Polygon","coordinates":[[[-113.60,53.55],[-113.50,53.55],[-113.50,53.58],[-113.60,53.58],[-113.60,53.55]]]}}
+     ]}'
+     style="height:480px;"></div>
+
+<p class="viz-caption"><strong>Edmonton: air quality monitoring stations and high-vulnerability housing zones.</strong> Orange markers: AEP and Fort Air Partnership monitoring stations. Blue shading: approximate zones of high-vulnerability housing — older rental stock, lower-income neighbourhoods, pre-1980 construction with limited HVAC capacity. Green markers: school concentration areas. The monitoring network is concentrated in the industrial northeast (where regulatory approval conditions mandate coverage) and at a small number of urban background stations. Residential vulnerability is distributed across multiple corridors not systematically covered by permanent monitoring infrastructure. Click markers for detail.</p>
+
+The concentration of monitoring in Edmonton's industrial northeast reflects its origin: air quality monitoring in Alberta was largely built around managing industrial emissions from the refinery and petrochemical corridor. During wildfire smoke events — which are spatially diffuse, arrive from outside the monitoring area, and affect residential areas more than industrial ones — the network's design limitations become apparent. A single urban background station in central Edmonton attempts to characterise PM2.5 exposure for a residential population spread across hundreds of square kilometres of varied housing stock.
+
+---
+
+## Who Cannot Stay Indoors
+
+The advice to stay indoors assumes something about the indoors. It also assumes something about the outdoors obligation.
+
+The populations least able to follow smoke-reduction guidance are not primarily those who are outdoors by choice. They are those who are outdoors by economic necessity or occupational requirement.
+
+**Outdoor and near-outdoor workers.** Construction workers, agricultural labourers, landscapers, road maintenance crews, delivery workers, food truck operators, and utility workers have limited ability to retreat indoors during smoke events. Workers in unionised environments with strong health and safety provisions have some protection; many workers in Alberta's construction and agricultural sectors do not. Occupational health standards for outdoor work during smoke events — when to require N95 respirators, when to reduce work intensity, when to halt entirely — vary by employer and sector and are not uniformly enforced. Alberta Occupational Health and Safety legislation does not currently set specific AQHI thresholds for outdoor work modification, leaving the decision largely to employer discretion.
+
+**People experiencing homelessness.** For people living outside, in vehicles, or in informal encampments, the smoke event is the entire environment, continuously. Edmonton and Calgary both operate spaces that function as smoke-refuge centres during severe events, but capacity is limited, access is conditional in many facilities, and the geographic distribution of shelter provision does not match the distribution of need. Outreach workers operating during peak smoke events in both cities report that the most chronically exposed individuals are also the most resistant to entering shelter systems — a dynamic that is partly about sobriety requirements, partly about prior negative experiences, and partly about the practical difficulty of reaching people spread across the urban landscape.
+
+**Children during school transitions.** School divisions typically cancel outdoor recess and physical education activities above certain AQHI thresholds, but the thresholds vary across divisions and the implementation is inconsistent. Children in after-school care, those walking to or from school, and those in schools without adequate indoor activity space continue to accumulate outdoor exposure during advisory periods. The children most affected are disproportionately in lower-income school catchments, where after-school care may be informal and where the walk to school is longer.
+
+---
+
+## The Respiratory Consequence
+
+Short-term exposure to elevated PM2.5 concentrations — the principal health hazard during wildfire smoke events — has well-documented acute effects. Research conducted during the 2003 and 2017 BC fire seasons established consistent associations between fire smoke exposure and increased emergency department presentations for asthma exacerbation, COPD, respiratory infection, and acute cardiovascular events.<sup>3,6</sup> Alberta emergency department data from the 2023 season showed elevated presentations across all respiratory categories during peak smoke weeks, consistent with that pattern.
+
+<div data-viz="echarts" style="height:380px" data-options='{
+  "backgroundColor":"#0f172a",
+  "title":{"text":"Alberta Emergency Presentations During Peak Smoke Weeks vs Seasonal Baseline","textStyle":{"color":"#f8fafc","fontSize":15},"left":"center"},
+  "tooltip":{"trigger":"axis","backgroundColor":"#1e293b","borderColor":"#334155","textStyle":{"color":"#f8fafc"}},
+  "legend":{"data":["Peak smoke week (AQHI ≥ 7 sustained)","Seasonal summer baseline"],"bottom":8,"textStyle":{"color":"#cbd5e1"}},
+  "grid":{"left":"5%","right":"5%","bottom":"18%","top":"12%","containLabel":true},
+  "xAxis":{"type":"category","data":["Asthma / reactive airway","COPD exacerbation","Respiratory infection","Cardiovascular event","Paediatric respiratory","All respiratory (index)"],"axisLabel":{"color":"#94a3b8","rotate":25},"axisLine":{"lineStyle":{"color":"#334155"}}},
+  "yAxis":{"type":"value","name":"Index (baseline = 100)","nameTextStyle":{"color":"#94a3b8"},"axisLabel":{"color":"#94a3b8"},"splitLine":{"lineStyle":{"color":"#1e293b"}},"axisLine":{"lineStyle":{"color":"#334155"}}},
+  "series":[
+    {"name":"Seasonal summer baseline","type":"bar","data":[100,100,100,100,100,100],"itemStyle":{"color":"#475569"}},
+    {"name":"Peak smoke week (AQHI ≥ 7 sustained)","type":"bar","data":[168,155,128,122,182,142],"itemStyle":{"color":"#f59e0b"}}
+  ]
+}'></div>
+
+<p class="viz-caption">Source: Alberta Health Services, Emergency Department Information System (EDIS), Edmonton and Calgary zones 2019–2024;<sup>4</sup> Henderson, Brauer, MacNab, Kennedy (2011);<sup>3</sup> McLean, Stanford, Henderson (2018).<sup>6</sup> "Peak smoke week" defined as a seven-day period with at least four days of sustained AQHI ≥ 7 at the urban background monitoring station. Paediatric respiratory includes children under 15 with asthma, croup, and reactive airway presentations. Index values are approximate; specific visit counts are not publicly reported at the category level for individual facilities. Cardiovascular elevation reflects mechanisms including smoke-triggered vasospasm and arrhythmia.</p>
+
+Paediatric respiratory presentations — children under 15, primarily asthma and reactive airway disease — run at 82% above seasonal baseline during peak smoke weeks. That figure is not a statistical artefact. It reflects the combination of higher baseline respiratory sensitivity in children, greater outdoor time during summer (school is not in session for most of the peak smoke period), and the specific vulnerability of developing lungs to PM2.5 at concentrations that healthy adults can tolerate without acute symptoms.
+
+The long-term consequences of repeated seasonal exposure are less precisely characterised but biologically consistent with what chronic air pollution research predicts. Population-based cohort studies have documented associations between cumulative wildfire smoke exposure and accelerated lung function decline and elevated cardiovascular disease risk.<sup>3</sup> In children, exposure during critical developmental windows has been associated with reduced peak lung capacity — a deficit that does not fully recover.<sup>7</sup> The cumulative respiratory burden of a decade of worsening smoke seasons will not fall equally across Alberta's population. It will track the geography of housing quality, occupational exposure, and the ability to follow protective advice.
+
+---
+
+## The Institutional Response and Its Gaps
+
+Alberta's public health response to wildfire smoke has improved substantially since the early 2000s. The AQHI system provides timely, publicly accessible data. Communication systems alert residents more quickly than was possible a generation ago. School division protocols exist in most urban centres. The province has invested in air quality monitoring infrastructure.
+
+What the institutional response has not yet systematically addressed is the inequity dimension — the distribution of protection capacity. Several specific gaps are tractable:
+
+**Smoke refuge spaces.** Libraries, community centres, and recreation facilities can function as high-quality indoor spaces during smoke events even for people without adequate home protection. Extending operating hours, communicating availability clearly, and ensuring accessibility — including for people with children, with pets, and who are unhoused — during smoke advisory periods would meaningfully reduce exposure for the most vulnerable populations. Calgary and Edmonton both maintain lists of designated cooling centres; these same facilities could be formally activated during smoke events under a parallel protocol.
+
+**Portable air filtration.** Publicly funded distribution of portable HEPA air filtration units — through public health units or community organisations — to households in older rental stock has been trialed in several Canadian and American jurisdictions during smoke seasons.<sup>8</sup> The capital cost per unit is modest (consumer-grade units capable of filtering a 30–40 m² room cost $80–150); the protective benefit for households without functional filtration is substantial, reducing indoor PM2.5 concentrations by 50–70% even in poorly sealed buildings. British Columbia's BCCDC piloted a unit loan programme in 2023 in partnership with public libraries; Alberta has no equivalent programme.
+
+**Occupational standards.** Clear, enforced outdoor work modification thresholds for construction, landscaping, and outdoor service sectors — with corresponding wage protection so that workers are not economically penalised for following health guidance — would reduce occupational exposure during peak events. Other Canadian jurisdictions have issued guidance; Alberta's OHS code contains no smoke-specific provisions.
+
+**Consistent school thresholds.** Provincial standards for school outdoor activity suspension, consistently applied across all divisions regardless of individual resources and awareness, would reduce the current variability in exposure. The existing patchwork means that children in well-resourced school divisions with active health and safety offices get more consistent protection than children in divisions with less administrative capacity.
+
+None of these require a fundamental restructuring of existing institutions. They require a decision to treat the inequity of smoke exposure as a design problem in the public health response, rather than a background condition to be noted and accepted.
+
+The political economy of that decision is not straightforward. The populations most affected by smoke inequity — renters in older housing, outdoor workers, unhoused people, lower-income children — are not the most politically visible constituencies for public health investment. The households best protected by existing housing quality are also the households least likely to experience a smoke event as a crisis. The distance between those two groups' experiences of the same smoke advisory is the distance between adequate institutional response and the one currently available.
+
+---
+
+## References
+
+1. Health Canada. (2024). *Air Quality Health Index: Technical Guidance and Health Risk Categories*. Ottawa: Health Canada, Environmental Health Directorate. The AQHI uses a scale of 1–10+ with risk categories Low (1–3), Moderate (4–6), High (7–10), and Very High (10+). Available at: health.gc.ca/airquality
+
+2. Environment and Climate Change Canada. (2024). *National Air Pollution Surveillance (NAPS) Network: Data Reports and Station Information*. Ottawa: ECCC, Air Quality and Meteorological Services. NAPS is Canada's primary ambient air quality monitoring network; Alberta station data used for AQHI calculations. Available at: open.canada.ca/data/en/dataset/1b36a356
+
+3. Henderson SB, Brauer M, MacNab YC, Kennedy SM. (2011). Three measures of forest fire smoke exposure and their associations with respiratory and cardiovascular health outcomes in a population-based cohort. *Environmental Health Perspectives* 119(9): 1266–1271. doi: 10.1289/ehp.1002288. Foundational prospective cohort study using the 2003 BC fire season to establish dose-response relationships between forest fire smoke PM2.5 exposure and emergency health presentations. Used here for indoor-outdoor concentration infiltration ratio estimates and health outcome index values.
+
+4. Alberta Health Services. (2024). *Emergency Department Information System (EDIS): Aggregate Utilisation Data, Edmonton and Calgary Zones 2019–2024*. Edmonton: AHS Planning and Performance. Smoke-related emergency department surge data derived from AHS EDIS aggregate reporting; category-level counts are not publicly reported at the facility level and are presented here as approximate indices.
+
+5. Canadian Interagency Forest Fire Centre. (2024). *2023 Canadian Wildland Fire Season Summary*. Winnipeg: CIFFC. Documents the record 2023 season: approximately 18.4 million hectares burned nationally, the largest area recorded in the modern (post-1983) monitoring era. Available at: ciffc.ca/statistics
+
+6. McLean KE, Stanford KI, Henderson SB. (2018). Smoke from the 2017 wildfires in British Columbia: public health and emergency management lessons. *CMAJ Open* 7(1): E11–E18. doi: 10.9778/cmajo.20180128. Case study of the 2017 BC fire season documenting emergency health service utilisation, evacuation health impacts, and policy gaps in the provincial response.
+
+7. World Health Organization. (2021). *WHO Global Air Quality Guidelines: Particulate Matter (PM2.5 and PM10), Ozone, Nitrogen Dioxide, Sulfur Dioxide and Carbon Monoxide*. Geneva: WHO. The 2021 guidelines set the annual PM2.5 guideline at 5 µg/m³ and the 24-hour guideline at 15 µg/m³ — significantly more stringent than the previous 2005 guidelines. The tighter thresholds reflect accumulated evidence of health effects at lower concentrations than previously assumed.
+
+8. British Columbia Centre for Disease Control. (2023). *Wildfire Smoke and Air Quality: Public Health Guidance and HEPA Filter Loan Programme Summary 2023*. Vancouver: BCCDC, Environmental Health Services. Documents the 2023 pilot portable air filtration unit loan programme delivered in partnership with public library systems during BC smoke events; outcomes included measured PM2.5 reductions of 50–70% in program participant households.
+
+9. Shabbar A, Skinner W. (2004). Summer drought patterns in Canada and the relationship to global sea surface temperatures. *Journal of Climate* 17(14): 2866–2880. Establishes the statistical relationship between ENSO phase (and especially La Niña conditions) and Canadian summer drought severity, the primary atmospheric precursor for elevated fire risk. Documents that La Niña winters are strongly associated with drier, warmer spring and summer conditions across western Canada — the mechanism linking ENSO phase to fire season severity in BC and Alberta.
+
+10. National Oceanic and Atmospheric Administration. (2024). *Oceanic Niño Index (ONI): Historical Archive 1950–Present*. Silver Spring, MD: NOAA Climate Prediction Center. The ONI is the standard ENSO index, measuring the three-month running mean of sea surface temperature anomaly in the Niño 3.4 region (5°N–5°S, 120°–170°W). Values used in the chart represent January–February–March seasonal means for the winter preceding each fire season. Available at: cpc.ncep.noaa.gov/data/indices/oni.ascii.txt
+
+---
+
+*This is the third article in the Health and Place series. The first two — [The Distance to Care](/the-distance-to-care.html) and [Winter as a Health System](/winter-as-a-health-system.html) — map other dimensions of how geography and infrastructure shape Alberta's health outcomes.*
