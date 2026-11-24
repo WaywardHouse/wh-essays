@@ -47,13 +47,13 @@ const TILE_PRESETS = {
   },
   // CartoDB Positron — minimal light style, free
   carto: {
-    url:     'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
+    url:     'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png?key=cb1_5ex1_1_3a0835682f3f79f552115ee0',
     attr:    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
     maxZoom: 20,
   },
   // CartoDB Dark Matter
   'carto-dark': {
-    url:     'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+    url:     'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png?key=cb1_5ex1_1_3a0835682f3f79f552115ee0',
     attr:    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
     maxZoom: 20,
   },

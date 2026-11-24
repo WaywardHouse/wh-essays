@@ -57,7 +57,7 @@ This spatial premium is partially offset by infrastructure — the CPR and CN ma
     attributionControl: true
   });
 
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.webp', {
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png?key=cb1_5ex1_1_3a0835682f3f79f552115ee0', {
     attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors © <a href="https://carto.com/">CARTO</a>',
     subdomains: 'abcd', maxZoom: 19
   }).addTo(map);
@@ -402,7 +402,7 @@ The Saskatoon Chamber of Commerce filed a formal complaint with the federal Comp
     worldCopyJump: true
   });
 
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.webp', {
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png?key=cb1_5ex1_1_3a0835682f3f79f552115ee0', {
     attribution: '© OpenStreetMap contributors © CARTO',
     subdomains: 'abcd', maxZoom: 18
   }).addTo(map);

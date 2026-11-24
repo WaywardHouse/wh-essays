@@ -84,7 +84,7 @@ The map below shows the principal growth bands of Calgary and Edmonton since 198
   function tryInit() {
     if (typeof L === 'undefined') { setTimeout(tryInit, 120); return; }
     const map = L.map('sprawl-map', { center: [52.4, -113.8], zoom: 7, zoomControl: true });
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.webp', {
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png?key=cb1_5ex1_1_3a0835682f3f79f552115ee0', {
       attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors © <a href="https://carto.com/">CARTO</a>',
       subdomains: 'abcd', maxZoom: 19
     }).addTo(map);

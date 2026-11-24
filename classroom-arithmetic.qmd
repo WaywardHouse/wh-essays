@@ -1323,7 +1323,7 @@ function buildMap() {
     scrollWheelZoom: false
   }).setView([53.2, -113.5], 5.5);
 
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png?key=cb1_5ex1_1_3a0835682f3f79f552115ee0', {
     attribution: '&copy; OpenStreetMap &copy; CARTO',
     maxZoom: 20
   }).addTo(map);

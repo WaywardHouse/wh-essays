@@ -54,7 +54,7 @@ The map below shows Alberta's principal logistics nodes: intermodal rail termina
   function tryInit() {
     if (typeof L === 'undefined') { setTimeout(tryInit, 120); return; }
     const map = L.map('logistics-map', { center: [53.5, -114.0], zoom: 6, zoomControl: true });
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.webp', {
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png?key=cb1_5ex1_1_3a0835682f3f79f552115ee0', {
       attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors © <a href="https://carto.com/">CARTO</a>',
       subdomains: 'abcd', maxZoom: 19
     }).addTo(map);
